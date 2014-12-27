@@ -1,0 +1,5 @@
+Setup
+-----
+
+	$ npm instal
+	$ grunt

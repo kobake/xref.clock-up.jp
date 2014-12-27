@@ -1,0 +1,14 @@
+order deny,allow
+<Files *.sln>
+   deny from all
+</Files>
+<Files *.phpproj>
+   deny from all
+</Files>
+<Files *.suo>
+   deny from all
+</Files>
+<Files *.user>
+   deny from all
+</Files>
+

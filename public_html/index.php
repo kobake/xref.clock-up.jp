@@ -1,3 +1,4 @@
+<?php require_once(dirname(__FILE__) . '/_common.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -71,10 +72,11 @@
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
-						<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Reports</a></li>
-						<li><a href="#">Analytics</a></li>
-						<li><a href="#">Export</a></li>
+						<li><a href="#">導入</a></li>
+						<li class="active"><a href="#">管理</a></li>
+						<li><a href="#">テーブル管理</a></li>
+						<li><a href="#">テーブル操作</a></li>
+						<li><a href="#">テーブル操作その他（連番等）</a></li>
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li><a href="">Nav item</a></li>
@@ -82,6 +84,9 @@
 						<li><a href="">One more nav</a></li>
 						<li><a href="">Another nav item</a></li>
 						<li><a href="">More navigation</a></li>
+						<!-- 現在の選択サンプル
+						<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
+						-->
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li><a href="">Nav item again</a></li>
@@ -93,9 +98,9 @@
 					<h1 class="page-header">Database</h1>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 管理 -->
+					<!-- メタデータ -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">管理</h2>
+					<h2 class="sub-header">メタデータ</h2>
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<!-- head -->
@@ -128,18 +133,20 @@
 					</div>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 管理 -->
+					<!-- 導入 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">テーブル管理</h2>
+					<?php /*
+					<h2 class="sub-header">導入</h2>
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<!-- head -->
 							<thead>
 							<tr>
 								<th></th>
-								<th>テーブル作成</th>
-								<th>テーブル削除</th>
-								<th>テーブル変更</th>
+								<th>インストール</th>
+								<th>起動・停止</th>
+								<th>ログイン</th>
+								<th>ログアウト</th>
 							</tr>
 							</thead>
 							<!-- body -->
@@ -148,8 +155,8 @@
 								<td>MySQL</td>
 								<td>
 									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
+									id INT NOT NULL AUTO_INCREMENT,
+									ColA VARCHAR2(5)
 									);
 								</td>
 								<td>DROP TABLE mytable;</td>
@@ -161,8 +168,8 @@
 								<td>Oracle</td>
 								<td>
 									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
+									id INT NOT NULL AUTO_INCREMENT,
+									ColA VARCHAR2(5)
 									);
 								</td>
 								<td>DROP TABLE mytable;</td>
@@ -174,8 +181,8 @@
 								<td>PostgreSQL</td>
 								<td>
 									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
+									id INT NOT NULL AUTO_INCREMENT,
+									ColA VARCHAR2(5)
 									);
 								</td>
 								<td>DROP TABLE mytable;</td>
@@ -186,6 +193,45 @@
 							</tbody>
 						</table>
 					</div>
+					 */
+                    ?>
+
+					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<!-- テーブル管理 -->
+					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<?php
+					$table = '
+						MySQL_テーブル作成
+							CREATE TABLE mytable(
+							id INT NOT NULL AUTO_INCREMENT,
+								ColA VARCHAR2(5)
+							);
+						MySQL_テーブル削除		DROP TABLE mytable;
+						MySQL_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+						Oracle_テーブル作成
+							CREATE TABLE mytable(
+								id INT NOT NULL AUTO_INCREMENT,
+								ColA VARCHAR2(5)
+							);
+						Oracle_テーブル削除		DROP TABLE mytable;
+						Oracle_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+						PostgreSQL_テーブル作成
+							CREATE TABLE mytable(
+								id INT NOT NULL AUTO_INCREMENT,
+								ColA VARCHAR2(5)
+							);
+						PostgreSQL_テーブル削除	DROP TABLE mytable;
+						PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+					';
+					$engines = array();
+					$features = array();
+					$contents = generateContents($table, $engines, $features);
+					?>
+					<h2 class="sub-header">テーブル管理（縦）</h2>
+					<?php include "_table_features.php"; ?>
+
+					<h2 class="sub-header">テーブル管理（横）</h2>
+					<?php include "_table_engines.php"; ?>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- テーブル操作 -->

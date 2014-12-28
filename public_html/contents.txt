@@ -10,16 +10,16 @@
 						(ロール) CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
 ユーザ作成_SQLite		-
 
-ユーザ削除_MySQL			DROP USER 'myuser'@'myhost';
+ユーザ削除_MySQL		DROP USER 'myuser'@'myhost';
 ユーザ削除_Oracle		DROP USER 'myuser';
 						DROP USER 'myuser' CASCADE; # 対象ユーザが所有するオブジェクトごと削除する
 ユーザ削除_PostgreSQL	(ロール) DROP ROLE myrole;
 ユーザ削除_SQLite		-
 
-ユーザ一覧_MySQL			select User, Host from mysql.user;
-ユーザ一覧_Oracle		SELECT * FROM user_users; -- ユーザ自身
-						SELECT * FROM dba_users; -- 全てのユーザ
-						SELECT * FROM all_users; -- 全てのユーザ
+ユーザ一覧_MySQL		SELECT User, Host from mysql.user;
+ユーザ一覧_Oracle		SELECT * FROM user_users; # -- ユーザ自身
+						SELECT * FROM dba_users; # -- 全てのユーザ
+						SELECT * FROM all_users; # -- 全てのユーザ
 ユーザ一覧_PostgreSQL	select usename from pg_user;
 						(ロール) select rolname from pg_roles;
 ユーザ一覧_SQLite		-
@@ -73,11 +73,6 @@ PostgreSQL_ログアウト	quit
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-テーブル一覧表示_PostgreSQL	\dt;
-
-テーブル定義表示_MySQL		DESC mytable;
-テーブル定義表示_PostgreSQL	\d mytable;
-
 MySQL_テーブル作成
 	CREATE TABLE mytable(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -104,15 +99,15 @@ PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # メタ
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL______テーブル定義表示	DESC mytable;
-Oracle_____テーブル定義表示	DESC mytable;
-PostgreSQL_テーブル定義表示	DESC mytable;
-SQLite_____テーブル定義表示	DESC mytable;
+テーブル定義表示_MySQL		DESC mytable;
+テーブル定義表示_Oracle		DESC mytable;
+テーブル定義表示_PostgreSQL	\d mytable;
+テーブル定義表示_SQLite		.schema mytable;
 
-MySQL______テーブル一覧表示	SHOW TABLES;
-Oracle_____テーブル一覧表示	SELECT TABLE_NAME FROM USER_TABLES;
-PostgreSQL_テーブル一覧表示	SHOW TABLES;
-SQLite_____テーブル一覧表示	SHOW TABLES;
+テーブル一覧表示_MySQL		SHOW TABLES;
+テーブル一覧表示_Oracle		SELECT TABLE_NAME FROM USER_TABLES;
+テーブル一覧表示_PostgreSQL	\dt;
+テーブル一覧表示_SQLite		.tables;
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル操作

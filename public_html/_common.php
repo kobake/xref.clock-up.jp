@@ -76,6 +76,11 @@ function generateContents($text, &$engines, &$features, $default_engines){
 				if($i + 1 < count($lines) && preg_match('/^\t/', $lines[$i + 1])){
 					for ($j = $i + 1; $j < count($lines); $j++) {
 						$line = $lines[$j];
+						// コメントの除去
+						$line = preg_replace('/\#.*/', '', $line);
+						// 後ろの余計な文字削除
+						$line = preg_replace('/[\t ]+$/', '', $line);
+						// 解析
 						if (preg_match("/^{$localIndent}(\t*)([^\\t].*)/", $line, $m)) {
 							$content .= "<br/>" . str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2];
 						} else {
@@ -92,6 +97,10 @@ function generateContents($text, &$engines, &$features, $default_engines){
 				// 続き解釈
 				for($j = $i + 1; $j < count($lines); $j++){
 					$line = $lines[$j];
+					// コメントの除去
+					$line = preg_replace('/\#.*/', '', $line);
+					// 後ろの余計な文字削除
+					$line = preg_replace('/[\t ]+$/', '', $line);
 					if(preg_match("/^{$baseIndent}\t(\t*)([^\\t].*)/", $line, $m)){
 						$content .= str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2] . "<br/>";
 					}

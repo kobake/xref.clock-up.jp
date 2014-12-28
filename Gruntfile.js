@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 		less: arLessConfig, 
 		watch : {
 			less : {
-				files : ['css/*.less'],
+				files : ['public_html/css/*.less'],
 				tasks : ['less']
 			}
 		}

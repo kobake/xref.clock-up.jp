@@ -1,3 +1,29 @@
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# ユーザ管理
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+ユーザ作成_MySQL		CREATE USER 'myuser'@'myhost';
+						CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';
+ユーザ作成_Oracle		CREATE USER 'myuser' IDENTIFIED BY "xxx"
+							DEFAULT TABLESPACE users;
+ユーザ作成_PostgreSQL	(ロール) CREATE ROLE myrole WITH LOGIN;
+						(ロール) CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
+ユーザ作成_SQLite		-
+
+ユーザ削除_MySQL			DROP USER 'myuser'@'myhost';
+ユーザ削除_Oracle		DROP USER 'myuser';
+						DROP USER 'myuser' CASCADE; # 対象ユーザが所有するオブジェクトごと削除する
+ユーザ削除_PostgreSQL	(ロール) DROP ROLE myrole;
+ユーザ削除_SQLite		-
+
+ユーザ一覧_MySQL			select User, Host from mysql.user;
+ユーザ一覧_Oracle		SELECT * FROM user_users; -- ユーザ自身
+						SELECT * FROM dba_users; -- 全てのユーザ
+						SELECT * FROM all_users; -- 全てのユーザ
+ユーザ一覧_PostgreSQL	select usename from pg_user;
+						(ロール) select rolname from pg_roles;
+ユーザ一覧_SQLite		-
+
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 導入・ログイン
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
@@ -24,30 +50,6 @@ PostgreSQL_ログアウト	quit
 ログイン_PostgreSQL	ps
 ログイン_SQLite		sqlite3
 
-
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# ユーザ管理
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-ユーザ作成_MySQL			CREATE USER 'myuser'@'myhost';
-						CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';
-ユーザ作成_Oracle		CREATE USER 'myuser' IDENTIFIED BY "xxx" DEFAULT TABLESPACE users;
-ユーザ作成_PostgreSQL	(ロール) CREATE ROLE myrole WITH LOGIN;
-						(ロール) CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
-ユーザ作成_SQLite		-
-
-ユーザ削除_MySQL			DROP USER 'myuser'@'myhost';
-ユーザ削除_Oracle		DROP USER 'myuser';
-						DROP USER 'myuser' CASCADE; -- 対象ユーザが所有するオブジェクトごと削除する
-ユーザ削除_PostgreSQL	(ロール) DROP ROLE myrole;
-ユーザ削除_SQLite		-
-
-ユーザ一覧_MySQL			select User, Host from mysql.user;
-ユーザ一覧_Oracle		SELECT * FROM user_users; -- ユーザ自身
-						SELECT * FROM dba_users; -- 全てのユーザ
-						SELECT * FROM all_users; -- 全てのユーザ
-ユーザ一覧_PostgreSQL	select usename from pg_user;
-						(ロール) select rolname from pg_roles;
-ユーザ一覧_SQLite		-
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # データベース管理

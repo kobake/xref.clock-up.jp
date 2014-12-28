@@ -39,6 +39,8 @@ function generateContents($text, &$engines, &$features, $default_engines){
 		$line = $lines[$i];
 		// コメントの除去
 		$line = preg_replace('/\#.*/', '', $line);
+		// 後ろの余計な文字削除
+		$line = preg_replace('/[\t ]+$/', '', $line);
 		// 空行の無視
 		if($line === '' || $line === $baseIndent){
 			continue;
@@ -51,16 +53,50 @@ function generateContents($text, &$engines, &$features, $default_engines){
 				// 行内content
 				$title = array_shift($tmp);
 				$content = implode("\t", $tmp);
+				// -- 次以降も見ていく -- //
+				// インデント長さ決定 (けっこうややこしいので注意。文字サイズという微妙な基準を元に計算を行う)
+				preg_match('/^([^\t]+)(\t+)/', $line, $m);
+				$tabs = $m[2];
+				$sjis_title = mb_convert_encoding($title, 'Shift_JIS', 'UTF-8');
+				$len = strlen($sjis_title);
+				for($t = 0; $t < strlen($tabs); $t++){
+					if($len % 4 === 0){
+						$len += 4;
+					}
+					else{
+						$len += (4 - $len % 4);
+					}
+				}
+				$localIndentCount = (int)($len / 4);
+				$localIndent = '';
+				for($t = 0; $t < $localIndentCount; $t++){
+					$localIndent .= "\t";
+				}
+				// 続き解釈
+				if($i + 1 < count($lines) && preg_match('/^\t/', $lines[$i + 1])){
+					for ($j = $i + 1; $j < count($lines); $j++) {
+						$line = $lines[$j];
+						if (preg_match("/^{$localIndent}(\t*)([^\\t].*)/", $line, $m)) {
+							$content .= "<br/>" . str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2];
+						} else {
+							$i = $j - 1;
+							break;
+						}
+					}
+				}
+				$content = preg_replace('/<br\/>$/i', '', $content);
 			}
 			else{
 				// content読み取り
 				$content = '';
+				// 続き解釈
 				for($j = $i + 1; $j < count($lines); $j++){
 					$line = $lines[$j];
 					if(preg_match("/^{$baseIndent}\t(\t*)([^\\t].*)/", $line, $m)){
 						$content .= str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2] . "<br/>";
 					}
 					else{
+						$i = $j - 1;
 						break;
 					}
 				}

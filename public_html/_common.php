@@ -49,6 +49,7 @@ function removeLineComment($line){
 	$line = str_replace('＃', '#', $line);
 	return $line;
 }
+
 // 展開関数
 function generateContents($text, &$engines, &$features, $default_engines){
 	$engines = array();
@@ -128,14 +129,18 @@ function generateContents($text, &$engines, &$features, $default_engines){
 					// コメントの除去
 					$line = removeLineComment($line);
 					if(preg_match("/^{$baseIndent}\t(\t*)([^\\t].*)/", $line, $m)){
-						$content .= str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2] . "<br/>";
+						$content .= str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2] . "<br/>\n";
+					}
+					else if($line === ''){
+						$content .= "<br/>\n";
 					}
 					else{
 						$i = $j - 1;
 						break;
 					}
 				}
-				$content = preg_replace('/<br\/>$/i', '', $content);
+				$content = preg_replace('/<br\/>\n$/i', '', $content);
+				$content = preg_replace('/<br\/>\n$/i', '', $content);
 			}
 			// title加工(連続アンダースコア除去)
 			$title = preg_replace('/_+/', '_', $title);

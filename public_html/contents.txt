@@ -1,3 +1,31 @@
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 導入・ログイン
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL_インストール	# yum -y install mysql
+MySQL_起動・停止	# service mysqld start
+					# service mysqld stop
+					# service mysqld status
+
+Oracle_インストール	未
+Oracle_起動・停止	未
+
+PostgreSQL_インストール	未
+PostgreSQL_起動・停止	未
+
+ログイン_MySQL			$ mysql -u myuser -pxxx mytable
+ログイン_Oracle			$ sqlplus
+ログイン_PostgreSQL		$ psql mydatabase myuser
+ログイン_SQLite			$ sqlite3
+
+ログアウト_MySQL		sql> quit
+ログアウト_Oracle		sql> quit
+ログアウト_PostgreSQL	sql> \q
+ログアウト_SQLite		sql> .exit
+
+管理ログイン_MySQL		# mysql
+管理ログイン_Oracle		未
+管理ログイン_PostgreSQL	未
+管理ログイン_SQLite		$ sqlite3 mydatabase.sqlite3
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # ユーザ管理
@@ -24,50 +52,25 @@
 						(ロール) select rolname from pg_roles;
 ユーザ一覧_SQLite		-
 
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# 導入・ログイン
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL_インストール
-	yum -y install mysql
-MySQL_起動・停止	
-	service mysqld start
-	service mysqld stop
-	service mysqld status
-MySQL_ログアウト
-	quit
-
-Oracle_インストール	未
-Oracle_起動・停止	未
-Oracle_ログアウト	quit
-
-PostgreSQL_インストール	未
-PostgreSQL_起動・停止	未
-PostgreSQL_ログアウト	quit
-
-# ログイン
-ログイン_MySQL		mysql -u myuser -pxxx mytable
-ログイン_Oracle		sqlplus
-ログイン_PostgreSQL	ps
-ログイン_SQLite		sqlite3
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # データベース管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-データベース作成_MySQL		CREATE DATABASE mydatabase;
+データベース作成_MySQL		sql> CREATE DATABASE mydatabase;
 データベース作成_Oracle		-
-データベース作成_PostgreSQL	CREATE DATABASE mydatabase;
-データベース作成_SQLite		CREATE DATABASE mydatabase;
+データベース作成_PostgreSQL	sql> CREATE DATABASE mydatabase;
+データベース作成_SQLite		$ sqlite3 mydatabase.sqlite3
 
-データベース削除_MySQL		DROP DATABASE mydatabase;
+データベース削除_MySQL		sql> DROP DATABASE mydatabase;
 データベース削除_Oracle		-
-データベース削除_PostgreSQL	DROP DATABASE mydatabase;
-データベース削除_SQLite		DROP DATABASE mydatabase;
+データベース削除_PostgreSQL	sql> DROP DATABASE mydatabase;
+データベース削除_SQLite		-
 
-データベース一覧_MySQL		SHOW DATABASES;
+データベース一覧_MySQL		sql> SHOW DATABASES;
 データベース一覧_Oracle		-
-データベース一覧_PostgreSQL	\l;
-データベース一覧_SQLite		CREATE DATABASE mydatabase;
+データベース一覧_PostgreSQL	sql> \l;
+データベース一覧_SQLite		-
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #

@@ -11,16 +11,6 @@
 
 	$smarty->assign('engines', $engines);
 	$smarty->assign('contents', $contents);
-
-	function section($title, $features) {
-		global $smarty;
-		$smarty->assign('features', $features);
-
-		echo "<h2 class = \"sub-header\">{$title}（縦）</h2>\n";
-		$smarty->display('_table_features.tpl');
-		echo "<h2 class = \"sub-header\">{$title}（横）</h2>\n";
-		$smarty->display('_table_engines.tpl');
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,9 +26,13 @@
 
 		<!-- Bootstrap core CSS -->
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+		<link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+		
 		<!-- Custom styles for this template -->
 		<link href="/css/dashboard.css" rel="stylesheet">
+		
+		<!-- App css -->
+		<link href="/css/app.css" rel="stylesheet">
 
 		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 		<!--[if lt IE 9]><script src="/jslib/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -59,7 +53,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body class="current-mode0">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -76,6 +70,15 @@
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Database</a></li>
 					</ul>
+					<!-- 縦横切替 -->
+					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px;">
+						<label class="btn btn-info active">
+							<input type="radio" name="options" id="mode0" autocomplete="off" checked> 縦
+						</label>
+						<label class="btn btn-default">
+							<input type="radio" name="options" id="mode1" autocomplete="off"> 横
+						</label>
+					</div>
 					<!--
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
@@ -119,6 +122,10 @@
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Database</h1>
+					
+					<div>
+						
+					</div>
 
 					
 
@@ -196,6 +203,7 @@
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="/jslib/jquery-2.1.3.min.js"></script>
+		<script src="/jquery-ui/jquery-ui.min.js"></script>
 		<script src="/bootstrap/js/bootstrap.min.js"></script>
 		<!-- <script src="/jslib/docs.min.js"></script> -->
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

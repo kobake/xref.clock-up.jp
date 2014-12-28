@@ -17,6 +17,26 @@ $smarty->cache_dir    = dirname(dirname(__FILE__)) . '/smarty/tmp/cache';
 // 次の行のコメントをはずすと、デバッギングコンソールを表示します
 // $smarty->debugging = true;
 
+// セクション
+function section($title, $features) {
+	global $smarty;
+	$smarty->assign('features', $features);
+
+	echo "<div class=\"mode0\">\n";
+	{
+		echo "<h2 class = \"sub-header\">{$title}（縦）</h2>\n";
+		$smarty->display('_table_features.tpl');
+	}
+	echo "</div>\n";
+	
+	echo "<div class=\"mode1\">\n";
+	{
+		echo "<h2 class = \"sub-header\">{$title}（横）</h2>\n";
+		$smarty->display('_table_engines.tpl');
+	}
+	echo "</div>\n";
+}
+
 // 展開関数
 function generateContents($text, &$engines, &$features, $default_engines){
 	$engines = array();

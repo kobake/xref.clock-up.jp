@@ -1,4 +1,21 @@
+function updateMode(){
+	// スイッチの見た目
+	jQuery('.btn-group label:not(.active)').removeClass('btn-info').addClass('btn-default');
+	jQuery('.btn-group label.active').removeClass('btn-default').addClass('btn-info');
+	
+	// 実際の表示非表示を切り替える
+	var newMode = jQuery('#mode0').prop('checked') ? 0 : 1;
+	var oldMode = 1 - newMode;
+	jQuery('body').removeClass('current-mode' + oldMode).addClass('current-mode' + newMode);
+}
 jQuery(function(){
+	jQuery('.btn-group label').click(function(){
+		setTimeout(function(){
+			updateMode();			
+		}, 0);
+	});
+	
+	
 	return; // もう以下は必要無い。
 	jQuery('td').each(function(){
 		var td = jQuery(this);

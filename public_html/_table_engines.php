@@ -1,4 +1,5 @@
-<div class="table-responsive">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
 	<table class="table table-striped">
 		<!-- head -->
 		<thead>
@@ -15,7 +16,13 @@
 				<tr>
 					<td><?php echo r($feature); ?></td>
 					<?php foreach ($engines as $engine): ?>
-						<td><?php echo r($contents["{$engine}_{$feature}"]); ?></td>
+						<td>
+							<?php
+							if(isset($contents["{$engine}_{$feature}"])){
+								echo r($contents["{$engine}_{$feature}"]);
+							}
+							?>
+						</td>
 					<?php endforeach; ?>
 				</tr>
 			<?php endforeach; ?>

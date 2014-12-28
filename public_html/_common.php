@@ -25,6 +25,13 @@ function generateContents($text, &$engines, &$features){
 	$title = '';
 	for($i = 0; $i < count($lines); $i++){
 		$line = $lines[$i];
+		// コメントの除去
+		$line = preg_replace('/\#.*/', '', $line);
+		// 空行の無視
+		if($line === '' || $line === $baseIndent){
+			continue;
+		}
+		// 行解釈
 		if(preg_match("/^{$baseIndent}([^\t].*)/", $line, $m)){
 			$title = $m[1];
 			$tmp = preg_split('/\t+/', $title);
@@ -47,6 +54,8 @@ function generateContents($text, &$engines, &$features){
 				}
 				$content = preg_replace('/<br\/>$/i', '', $content);
 			}
+			// title加工(連続アンダースコア除去)
+			$title = preg_replace('/_+/', '_', $title);
 			// title, content出力
 			$ret[$title] = $content;
 			// engines, features

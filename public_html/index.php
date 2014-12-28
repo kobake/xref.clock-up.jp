@@ -98,39 +98,37 @@
 					<h1 class="page-header">Database</h1>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- メタデータ -->
+					<!-- 初期化 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">メタデータ</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>テーブル定義表示</th>
-								<th>テーブル一覧表示</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>MySQL</td>
-								<td>DESC mytable;</td>
-								<td>SHOW TABLES;</td>
-							</tr>
-							<tr>
-								<td>Oracle</td>
-								<td>DESC mytable;</td>
-								<td>SHOW TABLES;</td>
-							</tr>
-							<tr>
-								<td>PostgreSQL</td>
-								<td>DESC mytable;</td>
-								<td>SHOW TABLES;</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
+					<?php
+					// 各種変数初期化
+					$engines = array();
+					$features = array();
+					?>
+					<?php
+					// 全データ読み込み
+					$table = file_get_contents('contents.txt');
+					$contents = generateContents($table, $engines, $features);
+					?>
+					<?php
+					$features = [];
+					$engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
+					?>
+
+					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<!-- メタ -->
+					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<?php
+					$features = [
+						'テーブル定義表示',
+						'テーブル一覧表示',
+					];
+					?>
+					<h2 class="sub-header">メタ（★縦）</h2><!-- こっちが確実に見やすい -->
+					<?php include "_table_features.php"; ?>
+
+					<h2 class="sub-header">メタ（横）</h2>
+					<?php include "_table_engines.php"; ?>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- 導入 -->
@@ -196,289 +194,53 @@
 					 */
                     ?>
 
+					
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- テーブル管理 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<?php
-					$table = '
-						MySQL_テーブル作成
-							CREATE TABLE mytable(
-							id INT NOT NULL AUTO_INCREMENT,
-								ColA VARCHAR2(5)
-							);
-						MySQL_テーブル削除		DROP TABLE mytable;
-						MySQL_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-						Oracle_テーブル作成
-							CREATE TABLE mytable(
-								id INT NOT NULL AUTO_INCREMENT,
-								ColA VARCHAR2(5)
-							);
-						Oracle_テーブル削除		DROP TABLE mytable;
-						Oracle_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-						PostgreSQL_テーブル作成
-							CREATE TABLE mytable(
-								id INT NOT NULL AUTO_INCREMENT,
-								ColA VARCHAR2(5)
-							);
-						PostgreSQL_テーブル削除	DROP TABLE mytable;
-						PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-					';
-					$engines = array();
-					$features = array();
-					$contents = generateContents($table, $engines, $features);
+					$features = [
+						'テーブル作成',
+						'テーブル削除',
+						'テーブル変更',
+					];
 					?>
 					<h2 class="sub-header">テーブル管理（縦）</h2>
 					<?php include "_table_features.php"; ?>
-
 					<h2 class="sub-header">テーブル管理（横）</h2>
 					<?php include "_table_engines.php"; ?>
-
+					
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- テーブル操作 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">テーブル操作</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>選択</th>
-								<th>挿入</th>
-								<th>更新</th>
-								<th>削除</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>MySQL</td>
-								<td>SELECT * FROM mytable;</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-							</tr>
-							<tr>
-								<td>Oracle</td>
-								<td>SELECT * FROM mytable;</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-							</tr>
-							<tr>
-								<td>PostgreSQL</td>
-								<td>SELECT * FROM mytable;</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
+					<?php
+					$features = [
+						'選択',
+						'挿入',
+						'更新',
+						'削除',
+					];
+					?>
+					<h2 class="sub-header">テーブル操作（縦）</h2>
+					<?php include "_table_features.php"; ?>
+					<h2 class="sub-header">テーブル操作（横）</h2>
+					<?php include "_table_engines.php"; ?>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- テーブル操作その他 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">テーブル操作その他</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>連番</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>MySQL</td>
-								<td>
-									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-							</tr>
-							<tr>
-								<td>Oracle</td>
-								<td>
-									(Case A)
-									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
-									);
-									CREATE SEQUENCE myseq;
-									INSERT INTO mytable(id, ColA) VALUES(myseq.NEXTVAL, 'XX');
-
-									(Case B)
-									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
-									);
-									CREATE SEQUENCE myseq;
-									INSERT INTO mytable(id, ColA) VALUES(myseq.NEXTVAL, 'XX');
-								</td>
-							</tr>
-							<tr>
-								<td>PostgreSQL</td>
-								<td>
-									CREATE TABLE mytable(
-										id <red>serial</red> NOT NULL,
-										ColA character
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-							</tr>
-							<tr>
-								<td>SQLite</td>
-								<td>
-									CREATE TABLE mytable(
-										id INTEGER AUTOINCREMENT,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- テーブル操作その他（横） -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+					<?php
+					$features = [
+						'連番',
+					];
+					?>
+					<h2 class="sub-header">テーブル操作その他（縦）</h2>
+					<?php include "_table_features.php"; ?>
 					<h2 class="sub-header">テーブル操作その他（横）</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>MySQL</th>
-								<th>Oracle</th>
-								<th>PostgreSQL</th>
-								<th>SQLite</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>自動インクリメント</td>
-								<td>
-									CREATE TABLE mytable(
-										id INT NOT NULL AUTO_INCREMENT,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-								<td>
-									(Case A: MAX を使う)
-									CREATE TABLE mytable(
-										id NUMBER NOT NULL,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(id, ColA) SELECT MAX(id) + 1, 'XX' FROM mytable;
-
-									(Case A2: MAX を使う。テーブルが空のケースも考える)
-									CREATE TABLE mytable(
-										id NUMBER NOT NULL,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(id, ColA)
-										SELECT
-											CASE
-												WHEN MAX(id) IS NULL THEN 1
-												ELSE MAX(id)+1
-											END,
-											'XX' FROM mytable;
-
-									(Case B: SEQUENCE を作って手動で埋め込む)
-									CREATE TABLE mytable(
-										id NUMBER NOT NULL,
-										ColA VARCHAR2(5)
-									);
-									CREATE SEQUENCE myseq;
-									INSERT INTO mytable(id, ColA) VALUES(myseq.NEXTVAL, 'XX');
-
-									(Case C: SEQUENCE を作って TRIGGER で埋め込む)
-									CREATE TABLE mytable(
-										id NUMBER NOT NULL,
-										ColA VARCHAR2(5)
-									);
-									CREATE SEQUENCE myseq;
-									CREATE OR REPLACE TRIGGER mytrig
-									BEFORE INSERT ON mytable FOR EACH ROW
-									BEGIN
-										SELECT myseq.NEXTVAL INTO :NEW.id FROM DUAL;
-									END;
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-								<td>
-									CREATE TABLE mytable(
-										id <red>serial</red> NOT NULL,
-										ColA character
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-								<td>
-									CREATE TABLE mytable(
-										id INTEGER AUTOINCREMENT,
-										ColA VARCHAR2(5)
-									);
-									INSERT INTO mytable(ColA) VALUES('XX');
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
+					<?php include "_table_engines.php"; ?>
 
 					<div style="opacity: 0.2;">
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 管理 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">管理</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>MySQL</th>
-								<th>Oracle</th>
-								<th>PostgreSQL</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>テーブル作成</td>
-								<td>CREATE TABLE mytable(ColA VARCHAR2(5));</td>
-								<td>CREATE TABLE mytable(ColA VARCHAR2(5));</td>
-								<td>CREATE TABLE mytable(ColA VARCHAR2(5));</td>
-							</tr>
-							<tr>
-								<td>テーブル削除</td>
-								<td>DROP TABLE mytable;</td>
-								<td>DROP TABLE mytable;</td>
-								<td>DROP TABLE mytable;</td>
-							</tr>
-							<tr>
-								<td>テーブル定義表示</td>
-								<td>DESC mytable;</td>
-								<td>DESC mytable;</td>
-								<td>DESC mytable;</td>
-							</tr>
-							<tr>
-								<td>テーブル一覧表示</td>
-								<td>SHOW TABLES;</td>
-								<td>SELECT TABLE_NAME FROM USER_TABLES;</td>
-								<td>SHOW TABLES;</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-
+					
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<!-- テーブル操作 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->

@@ -1,0 +1,123 @@
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 導入・ログイン等
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# メタ
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL______テーブル定義表示	DESC mytable;
+Oracle_____テーブル定義表示	DESC mytable;
+PostgreSQL_テーブル定義表示	DESC mytable;
+SQLite_____テーブル定義表示	DESC mytable;
+
+MySQL______テーブル一覧表示	SHOW TABLES;
+Oracle_____テーブル一覧表示	SELECT TABLE_NAME FROM USER_TABLES;
+PostgreSQL_テーブル一覧表示	SHOW TABLES;
+SQLite_____テーブル一覧表示	SHOW TABLES;
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル管理
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL_テーブル作成
+	CREATE TABLE mytable(
+	id INT NOT NULL AUTO_INCREMENT,
+		ColA VARCHAR2(5)
+	);
+MySQL_テーブル削除		DROP TABLE mytable;
+MySQL_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+Oracle_テーブル作成
+	CREATE TABLE mytable(
+		id INT NOT NULL AUTO_INCREMENT,
+		ColA VARCHAR2(5)
+	);
+Oracle_テーブル削除		DROP TABLE mytable;
+Oracle_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+PostgreSQL_テーブル作成
+	CREATE TABLE mytable(
+		id INT NOT NULL AUTO_INCREMENT,
+		ColA VARCHAR2(5)
+	);
+PostgreSQL_テーブル削除	DROP TABLE mytable;
+PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル操作
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL_選択			SELECT * FROM mytable;
+MySQL_挿入			INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
+MySQL_更新			UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
+MySQL_削除			DELETE FROM mytable WHERE ColA = 'XX';
+Oracle_選択			SELECT * FROM mytable;
+Oracle_挿入			INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
+Oracle_更新			UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
+Oracle_削除			DELETE FROM mytable WHERE ColA = 'XX';
+PostgreSQL_選択		SELECT * FROM mytable;
+PostgreSQL_挿入		INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
+PostgreSQL_更新		UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
+PostgreSQL_削除		DELETE FROM mytable WHERE ColA = 'XX';
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル操作その他 (連番等)
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL_連番
+	CREATE TABLE mytable(
+		id INT NOT NULL AUTO_INCREMENT,
+		ColA VARCHAR2(5)
+	);
+	INSERT INTO mytable(ColA) VALUES('XX');
+
+Oracle_連番
+	(Case A: MAX を使う)
+	CREATE TABLE mytable(
+		id NUMBER NOT NULL,
+		ColA VARCHAR2(5)
+	);
+	INSERT INTO mytable(id, ColA) SELECT MAX(id) + 1, 'XX' FROM mytable;
+
+	(Case A2: MAX を使う。テーブルが空のケースも考える)
+	CREATE TABLE mytable(
+		id NUMBER NOT NULL,
+		ColA VARCHAR2(5)
+	);
+	INSERT INTO mytable(id, ColA)
+		SELECT
+			CASE
+				WHEN MAX(id) IS NULL THEN 1
+				ELSE MAX(id)+1
+			END,
+			'XX' FROM mytable;
+
+	(Case B: SEQUENCE を作って手動で埋め込む)
+	CREATE TABLE mytable(
+		id NUMBER NOT NULL,
+		ColA VARCHAR2(5)
+	);
+	CREATE SEQUENCE myseq;
+	INSERT INTO mytable(id, ColA) VALUES(myseq.NEXTVAL, 'XX');
+
+	(Case C: SEQUENCE を作って TRIGGER で埋め込む)
+	CREATE TABLE mytable(
+		id NUMBER NOT NULL,
+		ColA VARCHAR2(5)
+	);
+	CREATE SEQUENCE myseq;
+	CREATE OR REPLACE TRIGGER mytrig
+	BEFORE INSERT ON mytable FOR EACH ROW
+	BEGIN
+		SELECT myseq.NEXTVAL INTO :NEW.id FROM DUAL;
+	END;
+	INSERT INTO mytable(ColA) VALUES('XX');
+
+PostgreSQL_連番
+	CREATE TABLE mytable(
+		id <red>serial</red> NOT NULL,
+		ColA character
+	);
+	INSERT INTO mytable(ColA) VALUES('XX');
+
+SQLite_連番
+	CREATE TABLE mytable(
+		id INTEGER AUTOINCREMENT,
+		ColA VARCHAR2(5)
+	);
+	INSERT INTO mytable(ColA) VALUES('XX');

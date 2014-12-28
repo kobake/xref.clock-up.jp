@@ -6,7 +6,19 @@ function r($text){
 	return $text;
 }
 
-function generateContents($text, &$engines, &$features){
+// smarty
+define('SMARTY_DIR', dirname(dirname(__FILE__)) . '/smarty/libs/');
+require_once(SMARTY_DIR . '/Smarty.class.php');
+$smarty = new Smarty();
+$smarty->template_dir = dirname(dirname(__FILE__)) . '/smarty/tmp/template';
+$smarty->compile_dir  = dirname(dirname(__FILE__)) . '/smarty/tmp/compile';
+$smarty->config_dir   = dirname(dirname(__FILE__)) . '/smarty/tmp/config';
+$smarty->cache_dir    = dirname(dirname(__FILE__)) . '/smarty/tmp/cache';
+// 次の行のコメントをはずすと、デバッギングコンソールを表示します
+// $smarty->debugging = true;
+
+// 展開関数
+function generateContents($text, &$engines, &$features, $default_engines){
 	$engines = array();
 	$features = array();
 	
@@ -56,14 +68,22 @@ function generateContents($text, &$engines, &$features){
 			}
 			// title加工(連続アンダースコア除去)
 			$title = preg_replace('/_+/', '_', $title);
-			// title, content出力
-			$ret[$title] = $content;
 			// engines, features
 			$tmp = explode('_', $title);
 			if(count($tmp) == 2){
+				// feature_engine という構成の場合は要素を反転する
+				if(array_search($tmp[1], $default_engines) !== false){
+					$t = $tmp[0];
+					$tmp[0] = $tmp[1];
+					$tmp[1] = $t;
+					$title = "{$tmp[0]}_{$tmp[1]}";
+				}
+				// 格納
 				$engines[$tmp[0]] = 1;
 				$features[$tmp[1]] = 1;
 			}
+			// title, content出力
+			$ret[$title] = $content;
 		}
 	}
 	$engines = array_keys($engines);

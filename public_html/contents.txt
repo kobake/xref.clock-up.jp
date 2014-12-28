@@ -1,23 +1,81 @@
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# 導入・ログイン等
+# 導入・ログイン
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL_インストール
+	yum -y install mysql
+MySQL_起動・停止	
+	service mysqld start
+	service mysqld stop
+	service mysqld status
+MySQL_ログアウト
+	quit
+
+Oracle_インストール	未
+Oracle_起動・停止	未
+Oracle_ログアウト	quit
+
+PostgreSQL_インストール	未
+PostgreSQL_起動・停止	未
+PostgreSQL_ログアウト	quit
+
+# ログイン
+ログイン_MySQL		mysql -u myuser -pxxx mytable
+ログイン_Oracle		sqlplus
+ログイン_PostgreSQL	ps
+ログイン_SQLite		sqlite3
+
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# メタ
+# ユーザ管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL______テーブル定義表示	DESC mytable;
-Oracle_____テーブル定義表示	DESC mytable;
-PostgreSQL_テーブル定義表示	DESC mytable;
-SQLite_____テーブル定義表示	DESC mytable;
+ユーザ作成_MySQL			CREATE USER 'myuser'@'myhost';
+						CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';
+ユーザ作成_Oracle		CREATE USER 'myuser' IDENTIFIED BY "xxx" DEFAULT TABLESPACE users;
+ユーザ作成_PostgreSQL	(ロール) CREATE ROLE myrole WITH LOGIN;
+						(ロール) CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
+ユーザ作成_SQLite		-
 
-MySQL______テーブル一覧表示	SHOW TABLES;
-Oracle_____テーブル一覧表示	SELECT TABLE_NAME FROM USER_TABLES;
-PostgreSQL_テーブル一覧表示	SHOW TABLES;
-SQLite_____テーブル一覧表示	SHOW TABLES;
+ユーザ削除_MySQL			DROP USER 'myuser'@'myhost';
+ユーザ削除_Oracle		DROP USER 'myuser';
+						DROP USER 'myuser' CASCADE; -- 対象ユーザが所有するオブジェクトごと削除する
+ユーザ削除_PostgreSQL	(ロール) DROP ROLE myrole;
+ユーザ削除_SQLite		-
+
+ユーザ一覧_MySQL			select User, Host from mysql.user;
+ユーザ一覧_Oracle		SELECT * FROM user_users; -- ユーザ自身
+						SELECT * FROM dba_users; -- 全てのユーザ
+						SELECT * FROM all_users; -- 全てのユーザ
+ユーザ一覧_PostgreSQL	select usename from pg_user;
+						(ロール) select rolname from pg_roles;
+ユーザ一覧_SQLite		-
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# データベース管理
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+データベース作成_MySQL		CREATE DATABASE mydatabase;
+データベース作成_Oracle		-
+データベース作成_PostgreSQL	CREATE DATABASE mydatabase;
+データベース作成_SQLite		CREATE DATABASE mydatabase;
+
+データベース削除_MySQL		DROP DATABASE mydatabase;
+データベース削除_Oracle		-
+データベース削除_PostgreSQL	DROP DATABASE mydatabase;
+データベース削除_SQLite		DROP DATABASE mydatabase;
+
+データベース一覧_MySQL		SHOW DATABASES;
+データベース一覧_Oracle		-
+データベース一覧_PostgreSQL	\l;
+データベース一覧_SQLite		CREATE DATABASE mydatabase;
+
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+テーブル一覧表示_PostgreSQL	\dt;
+
+テーブル定義表示_MySQL		DESC mytable;
+テーブル定義表示_PostgreSQL	\d mytable;
+
 MySQL_テーブル作成
 	CREATE TABLE mytable(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -40,6 +98,20 @@ PostgreSQL_テーブル作成
 PostgreSQL_テーブル削除	DROP TABLE mytable;
 PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
 
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# メタ
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+MySQL______テーブル定義表示	DESC mytable;
+Oracle_____テーブル定義表示	DESC mytable;
+PostgreSQL_テーブル定義表示	DESC mytable;
+SQLite_____テーブル定義表示	DESC mytable;
+
+MySQL______テーブル一覧表示	SHOW TABLES;
+Oracle_____テーブル一覧表示	SELECT TABLE_NAME FROM USER_TABLES;
+PostgreSQL_テーブル一覧表示	SHOW TABLES;
+SQLite_____テーブル一覧表示	SHOW TABLES;
+
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル操作
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
@@ -55,6 +127,8 @@ PostgreSQL_選択		SELECT * FROM mytable;
 PostgreSQL_挿入		INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
 PostgreSQL_更新		UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
 PostgreSQL_削除		DELETE FROM mytable WHERE ColA = 'XX';
+
+# LIMIT とか
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル操作その他 (連番等)

@@ -1,4 +1,27 @@
-<?php require_once(dirname(__FILE__) . '/_common.php'); ?>
+<?php
+	require_once(dirname(__FILE__) . '/_common.php');
+	
+	// 各種変数初期化
+	$features = [];
+	$engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
+
+	// 全データ読み込み
+	$table = file_get_contents('contents.txt');
+	$contents = generateContents($table, $engines, $features, $engines);
+
+	$smarty->assign('engines', $engines);
+	$smarty->assign('contents', $contents);
+
+	function section($title, $features) {
+		global $smarty;
+		$smarty->assign('features', $features);
+
+		echo "<h2 class = \"sub-header\">{$title}（縦）</h2>\n";
+		$smarty->display('_table_features.tpl');
+		echo "<h2 class = \"sub-header\">{$title}（横）</h2>\n";
+		$smarty->display('_table_engines.tpl');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -97,199 +120,69 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Database</h1>
 
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 初期化 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<?php
-					// 各種変数初期化
-					$engines = array();
-					$features = array();
-					?>
-					<?php
-					// 全データ読み込み
-					$table = file_get_contents('contents.txt');
-					$contents = generateContents($table, $engines, $features);
-					?>
-					<?php
-					$features = [];
-					$engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
-					?>
-
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- メタ -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<?php
-					$features = [
-						'テーブル定義表示',
-						'テーブル一覧表示',
-					];
-					?>
-					<h2 class="sub-header">メタ（★縦）</h2><!-- こっちが確実に見やすい -->
-					<?php include "_table_features.php"; ?>
-
-					<h2 class="sub-header">メタ（横）</h2>
-					<?php include "_table_engines.php"; ?>
-
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 導入 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<?php /*
-					<h2 class="sub-header">導入</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>インストール</th>
-								<th>起動・停止</th>
-								<th>ログイン</th>
-								<th>ログアウト</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>MySQL</td>
-								<td>
-									CREATE TABLE mytable(
-									id INT NOT NULL AUTO_INCREMENT,
-									ColA VARCHAR2(5)
-									);
-								</td>
-								<td>DROP TABLE mytable;</td>
-								<td>
-									ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-								</td>
-							</tr>
-							<tr>
-								<td>Oracle</td>
-								<td>
-									CREATE TABLE mytable(
-									id INT NOT NULL AUTO_INCREMENT,
-									ColA VARCHAR2(5)
-									);
-								</td>
-								<td>DROP TABLE mytable;</td>
-								<td>
-									ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-								</td>
-							</tr>
-							<tr>
-								<td>PostgreSQL</td>
-								<td>
-									CREATE TABLE mytable(
-									id INT NOT NULL AUTO_INCREMENT,
-									ColA VARCHAR2(5)
-									);
-								</td>
-								<td>DROP TABLE mytable;</td>
-								<td>
-									ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-					 */
-                    ?>
-
 					
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- テーブル管理 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<?php
-					$features = [
-						'テーブル作成',
-						'テーブル削除',
-						'テーブル変更',
-					];
-					?>
-					<h2 class="sub-header">テーブル管理（縦）</h2>
-					<?php include "_table_features.php"; ?>
-					<h2 class="sub-header">テーブル管理（横）</h2>
-					<?php include "_table_engines.php"; ?>
-					
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- テーブル操作 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<?php
-					$features = [
-						'選択',
-						'挿入',
-						'更新',
-						'削除',
-					];
-					?>
-					<h2 class="sub-header">テーブル操作（縦）</h2>
-					<?php include "_table_features.php"; ?>
-					<h2 class="sub-header">テーブル操作（横）</h2>
-					<?php include "_table_engines.php"; ?>
 
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- テーブル操作その他 -->
+					<!-- 導入・管理 -->
 					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<?php
-					$features = [
-						'連番',
-					];
+					section(
+						'導入・管理',
+						[
+							'インストール',
+							'起動・停止',
+							'管理ログイン'
+						]
+					);
+					section(						
+						'データベース管理',
+						[
+							'データベース作成',
+							'データベース削除',
+							'データベース一覧',
+						]
+					);
+					section(
+						'ユーザ管理',
+						[
+							'ユーザ作成',
+							'ユーザ削除',
+							'ユーザ一覧',
+						]
+					);
+					section(
+						'テーブル管理',
+						[
+							'テーブル作成',
+							'テーブル削除',
+							'テーブル変更',
+							'テーブル定義表示',
+							'テーブル一覧表示',
+						]
+					);
+					section(
+						'ログイン・ログアウト',
+						[
+							'ログイン',
+							'ログアウト',
+						]
+					);
+					section(
+						'テーブル操作',
+						[
+							'選択',
+							'挿入',
+							'更新',
+							'削除',
+						]
+					);
+					section(
+						'テーブル操作その他',
+						[
+							'連番',
+						]
+					);
 					?>
-					<h2 class="sub-header">テーブル操作その他（縦）</h2>
-					<?php include "_table_features.php"; ?>
-					<h2 class="sub-header">テーブル操作その他（横）</h2>
-					<?php include "_table_engines.php"; ?>
-
-					<div style="opacity: 0.2;">
-					
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- テーブル操作 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<h2 class="sub-header">テーブル操作</h2>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<!-- head -->
-							<thead>
-							<tr>
-								<th></th>
-								<th>MySQL</th>
-								<th>Oracle</th>
-								<th>PostgreSQL</th>
-							</tr>
-							</thead>
-							<!-- body -->
-							<tbody>
-							<tr>
-								<td>選択</td>
-								<td>SELECT * FROM mytable;</td>
-								<td>SELECT * FROM mytable;</td>
-								<td>SELECT * FROM mytable;</td>
-							</tr>
-							<tr>
-								<td>挿入</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-								<td>INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');</td>
-							</tr>
-							<tr>
-								<td>更新</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-								<td>UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';</td>
-							</tr>
-							<tr>
-								<td>削除</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-								<td>DELETE FROM mytable WHERE ColA = 'XX';</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-					</div>
-
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 				</div>
 			</div>
 		</div>

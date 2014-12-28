@@ -1,4 +1,5 @@
 jQuery(function(){
+	return; // もう以下は必要無い。
 	jQuery('td').each(function(){
 		var td = jQuery(this);
 		var html = td.html();

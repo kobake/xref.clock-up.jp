@@ -37,6 +37,9 @@ if(isset($_SERVER['REQUEST_URI'])){
 if($uri_without_query === '/database'){
 	include(dirname(__FILE__) . '/index_database.php');
 }
+else if($uri_without_query === '/about'){
+	include(dirname(__FILE__) . '/index_about.php');
+}
 else if($uri_without_query === '/'){
 	include(dirname(__FILE__) . '/index_top.php');
 }

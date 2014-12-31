@@ -46,6 +46,8 @@ order deny,allow
 	RewriteRule \.jpg$ - [L]
 	RewriteRule \.jpeg$ - [L]
 	RewriteRule \.ico$ - [L]
+	RewriteRule \.woff$ - [L]
+	RewriteRule \.ttf$ - [L]
 
 	# JS,CSSはそのまま
 	RewriteRule \.css$ - [L]

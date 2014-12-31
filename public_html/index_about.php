@@ -50,27 +50,31 @@ require_once(dirname(__FILE__) . '/_common.php');
 		<!-- コンテンツ用 -->
 		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		<style>
-		#content h1,
-		#content h2{
-			padding: 8px 32px;
-			color: #444;
-			font-size: 38pt;
-			margin-bottom: 0px;
-		}
-		#content h2{
-			font-size: 26pt;
-			margin-bottom: 0px;
-		}
-		#content p,
-		#content ul{
-			padding: 8px 32px;
-			color: #444;
-			font-size: 16pt;
-		}
-		#content ul{
-			margin-left: 10px;
-			list-style: none;
-		}
+			#content h1,
+			#content h2{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 38pt;
+				margin-bottom: 0px;
+			}
+			#content h2{
+				font-size: 26pt;
+				margin-bottom: 0px;
+			}
+			#content p,
+			#content ul{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 16pt;
+			}
+			#content ul{
+				margin-left: 10px;
+				list-style: none;
+			}
+			#copyright{
+				margin-top: 16px;
+				font-size: 16px;
+			}
 		</style>
 	</head>
 
@@ -100,17 +104,16 @@ require_once(dirname(__FILE__) . '/_common.php');
 			</div>
 		</nav>
 
-		<div class="container-fluid" id="content">
-			<div id="wrapper">
-				<h1>About</h1>
-				<h2>Author: kobake</h2>
-				<ul>
-					<li><a target="_blank" href="https://github.com/kobake"><i class="fa fa-github"></i> Github</a></li>
-					<li><a target="_blank" href="https://twitter.com/kobayan_tokyo"><i class="fa fa-twitter"></i> Twitter</a></li>
-					<li><a target="_blank" href="http://blog.clock-up.jp"><i class="fa fa-cube"></i> Blog</a></li>
-					<li><a target="_blank" href="http://clock-up.jp"><i class="fa fa-cube"></i> Website</a></li>
-				</ul>
-			</div>
+		<div class="container" id="content">
+			<h1>About</h1>
+			<h2>Author: kobake</h2>
+			<ul>
+				<li><a target="_blank" href="https://github.com/kobake"><i class="fa fa-github"></i> Github</a></li>
+				<li><a target="_blank" href="https://twitter.com/kobayan_tokyo"><i class="fa fa-twitter"></i> Twitter</a></li>
+				<li><a target="_blank" href="http://blog.clock-up.jp"><i class="fa fa-cube"></i> Blog</a></li>
+				<li><a target="_blank" href="http://clock-up.jp"><i class="fa fa-cube"></i> Website</a></li>
+			</ul>
+			<div id="copyright">(C) 2014 xref.info</div>
 		</div>
 
 		<!-- Bootstrap core JavaScript

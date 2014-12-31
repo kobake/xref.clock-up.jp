@@ -50,26 +50,26 @@ require_once(dirname(__FILE__) . '/_common.php');
 		<!-- コンテンツ用 -->
 		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		<style>
-		#content h1,
-		#content h2{
-			padding: 8px 32px;
-			color: #444;
-			font-size: 38pt;
-			margin-bottom: 0px;
-		}
-		#content h2{
-			font-size: 26pt;
-			margin-bottom: 0px;
-		}
-		#content p,
-		#content ul{
-			padding: 8px 32px;
-			color: #444;
-			font-size: 16pt;
-		}
-		#content ul{
-			margin-left: 30px;
-		}
+			#content h1,
+			#content h2{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 38pt;
+				margin-bottom: 0px;
+			}
+			#content h2{
+				font-size: 26pt;
+				margin-bottom: 0px;
+			}
+			#content p,
+			#content ul{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 16pt;
+			}
+			#content ul{
+				margin-left: 30px;
+			}
 		</style>
 	</head>
 
@@ -99,17 +99,15 @@ require_once(dirname(__FILE__) . '/_common.php');
 			</div>
 		</nav>
 
-		<div class="container-fluid" id="content">
-			<div id="wrapper">
-				<h1>xref.info</h1>
-				<!-- <p>Cross reference over various engines.</p> -->
-				<p>横断リファレンス的な。</p>
+		<div class="container" id="content">
+			<h1>xref.info</h1>
+			<!-- <p>Cross reference over various engines.</p> -->
+			<p>横断リファレンス的な。</p>
 
-				<h2>Contents</h2>
-				<ul>
-					<li><a href="/database">Database</a></li>
-				</ul>
-			</div>
+			<h2>Contents</h2>
+			<ul>
+				<li><a href="/database">Database</a></li>
+			</ul>
 		</div>
 
 		<!-- Bootstrap core JavaScript

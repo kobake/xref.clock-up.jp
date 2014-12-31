@@ -197,7 +197,7 @@ global $g_sections;
 					
 					
 					
-					<ul class="nav" id="side-menu">
+					<ul class="nav nav-first-level"" id="side-menu">
 						<!--
 						<li class="sidebar-search">
 							<div class="input-group custom-search-form">
@@ -238,7 +238,7 @@ global $g_sections;
 									</li>
 								<?php endforeach; ?>
 							<?php else: ?>
-								<li>
+								<li class="parent-li">
 									<a href="#"><i class="fa fa-wrench fa-fw"></i> <?php echo $category['category']; ?><span class="fa arrow"></span></a>
 									<ul class="nav nav-second-level">
 										<?php foreach ($category['titles'] as $title): ?>

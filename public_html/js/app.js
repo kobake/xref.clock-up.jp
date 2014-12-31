@@ -23,6 +23,10 @@ jQuery(function(){
 		});
 	});
 	
+	// 初期状態＝全部開き
+	$('li.parent-li').addClass('active');
+	$('ul.nav-second-level').collapse('show');
+	
 	return; // もう以下は必要無い。
 	jQuery('td').each(function(){
 		var td = jQuery(this);

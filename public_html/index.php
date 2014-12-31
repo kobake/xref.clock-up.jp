@@ -158,7 +158,7 @@ sections_commit();
 		</style>
 	</head>
 
-	<body class="current-mode0">
+	<body class="current-mode0 current-engine-mysql-on current-engine-oracle-on current-engine-postgresql-on current-engine-sqlite-on">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -177,7 +177,7 @@ sections_commit();
 					</ul>
 					
 					<!-- 縦横切替 -->
-					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
+					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
 						<label class="btn btn-info active">
 							<input type="radio" name="options" id="mode0" autocomplete="off" checked> 縦
 						</label>
@@ -187,7 +187,7 @@ sections_commit();
 					</div>
 					
 					<!-- エンジン切替 -->
-					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
+					<div id="engine-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
 						<label class="btn btn-info active">
 							<input type="checkbox" name="options" id="engine-mysql"      autocomplete="off" checked> MySQL
 						</label>

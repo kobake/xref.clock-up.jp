@@ -1,8 +1,3 @@
-.current-mode0 .mode1,
-.current-mode1 .mode0
-{
-	display: none;
-}
 *{
 	transition: none;
 }
@@ -14,4 +9,20 @@
 .sub-header{
 	padding-top: 60px;
 	margin-top: -60px
+}
+
+// 縦横モード表示切替
+.current-mode0 .mode1,
+.current-mode1 .mode0
+{
+	display: none;
+}
+
+// エンジン表示切替
+.current-engine-mysql-off      .engine-mysql,
+.current-engine-oracle-off     .engine-oracle,
+.current-engine-postgresql-off .engine-postgresql,
+.current-engine-sqlite-off     .engine-sqlite
+{
+	display: none;
 }

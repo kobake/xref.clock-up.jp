@@ -18,3 +18,11 @@
 .current-engine-sqlite-off .engine-sqlite {
   display: none;
 }
+.btn-default {
+  background-color: #666;
+  border-color: #888;
+}
+.btn-default:hover {
+  background-color: #777;
+  border-color: #999;
+}

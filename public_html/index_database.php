@@ -124,7 +124,7 @@ sections_commit();
 		<meta name="author" content="">
 		<link rel="icon" href="../../favicon.ico">
 
-		<title>xref.net - database</title>
+		<title><?php echo TITLE; ?> - database</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -169,7 +169,7 @@ sections_commit();
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">xref.info</a>
+					<a class="navbar-brand" href="/"><?php echo TITLE; ?></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">

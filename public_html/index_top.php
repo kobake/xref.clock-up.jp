@@ -13,7 +13,7 @@ require_once(dirname(__FILE__) . '/_common.php');
 		<meta name="author" content="">
 		<link rel="icon" href="../../favicon.ico">
 
-		<title>xref.net</title>
+		<title><?php echo TITLE; ?></title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@ require_once(dirname(__FILE__) . '/_common.php');
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">xref.info</a>
+					<a class="navbar-brand" href="/"><?php echo TITLE; ?></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -100,7 +100,7 @@ require_once(dirname(__FILE__) . '/_common.php');
 		</nav>
 
 		<div class="container" id="content">
-			<h1>xref.info</h1>
+			<h1><?php echo TITLE; ?></h1>
 			<!-- <p>Cross reference over various engines.</p> -->
 			<p>横断リファレンス的な。</p>
 

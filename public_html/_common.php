@@ -6,6 +6,9 @@ function r($text){
 	return $text;
 }
 
+// title
+define('TITLE', 'xref.jp');
+
 // smarty
 define('SMARTY_DIR', dirname(dirname(__FILE__)) . '/smarty/libs/');
 require_once(SMARTY_DIR . '/Smarty.class.php');

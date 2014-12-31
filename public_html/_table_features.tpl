@@ -14,7 +14,7 @@
 		<tbody>
 			{foreach from=$engines item=engine}
 				<tr class="engine-{$engine|lower}">
-					<td>{$engine}</td>
+					<th>{$engine}</th>
 					{foreach from=$features item=feature}
 						<td>
 							{if isset($contents["{$engine}_{$feature}"])}

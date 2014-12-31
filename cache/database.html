@@ -198,7 +198,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														$ mysql -u myuser -pxxx mytable
 													</td>
@@ -207,7 +207,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														$ sqlplus<br/>$ sqlplus myuser@myhost<br/>$ sqlplus myuser/xxxxx@myhost<br/>$ sqlplus myuser/xxxxx@myhost/xe
 													</td>
@@ -216,7 +216,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														$ psql mydatabase myuser
 													</td>
@@ -225,7 +225,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														$ sqlite3 mydatabase.sqlite3
 													</td>
@@ -254,7 +254,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>ログイン</td>
+					<th>ログイン</th>
 											<td class="engine-mysql">
 														$ mysql -u myuser -pxxx mytable
 													</td>
@@ -269,7 +269,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>ログアウト</td>
+					<th>ログアウト</th>
 											<td class="engine-mysql">
 														sql> QUIT (EXITも可)
 													</td>
@@ -303,7 +303,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														CREATE USER 'myuser'@'myhost';<br/>CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';<br/>GRANT ALL ON *.* TO myuser@localhost IDENTIFIED BY 'xxxxxx';
 													</td>
@@ -315,7 +315,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														CREATE USER myuser IDENTIFIED BY "xxx"<br/>&nbsp;&nbsp;&nbsp;DEFAULT TABLESPACE users;
 													</td>
@@ -327,7 +327,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														$ createuser myuser -P<br/>sql> CREATE USER myuser;<br/>sql> CREATE USER myuser WITH LOGIN PASSWORD 'xxx';
 													</td>
@@ -339,7 +339,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														-
 													</td>
@@ -371,7 +371,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>ユーザ作成</td>
+					<th>ユーザ作成</th>
 											<td class="engine-mysql">
 														CREATE USER 'myuser'@'myhost';<br/>CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';<br/>GRANT ALL ON *.* TO myuser@localhost IDENTIFIED BY 'xxxxxx';
 													</td>
@@ -386,7 +386,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>ユーザ削除</td>
+					<th>ユーザ削除</th>
 											<td class="engine-mysql">
 														$ dropuser myuser<br/>sql> DROP USER 'myuser'@'myhost';
 													</td>
@@ -401,7 +401,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>ユーザ一覧</td>
+					<th>ユーザ一覧</th>
 											<td class="engine-mysql">
 														SELECT User, Host from mysql.user;
 													</td>
@@ -435,7 +435,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> CREATE DATABASE mydatabase;
 													</td>
@@ -447,7 +447,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														-
 													</td>
@@ -459,7 +459,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														$ createdb mydatabase<br/>sql> CREATE DATABASE mydatabase;
 													</td>
@@ -471,7 +471,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														$ sqlite3 mydatabase.sqlite3
 													</td>
@@ -503,7 +503,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>データベース作成</td>
+					<th>データベース作成</th>
 											<td class="engine-mysql">
 														sql> CREATE DATABASE mydatabase;
 													</td>
@@ -518,7 +518,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>データベース削除</td>
+					<th>データベース削除</th>
 											<td class="engine-mysql">
 														sql> DROP DATABASE mydatabase;
 													</td>
@@ -533,7 +533,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>データベース一覧</td>
+					<th>データベース一覧</th>
 											<td class="engine-mysql">
 														sql> SHOW DATABASES;
 													</td>
@@ -566,7 +566,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR(20));
 													</td>
@@ -575,7 +575,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> CREATE TABLE mytable(ColA NUMBER, ColB VARCHAR2(20));
 													</td>
@@ -584,7 +584,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
 													</td>
@@ -593,7 +593,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
 													</td>
@@ -622,7 +622,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>テーブル作成</td>
+					<th>テーブル作成</th>
 											<td class="engine-mysql">
 														sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR(20));
 													</td>
@@ -637,7 +637,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>テーブル削除</td>
+					<th>テーブル削除</th>
 											<td class="engine-mysql">
 														sql> DROP TABLE mytable;
 													</td>
@@ -670,7 +670,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> ALTER TABLE mytable RENAME TO mytable2;
 													</td>
@@ -679,7 +679,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> ALTER TABLE mytable RENAME TO mytable2;
 													</td>
@@ -688,7 +688,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> ALTER TABLE mytable RENAME TO mytable2;
 													</td>
@@ -697,7 +697,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> ALTER TABLE mytable RENAME TO mytable2;
 													</td>
@@ -726,7 +726,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>テーブル名変更</td>
+					<th>テーブル名変更</th>
 											<td class="engine-mysql">
 														sql> ALTER TABLE mytable RENAME TO mytable2;
 													</td>
@@ -741,7 +741,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>カラム名変更</td>
+					<th>カラム名変更</th>
 											<td class="engine-mysql">
 														sql> ALTER TABLE mytable CHANGE ColA ColX 元の型;
 													</td>
@@ -774,7 +774,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> DESC mytable;
 													</td>
@@ -783,7 +783,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> DESC mytable;
 													</td>
@@ -792,7 +792,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> \d mytable
 													</td>
@@ -801,7 +801,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> .schema mytable
 													</td>
@@ -830,7 +830,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>テーブル定義表示</td>
+					<th>テーブル定義表示</th>
 											<td class="engine-mysql">
 														sql> DESC mytable;
 													</td>
@@ -845,7 +845,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>テーブル一覧表示</td>
+					<th>テーブル一覧表示</th>
 											<td class="engine-mysql">
 														sql> SHOW TABLES;
 													</td>
@@ -880,7 +880,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> SELECT * FROM mytable;
 													</td>
@@ -895,7 +895,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> SELECT * FROM mytable;
 													</td>
@@ -910,7 +910,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> SELECT * FROM mytable;
 													</td>
@@ -925,7 +925,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> SELECT * FROM mytable;
 													</td>
@@ -960,7 +960,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>選択</td>
+					<th>選択</th>
 											<td class="engine-mysql">
 														sql> SELECT * FROM mytable;
 													</td>
@@ -975,7 +975,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>挿入</td>
+					<th>挿入</th>
 											<td class="engine-mysql">
 														sql> INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
 													</td>
@@ -990,7 +990,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>更新</td>
+					<th>更新</th>
 											<td class="engine-mysql">
 														sql> UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
 													</td>
@@ -1005,7 +1005,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>削除</td>
+					<th>削除</th>
 											<td class="engine-mysql">
 														sql> DELETE FROM mytable WHERE ColA = 10;
 													</td>
@@ -1039,7 +1039,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> SELECT * FROM mytable WHERE ColA = 10;
 													</td>
@@ -1051,7 +1051,7 @@
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> SELECT * FROM mytable WHERE ColA = 10;
 													</td>
@@ -1063,7 +1063,7 @@
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> SELECT * FROM mytable WHERE ColA = 10;
 													</td>
@@ -1075,7 +1075,7 @@
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> SELECT * FROM mytable WHERE ColA = 10;
 													</td>
@@ -1107,7 +1107,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>条件</td>
+					<th>条件</th>
 											<td class="engine-mysql">
 														sql> SELECT * FROM mytable WHERE ColA = 10;
 													</td>
@@ -1122,7 +1122,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>並び</td>
+					<th>並び</th>
 											<td class="engine-mysql">
 														sql> SELECT * FROM mytable ORDER BY ColA;<br/>sql> SELECT * FROM mytable ORDER BY ColA DESC;
 													</td>
@@ -1137,7 +1137,7 @@
 													</td>
 									</tr>
 							<tr>
-					<td>件数</td>
+					<th>件数</th>
 											<td class="engine-mysql">
 														sql> SELECT * FROM mytable LIMIT 10;
 													</td>
@@ -1169,7 +1169,7 @@
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> CREATE TABLE mytable(<br/>
 &nbsp;&nbsp;&nbsp;id INT NOT NULL <red>PRIMARY KEY AUTO_INCREMENT</red>,<br/>
@@ -1179,7 +1179,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														sql> CREATE TABLE mytable(<br/>
 &nbsp;&nbsp;&nbsp;id NUMBER NOT NULL,<br/>
@@ -1190,7 +1190,7 @@ sql> INSERT INTO mytable(id, ColA) VALUES(<red>myseq.NEXTVAL</red>, 'XX');
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> CREATE TABLE mytable(<br/>
 &nbsp;&nbsp;&nbsp;id <red>SERIAL</red> NOT NULL,<br/>
@@ -1200,7 +1200,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> CREATE TABLE mytable(<br/>
 &nbsp;&nbsp;&nbsp;id INTEGER <red>PRIMARY KEY AUTOINCREMENT</red>,<br/>
@@ -1230,7 +1230,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>自動連番</td>
+					<th>自動連番</th>
 											<td class="engine-mysql">
 														sql> CREATE TABLE mytable(<br/>
 &nbsp;&nbsp;&nbsp;id INT NOT NULL <red>PRIMARY KEY AUTO_INCREMENT</red>,<br/>
@@ -1281,7 +1281,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 		<!-- body -->
 		<tbody>
 							<tr class="engine-mysql">
-					<td>MySQL</td>
+					<th>MySQL</th>
 											<td>
 														sql> BEGIN;
 													</td>
@@ -1293,7 +1293,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr class="engine-oracle">
-					<td>Oracle</td>
+					<th>Oracle</th>
 											<td>
 														(自動)
 													</td>
@@ -1305,7 +1305,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr class="engine-postgresql">
-					<td>PostgreSQL</td>
+					<th>PostgreSQL</th>
 											<td>
 														sql> BEGIN;
 													</td>
@@ -1317,7 +1317,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr class="engine-sqlite">
-					<td>SQLite</td>
+					<th>SQLite</th>
 											<td>
 														sql> BEGIN;
 													</td>
@@ -1349,7 +1349,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 		<!-- body -->
 		<tbody>
 							<tr>
-					<td>トランザクション開始</td>
+					<th>トランザクション開始</th>
 											<td class="engine-mysql">
 														sql> BEGIN;
 													</td>
@@ -1364,7 +1364,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr>
-					<td>トランザクション確定</td>
+					<th>トランザクション確定</th>
 											<td class="engine-mysql">
 														sql> COMMIT;
 													</td>
@@ -1379,7 +1379,7 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 									</tr>
 							<tr>
-					<td>トランザクション破棄</td>
+					<th>トランザクション破棄</th>
 											<td class="engine-mysql">
 														sql> ROLLBACK;
 													</td>

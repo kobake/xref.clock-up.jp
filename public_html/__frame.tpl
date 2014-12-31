@@ -77,7 +77,7 @@
 		
 	</head>
 
-	<body class="current-mode0 current-engine-mysql-on current-engine-oracle-on current-engine-postgresql-on current-engine-sqlite-on">
+	<body data-spy="scroll" class="current-mode0 current-engine-mysql-on current-engine-oracle-on current-engine-postgresql-on current-engine-sqlite-on">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -90,7 +90,7 @@
 					</button>
 					<a class="navbar-brand" href="/">{$sitetitle}</a>
 				</div>
-				<div id="navbar" class="navbar-collapse collapse">
+				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li {if $sitesubtitle === ' - Database'}class="active"{/if}><a href="/database">Database</a></li>
 					</ul>

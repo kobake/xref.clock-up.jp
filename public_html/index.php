@@ -55,7 +55,7 @@ else{
 	$cachename = 'notfound.html';
 }
 
-// コンテンツPHPによるキャッシュ生成
+// コンテンツPHPによるキャッシュ生成とか取得とか
 if (APP_TYPE == 'product' || APP_TYPE === 'production') {
 	$html = file_get_contents(CACHE_DIR . '/' . $cachename);
 }
@@ -73,7 +73,7 @@ else{
 		$smarty->assign('sitesubtitle', ' - Database');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
-		$content = $smarty->fetch(dirname(__FILE__) . '/_database.tpl');
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_database.tpl');
 	}
 	else if($uri_without_query === '/about'){
 		// 本体

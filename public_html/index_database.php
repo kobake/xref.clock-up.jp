@@ -173,7 +173,7 @@ sections_commit();
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Database</a></li>
+						<li class="active"><a href="/database">Database</a></li>
 					</ul>
 					
 					<!-- 縦横切替 -->

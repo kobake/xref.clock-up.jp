@@ -15,5 +15,32 @@ define('APP_ROOT', dirname(__FILE__));
 define('DATA_ROOT', realpath(dirname(__FILE__) . '/../data'));
 define('TMP_ROOT', realpath(dirname(__FILE__) . '/../tmp'));
 
+// HTTPリクエスト -> $uri_without_query … "/", "/db" 等
+$uri_without_query = '';
+if(isset($_SERVER['REQUEST_URI'])){
+	$uri_without_query = preg_replace('/\?.*/', '', $_SERVER['REQUEST_URI']);
+	// *.xml, robots.txt の処理
+	if(preg_match('/\.xml$/', $uri_without_query)){
+		header('Content-type: text/xml; charset=UTF-8');
+		print(file_get_contents(APP_ROOT . $uri_without_query));
+		exit(0);
+	}
+	else if(preg_match('/robots\.txt$/', $uri_without_query)){
+		header('Content-type: text/plain; charset=UTF-8');
+		print(file_get_contents(APP_ROOT . $uri_without_query));
+		exit(0);
+	}
+}
+//print "uri_without_query = $uri_without_query\n";exit;
+
 // コンテンツPHP
-include(dirname(__FILE__) . '/database.php');
+if($uri_without_query === '/database'){
+	include(dirname(__FILE__) . '/index_database.php');
+}
+else if($uri_without_query === '/'){
+	include(dirname(__FILE__) . '/index_top.php');
+}
+else{
+	include(dirname(__FILE__) . '/index_notfound.php');
+}
+

@@ -8,3 +8,7 @@
 .xdebug-error {
   margin-left: 300px;
 }
+.sub-header {
+  padding-top: 60px;
+  margin-top: -60px;
+}

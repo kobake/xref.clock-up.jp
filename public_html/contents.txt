@@ -235,3 +235,5 @@ SQLite_自動連番
 トランザクション破棄_Oracle		sql> ROLLBACK;
 トランザクション破棄_PostgreSQL	sql> ROLLBACK;
 トランザクション破棄_SQLite		sql> ROLLBACK;
+
+テスト

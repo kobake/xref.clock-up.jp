@@ -22,9 +22,142 @@ $g_sections = [];
 $g_sectionsBody = '';
 
 // セクションタイトル抜き出し
-function section_title($title){
-	$tmp = explode('/', $title);
+function section_title($sectiontitle){
+	$tmp = explode('/', $sectiontitle);
 	return $tmp[count($tmp) - 1];
+}
+
+// リンク出力
+function easylink($title) {
+	$tmp = explode(':', $title);
+	return "<a href=\"#{$tmp[0]}\">{$tmp[1]}</a>\n";
+}
+
+// メニュー出力
+function print_menus(){
+	global $g_categories;
+	foreach ($g_categories as $category){
+		if ($category['categoryname'] === '無'){
+			foreach ($category['titles'] as $title){
+				print "<li>" . easylink($title) . "</li>\n";
+			}
+		}
+		else{
+			print "<li class=\"parent-li\">" . easylink($category['categoryname']) . "\n";
+			print "<ul class=\"nav nav-second-level\">\n";
+			foreach ($category['titles'] as $title){
+				print "<li>" . easylink($title) . "</li>";
+			}
+			print "</ul>\n";
+			print "</li>\n";
+		}
+	}
+}
+
+function slashright($str){
+	$tmp = explode('/', $str);
+	return $tmp[count($tmp) - 1];
+}
+
+function colright($str) {
+	$tmp = explode(':', $str);
+	return $tmp[count($tmp) - 1];
+}
+
+function colleft($str) {
+	$tmp = explode(':', $str);
+	return $tmp[0];
+}
+
+function find_section($sectiontitle){
+	global $g_sections;
+	//var_dump($g_sections);exit;
+	foreach ($g_sections as $section) {
+		if(slashright($section['title']) === slashright($sectiontitle))return $section;
+	}
+	return null;
+}
+
+// 全セクション確定
+function sections_commit(){
+	global $g_categories;
+	global $g_sections;
+	global $smarty;
+	
+	// カテゴリ構築、およびanchor整理
+	$g_categories = [];
+	foreach ($g_sections as $section) {
+		$title = $section['title'];
+		$tmp = explode('/', $title);
+		if (count($tmp) < 2) {
+			array_unshift($tmp, '無');
+		}
+		$category = $tmp[0];
+		$title = $tmp[1];
+		if (count($g_categories) == 0 || $g_categories[count($g_categories) - 1]['categoryname'] !== $category) {
+			$g_categories[] = [
+				'categoryname' => $category,
+				'titles' => []
+			];
+		}
+		$g_categories[count($g_categories) - 1]['titles'][] = $title;
+	}
+	
+	// コンテンツ部構築
+	// var_dump($g_categories); exit;
+	foreach($g_categories as $category){ // 「無」とか「管理」とか「テーブル定義」とか
+		// 大見出し
+		$h = 2;
+		if($category['categoryname'] !== '無'){
+			$id = colleft($category['categoryname']);
+			section_echo("<h{$h} id=\"{$id}\" class=\"sub-header\">" . colright($category['categoryname']) . "</h{$h}>");
+			$h++;
+		}
+
+		foreach($category['titles'] as $sectiontitle0){ // 「テーブル作成・削除」とか
+			$tmp = explode(':', $sectiontitle0);
+			$anchor = '';
+			$sectiontitle = $sectiontitle0;
+			if(count($tmp) >= 2){
+				$anchor = $tmp[0];
+				$sectiontitle = $tmp[1];
+			}
+			
+			// 中見出し
+			section_echo("<h{$h} class = \"sub-header\">$sectiontitle</h{$h}>");
+	
+			// section内容出力
+			if($sectiontitle !== '無'){
+				// sectionを探す
+				$section = find_section($sectiontitle0);
+				if(!$section){
+					print "<div style=\"margin-left: 300px; margin-top: 50px;\">";
+					print "sectiontitle = $sectiontitle0 が見つかりません\n";
+					print "</div";
+					//var_dump($sectiontitle);
+					continue;
+					exit;
+				}
+
+				// section出力準備
+				$smarty->assign('features', $section['features']);
+
+				// 縦出力
+				section_echo("<div class=\"mode0\">\n"); {
+					// section_echo("<h2 class = \"sub-header\">{$sectiontitle}</h2>\n");
+					section_echo($smarty->fetch('_table_features.tpl'));
+				}
+				section_echo("</div>\n");
+
+				// 横出力
+				section_echo("<div class=\"mode1\">\n"); {
+					// section_echo("<h2 class = \"sub-header\">{$sectiontitle}</h2>\n");
+					section_echo($smarty->fetch('_table_engines.tpl'));
+				}
+				section_echo("</div>\n");
+			}
+		}
+	}
 }
 
 // 全セクション出力
@@ -41,26 +174,12 @@ function section_echo($text){
 
 // セクション準備
 function section($title, $features) {
-	global $smarty;
 	global $g_sections;
 	
-	$g_sections[] = $title;
-	
-	$smarty->assign('features', $features);
-
-	section_echo("<div class=\"mode0\">\n");
-	{
-		section_echo("<h2 class = \"sub-header\">{$title}</h2>\n");
-		section_echo($smarty->fetch('_table_features.tpl'));
-	}
-	section_echo("</div>\n");
-	
-	section_echo("<div class=\"mode1\">\n");
-	{
-		section_echo("<h2 class = \"sub-header\">{$title}</h2>\n");
-		section_echo($smarty->fetch('_table_engines.tpl'));
-	}
-	section_echo("</div>\n");
+	$g_sections[] = [
+		'title' => $title,
+		'features' => $features
+	];
 }
 
 // コメント除去
@@ -165,8 +284,13 @@ function generateContents($text, &$engines, &$features, $default_engines){
 						break;
 					}
 				}
-				$content = preg_replace('/<br\/>\n$/i', '', $content);
-				$content = preg_replace('/<br\/>\n$/i', '', $content);
+				// 後ろの改行除去
+				$old = $content;
+				while(true){
+					$content = preg_replace('/<br\/>\n$/i', '', $content);
+					if($content === $old)break;
+					$old = $content;
+				}
 			}
 			// title加工(連続アンダースコア除去)
 			$title = preg_replace('/_+/', '_', $title);

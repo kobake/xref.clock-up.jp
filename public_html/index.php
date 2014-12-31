@@ -111,8 +111,8 @@ section(
 	]
 );
 
-// その他グローバル変数
-global $g_sections;
+// 全セクション確定
+sections_commit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -218,50 +218,8 @@ global $g_sections;
 						</li>
 						  -->
 						
-						<?php
-						$g_categories = [];
-						foreach ($g_sections as $title){
-							$tmp = explode('/', $title);
-							if (count($tmp) < 2) {
-								array_unshift($tmp, '無');
-							}
-							$category = $tmp[0];
-							$title = $tmp[1];
-							if(count($g_categories) == 0 || $g_categories[count($g_categories) - 1]['category'] !== $category){
-								$g_categories[] = [
-									'category' => $category,
-									'titles' => []
-								];
-							}
-							$g_categories[count($g_categories) - 1]['titles'][] = $title;
-						}
-						?>
-						<?php
-						function easylink($title){
-							$tmp = explode(':', $title);
-							echo "<a href=\"#{$tmp[0]}\">{$tmp[1]}</a>\n";
-						}
-						?>
-						<?php foreach ($g_categories as $category): ?>
-							<?php if($category['category'] === '無'): ?>
-								<?php foreach ($category['titles'] as $title): ?>
-									<li>
-										<?php easylink($title); ?></a>
-									</li>
-								<?php endforeach; ?>
-							<?php else: ?>
-								<li class="parent-li">
-									<?php easylink($category['category']); ?>
-									<ul class="nav nav-second-level">
-										<?php foreach ($category['titles'] as $title): ?>
-											<li>
-												<?php easylink($title); ?>
-											</li>
-										<?php endforeach; ?>
-									</ul>
-								</li>
-							<?php endif; ?>
-						<?php endforeach; ?>
+						
+						<?php print_menus(); ?>
 
 					</ul>
 
@@ -273,12 +231,7 @@ global $g_sections;
 					
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Database</h1>
-					
-					<div>
-						
-					</div>
-
+					<!-- <h1 class="page-header">Database</h1> -->
 					
 					<?php
 					print_sections();

@@ -8,13 +8,13 @@
 		<meta name="author" content="">
 		<link rel="icon" href="../../favicon.ico">
 
-		<title>{$sitetitle} - {$sitesubtitle}</title>
+		<title>{$sitetitle}{$sitesubtitle}</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 		<link href="/css/sb-admin-2.css" rel="stylesheet">
-		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 		<link href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
@@ -40,6 +40,41 @@
 				color: red;
 			}
 		</style>
+
+		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+		<!-- マトリクス以外のコンテンツ用 -->
+		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+		<style>
+			#content h1,
+			#content h2{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 38pt;
+				margin-bottom: 0px;
+			}
+			#content h2{
+				font-size: 26pt;
+				margin-bottom: 0px;
+			}
+			#content p,
+			#content ul{
+				padding: 8px 0px;
+				color: #444;
+				font-size: 16pt;
+			}
+			#content.about ul{
+				margin-left: 10px;
+				list-style: none;
+			}
+			#copyright{
+				margin-top: 16px;
+				font-size: 16px;
+			}
+			#content.top ul{
+				margin-left: 30px;
+			}
+		</style>
+		
 	</head>
 
 	<body class="current-mode0 current-engine-mysql-on current-engine-oracle-on current-engine-postgresql-on current-engine-sqlite-on">
@@ -57,9 +92,10 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/database">Database</a></li>
+						<li {if $sitesubtitle === ' - Database'}class="active"{/if}><a href="/database">Database</a></li>
 					</ul>
 					
+					{if $sitesubtitle === ' - Database'}
 					<!-- 縦横切替 -->
 					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
 						<label class="btn btn-info active">
@@ -85,53 +121,18 @@
 							<input type="checkbox" name="options" id="engine-sqlite"     autocomplete="off" checked> SQLite
 						</label>
 					</div>
+					{/if}
 
 					<!-- 右上About -->
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/about">About</a></li>
+						<li {if $sitesubtitle===' - About'}class="active"{/if}><a href="/about">About</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<!-- 左サイドバーメニュー参考：http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-3 col-md-2 sidebar">
-					
-					<ul class="nav nav-first-level" id="side-menu"> <!-- ※nav-sidebarクラスを付けると、active部分が強調表示になる -->
-						<!--
-						<li class="sidebar-search">
-							<div class="input-group custom-search-form">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">
-										<i class="fa fa-search"></i>
-									</button>
-								</span>
-							</div>
-						</li>
-						  -->
-						
-						{$menus}
+		{$content}
 
-					</ul>
-
-					
-
-					<!-- アクティブ状態（選択状態）サンプル
-					<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
-					-->
-					
-				</div>
-				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<!-- <h1 class="page-header">Database</h1> -->
-					
-					{$sections}
-					
-				</div>
-			</div>
-		</div>
 
 		<!-- Bootstrap core JavaScript
 		================================================== -->

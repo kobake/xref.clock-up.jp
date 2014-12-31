@@ -8,6 +8,9 @@ function setDefaultTimezone($timezone) {
 // 環境
 define('APP_TYPE', getenv('apptype'));
 
+// 共通関数
+require_once(dirname(__FILE__) . '/_common.php');
+
 // 日本語対策 (これをしないと escapeshellarg が日本語を除外してしまう)
 setlocale(LC_CTYPE, "en_US.UTF-8");
 setDefaultTimezone('Asia/Tokyo');
@@ -37,30 +40,40 @@ if(isset($_SERVER['REQUEST_URI'])){
 //print "uri_without_query = $uri_without_query\n";exit;
 
 // コンテンツPHP
+global $smarty;
+$smarty->assign('sitetitle', TITLE);
+
 if($uri_without_query === '/database'){
 	include(dirname(__FILE__) . '/index_database.php');
 	
 	// 全セクション確定
 	sections_commit();
 	
-	// HTML生成	
-	global $smarty;
-	$smarty->assign('sitetitle', TITLE);
-	$smarty->assign('sitesubtitle', 'database');
+	// 本体
+	$smarty->assign('sitesubtitle', ' - Database');
 	$smarty->assign('menus', fetch_menus());
 	$smarty->assign('sections', fetch_sections());
-	$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
-	
-	// 出力
-	print $html;
+	$content = $smarty->fetch(dirname(__FILE__) . '/_database.tpl');
 }
 else if($uri_without_query === '/about'){
-	include(dirname(__FILE__) . '/index_about.php');
+	// 本体
+	$smarty->assign('sitesubtitle', ' - About');
+	$content = $smarty->fetch(dirname(__FILE__) . '/content_about.tpl');
 }
 else if($uri_without_query === '/'){
-	include(dirname(__FILE__) . '/index_top.php');
+	// 本体
+	$smarty->assign('sitesubtitle', '');
+	$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
 }
 else{
 	header("HTTP/1.0 404 Not Found");
 	include(dirname(__FILE__) . '/index_notfound.php');
+	exit;
 }
+
+// HTML生成	
+$smarty->assign('content', $content);
+$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
+
+// 出力
+print $html;

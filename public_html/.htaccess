@@ -1,4 +1,9 @@
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# アクセス禁止リスト
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 order deny,allow
+
+# Visual Studio
 <Files *.sln>
    deny from all
 </Files>
@@ -12,3 +17,63 @@ order deny,allow
    deny from all
 </Files>
 
+# Template, Data
+<Files *.tpl>
+   deny from all
+</Files>
+<Files *.txt>
+   deny from all
+</Files>
+<Files *.html>
+   deny from all
+</Files>
+<Files *.less>
+   deny from all
+</Files>
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# ルーティング
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# [QSA]は、「Query String Append」の略で、%{QUERY_STRING}を引数としてつけたいときに使うフラグである。
+# [L]フラグは、Rewrite機能の変換を打ち切ること指示するものである。
+<IfModule mod_rewrite.c>
+	# DirectorySlash Off
+	RewriteEngine On
+
+	# 画像はそのまま
+	RewriteRule \.png$ - [L]
+	RewriteRule \.gif$ - [L]
+	RewriteRule \.jpg$ - [L]
+	RewriteRule \.jpeg$ - [L]
+	RewriteRule \.ico$ - [L]
+
+	# JS,CSSはそのまま
+	RewriteRule \.css$ - [L]
+	RewriteRule \.js$ - [L]
+
+	# PHPもそのまま (実験)
+	# RewriteRule \.php$ - [L]
+
+	# *.xml, robots.txt は index.php で処理
+	# RewriteRule \.xml$ index.php [QSA,L]
+	# RewriteRule robots\.txt$ index.php [QSA,L]
+
+	# 後ろが / で終わる場合には / を削る
+	# RewriteCond %{REQUEST_FILENAME} /$
+	# RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+	# 何もない場合は
+	# RewriteCond %{REQUEST_FILENAME} ^$
+	# RewriteRule ^(.*)$ hogehoge [R=301,L]
+	# DirectorySlash On
+
+	# *.html の指定の場合には
+	# RewriteCond %{REQUEST_FILENAME} .html$
+	# ルールを適用する
+	# RewriteRule ^(.*)$ index.php [QSA,L]
+
+	# 常に
+	RewriteCond %{REQUEST_FILENAME} .
+	# ルールを適用する (フレームレイアウト)
+	RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

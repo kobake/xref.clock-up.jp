@@ -37,3 +37,9 @@
 .sidebar li.second a {
   padding-left: 37px;
 }
+.navbar-inverse .navbar-nav > .active2 > a,
+.navbar-inverse .navbar-nav > .active2 > a:hover,
+.navbar-inverse .navbar-nav > .active2 > a:focus {
+  color: #fff;
+  background-color: #080808;
+}

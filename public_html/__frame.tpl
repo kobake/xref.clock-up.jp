@@ -92,7 +92,7 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li {if $sitesubtitle === ' - Database'}class="active"{/if}><a href="/database">Database</a></li>
+						<li {if $sitesubtitle === ' - Database'}class="active2"{/if}><a href="/database">Database</a></li>
 					</ul>
 					
 					{if $sitesubtitle === ' - Database'}
@@ -125,7 +125,7 @@
 
 					<!-- 右上About -->
 					<ul class="nav navbar-nav navbar-right">
-						<li {if $sitesubtitle===' - About'}class="active"{/if}><a href="/about">About</a></li>
+						<li {if $sitesubtitle===' - About'}class="active2"{/if}><a href="/about">About</a></li>
 					</ul>
 				</div>
 			</div>

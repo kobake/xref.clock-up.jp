@@ -6,7 +6,7 @@
 			<tr>
 				<th></th>
 				{foreach from=$engines item=engine}
-				<th>{$engine}</th>
+				<th class="engine-{$engine|lower}">{$engine}</th>
 				{/foreach}
 			</tr>
 		</thead>
@@ -16,7 +16,7 @@
 				<tr>
 					<td>{$feature}</td>
 					{foreach from=$engines item=engine}
-						<td>
+						<td class="engine-{$engine|lower}">
 							{if isset($contents["{$engine}_{$feature}"])}
 							{$contents["{$engine}_{$feature}"]}
 							{/if}

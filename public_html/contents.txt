@@ -1,5 +1,5 @@
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# 導入・ログイン
+# 導入・管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 MySQL_インストール	# yum -y install mysql
 MySQL_起動・停止	# service mysqld start
@@ -12,13 +12,16 @@ Oracle_起動・停止	未
 PostgreSQL_インストール	未
 PostgreSQL_起動・停止	未
 
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# ログイン・ログアウト
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 ログイン_MySQL			$ mysql -u myuser -pxxx mytable
 ログイン_Oracle			$ sqlplus
 ログイン_PostgreSQL		$ psql mydatabase myuser
-ログイン_SQLite			$ sqlite3
+ログイン_SQLite			$ sqlite3 mydatabase.sqlite3
 
-ログアウト_MySQL		sql> quit
-ログアウト_Oracle		sql> quit
+ログアウト_MySQL		sql> quit (exitも可)
+ログアウト_Oracle		sql> exit (quitも可)
 ログアウト_PostgreSQL	sql> \q
 ログアウト_SQLite		sql> .exit
 
@@ -30,26 +33,38 @@ PostgreSQL_起動・停止	未
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # ユーザ管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+PostgreSQLロールメモ
+	sql> CREATE ROLE myrole;
+	sql> CREATE ROLE myrole WITH LOGIN;
+	sql> CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
+	sql> DROP ROLE myrole;
+	sql> DROP OWNED BY myuser;
+
 ユーザ作成_MySQL		CREATE USER 'myuser'@'myhost';
 						CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';
-ユーザ作成_Oracle		CREATE USER 'myuser' IDENTIFIED BY "xxx"
+						GRANT ALL ON *.* TO myuser@localhost IDENTIFIED BY 'xxxxxx';
+ユーザ作成_Oracle		CREATE USER myuser IDENTIFIED BY "xxx"
 							DEFAULT TABLESPACE users;
-ユーザ作成_PostgreSQL	(ロール) CREATE ROLE myrole WITH LOGIN;
-						(ロール) CREATE ROLE myrole WITH LOGIN PASSWORD 'xxx';
+ユーザ作成_PostgreSQL	$ createuser myuser -P
+						sql> CREATE USER myuser;
+						sql> CREATE USER myuser WITH LOGIN PASSWORD 'xxx';
 ユーザ作成_SQLite		-
 
-ユーザ削除_MySQL		DROP USER 'myuser'@'myhost';
-ユーザ削除_Oracle		DROP USER 'myuser';
-						DROP USER 'myuser' CASCADE; # 対象ユーザが所有するオブジェクトごと削除する
-ユーザ削除_PostgreSQL	(ロール) DROP ROLE myrole;
+ユーザ削除_MySQL		$ dropuser myuser
+						sql> DROP USER 'myuser'@'myhost';
+ユーザ削除_Oracle		sql> DROP USER myuser;
+						sql> DROP USER myuser CASCADE; # 対象ユーザが所有するオブジェクトごと削除する
+ユーザ削除_PostgreSQL	$ dropuser myuser
+						sql> DROP USER myuser;
+						
 ユーザ削除_SQLite		-
 
 ユーザ一覧_MySQL		SELECT User, Host from mysql.user;
 ユーザ一覧_Oracle		SELECT * FROM user_users; # -- ユーザ自身
 						SELECT * FROM dba_users; # -- 全てのユーザ
 						SELECT * FROM all_users; # -- 全てのユーザ
-ユーザ一覧_PostgreSQL	select usename from pg_user;
-						(ロール) select rolname from pg_roles;
+ユーザ一覧_PostgreSQL	sql> select usename from pg_user;
+						sql> select rolname from pg_roles;
 ユーザ一覧_SQLite		-
 
 
@@ -59,79 +74,117 @@ PostgreSQL_起動・停止	未
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 データベース作成_MySQL		sql> CREATE DATABASE mydatabase;
 データベース作成_Oracle		-
-データベース作成_PostgreSQL	sql> CREATE DATABASE mydatabase;
+データベース作成_PostgreSQL	$ createdb mydatabase
+							sql> CREATE DATABASE mydatabase;
 データベース作成_SQLite		$ sqlite3 mydatabase.sqlite3
 
 データベース削除_MySQL		sql> DROP DATABASE mydatabase;
 データベース削除_Oracle		-
-データベース削除_PostgreSQL	sql> DROP DATABASE mydatabase;
-データベース削除_SQLite		-
+データベース削除_PostgreSQL	$ dropdb mydatabase
+							sql> DROP DATABASE mydatabase;
+データベース削除_SQLite		$ rm mydatabase.sqlite3
 
 データベース一覧_MySQL		sql> SHOW DATABASES;
 データベース一覧_Oracle		-
-データベース一覧_PostgreSQL	sql> \l;
+データベース一覧_PostgreSQL	sql> \l
 データベース一覧_SQLite		-
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL_テーブル作成
-	CREATE TABLE mytable(
-	id INT NOT NULL AUTO_INCREMENT,
-		ColA VARCHAR2(5)
-	);
-MySQL_テーブル削除		DROP TABLE mytable;
-MySQL_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-Oracle_テーブル作成
-	CREATE TABLE mytable(
-		id INT NOT NULL AUTO_INCREMENT,
-		ColA VARCHAR2(5)
-	);
-Oracle_テーブル削除		DROP TABLE mytable;
-Oracle_テーブル変更		ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
-PostgreSQL_テーブル作成
-	CREATE TABLE mytable(
-		id INT NOT NULL AUTO_INCREMENT,
-		ColA VARCHAR2(5)
-	);
-PostgreSQL_テーブル削除	DROP TABLE mytable;
-PostgreSQL_テーブル変更	ALTER TABLE mytable CHANGE ColA ColX VARCHAR2(10);
+テーブル作成_MySQL		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR(5));
+テーブル作成_Oracle		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR2(5));
+テーブル作成_PostgreSQL	sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
+テーブル作成_SQLite		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
+
+テーブル削除_MySQL		sql> DROP TABLE mytable;
+テーブル削除_Oracle		sql> DROP TABLE mytable;
+テーブル削除_PostgreSQL	sql> DROP TABLE mytable;
+テーブル削除_SQLite		sql> DROP TABLE mytable;
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル定義変更
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+テーブル名変更_MySQL		sql> ALTER TABLE mytable RENAME TO mytable2;
+テーブル名変更_Oracle		sql> ALTER TABLE mytable RENAME TO mytable2;
+テーブル名変更_PostgreSQL	sql> ALTER TABLE mytable RENAME TO mytable2;
+テーブル名変更_SQLite		sql> ALTER TABLE mytable RENAME TO mytable2;
+
+カラム名変更_MySQL			sql> ALTER TABLE mytable CHANGE ColA ColX 元の型;
+カラム名変更_Oracle			sql> ALTER TABLE mytable CHANGE ColA ColX 元の型;
+カラム名変更_PostgreSQL		sql> ALTER TABLE mytable RENAME ColA TO ColX;
+カラム名変更_SQLite			-
+
+カラム型変更_MySQL
+カラム型変更_Oracle
+カラム型変更_PostgreSQL
+カラム型変更_SQLite			-
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# メタ
+# テーブル情報参照 (メタ)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-テーブル定義表示_MySQL		DESC mytable;
-テーブル定義表示_Oracle		DESC mytable;
-テーブル定義表示_PostgreSQL	\d mytable;
-テーブル定義表示_SQLite		.schema mytable;
+テーブル定義表示_MySQL		sql> DESC mytable;
+テーブル定義表示_Oracle		sql> DESC mytable;
+テーブル定義表示_PostgreSQL	sql> \d mytable
+テーブル定義表示_SQLite		sql> .schema mytable
 
-テーブル一覧表示_MySQL		SHOW TABLES;
-テーブル一覧表示_Oracle		SELECT TABLE_NAME FROM USER_TABLES;
-テーブル一覧表示_PostgreSQL	\dt;
-テーブル一覧表示_SQLite		.tables;
-
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# テーブル操作
-# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL_選択			SELECT * FROM mytable;
-MySQL_挿入			INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
-MySQL_更新			UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
-MySQL_削除			DELETE FROM mytable WHERE ColA = 'XX';
-Oracle_選択			SELECT * FROM mytable;
-Oracle_挿入			INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
-Oracle_更新			UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
-Oracle_削除			DELETE FROM mytable WHERE ColA = 'XX';
-PostgreSQL_選択		SELECT * FROM mytable;
-PostgreSQL_挿入		INSERT INTO mytable(ColA, ColB) VALUES('XX', 'YY');
-PostgreSQL_更新		UPDATE mytable SET ColA = 'XX' WHERE ColB = 'YY';
-PostgreSQL_削除		DELETE FROM mytable WHERE ColA = 'XX';
-
-# LIMIT とか
+テーブル一覧表示_MySQL		sql> SHOW TABLES;
+テーブル一覧表示_Oracle		sql> SELECT TABLE_NAME FROM USER_TABLES;
+テーブル一覧表示_PostgreSQL	sql> \dt
+テーブル一覧表示_SQLite		sql> .tables
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-# テーブル操作その他 (連番等)
+# テーブル操作(CRUD基本)
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+選択_MySQL			SELECT * FROM mytable;
+選択_Oracle			SELECT * FROM mytable;
+選択_PostgreSQL		SELECT * FROM mytable;
+選択_SQLite			SELECT * FROM mytable;
+
+挿入_MySQL			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_Oracle			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_PostgreSQL		INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_SQLite			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+
+更新_MySQL			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_Oracle			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_PostgreSQL		UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_SQLite			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+
+削除_MySQL			DELETE FROM mytable WHERE ColA = 10;
+削除_Oracle			DELETE FROM mytable WHERE ColA = 10;
+削除_PostgreSQL		DELETE FROM mytable WHERE ColA = 10;
+削除_SQLite			DELETE FROM mytable WHERE ColA = 10;
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル選択関連
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+条件_MySQL		SELECT * FROM mytable WHERE ColA = 10;
+条件_Oracle		SELECT * FROM mytable WHERE ColA = 10;
+条件_PostgreSQL	SELECT * FROM mytable WHERE ColA = 10;
+条件_SQLite		SELECT * FROM mytable WHERE ColA = 10;
+
+並び_MySQL		SELECT * FROM mytable ORDER BY ColA;
+				SELECT * FROM mytable ORDER BY ColA DESC;
+並び_Oracle		SELECT * FROM mytable ORDER BY ColA;
+				SELECT * FROM mytable ORDER BY ColA DESC;
+並び_PostgreSQL	SELECT * FROM mytable ORDER BY ColA;
+				SELECT * FROM mytable ORDER BY ColA DESC;
+並び_SQLite		SELECT * FROM mytable ORDER BY ColA;
+				SELECT * FROM mytable ORDER BY ColA DESC;
+
+件数_MySQL		SELECT * FROM mytable LIMIT 10;
+件数_Oracle		SELECT * FROM mytable LIMIT 10;
+件数_PostgreSQL	SELECT * FROM mytable LIMIT 10;
+件数_SQLite		SELECT * FROM mytable LIMIT 10;
+
+
+# その他：JOIN等
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# テーブル挿入関連 (連番等)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 MySQL_連番
 	CREATE TABLE mytable(
@@ -184,14 +237,32 @@ Oracle_連番
 
 PostgreSQL_連番
 	CREATE TABLE mytable(
-		id <red>serial</red> NOT NULL,
-		ColA character
+		id <red>SERIAL</red> NOT NULL,
+		ColA VARCHAR
 	);
 	INSERT INTO mytable(ColA) VALUES('XX');
 
 SQLite_連番
 	CREATE TABLE mytable(
-		id INTEGER AUTOINCREMENT,
-		ColA VARCHAR2(5)
+		id INTEGER <red>PRIMARY KEY AUTOINCREMENT</red>,
+		ColA VARCHAR
 	);
 	INSERT INTO mytable(ColA) VALUES('XX');
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# トランザクション
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+トランザクション開始_MySQL		BEGIN;
+トランザクション開始_Oracle		BEGIN;
+トランザクション開始_PostgreSQL	BEGIN;
+トランザクション開始_SQLite		BEGIN;
+
+トランザクション確定_MySQL		COMMIT;
+トランザクション確定_Oracle		COMMIT;
+トランザクション確定_PostgreSQL	COMMIT;
+トランザクション確定_SQLite		COMMIT;
+
+トランザクション破棄_MySQL		ROLLBACK;
+トランザクション破棄_Oracle		ROLLBACK;
+トランザクション破棄_PostgreSQL	ROLLBACK;
+トランザクション破棄_SQLite		ROLLBACK;

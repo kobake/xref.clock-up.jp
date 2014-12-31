@@ -17,24 +17,44 @@ $smarty->cache_dir    = dirname(dirname(__FILE__)) . '/smarty/tmp/cache';
 // 次の行のコメントをはずすと、デバッギングコンソールを表示します
 // $smarty->debugging = true;
 
-// セクション
+// 全セクション保持
+$g_sections = [];
+$g_sectionsBody = '';
+
+// 全セクション出力
+function print_sections(){
+	global $g_sectionsBody;
+	print $g_sectionsBody;
+}
+
+// セクション出力ラップ
+function section_echo($text){
+	global $g_sectionsBody;
+	$g_sectionsBody .= $text;
+}
+
+// セクション準備
 function section($title, $features) {
 	global $smarty;
+	global $g_sections;
+	
+	$g_sections[] = $title;
+	
 	$smarty->assign('features', $features);
 
-	echo "<div class=\"mode0\">\n";
+	section_echo("<div class=\"mode0\">\n");
 	{
-		echo "<h2 class = \"sub-header\">{$title}（縦）</h2>\n";
-		$smarty->display('_table_features.tpl');
+		section_echo("<h2 class = \"sub-header\">{$title}</h2>\n");
+		section_echo($smarty->fetch('_table_features.tpl'));
 	}
-	echo "</div>\n";
+	section_echo("</div>\n");
 	
-	echo "<div class=\"mode1\">\n";
+	section_echo("<div class=\"mode1\">\n");
 	{
-		echo "<h2 class = \"sub-header\">{$title}（横）</h2>\n";
-		$smarty->display('_table_engines.tpl');
+		section_echo("<h2 class = \"sub-header\">{$title}</h2>\n");
+		section_echo($smarty->fetch('_table_engines.tpl'));
 	}
-	echo "</div>\n";
+	section_echo("</div>\n");
 }
 
 // コメント除去

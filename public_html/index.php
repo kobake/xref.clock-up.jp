@@ -1,16 +1,108 @@
 <?php
-	require_once(dirname(__FILE__) . '/_common.php');
-	
-	// 各種変数初期化
-	$features = [];
-	$engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
 
-	// 全データ読み込み
-	$table = file_get_contents('contents.txt');
-	$contents = generateContents($table, $engines, $features, $engines);
+require_once(dirname(__FILE__) . '/_common.php');
 
-	$smarty->assign('engines', $engines);
-	$smarty->assign('contents', $contents);
+// 各種変数初期化
+$features = [];
+$engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
+
+// 全データ読み込み
+$table = file_get_contents('contents.txt');
+$contents = generateContents($table, $engines, $features, $engines);
+
+// テンプレート出力準備
+$smarty->assign('engines', $engines);
+$smarty->assign('contents', $contents);
+
+// 全セクション準備
+/*
+  section(
+  '導入・管理',
+  [
+  'インストール',
+  '起動・停止',
+  '管理ログイン'
+  ]
+  );
+ */
+section(
+	'ログイン・ログアウト',
+	[
+		'ログイン',
+		'ログアウト',
+	]
+);
+section(
+	'ユーザ管理',
+	[
+		'ユーザ作成',
+		'ユーザ削除',
+		'ユーザ一覧',
+	]
+);
+section(
+	'データベース管理',
+	[
+		'データベース作成',
+		'データベース削除',
+		'データベース一覧',
+	]
+);
+section(
+	'テーブル管理',
+	[
+		'テーブル作成',
+		'テーブル削除',
+	]
+);
+section(
+	'テーブル定義変更',
+	[
+		'テーブル名変更',
+		'カラム名変更',
+	]
+);
+section(
+	'テーブル情報参照',
+	[
+		'テーブル定義表示',
+		'テーブル一覧表示',
+	]
+);
+section(
+	'テーブル操作概要',
+	[
+		'選択',
+		'挿入',
+		'更新',
+		'削除',
+	]
+);
+section(
+	'テーブル選択関連',
+	[
+		'条件',
+		'並び',
+		'件数',
+	]
+);
+section(
+	'テーブル挿入関連',
+	[
+		'連番',
+	]
+);
+section(
+	'トランザクション',
+	[
+		'トランザクション開始',
+		'トランザクション確定',
+		'トランザクション破棄',
+	]
+);
+
+// その他グローバル変数
+global $g_sections;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,27 +190,27 @@
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
-						<li><a href="#">導入</a></li>
-						<li class="active"><a href="#">管理</a></li>
-						<li><a href="#">テーブル管理</a></li>
-						<li><a href="#">テーブル操作</a></li>
-						<li><a href="#">テーブル操作その他（連番等）</a></li>
+						<?php foreach($g_sections as $title): ?>
+							<li><a href="#"><?php echo $title; ?></a></li>
+						<?php endforeach; ?>
 					</ul>
+					<!-- 現在の選択サンプル
+					<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
+					-->
+					<!--
 					<ul class="nav nav-sidebar">
 						<li><a href="">Nav item</a></li>
 						<li><a href="">Nav item again</a></li>
 						<li><a href="">One more nav</a></li>
 						<li><a href="">Another nav item</a></li>
 						<li><a href="">More navigation</a></li>
-						<!-- 現在の選択サンプル
-						<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
-						-->
 					</ul>
 					<ul class="nav nav-sidebar">
 						<li><a href="">Nav item again</a></li>
 						<li><a href="">One more nav</a></li>
 						<li><a href="">Another nav item</a></li>
 					</ul>
+					 -->
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Database</h1>
@@ -128,73 +220,10 @@
 					</div>
 
 					
-
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-					<!-- 導入・管理 -->
-					<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 					<?php
-					section(
-						'導入・管理',
-						[
-							'インストール',
-							'起動・停止',
-							'管理ログイン'
-						]
-					);
-					section(						
-						'データベース管理',
-						[
-							'データベース作成',
-							'データベース削除',
-							'データベース一覧',
-						]
-					);
-					section(
-						'ユーザ管理',
-						[
-							'ユーザ作成',
-							'ユーザ削除',
-							'ユーザ一覧',
-						]
-					);
-					section(
-						'ログイン・ログアウト',
-						[
-							'ログイン',
-							'ログアウト',
-						]
-					);
-					section(
-						'テーブル管理',
-						[
-							'テーブル作成',
-							'テーブル削除',
-							'テーブル変更',
-						]
-					);
-					section(
-						'テーブル情報参照',
-						[
-							'テーブル定義表示',
-							'テーブル一覧表示',
-						]
-					);
-					section(
-						'テーブル操作',
-						[
-							'選択',
-							'挿入',
-							'更新',
-							'削除',
-						]
-					);
-					section(
-						'テーブル操作その他',
-						[
-							'連番',
-						]
-					);
+					print_sections();
 					?>
+					
 				</div>
 			</div>
 		</div>

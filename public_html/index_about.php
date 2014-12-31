@@ -19,7 +19,7 @@ require_once(dirname(__FILE__) . '/_common.php');
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 		<link href="/css/sb-admin-2.css" rel="stylesheet">
-		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 		<link href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
@@ -68,7 +68,8 @@ require_once(dirname(__FILE__) . '/_common.php');
 			font-size: 16pt;
 		}
 		#content ul{
-			margin-left: 30px;
+			margin-left: 10px;
+			list-style: none;
 		}
 		</style>
 	</head>
@@ -104,10 +105,10 @@ require_once(dirname(__FILE__) . '/_common.php');
 				<h1>About</h1>
 				<h2>Author: kobake</h2>
 				<ul>
-					<li><a target="_blank" href="http://blog.clock-up.jp">Blog</a></li>
-					<li><a target="_blank" href="http://clock-up.jp"><i class="glyphicon glyphicon-plus"></i> Website</a></li>
-					<li><a target="_blank" href="https://twitter.com/kobayan_tokyo"><i class="fa fa-twitter"></i> kobayan_tokyo</a></li>
 					<li><a target="_blank" href="https://github.com/kobake"><i class="fa fa-github"></i> Github</a></li>
+					<li><a target="_blank" href="https://twitter.com/kobayan_tokyo"><i class="fa fa-twitter"></i> Twitter</a></li>
+					<li><a target="_blank" href="http://blog.clock-up.jp"><i class="fa fa-cube"></i> Blog</a></li>
+					<li><a target="_blank" href="http://clock-up.jp"><i class="fa fa-cube"></i> Website</a></li>
 				</ul>
 			</div>
 		</div>

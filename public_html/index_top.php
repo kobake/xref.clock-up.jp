@@ -102,7 +102,8 @@ require_once(dirname(__FILE__) . '/_common.php');
 		<div class="container-fluid" id="content">
 			<div id="wrapper">
 				<h1>xref.info</h1>
-				<p>Cross reference for various engines.</p>
+				<!-- <p>Cross reference over various engines.</p> -->
+				<p>横断リファレンス的な。</p>
 
 				<h2>Contents</h2>
 				<ul>

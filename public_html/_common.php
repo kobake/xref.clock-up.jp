@@ -47,13 +47,23 @@ function fetch_menus(){
 			}
 		}
 		else{
-			$ret .= "<li class=\"parent-li\">" . easylink($category['categoryname']) . "\n";
-			$ret .= "<ul class=\"nav nav-second-level\">\n";
-			foreach ($category['titles'] as $title){
-				$ret .= "<li>" . easylink($title) . "</li>";
+			// 階層を用いない。これだとScrollSpyが親子ともに効く
+			if(true){
+				$ret .= "<li class=\"parent-li\">" . easylink($category['categoryname']) . "</li>\n";
+				foreach ($category['titles'] as $title) {
+					$ret .= "<li class=\"second\">" . easylink($title) . "</li>";
+				}
 			}
-			$ret .= "</ul>\n";
-			$ret .= "</li>\n";
+			// 階層。これだとScrollSpyが親にしか効かない。
+			if(false){
+				$ret .= "<li class=\"parent-li\">" . easylink($category['categoryname']) . "\n";
+				$ret .= "<ul class=\"nav nav-second-level\">\n";
+				foreach ($category['titles'] as $title){
+					$ret .= "<li>" . easylink($title) . "</li>";
+				}
+				$ret .= "</ul>\n";
+				$ret .= "</li>\n";
+			}
 		}
 	}
 	return $ret;

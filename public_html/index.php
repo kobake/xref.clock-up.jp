@@ -7,6 +7,7 @@ function setDefaultTimezone($timezone) {
 
 // 環境
 define('APP_TYPE', getenv('apptype'));
+define('CACHE_DIR', dirname(dirname(__FILE__)) . '/cache');
 
 // 共通関数
 require_once(dirname(__FILE__) . '/_common.php');
@@ -39,42 +40,65 @@ if(isset($_SERVER['REQUEST_URI'])){
 }
 //print "uri_without_query = $uri_without_query\n";exit;
 
-// コンテンツPHP
-global $smarty;
-$smarty->assign('sitetitle', TITLE);
-
-if($uri_without_query === '/database'){
-	include(dirname(__FILE__) . '/index_database.php');
-	
-	// 全セクション確定
-	sections_commit();
-	
-	// 本体
-	$smarty->assign('sitesubtitle', ' - Database');
-	$smarty->assign('menus', fetch_menus());
-	$smarty->assign('sections', fetch_sections());
-	$content = $smarty->fetch(dirname(__FILE__) . '/_database.tpl');
+// キャッシュ名
+$cachename = '';
+if ($uri_without_query === '/database') {
+	$cachename = 'database.html';
 }
-else if($uri_without_query === '/about'){
-	// 本体
-	$smarty->assign('sitesubtitle', ' - About');
-	$content = $smarty->fetch(dirname(__FILE__) . '/content_about.tpl');
+else if ($uri_without_query === '/about') {
+	$cachename = 'about.html';
 }
-else if($uri_without_query === '/'){
-	// 本体
-	$smarty->assign('sitesubtitle', '');
-	$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
+else if ($uri_without_query === '/') {
+	$cachename = 'top.html';
 }
 else{
-	header("HTTP/1.0 404 Not Found");
-	// 本体
-	$smarty->assign('sitesubtitle', '');
-	$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
+	$cachename = 'notfound.html';
 }
 
-// HTML生成	
-$smarty->assign('content', $content);
-$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
+// コンテンツPHPによるキャッシュ生成
+if(APP_TYPE !== 'production'){
+	global $smarty;
+	$smarty->assign('sitetitle', TITLE);
+
+	if($uri_without_query === '/database'){
+		include(dirname(__FILE__) . '/index_database.php');
+
+		// 全セクション確定
+		sections_commit();
+
+		// 本体
+		$smarty->assign('sitesubtitle', ' - Database');
+		$smarty->assign('menus', fetch_menus());
+		$smarty->assign('sections', fetch_sections());
+		$content = $smarty->fetch(dirname(__FILE__) . '/_database.tpl');
+	}
+	else if($uri_without_query === '/about'){
+		// 本体
+		$smarty->assign('sitesubtitle', ' - About');
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_about.tpl');
+	}
+	else if($uri_without_query === '/'){
+		// 本体
+		$smarty->assign('sitesubtitle', '');
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
+	}
+	else{
+		header("HTTP/1.0 404 Not Found");
+		// 本体
+		$smarty->assign('sitesubtitle', '');
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
+	}
+
+	// HTML生成	
+	$smarty->assign('content', $content);
+	$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
+	
+	// キャッシュ保存
+	file_put_contents(CACHE_DIR . '/' . $cachename, $html);
+}
+else{
+	$html = file_get_contents(CACHE_DIR . '/' . $cachename);
+}
 
 // 出力
 print $html;

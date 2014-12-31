@@ -230,12 +230,12 @@ global $g_sections;
 							<?php if($category['category'] === '無'): ?>
 								<?php foreach ($category['titles'] as $title): ?>
 									<li>
-										<a href="#"><i class="fa fa-wrench fa-fw"></i> <?php echo $title; ?></a>
+										<a href="#"><?php echo $title; ?></a>
 									</li>
 								<?php endforeach; ?>
 							<?php else: ?>
 								<li class="parent-li">
-									<a href="#"><i class="fa fa-wrench fa-fw"></i> <?php echo $category['category']; ?><span class="fa arrow"></span></a>
+									<a href="#"><?php echo $category['category']; ?></span></a>
 									<ul class="nav nav-second-level">
 										<?php foreach ($category['titles'] as $title): ?>
 											<li>

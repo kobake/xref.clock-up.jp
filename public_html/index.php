@@ -89,7 +89,7 @@ section(
 section(
 	'テーブル挿入関連',
 	[
-		'連番',
+		'自動連番',
 	]
 );
 section(

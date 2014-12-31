@@ -17,11 +17,14 @@ PostgreSQL_起動・停止	未
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 ログイン_MySQL			$ mysql -u myuser -pxxx mytable
 ログイン_Oracle			$ sqlplus
+						$ sqlplus myuser@myhost
+						$ sqlplus myuser/xxxxx@myhost
+						$ sqlplus myuser/xxxxx@myhost/xe
 ログイン_PostgreSQL		$ psql mydatabase myuser
 ログイン_SQLite			$ sqlite3 mydatabase.sqlite3
 
-ログアウト_MySQL		sql> quit (exitも可)
-ログアウト_Oracle		sql> exit (quitも可)
+ログアウト_MySQL		sql> QUIT (EXITも可)
+ログアウト_Oracle		sql> EXIT (QUITも可)
 ログアウト_PostgreSQL	sql> \q
 ログアウト_SQLite		sql> .exit
 
@@ -60,9 +63,9 @@ PostgreSQLロールメモ
 ユーザ削除_SQLite		-
 
 ユーザ一覧_MySQL		SELECT User, Host from mysql.user;
-ユーザ一覧_Oracle		SELECT * FROM user_users; # -- ユーザ自身
-						SELECT * FROM dba_users; # -- 全てのユーザ
-						SELECT * FROM all_users; # -- 全てのユーザ
+ユーザ一覧_Oracle		SELECT USERNAME FROM USER_USERS; # -- ユーザ自身
+						SELECT USERNAME FROM DBA_USERS; # -- 全てのユーザ
+						SELECT USERNAME FROM ALL_USERS; # -- 全てのユーザ
 ユーザ一覧_PostgreSQL	sql> select usename from pg_user;
 						sql> select rolname from pg_roles;
 ユーザ一覧_SQLite		-
@@ -85,7 +88,7 @@ PostgreSQLロールメモ
 データベース削除_SQLite		$ rm mydatabase.sqlite3
 
 データベース一覧_MySQL		sql> SHOW DATABASES;
-データベース一覧_Oracle		-
+データベース一覧_Oracle		sql> SELECT INSTANCE_NAME FROM V$INSTANCE;
 データベース一覧_PostgreSQL	sql> \l
 データベース一覧_SQLite		-
 
@@ -93,8 +96,8 @@ PostgreSQLロールメモ
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-テーブル作成_MySQL		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR(5));
-テーブル作成_Oracle		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR2(5));
+テーブル作成_MySQL		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR(20));
+テーブル作成_Oracle		sql> CREATE TABLE mytable(ColA NUMBER, ColB VARCHAR2(20));
 テーブル作成_PostgreSQL	sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
 テーブル作成_SQLite		sql> CREATE TABLE mytable(ColA INT, ColB VARCHAR);
 
@@ -112,7 +115,7 @@ PostgreSQLロールメモ
 テーブル名変更_SQLite		sql> ALTER TABLE mytable RENAME TO mytable2;
 
 カラム名変更_MySQL			sql> ALTER TABLE mytable CHANGE ColA ColX 元の型;
-カラム名変更_Oracle			sql> ALTER TABLE mytable CHANGE ColA ColX 元の型;
+カラム名変更_Oracle			sql> ALTER TABLE mytable RENAME COLUMN ColA TO ColX;
 カラム名変更_PostgreSQL		sql> ALTER TABLE mytable RENAME ColA TO ColX;
 カラム名変更_SQLite			-
 
@@ -176,7 +179,7 @@ PostgreSQLロールメモ
 				SELECT * FROM mytable ORDER BY ColA DESC;
 
 件数_MySQL		SELECT * FROM mytable LIMIT 10;
-件数_Oracle		SELECT * FROM mytable LIMIT 10;
+件数_Oracle		SELECT * FROM mytable WHERE ROWNUM <= 10;
 件数_PostgreSQL	SELECT * FROM mytable LIMIT 10;
 件数_SQLite		SELECT * FROM mytable LIMIT 10;
 
@@ -186,63 +189,30 @@ PostgreSQLロールメモ
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル挿入関連 (連番等)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-MySQL_連番
+MySQL_自動連番
 	CREATE TABLE mytable(
-		id INT NOT NULL AUTO_INCREMENT,
-		ColA VARCHAR2(5)
+		id INT NOT NULL <red>PRIMARY KEY AUTO_INCREMENT</red>,
+		ColA VARCHAR(20)
 	);
 	INSERT INTO mytable(ColA) VALUES('XX');
 
-Oracle_連番
-	(Case A: MAX を使う)
-	CREATE TABLE mytable(
-		id NUMBER NOT NULL,
-		ColA VARCHAR2(5)
-	);
-	INSERT INTO mytable(id, ColA) SELECT MAX(id) + 1, 'XX' FROM mytable;
-
-	(Case A2: MAX を使う。テーブルが空のケースも考える)
-	CREATE TABLE mytable(
-		id NUMBER NOT NULL,
-		ColA VARCHAR2(5)
-	);
-	INSERT INTO mytable(id, ColA)
-		SELECT
-			CASE
-				WHEN MAX(id) IS NULL THEN 1
-				ELSE MAX(id)+1
-			END,
-			'XX' FROM mytable;
-
+Oracle_自動連番
 	(Case B: SEQUENCE を作って手動で埋め込む)
 	CREATE TABLE mytable(
 		id NUMBER NOT NULL,
-		ColA VARCHAR2(5)
+		ColA VARCHAR2(20)
 	);
-	CREATE SEQUENCE myseq;
-	INSERT INTO mytable(id, ColA) VALUES(myseq.NEXTVAL, 'XX');
+	<red>CREATE SEQUENCE myseq;</red>
+	INSERT INTO mytable(id, ColA) VALUES(<red>myseq.NEXTVAL</red>, 'XX');
 
-	(Case C: SEQUENCE を作って TRIGGER で埋め込む)
-	CREATE TABLE mytable(
-		id NUMBER NOT NULL,
-		ColA VARCHAR2(5)
-	);
-	CREATE SEQUENCE myseq;
-	CREATE OR REPLACE TRIGGER mytrig
-	BEFORE INSERT ON mytable FOR EACH ROW
-	BEGIN
-		SELECT myseq.NEXTVAL INTO :NEW.id FROM DUAL;
-	END;
-	INSERT INTO mytable(ColA) VALUES('XX');
-
-PostgreSQL_連番
+PostgreSQL_自動連番
 	CREATE TABLE mytable(
 		id <red>SERIAL</red> NOT NULL,
 		ColA VARCHAR
 	);
 	INSERT INTO mytable(ColA) VALUES('XX');
 
-SQLite_連番
+SQLite_自動連番
 	CREATE TABLE mytable(
 		id INTEGER <red>PRIMARY KEY AUTOINCREMENT</red>,
 		ColA VARCHAR
@@ -253,7 +223,7 @@ SQLite_連番
 # トランザクション
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 トランザクション開始_MySQL		BEGIN;
-トランザクション開始_Oracle		BEGIN;
+トランザクション開始_Oracle		(自動)
 トランザクション開始_PostgreSQL	BEGIN;
 トランザクション開始_SQLite		BEGIN;
 

@@ -1,7 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__) . '/_common.php');
-
 // 各種変数初期化
 $features = [];
 $engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];

@@ -67,8 +67,9 @@ else if($uri_without_query === '/'){
 }
 else{
 	header("HTTP/1.0 404 Not Found");
-	include(dirname(__FILE__) . '/index_notfound.php');
-	exit;
+	// 本体
+	$smarty->assign('sitesubtitle', '');
+	$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
 }
 
 // HTML生成	

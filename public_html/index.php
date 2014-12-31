@@ -121,6 +121,7 @@ global $g_sections;
 		<link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 		<link href="/css/sb-admin-2.css" rel="stylesheet">
 		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
 		<link href="/css/dashboard.css" rel="stylesheet">
@@ -209,20 +210,50 @@ global $g_sections;
 							</div>
 						</li>
 						  -->
+						
+						
+						<?php
+						$g_categories = [];
+						foreach ($g_sections as $title){
+							$tmp = explode('/', $title);
+							if (count($tmp) < 2) {
+								array_unshift($tmp, '無');
+							}
+							$category = $tmp[0];
+							$title = $tmp[1];
+							if(count($g_categories) == 0 || $g_categories[count($g_categories) - 1]['category'] !== $category){
+								$g_categories[] = [
+									'category' => $category,
+									'titles' => []
+								];
+							}
+							$g_categories[count($g_categories) - 1]['titles'][] = $title;
+						}
+						?>
+						<?php foreach ($g_categories as $category): ?>
+							<?php if($category['category'] === '無'): ?>
+								<?php foreach ($category['titles'] as $title): ?>
+									<li>
+										<a href="#"><i class="fa fa-wrench fa-fw"></i> <?php echo $title; ?></a>
+									</li>
+								<?php endforeach; ?>
+							<?php else: ?>
+								<li>
+									<a href="#"><i class="fa fa-wrench fa-fw"></i> <?php echo $category['category']; ?><span class="fa arrow"></span></a>
+									<ul class="nav nav-second-level">
+										<?php foreach ($category['titles'] as $title): ?>
+											<li>
+												<a href="panels-wells.html"><?php echo $title; ?></a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</li>
+							<?php endif; ?>
+						<?php endforeach; ?>
+
+
 						<li>
 							<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li>
-									<a href="flot.html">Flot Charts</a>
-								</li>
-								<li>
-									<a href="morris.html">Morris.js Charts</a>
-								</li>
-							</ul>
-							<!-- /.nav-second-level -->
 						</li>
 						<li>
 							<a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -344,11 +375,7 @@ global $g_sections;
 						</li>
 					</ul>
 					
-					<ul class="nav nav-sidebar">
-						<?php foreach($g_sections as $title): ?>
-							<li><a href="#"><?php echo $title; ?></a></li>
-						<?php endforeach; ?>
-					</ul>
+					
 
 					<!-- 現在の選択サンプル
 					<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
@@ -393,6 +420,7 @@ global $g_sections;
 		<!-- <script src="/jslib/docs.min.js"></script> -->
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="/jslib/ie10-viewport-bug-workaround.js"></script>
+		<script src="/metisMenu/dist/metisMenu.min.js"></script>
 		<script src="/js/app.js"></script>
 	</body>
 </html>

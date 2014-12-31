@@ -9,12 +9,19 @@ function updateMode(){
 	jQuery('body').removeClass('current-mode' + oldMode).addClass('current-mode' + newMode);
 }
 jQuery(function(){
+	// 縦横スイッチ
 	jQuery('.btn-group label').click(function(){
 		setTimeout(function(){
 			updateMode();			
 		}, 0);
 	});
 	
+	// 目次ツリー
+	jQuery(function() {
+		jQuery('#side-menu').metisMenu({
+			toggle: false
+		});
+	});
 	
 	return; // もう以下は必要無い。
 	jQuery('td').each(function(){

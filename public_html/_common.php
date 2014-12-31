@@ -37,24 +37,26 @@ function easylink($title) {
 }
 
 // メニュー出力
-function print_menus(){
+function fetch_menus(){
+	$ret = '';
 	global $g_categories;
 	foreach ($g_categories as $category){
 		if ($category['categoryname'] === '無'){
 			foreach ($category['titles'] as $title){
-				print "<li>" . easylink($title) . "</li>\n";
+				$ret .= "<li>" . easylink($title) . "</li>\n";
 			}
 		}
 		else{
-			print "<li class=\"parent-li\">" . easylink($category['categoryname']) . "\n";
-			print "<ul class=\"nav nav-second-level\">\n";
+			$ret .= "<li class=\"parent-li\">" . easylink($category['categoryname']) . "\n";
+			$ret .= "<ul class=\"nav nav-second-level\">\n";
 			foreach ($category['titles'] as $title){
-				print "<li>" . easylink($title) . "</li>";
+				$ret .= "<li>" . easylink($title) . "</li>";
 			}
-			print "</ul>\n";
-			print "</li>\n";
+			$ret .= "</ul>\n";
+			$ret .= "</li>\n";
 		}
 	}
+	return $ret;
 }
 
 function slashright($str){
@@ -165,9 +167,9 @@ function sections_commit(){
 }
 
 // 全セクション出力
-function print_sections(){
+function fetch_sections(){
 	global $g_sectionsBody;
-	print $g_sectionsBody;
+	return $g_sectionsBody;
 }
 
 // セクション出力ラップ

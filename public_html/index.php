@@ -5,6 +5,9 @@ function setDefaultTimezone($timezone) {
 	}
 }
 
+// 環境
+define('APP_TYPE', getenv('apptype'));
+
 // 日本語対策 (これをしないと escapeshellarg が日本語を除外してしまう)
 setlocale(LC_CTYPE, "en_US.UTF-8");
 setDefaultTimezone('Asia/Tokyo');
@@ -36,6 +39,20 @@ if(isset($_SERVER['REQUEST_URI'])){
 // コンテンツPHP
 if($uri_without_query === '/database'){
 	include(dirname(__FILE__) . '/index_database.php');
+	
+	// 全セクション確定
+	sections_commit();
+	
+	// HTML生成	
+	global $smarty;
+	$smarty->assign('sitetitle', TITLE);
+	$smarty->assign('sitesubtitle', 'database');
+	$smarty->assign('menus', fetch_menus());
+	$smarty->assign('sections', fetch_sections());
+	$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
+	
+	// 出力
+	print $html;
 }
 else if($uri_without_query === '/about'){
 	include(dirname(__FILE__) . '/index_about.php');
@@ -47,4 +64,3 @@ else{
 	header("HTTP/1.0 404 Not Found");
 	include(dirname(__FILE__) . '/index_notfound.php');
 }
-

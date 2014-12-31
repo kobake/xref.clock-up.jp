@@ -41,6 +41,7 @@ else if($uri_without_query === '/'){
 	include(dirname(__FILE__) . '/index_top.php');
 }
 else{
+	header("HTTP/1.0 404 Not Found");
 	include(dirname(__FILE__) . '/index_notfound.php');
 }
 

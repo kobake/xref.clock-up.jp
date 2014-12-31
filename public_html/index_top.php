@@ -47,7 +47,7 @@ require_once(dirname(__FILE__) . '/_common.php');
 		</style>
 
 		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
-		<!-- 中央揃え用 -->
+		<!-- コンテンツ用 -->
 		<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
 		<style>
 		#content h1,
@@ -89,6 +89,11 @@ require_once(dirname(__FILE__) . '/_common.php');
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="/database">Database</a></li>
+					</ul>
+
+					<!-- 右上About -->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/about">About</a></li>
 					</ul>
 				</div>
 			</div>

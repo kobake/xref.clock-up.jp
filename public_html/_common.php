@@ -124,7 +124,8 @@ function sections_commit(){
 			}
 			
 			// 中見出し
-			section_echo("<h{$h} class = \"sub-header\">$sectiontitle</h{$h}>");
+			$id = colleft($sectiontitle0);
+			section_echo("<h{$h} id=\"{$id}\" class=\"sub-header\">$sectiontitle</h{$h}>");
 	
 			// section内容出力
 			if($sectiontitle !== '無'){
@@ -135,7 +136,7 @@ function sections_commit(){
 					print "sectiontitle = $sectiontitle0 が見つかりません\n";
 					print "</div";
 					//var_dump($sectiontitle);
-					continue;
+					//continue;
 					exit;
 				}
 

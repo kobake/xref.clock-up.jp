@@ -175,8 +175,9 @@ sections_commit();
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Database</a></li>
 					</ul>
+					
 					<!-- 縦横切替 -->
-					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px;">
+					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
 						<label class="btn btn-info active">
 							<input type="radio" name="options" id="mode0" autocomplete="off" checked> 縦
 						</label>
@@ -184,6 +185,23 @@ sections_commit();
 							<input type="radio" name="options" id="mode1" autocomplete="off"> 横
 						</label>
 					</div>
+					
+					<!-- エンジン切替 -->
+					<div class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
+						<label class="btn btn-info active">
+							<input type="checkbox" name="options" id="engine-mysql"      autocomplete="off" checked> MySQL
+						</label>
+						<label class="btn btn-info active">
+							<input type="checkbox" name="options" id="engine-oracle"     autocomplete="off" checked> Oracle
+						</label>
+						<label class="btn btn-info active">
+							<input type="checkbox" name="options" id="engine-postgresql" autocomplete="off" checked> PostgreSQL
+						</label>
+						<label class="btn btn-info active">
+							<input type="checkbox" name="options" id="engine-sqlite"     autocomplete="off" checked> SQLite
+						</label>
+					</div>
+					
 					<!--
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>

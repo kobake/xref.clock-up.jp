@@ -134,6 +134,11 @@ body {
         width: 250px;
         /* margin-top: 51px; */
     }
+	.row .main{
+		margin-left: 250px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,

@@ -141,47 +141,47 @@ PostgreSQLロールメモ
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル操作(CRUD基本)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-選択_MySQL			SELECT * FROM mytable;
-選択_Oracle			SELECT * FROM mytable;
-選択_PostgreSQL		SELECT * FROM mytable;
-選択_SQLite			SELECT * FROM mytable;
+選択_MySQL			sql> SELECT * FROM mytable;
+選択_Oracle			sql> SELECT * FROM mytable;
+選択_PostgreSQL		sql> SELECT * FROM mytable;
+選択_SQLite			sql> SELECT * FROM mytable;
 
-挿入_MySQL			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
-挿入_Oracle			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
-挿入_PostgreSQL		INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
-挿入_SQLite			INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_MySQL			sql> INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_Oracle			sql> INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_PostgreSQL		sql> INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
+挿入_SQLite			sql> INSERT INTO mytable(ColA, ColB) VALUES(10, 'YY');
 
-更新_MySQL			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
-更新_Oracle			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
-更新_PostgreSQL		UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
-更新_SQLite			UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_MySQL			sql> UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_Oracle			sql> UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_PostgreSQL		sql> UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
+更新_SQLite			sql> UPDATE mytable SET ColA = 8 WHERE ColB = 'YY';
 
-削除_MySQL			DELETE FROM mytable WHERE ColA = 10;
-削除_Oracle			DELETE FROM mytable WHERE ColA = 10;
-削除_PostgreSQL		DELETE FROM mytable WHERE ColA = 10;
-削除_SQLite			DELETE FROM mytable WHERE ColA = 10;
+削除_MySQL			sql> DELETE FROM mytable WHERE ColA = 10;
+削除_Oracle			sql> DELETE FROM mytable WHERE ColA = 10;
+削除_PostgreSQL		sql> DELETE FROM mytable WHERE ColA = 10;
+削除_SQLite			sql> DELETE FROM mytable WHERE ColA = 10;
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # テーブル選択関連
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-条件_MySQL		SELECT * FROM mytable WHERE ColA = 10;
-条件_Oracle		SELECT * FROM mytable WHERE ColA = 10;
-条件_PostgreSQL	SELECT * FROM mytable WHERE ColA = 10;
-条件_SQLite		SELECT * FROM mytable WHERE ColA = 10;
+条件_MySQL		sql> SELECT * FROM mytable WHERE ColA = 10;
+条件_Oracle		sql> SELECT * FROM mytable WHERE ColA = 10;
+条件_PostgreSQL	sql> SELECT * FROM mytable WHERE ColA = 10;
+条件_SQLite		sql> SELECT * FROM mytable WHERE ColA = 10;
 
-並び_MySQL		SELECT * FROM mytable ORDER BY ColA;
-				SELECT * FROM mytable ORDER BY ColA DESC;
-並び_Oracle		SELECT * FROM mytable ORDER BY ColA;
-				SELECT * FROM mytable ORDER BY ColA DESC;
-並び_PostgreSQL	SELECT * FROM mytable ORDER BY ColA;
-				SELECT * FROM mytable ORDER BY ColA DESC;
-並び_SQLite		SELECT * FROM mytable ORDER BY ColA;
-				SELECT * FROM mytable ORDER BY ColA DESC;
+並び_MySQL		sql> SELECT * FROM mytable ORDER BY ColA;
+				sql> SELECT * FROM mytable ORDER BY ColA DESC;
+並び_Oracle		sql> SELECT * FROM mytable ORDER BY ColA;
+				sql> SELECT * FROM mytable ORDER BY ColA DESC;
+並び_PostgreSQL	sql> SELECT * FROM mytable ORDER BY ColA;
+				sql> SELECT * FROM mytable ORDER BY ColA DESC;
+並び_SQLite		sql> SELECT * FROM mytable ORDER BY ColA;
+				sql> SELECT * FROM mytable ORDER BY ColA DESC;
 
-件数_MySQL		SELECT * FROM mytable LIMIT 10;
-件数_Oracle		SELECT * FROM mytable WHERE ROWNUM <= 10;
-件数_PostgreSQL	SELECT * FROM mytable LIMIT 10;
-件数_SQLite		SELECT * FROM mytable LIMIT 10;
+件数_MySQL		sql> SELECT * FROM mytable LIMIT 10;
+件数_Oracle		sql> SELECT * FROM mytable WHERE ROWNUM <= 10;
+件数_PostgreSQL	sql> SELECT * FROM mytable LIMIT 10;
+件数_SQLite		sql> SELECT * FROM mytable LIMIT 10;
 
 
 # その他：JOIN等
@@ -190,49 +190,48 @@ PostgreSQLロールメモ
 # テーブル挿入関連 (連番等)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 MySQL_自動連番
-	CREATE TABLE mytable(
+	sql> CREATE TABLE mytable(
 		id INT NOT NULL <red>PRIMARY KEY AUTO_INCREMENT</red>,
 		ColA VARCHAR(20)
 	);
-	INSERT INTO mytable(ColA) VALUES('XX');
+	sql> INSERT INTO mytable(ColA) VALUES('XX');
 
 Oracle_自動連番
-	(Case B: SEQUENCE を作って手動で埋め込む)
-	CREATE TABLE mytable(
+	sql> CREATE TABLE mytable(
 		id NUMBER NOT NULL,
 		ColA VARCHAR2(20)
 	);
-	<red>CREATE SEQUENCE myseq;</red>
-	INSERT INTO mytable(id, ColA) VALUES(<red>myseq.NEXTVAL</red>, 'XX');
+	sql> <red>CREATE SEQUENCE myseq;</red>
+	sql> INSERT INTO mytable(id, ColA) VALUES(<red>myseq.NEXTVAL</red>, 'XX');
 
 PostgreSQL_自動連番
-	CREATE TABLE mytable(
+	sql> CREATE TABLE mytable(
 		id <red>SERIAL</red> NOT NULL,
 		ColA VARCHAR
 	);
-	INSERT INTO mytable(ColA) VALUES('XX');
+	sql> INSERT INTO mytable(ColA) VALUES('XX');
 
 SQLite_自動連番
-	CREATE TABLE mytable(
+	sql> CREATE TABLE mytable(
 		id INTEGER <red>PRIMARY KEY AUTOINCREMENT</red>,
 		ColA VARCHAR
 	);
-	INSERT INTO mytable(ColA) VALUES('XX');
+	sql> INSERT INTO mytable(ColA) VALUES('XX');
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # トランザクション
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-トランザクション開始_MySQL		BEGIN;
+トランザクション開始_MySQL		sql> BEGIN;
 トランザクション開始_Oracle		(自動)
-トランザクション開始_PostgreSQL	BEGIN;
-トランザクション開始_SQLite		BEGIN;
+トランザクション開始_PostgreSQL	sql> BEGIN;
+トランザクション開始_SQLite		sql> BEGIN;
 
-トランザクション確定_MySQL		COMMIT;
-トランザクション確定_Oracle		COMMIT;
-トランザクション確定_PostgreSQL	COMMIT;
-トランザクション確定_SQLite		COMMIT;
+トランザクション確定_MySQL		sql> COMMIT;
+トランザクション確定_Oracle		sql> COMMIT;
+トランザクション確定_PostgreSQL	sql> COMMIT;
+トランザクション確定_SQLite		sql> COMMIT;
 
-トランザクション破棄_MySQL		ROLLBACK;
-トランザクション破棄_Oracle		ROLLBACK;
-トランザクション破棄_PostgreSQL	ROLLBACK;
-トランザクション破棄_SQLite		ROLLBACK;
+トランザクション破棄_MySQL		sql> ROLLBACK;
+トランザクション破棄_Oracle		sql> ROLLBACK;
+トランザクション破棄_PostgreSQL	sql> ROLLBACK;
+トランザクション破棄_SQLite		sql> ROLLBACK;

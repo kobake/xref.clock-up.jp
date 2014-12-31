@@ -25,15 +25,18 @@ $smarty->assign('contents', $contents);
   ]
   );
  */
+// セッション
 section(
-	'ログイン・ログアウト',
+	'session:ログイン・ログアウト',
 	[
 		'ログイン',
 		'ログアウト',
 	]
 );
+
+// 管理作業
 section(
-	'ユーザ管理',
+	'admin:管理/admin-user:ユーザ管理',
 	[
 		'ユーザ作成',
 		'ユーザ削除',
@@ -41,36 +44,41 @@ section(
 	]
 );
 section(
-	'データベース管理',
+	'admin:管理/admin-database:データベース管理',
 	[
 		'データベース作成',
 		'データベース削除',
 		'データベース一覧',
 	]
 );
+
+// テーブル定義
+// http://dev.mysql.com/doc/refman/5.6/en/sql-syntax-data-definition.html
 section(
-	'テーブル管理/テーブル作成・削除',
+	'table-definition:テーブル定義/table-definition-createdrop:テーブル作成・削除',
 	[
 		'テーブル作成',
 		'テーブル削除',
 	]
 );
 section(
-	'テーブル管理/テーブル定義変更',
+	'table-definition:テーブル定義/table-definition-alter:テーブル定義変更',
 	[
 		'テーブル名変更',
 		'カラム名変更',
 	]
 );
 section(
-	'テーブル管理/テーブル情報参照',
+	'table-definition:テーブル定義/table-definition-info:テーブル情報参照',
 	[
 		'テーブル定義表示',
 		'テーブル一覧表示',
 	]
 );
+
+// テーブル操作
 section(
-	'テーブル操作/テーブル操作概要',
+	'table-manipulation:テーブル操作/table-manipulation-crud:テーブル操作概要',
 	[
 		'選択',
 		'挿入',
@@ -79,7 +87,7 @@ section(
 	]
 );
 section(
-	'テーブル操作/テーブル選択関連',
+	'table-manipulation:テーブル操作/table-manipulation-select:テーブル選択',
 	[
 		'条件',
 		'並び',
@@ -87,13 +95,15 @@ section(
 	]
 );
 section(
-	'テーブル操作/テーブル挿入関連',
+	'table-manipulation:テーブル操作/table-manipulation-insert:テーブル挿入',
 	[
 		'自動連番',
 	]
 );
+
+// トランザクション
 section(
-	'トランザクション',
+	'transaction:トランザクション',
 	[
 		'トランザクション開始',
 		'トランザクション確定',
@@ -189,6 +199,7 @@ global $g_sections;
 			</div>
 		</nav>
 
+		<!-- 左サイドバーメニュー参考：http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html -->
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
@@ -206,7 +217,6 @@ global $g_sections;
 							</div>
 						</li>
 						  -->
-						
 						
 						<?php
 						$g_categories = [];
@@ -226,20 +236,26 @@ global $g_sections;
 							$g_categories[count($g_categories) - 1]['titles'][] = $title;
 						}
 						?>
+						<?php
+						function easylink($title){
+							$tmp = explode(':', $title);
+							echo "<a href=\"#{$tmp[0]}\">{$tmp[1]}</a>\n";
+						}
+						?>
 						<?php foreach ($g_categories as $category): ?>
 							<?php if($category['category'] === '無'): ?>
 								<?php foreach ($category['titles'] as $title): ?>
 									<li>
-										<a href="#"><?php echo $title; ?></a>
+										<?php easylink($title); ?></a>
 									</li>
 								<?php endforeach; ?>
 							<?php else: ?>
 								<li class="parent-li">
-									<a href="#"><?php echo $category['category']; ?></span></a>
+									<?php easylink($category['category']); ?>
 									<ul class="nav nav-second-level">
 										<?php foreach ($category['titles'] as $title): ?>
 											<li>
-												<a href="panels-wells.html"><?php echo $title; ?></a>
+												<?php easylink($title); ?>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -247,20 +263,6 @@ global $g_sections;
 							<?php endif; ?>
 						<?php endforeach; ?>
 
-
-						<!--
-						<li>
-							<a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li>
-									<a href="blank.html">Blank Page</a>
-								</li>
-								<li>
-									<a href="login.html">Login Page</a>
-								</li>
-							</ul>
-						</li>
-						-->
 					</ul>
 
 					
@@ -268,20 +270,7 @@ global $g_sections;
 					<!-- アクティブ状態（選択状態）サンプル
 					<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
 					-->
-					<!--
-					<ul class="nav nav-sidebar">
-						<li><a href="">Nav item</a></li>
-						<li><a href="">Nav item again</a></li>
-						<li><a href="">One more nav</a></li>
-						<li><a href="">Another nav item</a></li>
-						<li><a href="">More navigation</a></li>
-					</ul>
-					<ul class="nav nav-sidebar">
-						<li><a href="">Nav item again</a></li>
-						<li><a href="">One more nav</a></li>
-						<li><a href="">Another nav item</a></li>
-					</ul>
-					 -->
+					
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<h1 class="page-header">Database</h1>

@@ -56,7 +56,10 @@ else{
 }
 
 // コンテンツPHPによるキャッシュ生成
-if(APP_TYPE !== 'production'){
+if (APP_TYPE == 'product' || APP_TYPE === 'production') {
+	$html = file_get_contents(CACHE_DIR . '/' . $cachename);
+}
+else{
 	global $smarty;
 	$smarty->assign('sitetitle', TITLE);
 
@@ -96,9 +99,7 @@ if(APP_TYPE !== 'production'){
 	// キャッシュ保存
 	file_put_contents(CACHE_DIR . '/' . $cachename, $html);
 }
-else{
-	$html = file_get_contents(CACHE_DIR . '/' . $cachename);
-}
+
 
 // 出力
 print $html;

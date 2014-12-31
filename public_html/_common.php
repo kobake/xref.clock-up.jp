@@ -21,6 +21,12 @@ $smarty->cache_dir    = dirname(dirname(__FILE__)) . '/smarty/tmp/cache';
 $g_sections = [];
 $g_sectionsBody = '';
 
+// セクションタイトル抜き出し
+function section_title($title){
+	$tmp = explode('/', $title);
+	return $tmp[count($tmp) - 1];
+}
+
 // 全セクション出力
 function print_sections(){
 	global $g_sectionsBody;

@@ -49,28 +49,28 @@ section(
 	]
 );
 section(
-	'テーブル管理',
+	'テーブル管理/テーブル作成・削除',
 	[
 		'テーブル作成',
 		'テーブル削除',
 	]
 );
 section(
-	'テーブル定義変更',
+	'テーブル管理/テーブル定義変更',
 	[
 		'テーブル名変更',
 		'カラム名変更',
 	]
 );
 section(
-	'テーブル情報参照',
+	'テーブル管理/テーブル情報参照',
 	[
 		'テーブル定義表示',
 		'テーブル一覧表示',
 	]
 );
 section(
-	'テーブル操作概要',
+	'テーブル操作/テーブル操作概要',
 	[
 		'選択',
 		'挿入',
@@ -79,7 +79,7 @@ section(
 	]
 );
 section(
-	'テーブル選択関連',
+	'テーブル操作/テーブル選択関連',
 	[
 		'条件',
 		'並び',
@@ -87,7 +87,7 @@ section(
 	]
 );
 section(
-	'テーブル挿入関連',
+	'テーブル操作/テーブル挿入関連',
 	[
 		'自動連番',
 	]
@@ -119,6 +119,8 @@ global $g_sections;
 		<!-- Bootstrap core CSS -->
 		<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+		<link href="/css/sb-admin-2.css" rel="stylesheet">
+		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
 		<link href="/css/dashboard.css" rel="stylesheet">
@@ -189,11 +191,165 @@ global $g_sections;
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
+					
+					
+					
+					
+					
+					<ul class="nav" id="side-menu">
+						<!--
+						<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+								<input type="text" class="form-control" placeholder="Search...">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</li>
+						  -->
+						<li>
+							<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="flot.html">Flot Charts</a>
+								</li>
+								<li>
+									<a href="morris.html">Morris.js Charts</a>
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+						<li>
+							<a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+						</li>
+						<li>
+							<a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="panels-wells.html">Panels and Wells</a>
+								</li>
+								<li>
+									<a href="buttons.html">Buttons</a>
+								</li>
+								<li>
+									<a href="notifications.html">Notifications</a>
+								</li>
+								<li>
+									<a href="typography.html">Typography</a>
+								</li>
+								<li>
+									<a href="icons.html"> Icons</a>
+								</li>
+								<li>
+									<a href="grid.html">Grid</a>
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="#">Second Level Item</a>
+								</li>
+								<li>
+									<a href="#">Second Level Item</a>
+								</li>
+								<li>
+									<a href="#">Third Level <span class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li>
+											<a href="#">Third Level Item</a>
+										</li>
+										<li>
+											<a href="#">Third Level Item</a>
+										</li>
+										<li>
+											<a href="#">Third Level Item</a>
+										</li>
+										<li>
+											<a href="#">Third Level Item</a>
+										</li>
+									</ul>
+									<!-- /.nav-third-level -->
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="blank.html">Blank Page</a>
+								</li>
+								<li>
+									<a href="login.html">Login Page</a>
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+					</ul>
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<!-- 目次 -->
+					<ul class="nav nav-sidebar">
+						<li class="active">
+							Charts<span class="fa arrow"></span>
+							<ul class="nav nav-second-level collapse in" aria-expanded="true">
+								<li>
+									<a href="flot.html">Flot Charts</a>
+								</li>
+								<li>
+									<a href="morris.html">Morris.js Charts</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="">■ Nav item again</a></li>
+						<li><a href="">One more nav</a></li>
+						<li><a href="">Another nav item</a></li>
+						<li><a href="">More navigation</a></li>
+						<li class="active">
+							<a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse in" aria-expanded="true">
+								<li>
+									<a href="flot.html">Flot Charts</a>
+								</li>
+								<li>
+									<a href="morris.html">Morris.js Charts</a>
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+					</ul>
+					
 					<ul class="nav nav-sidebar">
 						<?php foreach($g_sections as $title): ?>
 							<li><a href="#"><?php echo $title; ?></a></li>
 						<?php endforeach; ?>
 					</ul>
+
 					<!-- 現在の選択サンプル
 					<li class="active"><a href="#">管理 <span class="sr-only">(current)</span></a></li>
 					-->

@@ -71,6 +71,7 @@ else{
 
 		// 本体
 		$smarty->assign('sitesubtitle', ' - Database');
+		$smarty->assign('contentpath', '/database');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_database.tpl');
@@ -78,17 +79,20 @@ else{
 	else if($uri_without_query === '/about'){
 		// 本体
 		$smarty->assign('sitesubtitle', ' - About');
+		$smarty->assign('contentpath', '/about');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_about.tpl');
 	}
 	else if($uri_without_query === '/'){
 		// 本体
 		$smarty->assign('sitesubtitle', '');
+		$smarty->assign('contentpath', '/');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
 	}
 	else{
 		header("HTTP/1.0 404 Not Found");
 		// 本体
 		$smarty->assign('sitesubtitle', '');
+		$smarty->assign('contentpath', '');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
 	}
 

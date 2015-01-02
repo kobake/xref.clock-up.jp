@@ -191,9 +191,6 @@
 </li>
 <li class="second"><a href="#update-database">パッケージ更新</a>
 </li><li class="second"><a href="#update-all">一括更新</a>
-</li><li class="parent-li"><a href="#other">その他</a>
-</li>
-<li class="second"><a href="#other-develop">開発者向け</a>
 </li>
 
 			</ul>
@@ -772,7 +769,7 @@
 							<tr class="engine-yum">
 					<th>yum</th>
 											<td>
-														yum -y update<br/>yum -y upgrade
+														yum -y update
 													</td>
 									</tr>
 							<tr class="engine-apt">
@@ -837,7 +834,7 @@
 							<tr>
 					<th>一括アップデート</th>
 											<td class="engine-yum">
-														yum -y update<br/>yum -y upgrade
+														yum -y update
 													</td>
 											<td class="engine-apt">
 														apt-get -y upgrade
@@ -856,102 +853,6 @@
 													</td>
 											<td class="engine-npm">
 														npm update -g
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h2 id="other" class="sub-header">その他</h2><h3 id="other-develop" class="sub-header">開発者向け</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>ソースコード取得</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-yum">
-					<th>yum</th>
-											<td>
-														yumdownloader --source パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-apt">
-					<th>apt</th>
-											<td>
-														apt-get source パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-rpm">
-					<th>rpm</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-gem">
-					<th>gem</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-pear">
-					<th>pear</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-pecl">
-					<th>pecl</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-npm">
-					<th>npm</th>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-yum">yum</th>
-								<th class="engine-apt">apt</th>
-								<th class="engine-rpm">rpm</th>
-								<th class="engine-gem">gem</th>
-								<th class="engine-pear">pear</th>
-								<th class="engine-pecl">pecl</th>
-								<th class="engine-npm">npm</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>ソースコード取得</th>
-											<td class="engine-yum">
-														yumdownloader --source パッケージ名
-													</td>
-											<td class="engine-apt">
-														apt-get source パッケージ名
-													</td>
-											<td class="engine-rpm">
-													</td>
-											<td class="engine-gem">
-													</td>
-											<td class="engine-pear">
-													</td>
-											<td class="engine-pecl">
-													</td>
-											<td class="engine-npm">
 													</td>
 									</tr>
 					</tbody>

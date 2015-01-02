@@ -93,7 +93,6 @@
 # 更新/一括更新
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 一括アップデート_yum		yum -y update
-							yum -y upgrade
 一括アップデート_apt		apt-get -y upgrade
 一括アップデート_rpm		-
 一括アップデート_gem		gem update

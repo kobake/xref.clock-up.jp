@@ -54,8 +54,9 @@ section('update:更新/update-all:一括更新', [
 );
 
 // その他
+/*
 section('other:その他/other-develop:開発者向け', [
 	'ソースコード取得',
 	]
 );
-
+*/

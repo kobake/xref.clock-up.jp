@@ -31,7 +31,7 @@
 パッケージ情報_gem			gem query パッケージ名
 パッケージ情報_pear			pear info パッケージ名
 パッケージ情報_pecl			pecl info パッケージ名
-パッケージ情報_npm			未
+パッケージ情報_npm			npm view パッケージ名 (※リモート)
 
 依存表示_yum				yum deplist パッケージ名
 依存表示_apt				apt-cache showpkg パッケージ名
@@ -39,7 +39,7 @@
 依存表示_gem				gem dependency パッケージ名
 依存表示_pear				pear package-dependencies パッケージ名
 依存表示_pecl				pecl package-dependencies パッケージ名
-依存表示_npm				未
+依存表示_npm				npm view パッケージ名 dependencies (※リモート)
 
 ファイル一覧_yum			repoquery パッケージ名
 ファイル一覧_apt			dpkg -L パッケージ名
@@ -47,7 +47,7 @@
 ファイル一覧_gem			gem contents パッケージ名
 ファイル一覧_pear			pear list-files パッケージ名
 ファイル一覧_pecl			pecl list-files パッケージ名
-ファイル一覧_npm			未
+ファイル一覧_npm			npm view パッケージ名 files (※リモート)
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 更新/データベース更新
@@ -71,7 +71,7 @@
 インストール_gem			gem install パッケージ名
 インストール_pear			pear install パッケージ名
 インストール_pecl			pecl install パッケージ名
-インストール_npm			未
+インストール_npm			npm install -g パッケージ名
 
 アンインストール_yum		yum remove パッケージ名 # eraseも可
 アンインストール_apt		apt-get [-purge] remove パッケージ名 # -purge … 設定ファイルごと削除
@@ -79,7 +79,7 @@
 アンインストール_gem		gem uninstall パッケージ名
 アンインストール_pear		pear uninstall パッケージ名
 アンインストール_pecl		pecl uninstall パッケージ名
-アンインストール_npm		未
+アンインストール_npm		npm uninstall -g パッケージ名
 
 アップデート_yum			yum -y update パッケージ名
 アップデート_apt			apt-get -y install --only-upgrade パッケージ名
@@ -87,7 +87,7 @@
 アップデート_gem			gem update パッケージ名
 アップデート_pear			pear upgrade パッケージ名
 アップデート_pecl			pecl upgrade パッケージ名
-アップデート_npm			未
+アップデート_npm			npm update -g パッケージ名
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 更新/一括更新
@@ -96,10 +96,10 @@
 							yum -y upgrade
 一括アップデート_apt		apt-get -y upgrade
 一括アップデート_rpm		-
-一括アップデート_gem		未
+一括アップデート_gem		gem update
 一括アップデート_pear		pear upgrade-all
 一括アップデート_pecl		pecl upgrade-all
-一括アップデート_npm		未
+一括アップデート_npm		npm update -g
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # その他/開発者向け

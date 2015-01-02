@@ -5,7 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="横断リファレンス的な。">
-		<meta name="keywords" content="MySQL, Oracle, PostgreSQL, SQLite">
+		{if $keywords !== ''}
+		<meta name="keywords" content="{$keywords}">
+		{/if}
 		<meta name="author" content="kobake">
 		<link rel="icon" type="image/png" href="/favicon.png">
 
@@ -113,11 +115,13 @@
 					<a class="navbar-brand" href="/">{$sitetitle}</a>
 				</div>
 				<div class="navbar-collapse collapse">
+					<!-- 各コンテンツリンク -->
 					<ul class="nav navbar-nav">
 						<li {if $sitesubtitle === ' - Database'}class="active2"{/if}><a href="/database">Database</a></li>
+						<li {if $sitesubtitle === ' - Package'}class="active2"{/if}><a href="/package">Package</a></li>
 					</ul>
 					
-					{if $sitesubtitle === ' - Database'}
+					{if $sitesubtitle === ' - Database' || $sitesubtitle === ' - Package'}
 					<!-- 縦横切替 -->
 					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
 						<label class="btn btn-info active">
@@ -130,18 +134,11 @@
 					
 					<!-- エンジン切替 -->
 					<div id="engine-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
-						<label class="btn btn-info active">
-							<input type="checkbox" name="options" id="engine-mysql"      autocomplete="off" checked> MySQL
-						</label>
-						<label class="btn btn-info active">
-							<input type="checkbox" name="options" id="engine-oracle"     autocomplete="off" checked> Oracle
-						</label>
-						<label class="btn btn-info active">
-							<input type="checkbox" name="options" id="engine-postgresql" autocomplete="off" checked> PostgreSQL
-						</label>
-						<label class="btn btn-info active">
-							<input type="checkbox" name="options" id="engine-sqlite"     autocomplete="off" checked> SQLite
-						</label>
+						{foreach from=$engines item=engine}
+							<label class="btn btn-info active">
+								<input type="checkbox" name="options" id="engine-{$engine|lower}" autocomplete="off" checked> {$engine}
+							</label>
+						{/foreach}
 					</div>
 					{/if}
 

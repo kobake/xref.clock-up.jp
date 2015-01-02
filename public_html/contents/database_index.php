@@ -3,9 +3,10 @@
 // 各種変数初期化
 $features = [];
 $engines = ['MySQL', 'Oracle', 'PostgreSQL', 'SQLite'];
+$originalEngines = $engines;
 
 // 全データ読み込み
-$table = file_get_contents('contents.txt');
+$table = file_get_contents(APP_ROOT . '/contents/database.txt');
 $contents = generateContents($table, $engines, $features, $engines);
 
 // テンプレート出力準備

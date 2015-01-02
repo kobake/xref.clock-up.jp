@@ -45,6 +45,9 @@ $cachename = '';
 if ($uri_without_query === '/database') {
 	$cachename = 'database.html';
 }
+else if ($uri_without_query === '/package') {
+	$cachename = 'package.html';
+}
 else if ($uri_without_query === '/about') {
 	$cachename = 'about.html';
 }
@@ -62,19 +65,35 @@ if (APP_TYPE == 'product' || APP_TYPE === 'production') {
 else{
 	global $smarty;
 	$smarty->assign('sitetitle', TITLE);
+	$keywords = '比較, 横断, リファレンス';
 
 	if($uri_without_query === '/database'){
-		include(dirname(__FILE__) . '/index_database.php');
+		include(dirname(__FILE__) . '/contents/database_index.php');
 
 		// 全セクション確定
 		sections_commit();
 
 		// 本体
+		$keywords .= ', MySQL, Oracle, PostgreSQL, SQLite';
 		$smarty->assign('sitesubtitle', ' - Database');
 		$smarty->assign('contentpath', '/database');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
-		$content = $smarty->fetch(dirname(__FILE__) . '/content_database.tpl');
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
+	}
+	else if ($uri_without_query === '/package') {
+		include(dirname(__FILE__) . '/contents/package_index.php');
+
+		// 全セクション確定
+		sections_commit();
+
+		// 本体
+		$keywords .= ', yum, apt-get, rpm, gem, pear, pecl, npm, pip';
+		$smarty->assign('sitesubtitle', ' - Package');
+		$smarty->assign('contentpath', '/package');
+		$smarty->assign('menus', fetch_menus());
+		$smarty->assign('sections', fetch_sections());
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
 	}
 	else if($uri_without_query === '/about'){
 		// 本体
@@ -84,6 +103,7 @@ else{
 	}
 	else if($uri_without_query === '/'){
 		// 本体
+		$keywords .= ', Database, Package';
 		$smarty->assign('sitesubtitle', '');
 		$smarty->assign('contentpath', '/');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
@@ -91,13 +111,17 @@ else{
 	else{
 		header("HTTP/1.0 404 Not Found");
 		// 本体
+		$keywords = '';
 		$smarty->assign('sitesubtitle', '');
 		$smarty->assign('contentpath', '');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
 	}
 
-	// HTML生成	
+	// HTML生成
+	global $originalEngines;
+	$smarty->assign('engines', $originalEngines);
 	$smarty->assign('content', $content);
+	$smarty->assign('keywords', $keywords);
 	$html = $smarty->fetch(dirname(__FILE__) . '/__frame.tpl');
 	
 	// キャッシュ保存

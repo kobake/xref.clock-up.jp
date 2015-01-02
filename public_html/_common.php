@@ -313,12 +313,20 @@ function generateContents($text, &$engines, &$features, $default_engines){
 			// engines, features
 			$tmp = explode('_', $title);
 			if(count($tmp) == 2){
+				// engine_feature という構成の場合はそのまま
+				if (array_search($tmp[0], $default_engines) !== false) {
+					
+				}
 				// feature_engine という構成の場合は要素を反転する
-				if(array_search($tmp[1], $default_engines) !== false){
+				else if(array_search($tmp[1], $default_engines) !== false){
 					$t = $tmp[0];
 					$tmp[0] = $tmp[1];
 					$tmp[1] = $t;
 					$title = "{$tmp[0]}_{$tmp[1]}";
+				}
+				// それ以外の構成の場合は無視
+				else{
+					continue;
 				}
 				// 格納
 				$engines[$tmp[0]] = 1;

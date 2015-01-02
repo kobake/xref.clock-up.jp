@@ -1,47 +1,110 @@
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 管理
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# バージョン確認_yum
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 閲覧/一覧
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 利用可能一覧_yum			yum list
-利用可能一覧_pear			pear list-all
 利用可能一覧_apt			apt-cache pkgnamess
+利用可能一覧_rpm			-
+利用可能一覧_gem			gem list --remote
+利用可能一覧_pear			pear list-all
+利用可能一覧_pecl			pecl list-all
+利用可能一覧_npm			npm search "*"
 
 インストール済一覧_yum		yum list installed
-インストール済一覧_pear		pear list
 インストール済一覧_apt		dpkg -l
+インストール済一覧_rpm		rpm -qa
+インストール済一覧_gem		gem list [--local]
+インストール済一覧_pear		pear list
+インストール済一覧_pecl		pecl list
+インストール済一覧_npm		npm list -g
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 閲覧/情報
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-パッケージ情報_yum			
-パッケージ情報_rpm			rpm -q パッケージ名
+パッケージ情報_yum			yum info パッケージ名
 パッケージ情報_apt			apt-cache show パッケージ名
-パッケージ情報_pear			
+パッケージ情報_rpm			rpm -qi パッケージ名
+パッケージ情報_gem			gem query パッケージ名
+パッケージ情報_pear			pear info パッケージ名
+パッケージ情報_pecl			pecl info パッケージ名
+パッケージ情報_npm			未
 
-依存表示_yum				yum
+依存表示_yum				yum deplist パッケージ名
 依存表示_apt				apt-cache showpkg パッケージ名
+依存表示_rpm				rpm -qR パッケージ名
+依存表示_gem				gem dependency パッケージ名
+依存表示_pear				pear package-dependencies パッケージ名
+依存表示_pecl				pecl package-dependencies パッケージ名
+依存表示_npm				未
+
+ファイル一覧_yum			repoquery パッケージ名
+ファイル一覧_apt			dpkg -L パッケージ名
+ファイル一覧_rpm			rpm -ql パッケージ名
+ファイル一覧_gem			gem contents パッケージ名
+ファイル一覧_pear			pear list-files パッケージ名
+ファイル一覧_pecl			pecl list-files パッケージ名
+ファイル一覧_npm			未
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 更新/データベース更新
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+リポジトリ更新_yum			-
 リポジトリ更新_apt			apt-get update
 							apt-cache gencaches
+リポジトリ更新_rpm			-
+リポジトリ更新_gem			-
+リポジトリ更新_pear			-
+リポジトリ更新_pecl			-
+リポジトリ更新_npm			-
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 更新/パッケージ更新
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 インストール_yum			yum -y install パッケージ名
-インストール_apt			apt-get install パッケージ名
-インストール_rpm
+インストール_apt			apt-get -y install パッケージ名
+インストール_rpm			rpm -ivh パッケージファイル名
 インストール_pear			pear install パッケージ名
+インストール_gem			gem install パッケージ名
+インストール_pear			pear install パッケージ名
+インストール_pecl			pecl install パッケージ名
+インストール_npm			未
 
-アンインストール_yum		yum erase パッケージ名
+アンインストール_yum		yum remove パッケージ名 # eraseも可
 アンインストール_apt		apt-get [-purge] remove パッケージ名 # -purge … 設定ファイルごと削除
+アンインストール_rpm		rpm -e パッケージ名
+アンインストール_gem		gem uninstall パッケージ名
+アンインストール_pear		pear uninstall パッケージ名
+アンインストール_pecl		pecl uninstall パッケージ名
+アンインストール_npm		未
 
-全アップグレード_yum		yum -y upgrade
-全アップグレード_apt		apt-get upgrade
+アップデート_yum			yum -y update パッケージ名
+アップデート_apt			apt-get -y install --only-upgrade パッケージ名
+アップデート_rpm			rpm -Uvh パッケージファイル名
+アップデート_gem			gem update パッケージ名
+アップデート_pear			pear upgrade パッケージ名
+アップデート_pecl			pecl upgrade パッケージ名
+アップデート_npm			未
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 更新/一括更新
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+一括アップデート_yum		yum -y update
+							yum -y upgrade
+一括アップデート_apt		apt-get -y upgrade
+一括アップデート_rpm		-
+一括アップデート_gem		未
+一括アップデート_pear		pear upgrade-all
+一括アップデート_pecl		pecl upgrade-all
+一括アップデート_npm		未
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # その他/開発者向け
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+ソースコード取得_yum		yumdownloader --source パッケージ名
 ソースコード取得_apt		apt-get source パッケージ名
 
+パッケージ取得_gem			gem fetch パッケージ名

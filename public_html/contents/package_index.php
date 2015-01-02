@@ -33,17 +33,23 @@ section('view:閲覧/view-list:一覧', [
 section('view:閲覧/view-details:詳細', [
 	'パッケージ情報',
 	'依存表示',
+	'ファイル一覧',
 	]
 );
 
 // 更新
-section('update:更新/update-database:データベース更新', [
-	'リポジトリ更新',
-	]
-);
+// section('update:更新/update-database:データベース更新', [
+// 	'リポジトリ更新',
+// 	]
+// );
 section('update:更新/update-database:パッケージ更新', [
 	'インストール',
 	'アンインストール',
+	'アップデート'
+	]
+);
+section('update:更新/update-all:一括更新', [
+	'一括アップデート',
 	]
 );
 

@@ -189,8 +189,8 @@
 </li><li class="second"><a href="#view-details">詳細</a>
 </li><li class="parent-li"><a href="#update">更新</a>
 </li>
-<li class="second"><a href="#update-database">データベース更新</a>
-</li><li class="second"><a href="#update-database">パッケージ更新</a>
+<li class="second"><a href="#update-database">パッケージ更新</a>
+</li><li class="second"><a href="#update-all">一括更新</a>
 </li><li class="parent-li"><a href="#other">その他</a>
 </li>
 <li class="second"><a href="#other-develop">開発者向け</a>
@@ -231,15 +231,6 @@
 														yum list installed
 													</td>
 									</tr>
-							<tr class="engine-pear">
-					<th>pear</th>
-											<td>
-														pear list-all
-													</td>
-											<td>
-														pear list
-													</td>
-									</tr>
 							<tr class="engine-apt">
 					<th>apt</th>
 											<td>
@@ -252,8 +243,46 @@
 							<tr class="engine-rpm">
 					<th>rpm</th>
 											<td>
+														-
 													</td>
 											<td>
+														rpm -qa
+													</td>
+									</tr>
+							<tr class="engine-gem">
+					<th>gem</th>
+											<td>
+														gem list --remote
+													</td>
+											<td>
+														gem list [--local]
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear list-all
+													</td>
+											<td>
+														pear list
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl list-all
+													</td>
+											<td>
+														pecl list
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														npm search "*"
+													</td>
+											<td>
+														npm list -g
 													</td>
 									</tr>
 					</tbody>
@@ -269,9 +298,12 @@
 			<tr>
 				<th></th>
 								<th class="engine-yum">yum</th>
-								<th class="engine-pear">pear</th>
 								<th class="engine-apt">apt</th>
 								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -281,13 +313,23 @@
 											<td class="engine-yum">
 														yum list
 													</td>
-											<td class="engine-pear">
-														pear list-all
-													</td>
 											<td class="engine-apt">
 														apt-cache pkgnamess
 													</td>
 											<td class="engine-rpm">
+														-
+													</td>
+											<td class="engine-gem">
+														gem list --remote
+													</td>
+											<td class="engine-pear">
+														pear list-all
+													</td>
+											<td class="engine-pecl">
+														pecl list-all
+													</td>
+											<td class="engine-npm">
+														npm search "*"
 													</td>
 									</tr>
 							<tr>
@@ -295,13 +337,23 @@
 											<td class="engine-yum">
 														yum list installed
 													</td>
-											<td class="engine-pear">
-														pear list
-													</td>
 											<td class="engine-apt">
 														dpkg -l
 													</td>
 											<td class="engine-rpm">
+														rpm -qa
+													</td>
+											<td class="engine-gem">
+														gem list [--local]
+													</td>
+											<td class="engine-pear">
+														pear list
+													</td>
+											<td class="engine-pecl">
+														pecl list
+													</td>
+											<td class="engine-npm">
+														npm list -g
 													</td>
 									</tr>
 					</tbody>
@@ -318,6 +370,7 @@
 				<th></th>
 									<th>パッケージ情報</th>
 									<th>依存表示</th>
+									<th>ファイル一覧</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -325,18 +378,13 @@
 							<tr class="engine-yum">
 					<th>yum</th>
 											<td>
-														
+														yum info パッケージ名
 													</td>
 											<td>
-														yum
-													</td>
-									</tr>
-							<tr class="engine-pear">
-					<th>pear</th>
-											<td>
-														
+														yum deplist パッケージ名
 													</td>
 											<td>
+														repoquery パッケージ名
 													</td>
 									</tr>
 							<tr class="engine-apt">
@@ -347,13 +395,68 @@
 											<td>
 														apt-cache showpkg パッケージ名
 													</td>
+											<td>
+														dpkg -L パッケージ名
+													</td>
 									</tr>
 							<tr class="engine-rpm">
 					<th>rpm</th>
 											<td>
-														rpm -q パッケージ名
+														rpm -qi パッケージ名
 													</td>
 											<td>
+														rpm -qR パッケージ名
+													</td>
+											<td>
+														rpm -ql パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-gem">
+					<th>gem</th>
+											<td>
+														gem query パッケージ名
+													</td>
+											<td>
+														gem dependency パッケージ名
+													</td>
+											<td>
+														gem contents パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear info パッケージ名
+													</td>
+											<td>
+														pear package-dependencies パッケージ名
+													</td>
+											<td>
+														pear list-files パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl info パッケージ名
+													</td>
+											<td>
+														pecl package-dependencies パッケージ名
+													</td>
+											<td>
+														pecl list-files パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
 													</td>
 									</tr>
 					</tbody>
@@ -369,9 +472,12 @@
 			<tr>
 				<th></th>
 								<th class="engine-yum">yum</th>
-								<th class="engine-pear">pear</th>
 								<th class="engine-apt">apt</th>
 								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -379,106 +485,80 @@
 							<tr>
 					<th>パッケージ情報</th>
 											<td class="engine-yum">
-														
-													</td>
-											<td class="engine-pear">
-														
+														yum info パッケージ名
 													</td>
 											<td class="engine-apt">
 														apt-cache show パッケージ名
 													</td>
 											<td class="engine-rpm">
-														rpm -q パッケージ名
+														rpm -qi パッケージ名
+													</td>
+											<td class="engine-gem">
+														gem query パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear info パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl info パッケージ名
+													</td>
+											<td class="engine-npm">
+														未
 													</td>
 									</tr>
 							<tr>
 					<th>依存表示</th>
 											<td class="engine-yum">
-														yum
-													</td>
-											<td class="engine-pear">
+														yum deplist パッケージ名
 													</td>
 											<td class="engine-apt">
 														apt-cache showpkg パッケージ名
 													</td>
 											<td class="engine-rpm">
+														rpm -qR パッケージ名
 													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h2 id="update" class="sub-header">更新</h2><h3 id="update-database" class="sub-header">データベース更新</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>リポジトリ更新</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-yum">
-					<th>yum</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-pear">
-					<th>pear</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-apt">
-					<th>apt</th>
-											<td>
-														apt-get update<br/>apt-cache gencaches
-													</td>
-									</tr>
-							<tr class="engine-rpm">
-					<th>rpm</th>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-yum">yum</th>
-								<th class="engine-pear">pear</th>
-								<th class="engine-apt">apt</th>
-								<th class="engine-rpm">rpm</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>リポジトリ更新</th>
-											<td class="engine-yum">
+											<td class="engine-gem">
+														gem dependency パッケージ名
 													</td>
 											<td class="engine-pear">
+														pear package-dependencies パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl package-dependencies パッケージ名
+													</td>
+											<td class="engine-npm">
+														未
+													</td>
+									</tr>
+							<tr>
+					<th>ファイル一覧</th>
+											<td class="engine-yum">
+														repoquery パッケージ名
 													</td>
 											<td class="engine-apt">
-														apt-get update<br/>apt-cache gencaches
+														dpkg -L パッケージ名
 													</td>
 											<td class="engine-rpm">
+														rpm -ql パッケージ名
+													</td>
+											<td class="engine-gem">
+														gem contents パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear list-files パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl list-files パッケージ名
+													</td>
+											<td class="engine-npm">
+														未
 													</td>
 									</tr>
 					</tbody>
 	</table>
 </div>
 </div>
-<h3 id="update-database" class="sub-header">パッケージ更新</h3><div class="mode0">
+<h2 id="update" class="sub-header">更新</h2><h3 id="update-database" class="sub-header">パッケージ更新</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -488,6 +568,7 @@
 				<th></th>
 									<th>インストール</th>
 									<th>アンインストール</th>
+									<th>アップデート</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -498,7 +579,46 @@
 														yum -y install パッケージ名
 													</td>
 											<td>
-														yum erase パッケージ名
+														yum remove パッケージ名
+													</td>
+											<td>
+														yum -y update パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-apt">
+					<th>apt</th>
+											<td>
+														apt-get -y install パッケージ名
+													</td>
+											<td>
+														apt-get [-purge] remove パッケージ名
+													</td>
+											<td>
+														apt-get -y install --only-upgrade パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-rpm">
+					<th>rpm</th>
+											<td>
+														rpm -ivh パッケージファイル名
+													</td>
+											<td>
+														rpm -e パッケージ名
+													</td>
+											<td>
+														rpm -Uvh パッケージファイル名
+													</td>
+									</tr>
+							<tr class="engine-gem">
+					<th>gem</th>
+											<td>
+														gem install パッケージ名
+													</td>
+											<td>
+														gem uninstall パッケージ名
+													</td>
+											<td>
+														gem update パッケージ名
 													</td>
 									</tr>
 							<tr class="engine-pear">
@@ -507,23 +627,34 @@
 														pear install パッケージ名
 													</td>
 											<td>
+														pear uninstall パッケージ名
+													</td>
+											<td>
+														pear upgrade パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-apt">
-					<th>apt</th>
+							<tr class="engine-pecl">
+					<th>pecl</th>
 											<td>
-														apt-get install パッケージ名
+														pecl install パッケージ名
 													</td>
 											<td>
-														apt-get [-purge] remove パッケージ名
+														pecl uninstall パッケージ名
+													</td>
+											<td>
+														pecl upgrade パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-rpm">
-					<th>rpm</th>
+							<tr class="engine-npm">
+					<th>npm</th>
 											<td>
-														
+														未
 													</td>
 											<td>
+														未
+													</td>
+											<td>
+														未
 													</td>
 									</tr>
 					</tbody>
@@ -539,9 +670,12 @@
 			<tr>
 				<th></th>
 								<th class="engine-yum">yum</th>
-								<th class="engine-pear">pear</th>
 								<th class="engine-apt">apt</th>
 								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -551,27 +685,177 @@
 											<td class="engine-yum">
 														yum -y install パッケージ名
 													</td>
+											<td class="engine-apt">
+														apt-get -y install パッケージ名
+													</td>
+											<td class="engine-rpm">
+														rpm -ivh パッケージファイル名
+													</td>
+											<td class="engine-gem">
+														gem install パッケージ名
+													</td>
 											<td class="engine-pear">
 														pear install パッケージ名
 													</td>
-											<td class="engine-apt">
-														apt-get install パッケージ名
+											<td class="engine-pecl">
+														pecl install パッケージ名
 													</td>
-											<td class="engine-rpm">
-														
+											<td class="engine-npm">
+														未
 													</td>
 									</tr>
 							<tr>
 					<th>アンインストール</th>
 											<td class="engine-yum">
-														yum erase パッケージ名
-													</td>
-											<td class="engine-pear">
+														yum remove パッケージ名
 													</td>
 											<td class="engine-apt">
 														apt-get [-purge] remove パッケージ名
 													</td>
 											<td class="engine-rpm">
+														rpm -e パッケージ名
+													</td>
+											<td class="engine-gem">
+														gem uninstall パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear uninstall パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl uninstall パッケージ名
+													</td>
+											<td class="engine-npm">
+														未
+													</td>
+									</tr>
+							<tr>
+					<th>アップデート</th>
+											<td class="engine-yum">
+														yum -y update パッケージ名
+													</td>
+											<td class="engine-apt">
+														apt-get -y install --only-upgrade パッケージ名
+													</td>
+											<td class="engine-rpm">
+														rpm -Uvh パッケージファイル名
+													</td>
+											<td class="engine-gem">
+														gem update パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear upgrade パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl upgrade パッケージ名
+													</td>
+											<td class="engine-npm">
+														未
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="update-all" class="sub-header">一括更新</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>一括アップデート</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-yum">
+					<th>yum</th>
+											<td>
+														yum -y update<br/>yum -y upgrade
+													</td>
+									</tr>
+							<tr class="engine-apt">
+					<th>apt</th>
+											<td>
+														apt-get -y upgrade
+													</td>
+									</tr>
+							<tr class="engine-rpm">
+					<th>rpm</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-gem">
+					<th>gem</th>
+											<td>
+														未
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear upgrade-all
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl upgrade-all
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														未
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-yum">yum</th>
+								<th class="engine-apt">apt</th>
+								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>一括アップデート</th>
+											<td class="engine-yum">
+														yum -y update<br/>yum -y upgrade
+													</td>
+											<td class="engine-apt">
+														apt-get -y upgrade
+													</td>
+											<td class="engine-rpm">
+														-
+													</td>
+											<td class="engine-gem">
+														未
+													</td>
+											<td class="engine-pear">
+														pear upgrade-all
+													</td>
+											<td class="engine-pecl">
+														pecl upgrade-all
+													</td>
+											<td class="engine-npm">
+														未
 													</td>
 									</tr>
 					</tbody>
@@ -594,11 +878,7 @@
 							<tr class="engine-yum">
 					<th>yum</th>
 											<td>
-													</td>
-									</tr>
-							<tr class="engine-pear">
-					<th>pear</th>
-											<td>
+														yumdownloader --source パッケージ名
 													</td>
 									</tr>
 							<tr class="engine-apt">
@@ -609,6 +889,26 @@
 									</tr>
 							<tr class="engine-rpm">
 					<th>rpm</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-gem">
+					<th>gem</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
 											<td>
 													</td>
 									</tr>
@@ -625,9 +925,12 @@
 			<tr>
 				<th></th>
 								<th class="engine-yum">yum</th>
-								<th class="engine-pear">pear</th>
 								<th class="engine-apt">apt</th>
 								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -635,13 +938,20 @@
 							<tr>
 					<th>ソースコード取得</th>
 											<td class="engine-yum">
-													</td>
-											<td class="engine-pear">
+														yumdownloader --source パッケージ名
 													</td>
 											<td class="engine-apt">
 														apt-get source パッケージ名
 													</td>
 											<td class="engine-rpm">
+													</td>
+											<td class="engine-gem">
+													</td>
+											<td class="engine-pear">
+													</td>
+											<td class="engine-pecl">
+													</td>
+											<td class="engine-npm">
 													</td>
 									</tr>
 					</tbody>

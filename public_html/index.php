@@ -88,7 +88,7 @@ else{
 		sections_commit();
 
 		// 本体
-		$keywords .= ', yum, apt-get, rpm, gem, pear, pecl, npm, pip';
+		$keywords .= ', yum, apt-get, rpm, gem, pear, pecl, npm'; //, pip';
 		$smarty->assign('sitesubtitle', ' - Package');
 		$smarty->assign('contentpath', '/package');
 		$smarty->assign('menus', fetch_menus());

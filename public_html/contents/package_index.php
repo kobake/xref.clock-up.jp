@@ -2,7 +2,7 @@
 
 // 各種変数初期化
 $features = [];
-$engines = ['yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm', 'pip'];
+$engines = ['yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm'];//, 'pip'];
 $originalEngines = $engines;
 
 // 全データ読み込み

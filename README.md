@@ -3,8 +3,8 @@ xref.jp
 
 http://xref.jp/
 
-Build
------
+Build LESS
+----------
 
 	$ npm install
 	$ grunt

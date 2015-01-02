@@ -18,6 +18,15 @@
 .current-engine-sqlite-off .engine-sqlite {
   display: none;
 }
+.current-engine-yum-off .engine-yum,
+.current-engine-apt-off .engine-apt,
+.current-engine-rpm-off .engine-rpm,
+.current-engine-gem-off .engine-gem,
+.current-engine-pear-off .engine-pear,
+.current-engine-pecl-off .engine-pecl,
+.current-engine-npm-off .engine-npm {
+  display: none;
+}
 .btn-default {
   background-color: #666;
   border-color: #888;

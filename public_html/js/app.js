@@ -13,7 +13,10 @@ function updateMode(){
 
 // エンジン選択反映
 function updateEngine(){
-	var modes = ['mysql', 'oracle', 'postgresql', 'sqlite'];
+	var modes = [
+		'mysql', 'oracle', 'postgresql', 'sqlite',
+		'yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm'
+	];
 	modes.forEach(function(mode){
 		jQuery('body').removeClass('current-engine-' + mode + '-on');
 		jQuery('body').removeClass('current-engine-' + mode + '-off');

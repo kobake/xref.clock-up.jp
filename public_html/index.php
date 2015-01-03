@@ -42,18 +42,12 @@ if(isset($_SERVER['REQUEST_URI'])){
 
 // キャッシュ名
 $cachename = '';
-if ($uri_without_query === '/database') {
-	$cachename = 'database.html';
-}
-else if ($uri_without_query === '/package') {
-	$cachename = 'package.html';
-}
-else if ($uri_without_query === '/about') {
-	$cachename = 'about.html';
-}
-else if ($uri_without_query === '/') {
-	$cachename = 'top.html';
-}
+if(false){}
+else if ($uri_without_query === '/database') { $cachename = 'database.html'; }
+else if ($uri_without_query === '/package' ) { $cachename = 'package.html'; }
+else if ($uri_without_query === '/language') { $cachename = 'language.html'; }
+else if ($uri_without_query === '/about'   ) { $cachename = 'about.html'; }
+else if ($uri_without_query === '/'        ) { $cachename = 'top.html'; }
 else{
 	$cachename = 'notfound.html';
 }
@@ -68,9 +62,8 @@ else{
 	$keywords = '比較, 横断, リファレンス';
 
 	if($uri_without_query === '/database'){
+		// セクション群定義
 		include(dirname(__FILE__) . '/contents/database_index.php');
-
-		// 全セクション確定
 		sections_commit();
 
 		// 本体
@@ -82,15 +75,27 @@ else{
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
 	}
 	else if ($uri_without_query === '/package') {
+		// セクション群定義
 		include(dirname(__FILE__) . '/contents/package_index.php');
-
-		// 全セクション確定
 		sections_commit();
 
 		// 本体
 		$keywords .= ', yum, apt-get, rpm, gem, pear, pecl, npm'; //, pip';
 		$smarty->assign('sitesubtitle', ' - Package');
 		$smarty->assign('contentpath', '/package');
+		$smarty->assign('menus', fetch_menus());
+		$smarty->assign('sections', fetch_sections());
+		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
+	}
+	else if ($uri_without_query === '/language') {
+		// セクション群定義
+		include(dirname(__FILE__) . '/contents/language_index.php');
+		sections_commit();
+
+		// 本体
+		$keywords .= ', C++, C#, Java, PHP, Ruby, Python, Perl';
+		$smarty->assign('sitesubtitle', ' - Language');
+		$smarty->assign('contentpath', '/language');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');

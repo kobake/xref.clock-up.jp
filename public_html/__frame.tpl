@@ -118,10 +118,11 @@
 					<!-- 各コンテンツリンク -->
 					<ul class="nav navbar-nav">
 						<li {if $sitesubtitle === ' - Database'}class="active2"{/if}><a href="/database">Database</a></li>
-						<li {if $sitesubtitle === ' - Package'}class="active2"{/if}><a href="/package">Package</a></li>
+						<li {if $sitesubtitle === ' - Package' }class="active2"{/if}><a href="/package" >Package</a></li>
+						<li {if $sitesubtitle === ' - Language'}class="active2"{/if}><a href="/language">Language</a></li>
 					</ul>
 					
-					{if $sitesubtitle === ' - Database' || $sitesubtitle === ' - Package'}
+						{if $sitesubtitle === ' - Database' || $sitesubtitle === ' - Package' || $sitesubtitle === ' - Language'}
 					<!-- 縦横切替 -->
 					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
 						<label class="btn btn-info active">

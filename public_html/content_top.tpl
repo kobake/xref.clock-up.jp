@@ -6,6 +6,7 @@
 	<h2>Contents</h2>
 	<ul>
 		<li><a href="/database">Database</a></li>
-		<li><a href="/package">Package</a></li>
+		<li><a href="/package" >Package</a></li>
+		<li><a href="/language">Language</a></li>
 	</ul>
 </div>

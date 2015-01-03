@@ -1,0 +1,75 @@
+# ※PHP5.4～
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 変数
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 宣言
+変数宣言_C++			int v = 10;
+変数宣言_C＃			int v = 10;
+変数宣言_Java			int v = 10;
+変数宣言_PHP			$v = 10;
+変数宣言_JS				var v = 10;
+変数宣言_Ruby			v = 10;
+変数宣言_Python			未
+変数宣言_Perl			未
+
+# スコープ
+グローバル変数_C++			int g = 10; // 関数外で宣言
+グローバル変数_C＃			public static class G{
+								public static int g = 10;
+							}
+グローバル変数_Java			public static class G{
+								public static int g = 10;
+							}
+グローバル変数_PHP			global $g = 10;
+グローバル変数_JS			window.g = 10;
+グローバル変数_Ruby			$g = 10;
+グローバル変数_Python		未
+グローバル変数_Perl			未
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 無効値
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+無効値_Ruby				nil
+
+BOOL無効値_C++			false
+BOOL無効値_C＃			false
+BOOL無効値_Java			false
+BOOL無効値_PHP			false
+BOOL無効値_JS			false
+BOOL無効値_Ruby			未
+BOOL無効値_Python		未
+BOOL無効値_Perl			未
+
+参照無効値_C++			NULL
+参照無効値_C＃			null
+参照無効値_Java			null
+参照無効値_PHP			$v = 10;
+参照無効値_JS			null
+						undefined
+参照無効値_Ruby			nil
+参照無効値_Python		None
+参照無効値_Perl			undefined
+
+
+無効値判定_C++			if(v){}
+無効値判定_Ruby			if(v){ … }
+
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 配列
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+配列確保_C++			int v[10];
+配列確保_C＃			int[] v = new int[10];
+配列確保_Java			int[] v = new int[10];
+配列確保_PHP			$v = [];
+配列確保_JS				var v = [];
+配列確保_Ruby			未
+配列確保_Python			未
+配列確保_Perl			$my v = ();
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 制御構造
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 分岐
+# クラス定義
+# 関数定義

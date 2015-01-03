@@ -106,7 +106,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#head-navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -114,7 +114,7 @@
 					</button>
 					<a class="navbar-brand" href="/">{$sitetitle}</a>
 				</div>
-				<div class="navbar-collapse collapse">
+				<div class="navbar-collapse collapse" id="head-navbar">
 					<!-- 各コンテンツリンク -->
 					<ul class="nav navbar-nav">
 						<li {if $sitesubtitle === ' - Database'}class="active2"{/if}><a href="/database">Database</a></li>

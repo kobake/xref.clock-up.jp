@@ -1,30 +1,392 @@
 # ※PHP5.4～
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 無
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+メタ
+	エンジン
+		対話起動_C++	-
+		対話起動_C#		-
+		対話起動_VB		-
+		対話起動_Java	-
+		対話起動_Scala	$ scala
+		対話起動_PHP	$ php -a
+		対話起動_JS		$ node
+		対話起動_Ruby	$ irb
+		対話起動_Python	$ python
+		対話起動_Perl	$ perl -d -e 1
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 変数
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 宣言
-変数宣言_C++			int v = 10;
-変数宣言_C＃			int v = 10;
-変数宣言_Java			int v = 10;
-変数宣言_PHP			$v = 10;
-変数宣言_JS				var v = 10;
-変数宣言_Ruby			v = 10;
-変数宣言_Python			未
-変数宣言_Perl			未
+入出力
+	入出力
+		標準出力_C++			std::cout << "Hello\n";
+		標準出力_C#				System.Console.WriteLine("Hello");
+		標準出力_VB				System.Console.WriteLine("Hello");
+		標準出力_Java			System.out.println("Hello");
+		標準出力_Scala			System.out.println("Hello");
+		標準出力_PHP			print "Hello\n";
+		標準出力_JS				console.log("Hello");
+		標準出力_Ruby			puts "Hello"
+		標準出力_Python			print "Hello"
+		標準出力_Perl			print "Hello\n";
 
+		標準入力_C++			string line; std::cin >> line; 
+		標準入力_C#				string line = Console.ReadLine();
+		標準入力_Java			String line = new Scanner(System.in).readLine();
+		標準入力_JS				process.stdin.pipe(require('split')()).on('data', function(line){
+									console.log(line);
+								})
+		標準入力_Ruby			line = STDIN.gets
+		標準入力_Python			line = sys.stdin.readline()
+		標準入力_Perl			while($line = <STDIN>){
+									print "$line\n";
+								}
+
+基本
+	変数
+		変数宣言_C++			int v = 10;
+		変数宣言_C#				int v = 10;
+		変数宣言_VB				Dim v As Integer = 10;
+		変数宣言_Java			int v = 10;
+		変数宣言_PHP			$v = 10;
+		変数宣言_JS				var v = 10;
+		変数宣言_Ruby			v = 10;
+		変数宣言_Python			未
+		変数宣言_Perl			未
+
+	スコープ
+		グローバル変数_C++			int g = 10; // 関数外で宣言
+		グローバル変数_C#			public static class G{
+										public static int g = 10;
+									}
+		グローバル変数_VB			public g as Integer = 10;
+		グローバル変数_Java			public static class G{
+										public static int g = 10;
+									}
+		グローバル変数_PHP			global $g = 10;
+		グローバル変数_JS			window.g = 10;
+		グローバル変数_Ruby			$g = 10;
+		グローバル変数_Python		未
+		グローバル変数_Perl			未
+
+		局所変数_C++				{
+										int p = 10;
+									}
+		局所変数_Java				{
+										int p = 10;
+									}
+		局所変数_VB					If True Then
+										Dim p As Integer = 10
+									End
+		局所変数_PHP				function foo(){
+										$p = 10;
+									}
+		局所変数_JS					function foo(){
+										var p = 10;
+									}
+		局所変数_Ruby				def foo
+										p = 10
+									end
+		局所変数_Python				def foo():
+										p = 10
+		局所変数_Perl				{
+										my $p = 10;
+									}
+
+制御
+	分岐
+		If分岐_C++					if(a){
+										foo();
+									}
+									else if(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		If分岐_C#					if(a){
+										foo();
+									}
+									else if(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		If分岐_Java					if(a){
+										foo();
+									}
+									else if(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		If分岐_VB					If a Then
+										foo
+									ElseIf b Then
+										bar
+									Else
+										baz
+									End If
+		If分岐_PHP					if(a){
+										foo();
+									}
+									else if(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		If分岐_JS					if(a){
+										foo();
+									}
+									else if(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		If分岐_Ruby					if a
+										foo()
+									elsif b
+										bar()
+									else
+										baz()
+									end
+		If分岐_Python				if a:
+										foo()
+									elif b:
+										bar()
+									else:
+										baz()
+		If分岐_Perl					if(a){
+										foo();
+									}
+									elsif(b){
+										bar();
+									}
+									else{
+										baz();
+									}
+		Switch分岐_C++				switch(a){
+									case 0:
+										foo();
+										break;
+									case 1:
+										bar();
+										break;
+									default:
+										baz();
+										break;
+									}
+		Switch分岐_C#				switch(a){
+									case 0:
+										foo();
+										break;
+									case 1:
+										bar();
+										break;
+									default:
+										baz();
+										break;
+									}
+		Switch分岐_Java				switch(a){
+									case 0:
+										foo();
+										break;
+									case 1:
+										bar();
+										break;
+									default:
+										baz();
+										break;
+									}
+		Switch分岐_PHP				switch(a){
+									case 0:
+										foo();
+										break;
+									case 1:
+										bar();
+										break;
+									default:
+										baz();
+										break;
+									}
+		Switch分岐_JS				switch(a){
+									case 0:
+										foo();
+										break;
+									case 1:
+										bar();
+										break;
+									default:
+										baz();
+										break;
+									}
+		Switch分岐_Ruby				case a
+									when 0
+										foo()
+									when 1
+										bar()
+									else
+										baz()
+									end
+		Switch分岐_Python			-
+		Switch分岐_Perl				use Switch;
+									switch($a){
+										case 0 { foo(); }
+										case 1 { bar(); }
+										else   { baz(); }
+									}
+		
+	For系ループ
+		Forループ_C++				for(int i = 0; i < 10; i++){
+										std::out << i << "\n";
+									}
+		Forループ_C#				for(int i = 0; i < 10; i++){
+										System.Console.WriteLine("" + i);
+									}
+		Forループ_Java				for(int i = 0; i < 10; i++){
+										System.out.println("" + i);
+									}
+		Forループ_VB				For i = 0 To 9
+										System.Console.WriteLine(i)
+									Next
+		Forループ_PHP				for($i = 0; $i < 10; $i++){
+										print "$i\n";
+									}
+		Forループ_JS				for($i = 0; $i < 10; $i++){
+										console.log($i);
+									}
+		ForEachループ_C++11			for(int e : v){
+										std::cout << e;
+									}
+		ForEachループ_C++			std::vector<int> list;
+									BOOST_FOREACH(int e, list){
+										std::cout << e;
+									}
+		ForEachループ_PHP			foreach($list as $e){
+										print "$e\n";
+									}
+		ForEachループ_JS			list.forEach(function(e, i){
+										console.log(e);
+									}
+		ForEachループ_Ruby			list.each do |e|
+										print e
+									end
+		ForEachループ_Python		for e in list:
+										print e
+		ForEachループ_Perl			foreach my $e (@list){
+										print "$e\n";
+									}
+
+	While系ループ
+		Whileループ_C++				while(a){
+										foo();
+									}
+		Whileループ_C#				while(a){
+										foo();
+									}
+		Whileループ_Java			while(a){
+										foo();
+									}
+		Whileループ_VB				While a
+										foo
+									End While
+		Whileループ_PHP				while($a){
+										foo();
+									}
+		Whileループ_Ruby			while a
+										foo()
+									end
+		Whileループ_Python			while a:
+										foo()
+		Whileループ_Perl			while($a){
+										foo();
+									}
+	ジャンプ
+		ループ抜け_C++					break;
+		ループ抜け_C#					break;
+		ループ抜け_Java					break;
+		ループ抜け_PHP					break;
+		ループ抜け_JS					break;
+		ループ抜け_Ruby					break
+		ループ抜け_Python				break
+		ループ抜け_Perl					last;
+		
+		ループ継続_C++					continue;
+		ループ継続_C#					continue;
+		ループ継続_Java					continue;
+		ループ継続_PHP					continue;
+		ループ継続_JS					continue;
+		ループ継続_Ruby					next
+		ループ継続_Python				continue
+		ループ継続_Perl					next;
+
+		関数抜け_C++					return v;
+		関数抜け_C#						return v;
+		関数抜け_Java					return v;
+		関数抜け_PHP					return v;
+		関数抜け_JS						return v;
+		関数抜け_Ruby					return v
+		関数抜け_Python					return v
+		関数抜け_Perl					return v;
+
+	例外
+		例外送出_C++					throw std::exception("msg");
+		例外送出_C#						throw new Exception("msg");
+		例外送出_Java					throw new Exception("msg");
+		例外送出_PHP					throw new Exception("msg");
+		例外送出_JS						throw "msg";
+		例外送出_Ruby					未
+		例外送出_Python					未
+		例外送出_Perl					未
+
+		例外Catch_C++					try{
+										}
+										catch(const std::exception& ex){
+										}
+		例外Catch_C#					try{
+										}
+										catch(Exception ex){
+										}
+		例外Catch_Java					try{
+										}
+										catch(Exception ex){
+										}
+		例外Catch_PHP					try{
+										}
+										catch(Exception ex){
+										}
+		例外Catch_JS					try{
+										}
+										catch(ex){
+										}
+		例外Catch_Ruby					未
+		例外Catch_Python				未
+		例外Catch_Perl					未
 # スコープ
-グローバル変数_C++			int g = 10; // 関数外で宣言
-グローバル変数_C＃			public static class G{
-								public static int g = 10;
-							}
-グローバル変数_Java			public static class G{
-								public static int g = 10;
-							}
-グローバル変数_PHP			global $g = 10;
-グローバル変数_JS			window.g = 10;
-グローバル変数_Ruby			$g = 10;
-グローバル変数_Python		未
-グローバル変数_Perl			未
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 文字列
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+文字列
+	代入_C++		std::string s = "abc";
+	代入_C#			string s = "abc";
+	代入_Java		String s = "abc";
+	代入_PHP		$s = "abc";
+					$s = 'abc';
+	代入_JS			var s = "abc";
+					var s = 'abc';
+	代入_Ruby		s = "abc";
+					s = 'abc';
+	代入_Python		s = "abc";
+					s = 'abc';
+	代入_Perl		未
+
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 無効値
@@ -32,7 +394,7 @@
 無効値_Ruby				nil
 
 BOOL無効値_C++			false
-BOOL無効値_C＃			false
+BOOL無効値_C#			false
 BOOL無効値_Java			false
 BOOL無効値_PHP			false
 BOOL無効値_JS			false
@@ -58,14 +420,14 @@ BOOL無効値_Perl			未
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 配列
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-配列確保_C++			int v[10];
-配列確保_C＃			int[] v = new int[10];
-配列確保_Java			int[] v = new int[10];
-配列確保_PHP			$v = [];
-配列確保_JS				var v = [];
-配列確保_Ruby			未
-配列確保_Python			未
-配列確保_Perl			$my v = ();
+配列確保_C++			int v[] = {10, 20};
+配列確保_C＃			int[] v = new int[]{10, 20};
+配列確保_Java			int[] v = new int[]{10, 20};
+配列確保_PHP			$v = [10, 20];
+配列確保_JS				var v = [10, 20];
+配列確保_Ruby			v = [10, 20];
+配列確保_Python			v = [10, 20];
+配列確保_Perl			my @v = (10, 20);
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 制御構造

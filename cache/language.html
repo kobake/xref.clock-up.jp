@@ -102,7 +102,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#head-navbar" aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -110,7 +110,7 @@
 					</button>
 					<a class="navbar-brand" href="/">xref.jp</a>
 				</div>
-				<div class="navbar-collapse collapse">
+				<div class="navbar-collapse collapse" id="head-navbar">
 					<!-- 各コンテンツリンク -->
 					<ul class="nav navbar-nav">
 						<li ><a href="/database">Database</a></li>
@@ -220,76 +220,60 @@
 		</thead>
 		<!-- body -->
 		<tbody>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
 							<tr class="engine-c++">
 					<th>C++</th>
 											<td>
-														int v = 10;
 													</td>
 											<td>
-														int g = 10; // 関数外で宣言
 													</td>
 									</tr>
 							<tr class="engine-c#">
 					<th>C#</th>
 											<td>
-														int v = 10;
 													</td>
 											<td>
-														public static class G{<br/>&nbsp;&nbsp;&nbsp;public static int g = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														int v = 10;
 													</td>
 											<td>
-														public static class G{<br/>&nbsp;&nbsp;&nbsp;public static int g = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														$v = 10;
 													</td>
 											<td>
-														global $g = 10;
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														var v = 10;
 													</td>
 											<td>
-														window.g = 10;
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-														v = 10;
-													</td>
-											<td>
-														$g = 10;
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
-														未
 													</td>
 											<td>
-														未
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
-														未
 													</td>
 											<td>
-														未
 													</td>
 									</tr>
 					</tbody>
@@ -304,12 +288,12 @@
 		<thead>
 			<tr>
 				<th></th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-c++">C++</th>
 								<th class="engine-c#">C#</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -318,56 +302,40 @@
 		<tbody>
 							<tr>
 					<th>変数宣言</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
-														int v = 10;
 													</td>
 											<td class="engine-c#">
-														int v = 10;
 													</td>
 											<td class="engine-java">
-														int v = 10;
 													</td>
 											<td class="engine-php">
-														$v = 10;
 													</td>
 											<td class="engine-js">
-														var v = 10;
-													</td>
-											<td class="engine-ruby">
-														v = 10;
 													</td>
 											<td class="engine-python">
-														未
 													</td>
 											<td class="engine-perl">
-														未
 													</td>
 									</tr>
 							<tr>
 					<th>グローバル変数</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
-														int g = 10; // 関数外で宣言
 													</td>
 											<td class="engine-c#">
-														public static class G{<br/>&nbsp;&nbsp;&nbsp;public static int g = 10;<br/>}
 													</td>
 											<td class="engine-java">
-														public static class G{<br/>&nbsp;&nbsp;&nbsp;public static int g = 10;<br/>}
 													</td>
 											<td class="engine-php">
-														global $g = 10;
 													</td>
 											<td class="engine-js">
-														window.g = 10;
-													</td>
-											<td class="engine-ruby">
-														$g = 10;
 													</td>
 											<td class="engine-python">
-														未
 													</td>
 											<td class="engine-perl">
-														未
 													</td>
 									</tr>
 					</tbody>
@@ -388,6 +356,14 @@
 		</thead>
 		<!-- body -->
 		<tbody>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														nil
+													</td>
+											<td>
+													</td>
+									</tr>
 							<tr class="engine-c++">
 					<th>C++</th>
 											<td>
@@ -423,14 +399,6 @@
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-														nil
-													</td>
-											<td>
-													</td>
-									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
@@ -457,12 +425,12 @@
 		<thead>
 			<tr>
 				<th></th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-c++">C++</th>
 								<th class="engine-c#">C#</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -471,6 +439,9 @@
 		<tbody>
 							<tr>
 					<th>無効値</th>
+											<td class="engine-ruby">
+														nil
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -480,9 +451,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-														nil
 													</td>
 											<td class="engine-python">
 													</td>
@@ -491,6 +459,8 @@
 									</tr>
 							<tr>
 					<th>無効判定</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -500,8 +470,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -528,6 +496,17 @@
 		</thead>
 		<!-- body -->
 		<tbody>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
 							<tr class="engine-c++">
 					<th>C++</th>
 											<td>
@@ -583,17 +562,6 @@
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
@@ -628,12 +596,12 @@
 		<thead>
 			<tr>
 				<th></th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-c++">C++</th>
 								<th class="engine-c#">C#</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -642,6 +610,8 @@
 		<tbody>
 							<tr>
 					<th>if分岐</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -651,8 +621,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -661,6 +629,8 @@
 									</tr>
 							<tr>
 					<th>switch分岐</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -670,8 +640,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -680,6 +648,8 @@
 									</tr>
 							<tr>
 					<th>whileループ</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -689,8 +659,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -699,6 +667,8 @@
 									</tr>
 							<tr>
 					<th>回数ループ</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -708,8 +678,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -733,6 +701,11 @@
 		</thead>
 		<!-- body -->
 		<tbody>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+									</tr>
 							<tr class="engine-c++">
 					<th>C++</th>
 											<td>
@@ -758,11 +731,6 @@
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
@@ -785,12 +753,12 @@
 		<thead>
 			<tr>
 				<th></th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-c++">C++</th>
 								<th class="engine-c#">C#</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -799,6 +767,8 @@
 		<tbody>
 							<tr>
 					<th>Hello出力</th>
+											<td class="engine-ruby">
+													</td>
 											<td class="engine-c++">
 													</td>
 											<td class="engine-c#">
@@ -808,8 +778,6 @@
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>

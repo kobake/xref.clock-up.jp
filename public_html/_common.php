@@ -202,6 +202,8 @@ function section($title, $features) {
 function removeLineComment($line){
 	// 特殊な「#」をマーク
 	$line = preg_replace('/\# (yum|service|mysql)/', '＃ \1', $line);
+	$line = preg_replace('/\_C\#([\t ])/', '_C＃\1', $line);
+	$line = preg_replace('/C\#\_/', 'C＃_', $line);
 	// コメントの除去
 	$line = preg_replace('/\#.*/', '', $line);
 	// 後ろの余計な文字削除

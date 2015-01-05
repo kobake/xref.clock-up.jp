@@ -97,7 +97,7 @@
 		
 	</head>
 
-	<body data-spy="scroll" data-offset="50" class="current-mode0">
+	<body data-spy="scroll" data-offset="50" class="current-mode1">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -120,11 +120,11 @@
 					
 											<!-- 縦横切替 -->
 					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
-						<label class="btn btn-info active">
-							<input type="radio" name="options" id="mode0" autocomplete="off" checked> 縦
-						</label>
 						<label class="btn btn-default">
-							<input type="radio" name="options" id="mode1" autocomplete="off"> 横
+							<input type="radio" name="options" id="mode0" autocomplete="off"> 縦
+						</label>
+						<label class="btn btn-info active">
+							<input type="radio" name="options" id="mode1" autocomplete="off" checked> 横
 						</label>
 					</div>
 					
@@ -204,7 +204,6 @@
 			<!-- <h1 class="page-header">Database</h1> -->
 
 			<h2 id="view" class="sub-header">閲覧</h2><h3 id="view-list" class="sub-header">一覧</h3><div class="mode0">
-BB
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -212,73 +211,73 @@ BB
 		<thead>
 			<tr>
 				<th></th>
-									<th><br/>TPL<br/>利用可能一覧</th>
-									<th><br/>TPL<br/>インストール済一覧</th>
+									<th>利用可能一覧</th>
+									<th>インストール済一覧</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-					<th><br/>TPL<br/>yum</th>
+							<tr class="engine-yum">
+					<th>yum</th>
 											<td>
-														<br/>TPL<br/>yum list
+														yum list
 													</td>
 											<td>
-														<br/>TPL<br/>yum list installed
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-					<th><br/>TPL<br/>apt</th>
-											<td>
-														<br/>TPL<br/>apt-cache pkgnames
-													</td>
-											<td>
-														<br/>TPL<br/>dpkg -l
+														yum list installed
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-					<th><br/>TPL<br/>rpm</th>
+							<tr class="engine-apt">
+					<th>apt</th>
 											<td>
-														<br/>TPL<br/>-
+														apt-cache pkgnames
 													</td>
 											<td>
-														<br/>TPL<br/>rpm -qa
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-					<th><br/>TPL<br/>gem</th>
-											<td>
-														<br/>TPL<br/>gem list --remote
-													</td>
-											<td>
-														<br/>TPL<br/>gem list [--local]
+														dpkg -l
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-					<th><br/>TPL<br/>pear</th>
+							<tr class="engine-rpm">
+					<th>rpm</th>
 											<td>
-														<br/>TPL<br/>pear list-all
+														-
 													</td>
 											<td>
-														<br/>TPL<br/>pear list
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-					<th><br/>TPL<br/>pecl</th>
-											<td>
-														<br/>TPL<br/>pecl list-all
-													</td>
-											<td>
-														<br/>TPL<br/>pecl list
+														rpm -qa
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-					<th><br/>TPL<br/>npm</th>
+							<tr class="engine-gem">
+					<th>gem</th>
 											<td>
-														<br/>TPL<br/>npm search "*"
+														gem list --remote
 													</td>
 											<td>
-														<br/>TPL<br/>npm list -g
+														gem list [--local]
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear list-all
+													</td>
+											<td>
+														pear list
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl list-all
+													</td>
+											<td>
+														pecl list
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														npm search "*"
+													</td>
+											<td>
+														npm list -g
 													</td>
 									</tr>
 					</tbody>
@@ -286,7 +285,6 @@ BB
 </div>
 </div>
 <div class="mode1">
-AA
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -294,63 +292,63 @@ AA
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>yum"><br/>TPL<br/>yum</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>apt"><br/>TPL<br/>apt</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>rpm"><br/>TPL<br/>rpm</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>gem"><br/>TPL<br/>gem</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pear"><br/>TPL<br/>pear</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pecl"><br/>TPL<br/>pecl</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>npm"><br/>TPL<br/>npm</th>
+								<th class="engine-yum">yum</th>
+								<th class="engine-apt">apt</th>
+								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th><br/>TPL<br/>利用可能一覧</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum list
+					<th>利用可能一覧</th>
+											<td class="engine-yum">
+														yum list
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-cache pkgnames
+											<td class="engine-apt">
+														apt-cache pkgnames
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>-
+											<td class="engine-rpm">
+														-
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem list --remote
+											<td class="engine-gem">
+														gem list --remote
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear list-all
+											<td class="engine-pear">
+														pear list-all
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl list-all
+											<td class="engine-pecl">
+														pecl list-all
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm search "*"
+											<td class="engine-npm">
+														npm search "*"
 													</td>
 									</tr>
 							<tr>
-					<th><br/>TPL<br/>インストール済一覧</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum list installed
+					<th>インストール済一覧</th>
+											<td class="engine-yum">
+														yum list installed
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>dpkg -l
+											<td class="engine-apt">
+														dpkg -l
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -qa
+											<td class="engine-rpm">
+														rpm -qa
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem list [--local]
+											<td class="engine-gem">
+														gem list [--local]
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear list
+											<td class="engine-pear">
+														pear list
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl list
+											<td class="engine-pecl">
+														pecl list
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm list -g
+											<td class="engine-npm">
+														npm list -g
 													</td>
 									</tr>
 					</tbody>
@@ -358,7 +356,6 @@ AA
 </div>
 </div>
 <h3 id="view-details" class="sub-header">詳細</h3><div class="mode0">
-BB
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -366,95 +363,95 @@ BB
 		<thead>
 			<tr>
 				<th></th>
-									<th><br/>TPL<br/>パッケージ情報</th>
-									<th><br/>TPL<br/>依存表示</th>
-									<th><br/>TPL<br/>ファイル一覧</th>
+									<th>パッケージ情報</th>
+									<th>依存表示</th>
+									<th>ファイル一覧</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-					<th><br/>TPL<br/>yum</th>
+							<tr class="engine-yum">
+					<th>yum</th>
 											<td>
-														<br/>TPL<br/>yum info パッケージ名
+														yum info パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>yum deplist パッケージ名
+														yum deplist パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>repoquery パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-					<th><br/>TPL<br/>apt</th>
-											<td>
-														<br/>TPL<br/>apt-cache show パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>apt-cache showpkg パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>dpkg -l パッケージ名
+														repoquery パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-					<th><br/>TPL<br/>rpm</th>
+							<tr class="engine-apt">
+					<th>apt</th>
 											<td>
-														<br/>TPL<br/>rpm -qi パッケージ名
+														apt-cache show パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>rpm -qr パッケージ名
+														apt-cache showpkg パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>rpm -ql パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-					<th><br/>TPL<br/>gem</th>
-											<td>
-														<br/>TPL<br/>gem query パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>gem dependency パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>gem contents パッケージ名
+														dpkg -L パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-					<th><br/>TPL<br/>pear</th>
+							<tr class="engine-rpm">
+					<th>rpm</th>
 											<td>
-														<br/>TPL<br/>pear info パッケージ名
+														rpm -qi パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>pear package-dependencies パッケージ名
+														rpm -qR パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>pear list-files パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-					<th><br/>TPL<br/>pecl</th>
-											<td>
-														<br/>TPL<br/>pecl info パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>pecl package-dependencies パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>pecl list-files パッケージ名
+														rpm -ql パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-					<th><br/>TPL<br/>npm</th>
+							<tr class="engine-gem">
+					<th>gem</th>
 											<td>
-														<br/>TPL<br/>npm view パッケージ名 (※リモート)
+														gem query パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>npm view パッケージ名 dependencies (※リモート)
+														gem dependency パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>npm view パッケージ名 files (※リモート)
+														gem contents パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear info パッケージ名
+													</td>
+											<td>
+														pear package-dependencies パッケージ名
+													</td>
+											<td>
+														pear list-files パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl info パッケージ名
+													</td>
+											<td>
+														pecl package-dependencies パッケージ名
+													</td>
+											<td>
+														pecl list-files パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														npm view パッケージ名 (※リモート)
+													</td>
+											<td>
+														npm view パッケージ名 dependencies (※リモート)
+													</td>
+											<td>
+														npm view パッケージ名 files (※リモート)
 													</td>
 									</tr>
 					</tbody>
@@ -462,7 +459,6 @@ BB
 </div>
 </div>
 <div class="mode1">
-AA
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -470,87 +466,87 @@ AA
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>yum"><br/>TPL<br/>yum</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>apt"><br/>TPL<br/>apt</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>rpm"><br/>TPL<br/>rpm</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>gem"><br/>TPL<br/>gem</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pear"><br/>TPL<br/>pear</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pecl"><br/>TPL<br/>pecl</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>npm"><br/>TPL<br/>npm</th>
+								<th class="engine-yum">yum</th>
+								<th class="engine-apt">apt</th>
+								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th><br/>TPL<br/>パッケージ情報</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum info パッケージ名
+					<th>パッケージ情報</th>
+											<td class="engine-yum">
+														yum info パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-cache show パッケージ名
+											<td class="engine-apt">
+														apt-cache show パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -qi パッケージ名
+											<td class="engine-rpm">
+														rpm -qi パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem query パッケージ名
+											<td class="engine-gem">
+														gem query パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear info パッケージ名
+											<td class="engine-pear">
+														pear info パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl info パッケージ名
+											<td class="engine-pecl">
+														pecl info パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm view パッケージ名 (※リモート)
-													</td>
-									</tr>
-							<tr>
-					<th><br/>TPL<br/>依存表示</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum deplist パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-cache showpkg パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -qr パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem dependency パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear package-dependencies パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl package-dependencies パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm view パッケージ名 dependencies (※リモート)
+											<td class="engine-npm">
+														npm view パッケージ名 (※リモート)
 													</td>
 									</tr>
 							<tr>
-					<th><br/>TPL<br/>ファイル一覧</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>repoquery パッケージ名
+					<th>依存表示</th>
+											<td class="engine-yum">
+														yum deplist パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>dpkg -l パッケージ名
+											<td class="engine-apt">
+														apt-cache showpkg パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -ql パッケージ名
+											<td class="engine-rpm">
+														rpm -qR パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem contents パッケージ名
+											<td class="engine-gem">
+														gem dependency パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear list-files パッケージ名
+											<td class="engine-pear">
+														pear package-dependencies パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl list-files パッケージ名
+											<td class="engine-pecl">
+														pecl package-dependencies パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm view パッケージ名 files (※リモート)
+											<td class="engine-npm">
+														npm view パッケージ名 dependencies (※リモート)
+													</td>
+									</tr>
+							<tr>
+					<th>ファイル一覧</th>
+											<td class="engine-yum">
+														repoquery パッケージ名
+													</td>
+											<td class="engine-apt">
+														dpkg -L パッケージ名
+													</td>
+											<td class="engine-rpm">
+														rpm -ql パッケージ名
+													</td>
+											<td class="engine-gem">
+														gem contents パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear list-files パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl list-files パッケージ名
+													</td>
+											<td class="engine-npm">
+														npm view パッケージ名 files (※リモート)
 													</td>
 									</tr>
 					</tbody>
@@ -558,7 +554,6 @@ AA
 </div>
 </div>
 <h2 id="update" class="sub-header">更新</h2><h3 id="update-database" class="sub-header">パッケージ更新</h3><div class="mode0">
-BB
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -566,95 +561,95 @@ BB
 		<thead>
 			<tr>
 				<th></th>
-									<th><br/>TPL<br/>インストール</th>
-									<th><br/>TPL<br/>アンインストール</th>
-									<th><br/>TPL<br/>アップデート</th>
+									<th>インストール</th>
+									<th>アンインストール</th>
+									<th>アップデート</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-					<th><br/>TPL<br/>yum</th>
+							<tr class="engine-yum">
+					<th>yum</th>
 											<td>
-														<br/>TPL<br/>yum -y install パッケージ名
+														yum -y install パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>yum remove パッケージ名
+														yum remove パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>yum -y update パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-					<th><br/>TPL<br/>apt</th>
-											<td>
-														<br/>TPL<br/>apt-get -y install パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>apt-get [-purge] remove パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>apt-get -y install --only-upgrade パッケージ名
+														yum -y update パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-					<th><br/>TPL<br/>rpm</th>
+							<tr class="engine-apt">
+					<th>apt</th>
 											<td>
-														<br/>TPL<br/>rpm -ivh パッケージファイル名
+														apt-get -y install パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>rpm -e パッケージ名
+														apt-get [-purge] remove パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>rpm -uvh パッケージファイル名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-					<th><br/>TPL<br/>gem</th>
-											<td>
-														<br/>TPL<br/>gem install パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>gem uninstall パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>gem update パッケージ名
+														apt-get -y install --only-upgrade パッケージ名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-					<th><br/>TPL<br/>pear</th>
+							<tr class="engine-rpm">
+					<th>rpm</th>
 											<td>
-														<br/>TPL<br/>pear install パッケージ名
+														rpm -ivh パッケージファイル名
 													</td>
 											<td>
-														<br/>TPL<br/>pear uninstall パッケージ名
+														rpm -e パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>pear upgrade パッケージ名
-													</td>
-									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-					<th><br/>TPL<br/>pecl</th>
-											<td>
-														<br/>TPL<br/>pecl install パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>pecl uninstall パッケージ名
-													</td>
-											<td>
-														<br/>TPL<br/>pecl upgrade パッケージ名
+														rpm -Uvh パッケージファイル名
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-					<th><br/>TPL<br/>npm</th>
+							<tr class="engine-gem">
+					<th>gem</th>
 											<td>
-														<br/>TPL<br/>npm install -g パッケージ名
+														gem install パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>npm uninstall -g パッケージ名
+														gem uninstall パッケージ名
 													</td>
 											<td>
-														<br/>TPL<br/>npm update -g パッケージ名
+														gem update パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pear">
+					<th>pear</th>
+											<td>
+														pear install パッケージ名
+													</td>
+											<td>
+														pear uninstall パッケージ名
+													</td>
+											<td>
+														pear upgrade パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-pecl">
+					<th>pecl</th>
+											<td>
+														pecl install パッケージ名
+													</td>
+											<td>
+														pecl uninstall パッケージ名
+													</td>
+											<td>
+														pecl upgrade パッケージ名
+													</td>
+									</tr>
+							<tr class="engine-npm">
+					<th>npm</th>
+											<td>
+														npm install -g パッケージ名
+													</td>
+											<td>
+														npm uninstall -g パッケージ名
+													</td>
+											<td>
+														npm update -g パッケージ名
 													</td>
 									</tr>
 					</tbody>
@@ -662,7 +657,6 @@ BB
 </div>
 </div>
 <div class="mode1">
-AA
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -670,87 +664,87 @@ AA
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>yum"><br/>TPL<br/>yum</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>apt"><br/>TPL<br/>apt</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>rpm"><br/>TPL<br/>rpm</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>gem"><br/>TPL<br/>gem</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pear"><br/>TPL<br/>pear</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pecl"><br/>TPL<br/>pecl</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>npm"><br/>TPL<br/>npm</th>
+								<th class="engine-yum">yum</th>
+								<th class="engine-apt">apt</th>
+								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th><br/>TPL<br/>インストール</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum -y install パッケージ名
+					<th>インストール</th>
+											<td class="engine-yum">
+														yum -y install パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-get -y install パッケージ名
+											<td class="engine-apt">
+														apt-get -y install パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -ivh パッケージファイル名
+											<td class="engine-rpm">
+														rpm -ivh パッケージファイル名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem install パッケージ名
+											<td class="engine-gem">
+														gem install パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear install パッケージ名
+											<td class="engine-pear">
+														pear install パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl install パッケージ名
+											<td class="engine-pecl">
+														pecl install パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm install -g パッケージ名
-													</td>
-									</tr>
-							<tr>
-					<th><br/>TPL<br/>アンインストール</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum remove パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-get [-purge] remove パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -e パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem uninstall パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear uninstall パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl uninstall パッケージ名
-													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm uninstall -g パッケージ名
+											<td class="engine-npm">
+														npm install -g パッケージ名
 													</td>
 									</tr>
 							<tr>
-					<th><br/>TPL<br/>アップデート</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum -y update パッケージ名
+					<th>アンインストール</th>
+											<td class="engine-yum">
+														yum remove パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-get -y install --only-upgrade パッケージ名
+											<td class="engine-apt">
+														apt-get [-purge] remove パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>rpm -uvh パッケージファイル名
+											<td class="engine-rpm">
+														rpm -e パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem update パッケージ名
+											<td class="engine-gem">
+														gem uninstall パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear upgrade パッケージ名
+											<td class="engine-pear">
+														pear uninstall パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl upgrade パッケージ名
+											<td class="engine-pecl">
+														pecl uninstall パッケージ名
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm update -g パッケージ名
+											<td class="engine-npm">
+														npm uninstall -g パッケージ名
+													</td>
+									</tr>
+							<tr>
+					<th>アップデート</th>
+											<td class="engine-yum">
+														yum -y update パッケージ名
+													</td>
+											<td class="engine-apt">
+														apt-get -y install --only-upgrade パッケージ名
+													</td>
+											<td class="engine-rpm">
+														rpm -Uvh パッケージファイル名
+													</td>
+											<td class="engine-gem">
+														gem update パッケージ名
+													</td>
+											<td class="engine-pear">
+														pear upgrade パッケージ名
+													</td>
+											<td class="engine-pecl">
+														pecl upgrade パッケージ名
+													</td>
+											<td class="engine-npm">
+														npm update -g パッケージ名
 													</td>
 									</tr>
 					</tbody>
@@ -758,7 +752,6 @@ AA
 </div>
 </div>
 <h3 id="update-all" class="sub-header">一括更新</h3><div class="mode0">
-BB
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -766,51 +759,51 @@ BB
 		<thead>
 			<tr>
 				<th></th>
-									<th><br/>TPL<br/>一括アップデート</th>
+									<th>一括アップデート</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-					<th><br/>TPL<br/>yum</th>
+							<tr class="engine-yum">
+					<th>yum</th>
 											<td>
-														<br/>TPL<br/>yum -y update
+														yum -y update
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-					<th><br/>TPL<br/>apt</th>
+							<tr class="engine-apt">
+					<th>apt</th>
 											<td>
-														<br/>TPL<br/>apt-get -y upgrade
+														apt-get -y upgrade
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-					<th><br/>TPL<br/>rpm</th>
+							<tr class="engine-rpm">
+					<th>rpm</th>
 											<td>
-														<br/>TPL<br/>-
+														-
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-					<th><br/>TPL<br/>gem</th>
+							<tr class="engine-gem">
+					<th>gem</th>
 											<td>
-														<br/>TPL<br/>gem update
+														gem update
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-					<th><br/>TPL<br/>pear</th>
+							<tr class="engine-pear">
+					<th>pear</th>
 											<td>
-														<br/>TPL<br/>pear upgrade-all
+														pear upgrade-all
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-					<th><br/>TPL<br/>pecl</th>
+							<tr class="engine-pecl">
+					<th>pecl</th>
 											<td>
-														<br/>TPL<br/>pecl upgrade-all
+														pecl upgrade-all
 													</td>
 									</tr>
-							<tr class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-					<th><br/>TPL<br/>npm</th>
+							<tr class="engine-npm">
+					<th>npm</th>
 											<td>
-														<br/>TPL<br/>npm update -g
+														npm update -g
 													</td>
 									</tr>
 					</tbody>
@@ -818,7 +811,6 @@ BB
 </div>
 </div>
 <div class="mode1">
-AA
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -826,39 +818,39 @@ AA
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>yum"><br/>TPL<br/>yum</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>apt"><br/>TPL<br/>apt</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>rpm"><br/>TPL<br/>rpm</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>gem"><br/>TPL<br/>gem</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pear"><br/>TPL<br/>pear</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>pecl"><br/>TPL<br/>pecl</th>
-								<th class="engine-<br/>TPL<br/><br/>TPL<br/>npm"><br/>TPL<br/>npm</th>
+								<th class="engine-yum">yum</th>
+								<th class="engine-apt">apt</th>
+								<th class="engine-rpm">rpm</th>
+								<th class="engine-gem">gem</th>
+								<th class="engine-pear">pear</th>
+								<th class="engine-pecl">pecl</th>
+								<th class="engine-npm">npm</th>
 							</tr>
 		</thead>
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th><br/>TPL<br/>一括アップデート</th>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>yum">
-														<br/>TPL<br/>yum -y update
+					<th>一括アップデート</th>
+											<td class="engine-yum">
+														yum -y update
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>apt">
-														<br/>TPL<br/>apt-get -y upgrade
+											<td class="engine-apt">
+														apt-get -y upgrade
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>rpm">
-														<br/>TPL<br/>-
+											<td class="engine-rpm">
+														-
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>gem">
-														<br/>TPL<br/>gem update
+											<td class="engine-gem">
+														gem update
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pear">
-														<br/>TPL<br/>pear upgrade-all
+											<td class="engine-pear">
+														pear upgrade-all
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>pecl">
-														<br/>TPL<br/>pecl upgrade-all
+											<td class="engine-pecl">
+														pecl upgrade-all
 													</td>
-											<td class="engine-<br/>TPL<br/><br/>TPL<br/>npm">
-														<br/>TPL<br/>npm update -g
+											<td class="engine-npm">
+														npm update -g
 													</td>
 									</tr>
 					</tbody>

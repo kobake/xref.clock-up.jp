@@ -101,7 +101,7 @@
 		
 	</head>
 
-	<body data-spy="scroll" data-offset="50" class="current-mode0">
+	<body data-spy="scroll" data-offset="50" class="current-mode1">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -125,11 +125,11 @@
 						{if $sitesubtitle === ' - Database' || $sitesubtitle === ' - Package' || $sitesubtitle === ' - Language'}
 					<!-- 縦横切替 -->
 					<div id="mode-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 16px;">
-						<label class="btn btn-info active">
-							<input type="radio" name="options" id="mode0" autocomplete="off" checked> 縦
-						</label>
 						<label class="btn btn-default">
-							<input type="radio" name="options" id="mode1" autocomplete="off"> 横
+							<input type="radio" name="options" id="mode0" autocomplete="off"> 縦
+						</label>
+						<label class="btn btn-info active">
+							<input type="radio" name="options" id="mode1" autocomplete="off" checked> 横
 						</label>
 					</div>
 					

@@ -7,7 +7,7 @@
 # 閲覧/一覧
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 利用可能一覧_yum			yum list
-利用可能一覧_apt			apt-cache pkgnamess
+利用可能一覧_apt			apt-cache pkgnames
 利用可能一覧_rpm			-
 利用可能一覧_gem			gem list --remote
 利用可能一覧_pear			pear list-all

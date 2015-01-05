@@ -20,6 +20,16 @@ $smarty->cache_dir    = dirname(dirname(__FILE__)) . '/smarty/tmp/cache';
 // 次の行のコメントをはずすと、デバッギングコンソールを表示します
 // $smarty->debugging = true;
 
+
+// Smartyカスタムフィルタ
+function enginekey($tpl_output) {
+	$tpl_output = strtolower($tpl_output);
+	$tpl_output = str_replace('c++', 'cpp', $tpl_output);
+	$tpl_output = str_replace('c#', 'csharp', $tpl_output);
+	return $tpl_output;
+}
+//$smarty->registerFilter('post', 'enginekey');
+
 // 全セクション保持
 $g_sections = [];
 $g_sectionsBody = '';

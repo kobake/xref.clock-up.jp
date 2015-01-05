@@ -137,7 +137,7 @@
 					<div id="engine-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
 						{foreach from=$engines item=engine}
 							<label class="btn btn-info active">
-								<input type="checkbox" name="options" id="engine-{$engine|lower}" autocomplete="off" checked> {$engine}
+								<input type="checkbox" name="options" id="engine-{$engine|enginekey}" autocomplete="off" checked> {$engine}
 							</label>
 						{/foreach}
 					</div>

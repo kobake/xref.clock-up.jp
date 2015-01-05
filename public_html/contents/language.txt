@@ -4,16 +4,16 @@
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 メタ
 	エンジン
-		対話起動_C++	-
-		対話起動_C#		-
-		対話起動_VB		-
-		対話起動_Java	-
-		対話起動_Scala	$ scala
-		対話起動_PHP	$ php -a
-		対話起動_JS		$ node
-		対話起動_Ruby	$ irb
-		対話起動_Python	$ python
-		対話起動_Perl	$ perl -d -e 1
+対話起動_C++	-
+対話起動_C#		-
+対話起動_VB		-
+対話起動_Java	-
+対話起動_Scala	$ scala
+対話起動_PHP	$ php -a
+対話起動_JS		$ node
+対話起動_Ruby	$ irb
+対話起動_Python	$ python
+対話起動_Perl	$ perl -d -e 1
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 変数
@@ -275,7 +275,7 @@
 										console.log(e);
 									}
 		ForEachループ_Ruby			list.each do |e|
-										print e
+										puts e
 									end
 		ForEachループ_Python		for e in list:
 										print e
@@ -386,6 +386,286 @@
 	代入_Python		s = "abc";
 					s = 'abc';
 	代入_Perl		未
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 演算
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# ひとつひとつなケース
+論理OR_C++		a = b || c;
+論理AND_C++		a = b && c;
+論理NOT_C++		a = !b;
+
+論理OR_C#		a = b || c;
+論理AND_C#		a = b && c;
+論理NOT_C#		a = !b;
+
+論理OR_Java		a = b || c;
+論理AND_Java	a = b && c;
+論理NOT_Java	a = !b;
+
+論理OR_VB		a = b Or c
+論理AND_VB		a = b And c
+論理NOT_VB		a = Not b
+
+論理OR_PHP		a = $b || $c;
+論理AND_PHP		a = $b && $c;
+論理NOT_PHP		a = !$b;
+
+論理OR_JS		a = b || c;
+論理AND_JS		a = b && c;
+論理NOT_JS		a = !b;
+
+論理OR_Ruby		a = b || c
+				a = (b or c)
+論理AND_Ruby	a = b && c
+				a = (b or c)
+論理NOT_Ruby	a = !b
+				a = (not b)
+
+論理OR_Python	a = b || c;
+論理AND_Python	a = b && c;
+論理NOT_Python	a = !b;
+
+論理OR_Perl		$a = $b || $c;
+				$a = ($b or $c);
+論理AND_Perl	$a = $b && $c;
+				$a = ($b and $c);
+論理NOT_Perl	$a = !$b;
+				$a = not $b;
+
+
+# まとめたケース
+論理演算_C++	a = b || c;
+				a = b && c;
+				a = !b;
+ビット演算_C++	a = b | c;
+				a = b & c;
+				a = b ^ c;
+				a = ~b;
+四則演算_C++	a = b + c;
+				a = b - c;
+				a = b * c;
+				a = b / c;
+				a = b % c;
+
+論理演算_C#		a = b || c;
+				a = b && c;
+				a = !b;
+ビット演算_C#	a = b | c;
+				a = b & c;
+				a = b ^ c;
+				a = ~b;
+四則演算_C#		a = b + c;
+				a = b - c;
+				a = b * c;
+				a = b / c;
+				a = b % c;
+
+論理演算_Java	a = b || c;
+				a = b && c;
+				a = !b;
+ビット演算_Java	a = b | c;
+				a = b & c;
+				a = b ^ c;
+				a = ~b;
+四則演算_Java	a = b + c;
+				a = b - c;
+				a = b * c;
+				a = b / c;
+				a = b % c;
+
+論理演算_VB		a = b Or c
+				a = b And c
+				a = Not b
+ビット演算_VB	a = b Or c
+				a = b And c
+				a = b Xor c
+				a = Not b
+四則演算_VB		a = b + c
+				a = b - c
+				a = b * c
+				a = b / c
+				a = b Mod c
+
+論理演算_PHP	a = b || c;
+				a = b && c;
+				a = !b;
+ビット演算_PHP	a = b | c;
+				a = b & c;
+				a = b ^ c;
+				a = ~b;
+四則演算_PHP	a = b + c;
+				a = b - c;
+				a = b * c;
+				a = b / c;
+				a = b % c;
+
+論理演算_JS		a = b || c;
+				a = b && c;
+				a = !b;
+ビット演算_JS	a = b | c;
+				a = b & c;
+				a = b ^ c;
+				a = ~b;
+四則演算_JS		a = b + c;
+				a = b - c;
+				a = b * c;
+				a = b / c;
+				a = b % c;
+
+論理演算_Ruby		a = b || c
+					a = (b or c)
+					a = b && c
+					a = (b and c)
+					a = !b
+					a = (not b)
+ビット演算_Ruby		a = b | c
+					a = b & c
+					a = b ^ c
+					a = ~b
+四則演算_Ruby		a = b + c
+					a = b - c
+					a = b * c
+					a = b / c
+					a = b % c
+
+論理演算_Python		a = b || c;
+					a = b && c;
+					a = !b;
+ビット演算_Python	a = b | c;
+					a = b & c;
+					a = b ^ c;
+					a = ~b;
+四則演算_Python		a = b + c;
+					a = b - c;
+					a = b * c;
+					a = b / c;
+
+論理演算_Perl		$a = $b || $c;
+					$a = ($b or $c);
+					$a = $b && $c;
+					$a = ($b and $c);
+					$a = !$b;
+					$a = not !$b;
+ビット演算_Perl		$a = $b | $c;
+					$a = $b & $c;
+					$a = $b ^ $c;
+					$a = ~$b;
+四則演算_Perl		$a = $b + $c;
+					$a = $b - $c;
+					$a = $b * $c;
+					$a = $b / $c;
+					$a = $b % $c;
+
+# 余りとか %, Mod
+
+# True, False
+C++_True定数	true
+C++_False定数	false
+C++_True判定	False判定以外
+C++_False判定	false, 0
+
+C#_True定数			true
+C#_False定数		false
+C#_True判定			true
+C#_False判定		false
+
+Java_True定数		true
+Java_False定数		false
+Java_True判定		true
+Java_False判定		false
+
+VB_True定数			True
+VB_False定数		False
+VB_True判定			True
+VB_False判定		False
+
+# http://php.net/manual/ja/types.comparisons.php
+PHP_True定数		TRUE (大小文字区別無)
+PHP_False定数		FALSE (大小文字区別無)
+PHP_True判定		False判定以外
+PHP_False判定		FALSE, 0, NULL, '', '0', [], 未定義
+
+# http://qiita.com/phi/items/723aa59851b0716a87e3
+JS_True定数			true
+JS_False定数		false
+JS_True判定			False判定以外 # [], '0' 等はTrue扱い
+JS_False判定		false, undefined, 0, ''
+JS_無効値			null
+					undefined
+					NaN
+JS_無効値判定関数	typeof
+
+# http://qiita.com/sgtn/items/0cb16ef16d938cf98094
+Ruby_True定数		true		
+Ruby_False定数		false
+Ruby_True判定		False判定以外 # 0はTrue扱い
+Ruby_False判定		false, nil
+Ruby_無効値			nil
+Ruby_無効値判定関数	v.nil?
+					v.empty?
+					v.blank?
+
+Python_True定数		True
+Python_False定数	False
+Python_True判定		False判定以外
+Python_False判定	False, 0, '', (), [], {}
+Python_無効値		False
+					None
+
+Perl_True定数		-
+Perl_False定数		-
+Perl_True判定		False判定以外
+Perl_False判定		0, '', '0'
+Perl_無効値			-
+
+
+ビットOR_C++		a = b | c;
+ビットAND_C++		a = b & c;
+ビットXOR_C++		a = b ^ c;
+ビットNOT_C++		a = ~b;
+
+ビットOR_C#			a = b | c;
+ビットAND_C#		a = b & c;
+ビットXOR_C#		a = b ^ c;
+ビットNOT_C#		a = ~b;
+
+ビットOR_Java		a = b | c;
+ビットAND_Java		a = b & c;
+ビットXOR_Java		a = b ^ c;
+ビットNOT_Java		a = ~b;
+
+ビットOR_VB			a = b Or c
+ビットAND_VB		a = b And c
+ビットXOR_VB		a = b Xor c
+ビットNOT_VB		a = Not b
+
+ビットOR_PHP		$a = $b | $c;
+ビットAND_PHP		$a = $b & $c;
+ビットXOR_PHP		$a = $b ^ $c;
+ビットNOT_PHP		$a = ~$b;
+
+ビットOR_JS			a = b | c;
+ビットAND_JS		a = b & c;
+ビットXOR_JS		a = b ^ c;
+ビットNOT_JS		a = ~b;
+
+ビットOR_Ruby		a = b | c
+ビットAND_Ruby		a = b & c
+ビットXOR_Ruby		a = b ^ c
+ビットNOT_Ruby		a = ~b
+
+ビットOR_Python		a = b | c;
+ビットAND_Python	a = b & c;
+ビットXOR_Python	a = b ^ c;
+ビットNOT_Python	a = ~b;
+
+ビットOR_Perl		$a = $b | $c;
+ビットAND_Perl		$a = $b & $c;
+ビットXOR_Perl		$a = $b ^ $c;
+ビットNOT_Perl		$a = ~$b;
+
+# flips every bit, bitwide not
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #

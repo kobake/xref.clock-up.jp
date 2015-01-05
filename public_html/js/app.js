@@ -15,7 +15,8 @@ function updateMode(){
 function updateEngine(){
 	var modes = [
 		'mysql', 'oracle', 'postgresql', 'sqlite',
-		'yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm'
+		'yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm',
+		'cpp', 'csharp', 'java', 'vb', 'php', 'js', 'ruby', 'python', 'perl'
 	];
 	modes.forEach(function(mode){
 		jQuery('body').removeClass('current-engine-' + mode + '-on');
@@ -42,7 +43,6 @@ jQuery(function(){
 	
 	// エンジンスイッチ
 	jQuery('#engine-buttons label').click(function() {
-		console.log("BBBBBBBB");
 		setTimeout(function() {
 			updateButtonStyles();
 			updateEngine();

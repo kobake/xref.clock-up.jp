@@ -27,6 +27,17 @@
 .current-engine-npm-off .engine-npm {
   display: none;
 }
+.current-engine-cpp-off .engine-cpp,
+.current-engine-csharp-off .engine-csharp,
+.current-engine-java-off .engine-java,
+.current-engine-vb-off .engine-vb,
+.current-engine-php-off .engine-php,
+.current-engine-js-off .engine-js,
+.current-engine-ruby-off .engine-ruby,
+.current-engine-python-off .engine-python,
+.current-engine-perl-off .engine-perl {
+  display: none;
+}
 .btn-default {
   background-color: #666;
   border-color: #888;

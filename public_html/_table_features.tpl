@@ -13,7 +13,7 @@
 		<!-- body -->
 		<tbody>
 			{foreach from=$engines item=engine}
-				<tr class="engine-{$engine|lower}">
+				<tr class="engine-{$engine|enginekey}">
 					<th>{$engine}</th>
 					{foreach from=$features item=feature}
 						<td>

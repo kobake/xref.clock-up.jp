@@ -97,7 +97,7 @@
 		
 	</head>
 
-	<body data-spy="scroll" class="current-mode0 current-engine-mysql-on current-engine-oracle-on current-engine-postgresql-on current-engine-sqlite-on">
+	<body data-spy="scroll" data-offset="50" class="current-mode0">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -131,13 +131,16 @@
 					<!-- エンジン切替 -->
 					<div id="engine-buttons" class="btn-group" data-toggle="buttons" style="margin-top: 8px; margin-left: 8px;">
 													<label class="btn btn-info active">
-								<input type="checkbox" name="options" id="engine-c++" autocomplete="off" checked> C++
+								<input type="checkbox" name="options" id="engine-cpp" autocomplete="off" checked> C++
 							</label>
 													<label class="btn btn-info active">
-								<input type="checkbox" name="options" id="engine-c#" autocomplete="off" checked> C#
+								<input type="checkbox" name="options" id="engine-csharp" autocomplete="off" checked> C#
 							</label>
 													<label class="btn btn-info active">
 								<input type="checkbox" name="options" id="engine-java" autocomplete="off" checked> Java
+							</label>
+													<label class="btn btn-info active">
+								<input type="checkbox" name="options" id="engine-vb" autocomplete="off" checked> VB
 							</label>
 													<label class="btn btn-info active">
 								<input type="checkbox" name="options" id="engine-php" autocomplete="off" checked> PHP
@@ -184,7 +187,17 @@
 				</li>
 				  -->
 
-				<li><a href="#variable">変数</a>
+				<li><a href="#run">起動</a>
+</li>
+<li><a href="#logic">論理演算</a>
+</li>
+<li><a href="#bit">ビット演算</a>
+</li>
+<li><a href="#bool">BOOL</a>
+</li>
+<li><a href="#logic2">演算まとめ</a>
+</li>
+<li><a href="#variable">変数</a>
 </li>
 <li><a href="#invalid">無効値</a>
 </li>
@@ -206,7 +219,1217 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<!-- <h1 class="page-header">Database</h1> -->
 
-			<h2 id="variable" class="sub-header">変数</h2><div class="mode0">
+			<h2 id="run" class="sub-header">起動</h2><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>対話起動</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														$ php -a
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														$ node
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														$ irb
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														$ python
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														$ perl -d -e 1
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>対話起動</th>
+											<td class="engine-cpp">
+														-
+													</td>
+											<td class="engine-csharp">
+														-
+													</td>
+											<td class="engine-vb">
+														-
+													</td>
+											<td class="engine-java">
+														-
+													</td>
+											<td class="engine-php">
+														$ php -a
+													</td>
+											<td class="engine-js">
+														$ node
+													</td>
+											<td class="engine-ruby">
+														$ irb
+													</td>
+											<td class="engine-python">
+														$ python
+													</td>
+											<td class="engine-perl">
+														$ perl -d -e 1
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="logic" class="sub-header">論理演算</h2><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>論理OR</th>
+									<th>論理AND</th>
+									<th>論理NOT</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														a = b || c;
+													</td>
+											<td>
+														a = b && c;
+													</td>
+											<td>
+														a = !b;
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														a = b || c;
+													</td>
+											<td>
+														a = b && c;
+													</td>
+											<td>
+														a = !b;
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														a = b Or c
+													</td>
+											<td>
+														a = b And c
+													</td>
+											<td>
+														a = Not b
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														a = b || c;
+													</td>
+											<td>
+														a = b && c;
+													</td>
+											<td>
+														a = !b;
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														a = $b || $c;
+													</td>
+											<td>
+														a = $b && $c;
+													</td>
+											<td>
+														a = !$b;
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														a = b || c;
+													</td>
+											<td>
+														a = b && c;
+													</td>
+											<td>
+														a = !b;
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														a = b || c<br/>a = (b or c)
+													</td>
+											<td>
+														a = b && c<br/>a = (b or c)
+													</td>
+											<td>
+														a = !b<br/>a = (not b)
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														a = b || c;
+													</td>
+											<td>
+														a = b && c;
+													</td>
+											<td>
+														a = !b;
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														$a = $b || $c;<br/>$a = ($b or $c);
+													</td>
+											<td>
+														$a = $b && $c;<br/>$a = ($b and $c);
+													</td>
+											<td>
+														$a = !$b;<br/>$a = not $b;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>論理OR</th>
+											<td class="engine-cpp">
+														a = b || c;
+													</td>
+											<td class="engine-csharp">
+														a = b || c;
+													</td>
+											<td class="engine-vb">
+														a = b Or c
+													</td>
+											<td class="engine-java">
+														a = b || c;
+													</td>
+											<td class="engine-php">
+														a = $b || $c;
+													</td>
+											<td class="engine-js">
+														a = b || c;
+													</td>
+											<td class="engine-ruby">
+														a = b || c<br/>a = (b or c)
+													</td>
+											<td class="engine-python">
+														a = b || c;
+													</td>
+											<td class="engine-perl">
+														$a = $b || $c;<br/>$a = ($b or $c);
+													</td>
+									</tr>
+							<tr>
+					<th>論理AND</th>
+											<td class="engine-cpp">
+														a = b && c;
+													</td>
+											<td class="engine-csharp">
+														a = b && c;
+													</td>
+											<td class="engine-vb">
+														a = b And c
+													</td>
+											<td class="engine-java">
+														a = b && c;
+													</td>
+											<td class="engine-php">
+														a = $b && $c;
+													</td>
+											<td class="engine-js">
+														a = b && c;
+													</td>
+											<td class="engine-ruby">
+														a = b && c<br/>a = (b or c)
+													</td>
+											<td class="engine-python">
+														a = b && c;
+													</td>
+											<td class="engine-perl">
+														$a = $b && $c;<br/>$a = ($b and $c);
+													</td>
+									</tr>
+							<tr>
+					<th>論理NOT</th>
+											<td class="engine-cpp">
+														a = !b;
+													</td>
+											<td class="engine-csharp">
+														a = !b;
+													</td>
+											<td class="engine-vb">
+														a = Not b
+													</td>
+											<td class="engine-java">
+														a = !b;
+													</td>
+											<td class="engine-php">
+														a = !$b;
+													</td>
+											<td class="engine-js">
+														a = !b;
+													</td>
+											<td class="engine-ruby">
+														a = !b<br/>a = (not b)
+													</td>
+											<td class="engine-python">
+														a = !b;
+													</td>
+											<td class="engine-perl">
+														$a = !$b;<br/>$a = not $b;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="bit" class="sub-header">ビット演算</h2><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>ビットOR</th>
+									<th>ビットAND</th>
+									<th>ビットNOT</th>
+									<th>ビットXOR</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														a = b | c;
+													</td>
+											<td>
+														a = b & c;
+													</td>
+											<td>
+														a = ~b;
+													</td>
+											<td>
+														a = b ^ c;
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														a = b | c;
+													</td>
+											<td>
+														a = b & c;
+													</td>
+											<td>
+														a = ~b;
+													</td>
+											<td>
+														a = b ^ c;
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														a = b Or c
+													</td>
+											<td>
+														a = b And c
+													</td>
+											<td>
+														a = Not b
+													</td>
+											<td>
+														a = b Xor c
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														a = b | c;
+													</td>
+											<td>
+														a = b & c;
+													</td>
+											<td>
+														a = ~b;
+													</td>
+											<td>
+														a = b ^ c;
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														$a = $b | $c;
+													</td>
+											<td>
+														$a = $b & $c;
+													</td>
+											<td>
+														$a = ~$b;
+													</td>
+											<td>
+														$a = $b ^ $c;
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														a = b | c;
+													</td>
+											<td>
+														a = b & c;
+													</td>
+											<td>
+														a = ~b;
+													</td>
+											<td>
+														a = b ^ c;
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														a = b | c
+													</td>
+											<td>
+														a = b & c
+													</td>
+											<td>
+														a = ~b
+													</td>
+											<td>
+														a = b ^ c
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														a = b | c;
+													</td>
+											<td>
+														a = b & c;
+													</td>
+											<td>
+														a = ~b;
+													</td>
+											<td>
+														a = b ^ c;
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														$a = $b | $c;
+													</td>
+											<td>
+														$a = $b & $c;
+													</td>
+											<td>
+														$a = ~$b;
+													</td>
+											<td>
+														$a = $b ^ $c;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>ビットOR</th>
+											<td class="engine-cpp">
+														a = b | c;
+													</td>
+											<td class="engine-csharp">
+														a = b | c;
+													</td>
+											<td class="engine-vb">
+														a = b Or c
+													</td>
+											<td class="engine-java">
+														a = b | c;
+													</td>
+											<td class="engine-php">
+														$a = $b | $c;
+													</td>
+											<td class="engine-js">
+														a = b | c;
+													</td>
+											<td class="engine-ruby">
+														a = b | c
+													</td>
+											<td class="engine-python">
+														a = b | c;
+													</td>
+											<td class="engine-perl">
+														$a = $b | $c;
+													</td>
+									</tr>
+							<tr>
+					<th>ビットAND</th>
+											<td class="engine-cpp">
+														a = b & c;
+													</td>
+											<td class="engine-csharp">
+														a = b & c;
+													</td>
+											<td class="engine-vb">
+														a = b And c
+													</td>
+											<td class="engine-java">
+														a = b & c;
+													</td>
+											<td class="engine-php">
+														$a = $b & $c;
+													</td>
+											<td class="engine-js">
+														a = b & c;
+													</td>
+											<td class="engine-ruby">
+														a = b & c
+													</td>
+											<td class="engine-python">
+														a = b & c;
+													</td>
+											<td class="engine-perl">
+														$a = $b & $c;
+													</td>
+									</tr>
+							<tr>
+					<th>ビットNOT</th>
+											<td class="engine-cpp">
+														a = ~b;
+													</td>
+											<td class="engine-csharp">
+														a = ~b;
+													</td>
+											<td class="engine-vb">
+														a = Not b
+													</td>
+											<td class="engine-java">
+														a = ~b;
+													</td>
+											<td class="engine-php">
+														$a = ~$b;
+													</td>
+											<td class="engine-js">
+														a = ~b;
+													</td>
+											<td class="engine-ruby">
+														a = ~b
+													</td>
+											<td class="engine-python">
+														a = ~b;
+													</td>
+											<td class="engine-perl">
+														$a = ~$b;
+													</td>
+									</tr>
+							<tr>
+					<th>ビットXOR</th>
+											<td class="engine-cpp">
+														a = b ^ c;
+													</td>
+											<td class="engine-csharp">
+														a = b ^ c;
+													</td>
+											<td class="engine-vb">
+														a = b Xor c
+													</td>
+											<td class="engine-java">
+														a = b ^ c;
+													</td>
+											<td class="engine-php">
+														$a = $b ^ $c;
+													</td>
+											<td class="engine-js">
+														a = b ^ c;
+													</td>
+											<td class="engine-ruby">
+														a = b ^ c
+													</td>
+											<td class="engine-python">
+														a = b ^ c;
+													</td>
+											<td class="engine-perl">
+														$a = $b ^ $c;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="bool" class="sub-header">BOOL</h2><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>True定数</th>
+									<th>False定数</th>
+									<th>True判定</th>
+									<th>False判定</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														false, 0
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														True
+													</td>
+											<td>
+														False
+													</td>
+											<td>
+														True
+													</td>
+											<td>
+														False
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														TRUE (大小文字区別無)
+													</td>
+											<td>
+														FALSE (大小文字区別無)
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														FALSE, 0, NULL, '', '0', [], 未定義
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														false, undefined, 0, ''
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														true
+													</td>
+											<td>
+														false
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														false, nil
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														True
+													</td>
+											<td>
+														False
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														False, 0, '', (), [], {}
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														-
+													</td>
+											<td>
+														-
+													</td>
+											<td>
+														False判定以外
+													</td>
+											<td>
+														0, '', '0'
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>True定数</th>
+											<td class="engine-cpp">
+														true
+													</td>
+											<td class="engine-csharp">
+														true
+													</td>
+											<td class="engine-vb">
+														True
+													</td>
+											<td class="engine-java">
+														true
+													</td>
+											<td class="engine-php">
+														TRUE (大小文字区別無)
+													</td>
+											<td class="engine-js">
+														true
+													</td>
+											<td class="engine-ruby">
+														true
+													</td>
+											<td class="engine-python">
+														True
+													</td>
+											<td class="engine-perl">
+														-
+													</td>
+									</tr>
+							<tr>
+					<th>False定数</th>
+											<td class="engine-cpp">
+														false
+													</td>
+											<td class="engine-csharp">
+														false
+													</td>
+											<td class="engine-vb">
+														False
+													</td>
+											<td class="engine-java">
+														false
+													</td>
+											<td class="engine-php">
+														FALSE (大小文字区別無)
+													</td>
+											<td class="engine-js">
+														false
+													</td>
+											<td class="engine-ruby">
+														false
+													</td>
+											<td class="engine-python">
+														False
+													</td>
+											<td class="engine-perl">
+														-
+													</td>
+									</tr>
+							<tr>
+					<th>True判定</th>
+											<td class="engine-cpp">
+														False判定以外
+													</td>
+											<td class="engine-csharp">
+														true
+													</td>
+											<td class="engine-vb">
+														True
+													</td>
+											<td class="engine-java">
+														true
+													</td>
+											<td class="engine-php">
+														False判定以外
+													</td>
+											<td class="engine-js">
+														False判定以外
+													</td>
+											<td class="engine-ruby">
+														False判定以外
+													</td>
+											<td class="engine-python">
+														False判定以外
+													</td>
+											<td class="engine-perl">
+														False判定以外
+													</td>
+									</tr>
+							<tr>
+					<th>False判定</th>
+											<td class="engine-cpp">
+														false, 0
+													</td>
+											<td class="engine-csharp">
+														false
+													</td>
+											<td class="engine-vb">
+														False
+													</td>
+											<td class="engine-java">
+														false
+													</td>
+											<td class="engine-php">
+														FALSE, 0, NULL, '', '0', [], 未定義
+													</td>
+											<td class="engine-js">
+														false, undefined, 0, ''
+													</td>
+											<td class="engine-ruby">
+														false, nil
+													</td>
+											<td class="engine-python">
+														False, 0, '', (), [], {}
+													</td>
+											<td class="engine-perl">
+														0, '', '0'
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="logic2" class="sub-header">演算まとめ</h2><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>論理演算</th>
+									<th>ビット演算</th>
+									<th>四則演算</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														a = b Or c<br/>a = b And c<br/>a = Not b
+													</td>
+											<td>
+														a = b Or c<br/>a = b And c<br/>a = b Xor c<br/>a = Not b
+													</td>
+											<td>
+														a = b + c<br/>a = b - c<br/>a = b * c<br/>a = b / c<br/>a = b Mod c
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														a = b || c<br/>a = (b or c)<br/>a = b && c<br/>a = (b and c)<br/>a = !b<br/>a = (not b)
+													</td>
+											<td>
+														a = b | c<br/>a = b & c<br/>a = b ^ c<br/>a = ~b
+													</td>
+											<td>
+														a = b + c<br/>a = b - c<br/>a = b * c<br/>a = b / c<br/>a = b % c
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td>
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td>
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														$a = $b || $c;<br/>$a = ($b or $c);<br/>$a = $b && $c;<br/>$a = ($b and $c);<br/>$a = !$b;<br/>$a = not !$b;
+													</td>
+											<td>
+														$a = $b | $c;<br/>$a = $b & $c;<br/>$a = $b ^ $c;<br/>$a = ~$b;
+													</td>
+											<td>
+														$a = $b + $c;<br/>$a = $b - $c;<br/>$a = $b * $c;<br/>$a = $b / $c;<br/>$a = $b % $c;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>論理演算</th>
+											<td class="engine-cpp">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-csharp">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-vb">
+														a = b Or c<br/>a = b And c<br/>a = Not b
+													</td>
+											<td class="engine-java">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-php">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-js">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-ruby">
+														a = b || c<br/>a = (b or c)<br/>a = b && c<br/>a = (b and c)<br/>a = !b<br/>a = (not b)
+													</td>
+											<td class="engine-python">
+														a = b || c;<br/>a = b && c;<br/>a = !b;
+													</td>
+											<td class="engine-perl">
+														$a = $b || $c;<br/>$a = ($b or $c);<br/>$a = $b && $c;<br/>$a = ($b and $c);<br/>$a = !$b;<br/>$a = not !$b;
+													</td>
+									</tr>
+							<tr>
+					<th>ビット演算</th>
+											<td class="engine-cpp">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-csharp">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-vb">
+														a = b Or c<br/>a = b And c<br/>a = b Xor c<br/>a = Not b
+													</td>
+											<td class="engine-java">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-php">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-js">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-ruby">
+														a = b | c<br/>a = b & c<br/>a = b ^ c<br/>a = ~b
+													</td>
+											<td class="engine-python">
+														a = b | c;<br/>a = b & c;<br/>a = b ^ c;<br/>a = ~b;
+													</td>
+											<td class="engine-perl">
+														$a = $b | $c;<br/>$a = $b & $c;<br/>$a = $b ^ $c;<br/>$a = ~$b;
+													</td>
+									</tr>
+							<tr>
+					<th>四則演算</th>
+											<td class="engine-cpp">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+											<td class="engine-csharp">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+											<td class="engine-vb">
+														a = b + c<br/>a = b - c<br/>a = b * c<br/>a = b / c<br/>a = b Mod c
+													</td>
+											<td class="engine-java">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+											<td class="engine-php">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+											<td class="engine-js">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;<br/>a = b % c;
+													</td>
+											<td class="engine-ruby">
+														a = b + c<br/>a = b - c<br/>a = b * c<br/>a = b / c<br/>a = b % c
+													</td>
+											<td class="engine-python">
+														a = b + c;<br/>a = b - c;<br/>a = b * c;<br/>a = b / c;
+													</td>
+											<td class="engine-perl">
+														$a = $b + $c;<br/>$a = $b - $c;<br/>$a = $b * $c;<br/>$a = $b / $c;<br/>$a = $b % $c;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="variable" class="sub-header">変数</h2><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -220,22 +1443,22 @@
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-c++">
+							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
 													</td>
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-c#">
+							<tr class="engine-csharp">
 					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
 											<td>
 													</td>
 											<td>
@@ -257,6 +1480,13 @@
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
 											<td>
 													</td>
 											<td>
@@ -288,12 +1518,13 @@
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-c++">C++</th>
-								<th class="engine-c#">C#</th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -302,17 +1533,19 @@
 		<tbody>
 							<tr>
 					<th>変数宣言</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -321,17 +1554,19 @@
 									</tr>
 							<tr>
 					<th>グローバル変数</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -356,23 +1591,22 @@
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-														nil
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-c++">
+							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
 													</td>
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-c#">
+							<tr class="engine-csharp">
 					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
 											<td>
 													</td>
 											<td>
@@ -395,6 +1629,15 @@
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														null<br/>undefined<br/>NaN
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														nil
 													</td>
 											<td>
 													</td>
@@ -402,6 +1645,7 @@
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														False<br/>None
 													</td>
 											<td>
 													</td>
@@ -409,6 +1653,7 @@
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														-
 													</td>
 											<td>
 													</td>
@@ -425,12 +1670,13 @@
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-c++">C++</th>
-								<th class="engine-c#">C#</th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -439,37 +1685,44 @@
 		<tbody>
 							<tr>
 					<th>無効値</th>
-											<td class="engine-ruby">
-														nil
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+														null<br/>undefined<br/>NaN
+													</td>
+											<td class="engine-ruby">
+														nil
 													</td>
 											<td class="engine-python">
+														False<br/>None
 													</td>
 											<td class="engine-perl">
+														-
 													</td>
 									</tr>
 							<tr>
 					<th>無効判定</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -496,18 +1749,7 @@
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-c++">
+							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
 													</td>
@@ -518,8 +1760,19 @@
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-c#">
+							<tr class="engine-csharp">
 					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
 											<td>
 													</td>
 											<td>
@@ -553,6 +1806,17 @@
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
 											<td>
 													</td>
 											<td>
@@ -596,12 +1860,13 @@
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-c++">C++</th>
-								<th class="engine-c#">C#</th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -610,17 +1875,19 @@
 		<tbody>
 							<tr>
 					<th>if分岐</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -629,17 +1896,19 @@
 									</tr>
 							<tr>
 					<th>switch分岐</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -648,17 +1917,19 @@
 									</tr>
 							<tr>
 					<th>whileループ</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -667,17 +1938,19 @@
 									</tr>
 							<tr>
 					<th>回数ループ</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>
@@ -701,18 +1974,18 @@
 		</thead>
 		<!-- body -->
 		<tbody>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-c++">
+							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
 													</td>
 									</tr>
-							<tr class="engine-c#">
+							<tr class="engine-csharp">
 					<th>C#</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
 											<td>
 													</td>
 									</tr>
@@ -728,6 +2001,11 @@
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
 											<td>
 													</td>
 									</tr>
@@ -753,12 +2031,13 @@
 		<thead>
 			<tr>
 				<th></th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-c++">C++</th>
-								<th class="engine-c#">C#</th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
 								<th class="engine-java">Java</th>
 								<th class="engine-php">PHP</th>
 								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
 								<th class="engine-python">Python</th>
 								<th class="engine-perl">Perl</th>
 							</tr>
@@ -767,17 +2046,19 @@
 		<tbody>
 							<tr>
 					<th>Hello出力</th>
-											<td class="engine-ruby">
+											<td class="engine-cpp">
 													</td>
-											<td class="engine-c++">
+											<td class="engine-csharp">
 													</td>
-											<td class="engine-c#">
+											<td class="engine-vb">
 													</td>
 											<td class="engine-java">
 													</td>
 											<td class="engine-php">
 													</td>
 											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
 													</td>

@@ -2,7 +2,7 @@
 
 // 各種変数初期化
 $features = [];
-$engines = ['yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm'];//, 'pip'];
+$engines = ['yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm', 'pip'];
 $originalEngines = $engines;
 
 // 全データ読み込み
@@ -10,7 +10,7 @@ $table = file_get_contents(APP_ROOT . '/contents/package.txt');
 $contents = generateContents($table, $engines, $features, $engines);
 
 // テンプレート出力準備
-$smarty->assign('engines', $engines);
+$smarty->assign('engines', $originalEngines);
 $smarty->assign('contents', $contents);
 
 // 全セクション準備

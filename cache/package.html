@@ -151,6 +151,9 @@
 													<label class="btn btn-info active">
 								<input type="checkbox" name="options" id="engine-npm" autocomplete="off" checked> npm
 							</label>
+													<label class="btn btn-info active">
+								<input type="checkbox" name="options" id="engine-pip" autocomplete="off" checked> pip
+							</label>
 											</div>
 					
 					<!-- 右上About -->
@@ -280,6 +283,15 @@
 														npm list -g
 													</td>
 									</tr>
+							<tr class="engine-pip">
+					<th>pip</th>
+											<td>
+														pip search "*"
+													</td>
+											<td>
+														pip freeze
+													</td>
+									</tr>
 					</tbody>
 	</table>
 </div>
@@ -299,6 +311,7 @@
 								<th class="engine-pear">pear</th>
 								<th class="engine-pecl">pecl</th>
 								<th class="engine-npm">npm</th>
+								<th class="engine-pip">pip</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -326,6 +339,9 @@
 											<td class="engine-npm">
 														npm search "*"
 													</td>
+											<td class="engine-pip">
+														pip search "*"
+													</td>
 									</tr>
 							<tr>
 					<th>インストール済一覧</th>
@@ -349,6 +365,9 @@
 													</td>
 											<td class="engine-npm">
 														npm list -g
+													</td>
+											<td class="engine-pip">
+														pip freeze
 													</td>
 									</tr>
 					</tbody>
@@ -454,6 +473,18 @@
 														npm view パッケージ名 files (※リモート)
 													</td>
 									</tr>
+							<tr class="engine-pip">
+					<th>pip</th>
+											<td>
+														pip show パッケージ名
+													</td>
+											<td>
+														pip show パッケージ名 -v
+													</td>
+											<td>
+														pip show パッケージ名 --files
+													</td>
+									</tr>
 					</tbody>
 	</table>
 </div>
@@ -473,6 +504,7 @@
 								<th class="engine-pear">pear</th>
 								<th class="engine-pecl">pecl</th>
 								<th class="engine-npm">npm</th>
+								<th class="engine-pip">pip</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -500,6 +532,9 @@
 											<td class="engine-npm">
 														npm view パッケージ名 (※リモート)
 													</td>
+											<td class="engine-pip">
+														pip show パッケージ名
+													</td>
 									</tr>
 							<tr>
 					<th>依存表示</th>
@@ -524,6 +559,9 @@
 											<td class="engine-npm">
 														npm view パッケージ名 dependencies (※リモート)
 													</td>
+											<td class="engine-pip">
+														pip show パッケージ名 -v
+													</td>
 									</tr>
 							<tr>
 					<th>ファイル一覧</th>
@@ -547,6 +585,9 @@
 													</td>
 											<td class="engine-npm">
 														npm view パッケージ名 files (※リモート)
+													</td>
+											<td class="engine-pip">
+														pip show パッケージ名 --files
 													</td>
 									</tr>
 					</tbody>
@@ -652,6 +693,18 @@
 														npm update -g パッケージ名
 													</td>
 									</tr>
+							<tr class="engine-pip">
+					<th>pip</th>
+											<td>
+														pip install パッケージ名
+													</td>
+											<td>
+														pip uninstall パッケージ名
+													</td>
+											<td>
+														pip install パッケージ名 -U
+													</td>
+									</tr>
 					</tbody>
 	</table>
 </div>
@@ -671,6 +724,7 @@
 								<th class="engine-pear">pear</th>
 								<th class="engine-pecl">pecl</th>
 								<th class="engine-npm">npm</th>
+								<th class="engine-pip">pip</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -698,6 +752,9 @@
 											<td class="engine-npm">
 														npm install -g パッケージ名
 													</td>
+											<td class="engine-pip">
+														pip install パッケージ名
+													</td>
 									</tr>
 							<tr>
 					<th>アンインストール</th>
@@ -722,6 +779,9 @@
 											<td class="engine-npm">
 														npm uninstall -g パッケージ名
 													</td>
+											<td class="engine-pip">
+														pip uninstall パッケージ名
+													</td>
 									</tr>
 							<tr>
 					<th>アップデート</th>
@@ -745,6 +805,9 @@
 													</td>
 											<td class="engine-npm">
 														npm update -g パッケージ名
+													</td>
+											<td class="engine-pip">
+														pip install パッケージ名 -U
 													</td>
 									</tr>
 					</tbody>
@@ -806,6 +869,12 @@
 														npm update -g
 													</td>
 									</tr>
+							<tr class="engine-pip">
+					<th>pip</th>
+											<td>
+														pip-review --auto
+													</td>
+									</tr>
 					</tbody>
 	</table>
 </div>
@@ -825,6 +894,7 @@
 								<th class="engine-pear">pear</th>
 								<th class="engine-pecl">pecl</th>
 								<th class="engine-npm">npm</th>
+								<th class="engine-pip">pip</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -851,6 +921,9 @@
 													</td>
 											<td class="engine-npm">
 														npm update -g
+													</td>
+											<td class="engine-pip">
+														pip-review --auto
 													</td>
 									</tr>
 					</tbody>

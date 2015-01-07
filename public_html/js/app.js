@@ -15,7 +15,7 @@ function updateMode(){
 function updateEngine(){
 	var modes = [
 		'mysql', 'oracle', 'postgresql', 'sqlite',
-		'yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm',
+		'yum', 'apt', 'rpm', 'gem', 'pear', 'pecl', 'npm', 'pip',
 		'cpp', 'csharp', 'java', 'vb', 'php', 'js', 'ruby', 'python', 'perl'
 	];
 	modes.forEach(function(mode){

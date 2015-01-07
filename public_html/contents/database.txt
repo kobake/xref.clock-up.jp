@@ -12,6 +12,7 @@ Oracle_起動・停止	未
 PostgreSQL_インストール	未
 PostgreSQL_起動・停止	未
 
+
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # ログイン・ログアウト
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
@@ -236,4 +237,20 @@ SQLite_自動連番
 トランザクション破棄_PostgreSQL	sql> ROLLBACK;
 トランザクション破棄_SQLite		sql> ROLLBACK;
 
-テスト
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 日時
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+現在日時_MySQL			NOW()
+現在日時_Oracle			SYSDATE
+現在日時_PostgreSQL		NOW()
+現在日時_SQLite			DATETIME('NOW', 'LOCALTIME')
+
+日時→文字列_MySQL		DATE_FORMAT(col, '%Y/%m/%d %H:%i:%s')
+日時→文字列_Oracle		TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+日時→文字列_PostgreSQL	TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+日時→文字列_SQLite		STRFTIME('%Y/%m/%d %H:%M:%S', col)
+
+文字列→日時_MySQL		STR_TO_DATE(col, '%Y/%m/%d %H:%i:%s')
+文字列→日時_Oracle		TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+文字列→日時_PostgreSQL	TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+文字列→日時_SQLite		DATETIME(col)

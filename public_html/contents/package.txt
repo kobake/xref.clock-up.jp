@@ -2,7 +2,9 @@
 # 管理
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # バージョン確認_yum
-導入_pip					easy_install pip
+導入_pip	# easy_install pip
+導入_cpan	# yum -y install perl-CPAN
+
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 閲覧/一覧
@@ -82,6 +84,8 @@
 インストール_pecl			pecl install パッケージ名
 インストール_npm			npm install -g パッケージ名
 インストール_pip			pip install パッケージ名
+インストール_cpan			# cpan
+							cpan> install パッケージ名
 
 アンインストール_yum		yum remove パッケージ名 # eraseも可
 アンインストール_apt		apt-get [-purge] remove パッケージ名 # -purge … 設定ファイルごと削除

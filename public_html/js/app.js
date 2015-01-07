@@ -32,6 +32,17 @@ function updateEngine(){
 
 // 初期処理：イベント登録等
 jQuery(function(){
+	// 初期モード
+	var defaultMode = 0;
+	for(var i = 0; i < 2; i++){
+		jQuery('body').removeClass('current-mode' + i);
+		jQuery('#mode' + i).prop('checked', false);
+		jQuery('#mode' + i).parent().removeClass('btn-info').removeClass('active').addClass('btn-default');
+	}
+	jQuery('body').addClass('current-mode' + defaultMode);
+	jQuery('#mode' + defaultMode).prop('checked', true);
+	jQuery('#mode' + defaultMode).parent().removeClass('btn-default').addClass('btn-info').removeClass('active');
+	
 	// 縦横スイッチ
 	jQuery('#mode-buttons label').click(function(){
 		console.log("AAAAAAA");

@@ -187,21 +187,32 @@
 				</li>
 				  -->
 
-				<li><a href="#run">起動</a>
+				<li class="parent-li"><a href="#engine">エンジン</a>
 </li>
-<li><a href="#logic">論理演算</a>
+<li class="second"><a href="#run">起動</a>
+</li><li class="parent-li"><a href="#variable">変数・定数</a>
 </li>
-<li><a href="#bit">ビット演算</a>
+<li class="second"><a href="#declare">変数宣言</a>
+</li><li class="second"><a href="#literal">整数リテラル</a>
+</li><li class="second"><a href="#const">定数宣言</a>
+</li><li class="second"><a href="#string">文字列</a>
+</li><li class="parent-li"><a href="#io">入出力</a>
 </li>
-<li><a href="#bool">BOOL</a>
+<li class="second"><a href="#standard">標準入出力</a>
+</li><li class="second"><a href="#file">ファイル入出力</a>
+</li><li class="parent-li"><a href="#calc">演算</a>
 </li>
-<li><a href="#variable">変数</a>
+<li class="second"><a href="#logic">論理演算</a>
+</li><li class="second"><a href="#bit">ビット演算</a>
+</li><li class="second"><a href="#bool">BOOL</a>
+</li><li class="parent-li"><a href="#control">制御</a>
 </li>
-<li><a href="#invalid">無効値</a>
-</li>
-<li><a href="#control">制御構造</a>
-</li>
-<li><a href="#output">出力</a>
+<li class="second"><a href="#cond">分岐</a>
+</li><li class="second"><a href="#floop">For系ループ</a>
+</li><li class="second"><a href="#wloop">While系ループ</a>
+</li><li class="second"><a href="#jump">ジャンプ</a>
+</li><li class="second"><a href="#exception">例外</a>
+</li><li><a href="#invalid">無効値</a>
 </li>
 
 
@@ -217,7 +228,7 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<!-- <h1 class="page-header">Database</h1> -->
 
-			<h2 id="run" class="sub-header">起動</h2><div class="mode0">
+			<h2 id="engine" class="sub-header">エンジン</h2><h3 id="run" class="sub-header">起動</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -343,7 +354,1119 @@
 	</table>
 </div>
 </div>
-<h2 id="logic" class="sub-header">論理演算</h2><div class="mode0">
+<h2 id="variable" class="sub-header">変数・定数</h2><h3 id="declare" class="sub-header">変数宣言</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>変数宣言</th>
+									<th>グローバル変数</th>
+									<th>局所変数</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														int v = 10;
+													</td>
+											<td>
+														int g = 10; // 関数外で宣言
+													</td>
+											<td>
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														int v = 10;
+													</td>
+											<td>
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+													</td>
+											<td>
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														Dim v As Integer = 10;
+													</td>
+											<td>
+														<red>public</red> g as Integer = 10;
+													</td>
+											<td>
+														If True Then<br/>&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														int v = 10;
+													</td>
+											<td>
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+													</td>
+											<td>
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														$v = 10;
+													</td>
+											<td>
+														<red>global</red> $g = 10;
+													</td>
+											<td>
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														var v = 10;
+													</td>
+											<td>
+														<red>window.</red>g = 10;
+													</td>
+											<td>
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														v = 10
+													</td>
+											<td>
+														<red>$</red>g = 10
+													</td>
+											<td>
+														def foo<br/>&nbsp;&nbsp;&nbsp;p = 10<br/>end
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														v = 10
+													</td>
+											<td>
+														<red>global</red> g
+													</td>
+											<td>
+														def foo():<br/>&nbsp;&nbsp;&nbsp;p = 10
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														my $v = 10;
+													</td>
+											<td>
+														<red>our</red> $g = 10;
+													</td>
+											<td>
+														{<br/>&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>変数宣言</th>
+											<td class="engine-cpp">
+														int v = 10;
+													</td>
+											<td class="engine-csharp">
+														int v = 10;
+													</td>
+											<td class="engine-vb">
+														Dim v As Integer = 10;
+													</td>
+											<td class="engine-java">
+														int v = 10;
+													</td>
+											<td class="engine-php">
+														$v = 10;
+													</td>
+											<td class="engine-js">
+														var v = 10;
+													</td>
+											<td class="engine-ruby">
+														v = 10
+													</td>
+											<td class="engine-python">
+														v = 10
+													</td>
+											<td class="engine-perl">
+														my $v = 10;
+													</td>
+									</tr>
+							<tr>
+					<th>グローバル変数</th>
+											<td class="engine-cpp">
+														int g = 10; // 関数外で宣言
+													</td>
+											<td class="engine-csharp">
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+													</td>
+											<td class="engine-vb">
+														<red>public</red> g as Integer = 10;
+													</td>
+											<td class="engine-java">
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+													</td>
+											<td class="engine-php">
+														<red>global</red> $g = 10;
+													</td>
+											<td class="engine-js">
+														<red>window.</red>g = 10;
+													</td>
+											<td class="engine-ruby">
+														<red>$</red>g = 10
+													</td>
+											<td class="engine-python">
+														<red>global</red> g
+													</td>
+											<td class="engine-perl">
+														<red>our</red> $g = 10;
+													</td>
+									</tr>
+							<tr>
+					<th>局所変数</th>
+											<td class="engine-cpp">
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+											<td class="engine-csharp">
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+											<td class="engine-vb">
+														If True Then<br/>&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
+													</td>
+											<td class="engine-java">
+														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+													</td>
+											<td class="engine-php">
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
+													</td>
+											<td class="engine-js">
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
+													</td>
+											<td class="engine-ruby">
+														def foo<br/>&nbsp;&nbsp;&nbsp;p = 10<br/>end
+													</td>
+											<td class="engine-python">
+														def foo():<br/>&nbsp;&nbsp;&nbsp;p = 10
+													</td>
+											<td class="engine-perl">
+														{<br/>&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="literal" class="sub-header">整数リテラル</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>10進</th>
+									<th>16進</th>
+									<th>8進</th>
+									<th>2進</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														-
+													</td>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														255
+													</td>
+											<td>
+														&HFF
+													</td>
+											<td>
+														&O377
+													</td>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														0b11111111
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377, 0o377
+													</td>
+											<td>
+														0b11111111
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														0b11111111
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														255
+													</td>
+											<td>
+														0xFF
+													</td>
+											<td>
+														0377
+													</td>
+											<td>
+														0b11111111
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>10進</th>
+											<td class="engine-cpp">
+														255
+													</td>
+											<td class="engine-csharp">
+														255
+													</td>
+											<td class="engine-vb">
+														255
+													</td>
+											<td class="engine-java">
+														255
+													</td>
+											<td class="engine-php">
+														255
+													</td>
+											<td class="engine-js">
+														255
+													</td>
+											<td class="engine-ruby">
+														255
+													</td>
+											<td class="engine-python">
+														255
+													</td>
+											<td class="engine-perl">
+														255
+													</td>
+									</tr>
+							<tr>
+					<th>16進</th>
+											<td class="engine-cpp">
+														0xFF
+													</td>
+											<td class="engine-csharp">
+														0xFF
+													</td>
+											<td class="engine-vb">
+														&HFF
+													</td>
+											<td class="engine-java">
+														0xFF
+													</td>
+											<td class="engine-php">
+														0xFF
+													</td>
+											<td class="engine-js">
+														0xFF
+													</td>
+											<td class="engine-ruby">
+														0xFF
+													</td>
+											<td class="engine-python">
+														0xFF
+													</td>
+											<td class="engine-perl">
+														0xFF
+													</td>
+									</tr>
+							<tr>
+					<th>8進</th>
+											<td class="engine-cpp">
+														0377
+													</td>
+											<td class="engine-csharp">
+														-
+													</td>
+											<td class="engine-vb">
+														&O377
+													</td>
+											<td class="engine-java">
+														0377
+													</td>
+											<td class="engine-php">
+														0377
+													</td>
+											<td class="engine-js">
+														0377
+													</td>
+											<td class="engine-ruby">
+														0377, 0o377
+													</td>
+											<td class="engine-python">
+														0377
+													</td>
+											<td class="engine-perl">
+														0377
+													</td>
+									</tr>
+							<tr>
+					<th>2進</th>
+											<td class="engine-cpp">
+														-
+													</td>
+											<td class="engine-csharp">
+														-
+													</td>
+											<td class="engine-vb">
+														-
+													</td>
+											<td class="engine-java">
+														-
+													</td>
+											<td class="engine-php">
+														0b11111111
+													</td>
+											<td class="engine-js">
+														-
+													</td>
+											<td class="engine-ruby">
+														0b11111111
+													</td>
+											<td class="engine-python">
+														0b11111111
+													</td>
+											<td class="engine-perl">
+														0b11111111
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="const" class="sub-header">定数宣言</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>定数宣言</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														<red>const</red> int C = 10;
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														<red>const</red> int C = 10;
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														<red>Const</red> C As Integer = 10
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														<red>static final</red> int C = 10;
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														<red>define</red>('C', 10);
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														<red>const</red> C = 10;
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														<red>C</red> = 10
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														-
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														<red>use constant</red> C => 10;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>定数宣言</th>
+											<td class="engine-cpp">
+														<red>const</red> int C = 10;
+													</td>
+											<td class="engine-csharp">
+														<red>const</red> int C = 10;
+													</td>
+											<td class="engine-vb">
+														<red>Const</red> C As Integer = 10
+													</td>
+											<td class="engine-java">
+														<red>static final</red> int C = 10;
+													</td>
+											<td class="engine-php">
+														<red>define</red>('C', 10);
+													</td>
+											<td class="engine-js">
+														<red>const</red> C = 10;
+													</td>
+											<td class="engine-ruby">
+														<red>C</red> = 10
+													</td>
+											<td class="engine-python">
+														-
+													</td>
+											<td class="engine-perl">
+														<red>use constant</red> C => 10;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="string" class="sub-header">文字列</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>リテラル</th>
+									<th>結合</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>リテラル</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>結合</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="io" class="sub-header">入出力</h2><h3 id="standard" class="sub-header">標準入出力</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>標準出力</th>
+									<th>標準入力</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>標準出力</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>標準入力</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="file" class="sub-header">ファイル入出力</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>ファイル出力</th>
+									<th>ファイル入力</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>ファイル出力</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>ファイル入力</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="calc" class="sub-header">演算</h2><h3 id="logic" class="sub-header">論理演算</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -585,7 +1708,7 @@
 	</table>
 </div>
 </div>
-<h2 id="bit" class="sub-header">ビット演算</h2><div class="mode0">
+<h3 id="bit" class="sub-header">ビット演算</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -885,7 +2008,7 @@
 	</table>
 </div>
 </div>
-<h2 id="bool" class="sub-header">BOOL</h2><div class="mode0">
+<h3 id="bool" class="sub-header">BOOL</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -1185,7 +2308,7 @@
 	</table>
 </div>
 </div>
-<h2 id="variable" class="sub-header">変数</h2><div class="mode0">
+<h2 id="control" class="sub-header">制御</h2><h3 id="cond" class="sub-header">分岐</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -1193,8 +2316,8 @@
 		<thead>
 			<tr>
 				<th></th>
-									<th>変数宣言</th>
-									<th>グローバル変数</th>
+									<th>if分岐</th>
+									<th>switch分岐</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -1288,7 +2411,7 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th>変数宣言</th>
+					<th>if分岐</th>
 											<td class="engine-cpp">
 													</td>
 											<td class="engine-csharp">
@@ -1309,7 +2432,599 @@
 													</td>
 									</tr>
 							<tr>
-					<th>グローバル変数</th>
+					<th>switch分岐</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="floop" class="sub-header">For系ループ</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>Forループ</th>
+									<th>ForEachループ</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>Forループ</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>ForEachループ</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="wloop" class="sub-header">While系ループ</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>Whileループ</th>
+									<th>DoWhileループ</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>Whileループ</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>DoWhileループ</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="jump" class="sub-header">ジャンプ</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>ループ抜け</th>
+									<th>ループ継続</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>ループ抜け</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>ループ継続</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="exception" class="sub-header">例外</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>例外送出</th>
+									<th>例外Catch</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>例外送出</th>
+											<td class="engine-cpp">
+													</td>
+											<td class="engine-csharp">
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-java">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>例外Catch</th>
 											<td class="engine-cpp">
 													</td>
 											<td class="engine-csharp">
@@ -1466,342 +3181,6 @@
 									</tr>
 							<tr>
 					<th>無効判定</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h2 id="control" class="sub-header">制御構造</h2><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>if分岐</th>
-									<th>switch分岐</th>
-									<th>whileループ</th>
-									<th>回数ループ</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>if分岐</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>switch分岐</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>whileループ</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>回数ループ</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h2 id="output" class="sub-header">出力</h2><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>Hello出力</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>Hello出力</th>
 											<td class="engine-cpp">
 													</td>
 											<td class="engine-csharp">

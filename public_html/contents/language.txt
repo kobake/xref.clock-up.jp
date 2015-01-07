@@ -46,54 +46,155 @@
 
 基本
 	変数
-		変数宣言_C++			int v = 10;
-		変数宣言_C#				int v = 10;
-		変数宣言_VB				Dim v As Integer = 10;
-		変数宣言_Java			int v = 10;
-		変数宣言_PHP			$v = 10;
-		変数宣言_JS				var v = 10;
-		変数宣言_Ruby			v = 10;
-		変数宣言_Python			未
-		変数宣言_Perl			未
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 変数宣言
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+変数宣言_C++			int v = 10;
+変数宣言_C#				int v = 10;
+変数宣言_VB				Dim v As Integer = 10;
+変数宣言_Java			int v = 10;
+変数宣言_PHP			$v = 10;
+変数宣言_JS				var v = 10;
+変数宣言_Ruby			v = 10
+変数宣言_Python			v = 10
+変数宣言_Perl			my $v = 10;
 
-	スコープ
-		グローバル変数_C++			int g = 10; // 関数外で宣言
-		グローバル変数_C#			public static class G{
-										public static int g = 10;
-									}
-		グローバル変数_VB			public g as Integer = 10;
-		グローバル変数_Java			public static class G{
-										public static int g = 10;
-									}
-		グローバル変数_PHP			global $g = 10;
-		グローバル変数_JS			window.g = 10;
-		グローバル変数_Ruby			$g = 10;
-		グローバル変数_Python		未
-		グローバル変数_Perl			未
+# スコープ
+グローバル変数_C++			int g = 10; // 関数外で宣言
+グローバル変数_C#			<red>public static</red> class G{
+								<red>public static</red> int g = 10;
+							}
+グローバル変数_VB			<red>public</red> g as Integer = 10;
+グローバル変数_Java			<red>public static</red> class G{
+								<red>public static</red> int g = 10;
+							}
+グローバル変数_PHP			<red>global</red> $g = 10;
+グローバル変数_JS			<red>window.</red>g = 10;
+グローバル変数_Ruby			<red>$</red>g = 10
+グローバル変数_Python		<red>global</red> g
+グローバル変数_Perl			<red>our</red> $g = 10;
 
-		局所変数_C++				{
-										int p = 10;
-									}
-		局所変数_Java				{
-										int p = 10;
-									}
-		局所変数_VB					If True Then
-										Dim p As Integer = 10
-									End
-		局所変数_PHP				function foo(){
-										$p = 10;
-									}
-		局所変数_JS					function foo(){
-										var p = 10;
-									}
-		局所変数_Ruby				def foo
-										p = 10
-									end
-		局所変数_Python				def foo():
-										p = 10
-		局所変数_Perl				{
-										my $p = 10;
-									}
+局所変数_C++				{
+								int p = 10;
+							}
+局所変数_C#					{
+								int p = 10;
+							}
+局所変数_Java				{
+								int p = 10;
+							}
+局所変数_VB					If True Then
+								Dim p As Integer = 10
+							End
+局所変数_PHP				function foo(){
+								$p = 10;
+							}
+局所変数_JS					function foo(){
+								var p = 10;
+							}
+局所変数_Ruby				def foo
+								p = 10
+							end
+局所変数_Python				def foo():
+								p = 10
+局所変数_Perl				{
+								<red>my</red> $p = 10;
+							}
+
+定数宣言_C++				<red>const</red> int C = 10;
+定数宣言_C#					<red>const</red> int C = 10;
+定数宣言_VB					<red>Const</red> C As Integer = 10
+定数宣言_Java				<red>static final</red> int C = 10;
+定数宣言_PHP				<red>define</red>('C', 10);
+定数宣言_JS					<red>const</red> C = 10;
+定数宣言_Ruby				<red>C</red> = 10
+定数宣言_Python				-
+定数宣言_Perl				<red>use constant</red> C => 10;
+
+
+
+# 数値リテラル
+C++_10進					255
+C++_16進					0xFF
+C++_8進						0377
+C++_2進						-
+
+C++14_10進					255
+C++14_16進					0xFF
+C++14_8進					0377
+C++14_2進					0b11111111
+
+C#_10進						255
+C#_16進						0xFF
+C#_8進						-
+C#_2進						-
+
+VB_10進						255
+VB_16進						&HFF
+VB_8進						&O377
+VB_2進						-
+
+MSX-BASIC_2進				&B11111111 # 未検証
+
+Java_10進					255
+Java_16進					0xFF
+Java_8進					0377
+Java_2進					-
+
+# http://php.net/manual/ja/language.types.integer.php
+PHP_10進					255
+PHP_16進					0xFF
+PHP_8進						0377
+PHP_2進						0b11111111
+
+JS_10進						255
+JS_16進						0xFF
+JS_8進						0377
+JS_2進						-
+
+# http://js-next.hatenablog.com/entry/2013/07/31/042318
+JS新_8進					0o377
+JS新_2進					0b11111111
+
+Ruby_10進					255
+Ruby_16進					0xFF
+Ruby_8進					0377, 0o377
+Ruby_2進					0b11111111
+
+# http://www.pythonweb.jp/tutorial/num/index1.html
+Python_10進					255
+Python_16進					0xFF
+Python_8進					0377
+Python_2進					0b11111111
+
+Perl_10進					255
+Perl_16進					0xFF
+Perl_8進					0377
+Perl_2進					0b11111111
+
+数値リテラル_C#				255
+							0xFF
+数値リテラル_Java			10
+
+# 文字リテラル
+文字リテラル_C++			'A'
+文字リテラル_C#				'A'
+文字リテラル_Java			char c = 'A';
+							char c = '\u0041';
+							char c = 65;
+文字リテラル_C++			'A'
+文字リテラル_C++			'A'
+文字リテラル_C++			'A'
+
+文字列リテラル_C++			"ABC\\DEF"
+							L"ABC\\DEF"
+文字列リテラル_C#			"ABC\\DEF"
+							@"ABC\DEF"
+文字列リテラル_Java			"ABC\\DEF"
+							"\u0041BC"
+文字列リテラル_PHP			'ABC'
+							"ABC $hoge"
+
 
 制御
 	分岐

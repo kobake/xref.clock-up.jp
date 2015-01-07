@@ -190,7 +190,10 @@
 </li><li class="second"><a href="#table-manipulation-insert">テーブル挿入</a>
 </li><li><a href="#transaction">トランザクション</a>
 </li>
-
+<li class="parent-li"><a href="#functions">関数等</a>
+</li>
+<li class="second"><a href="#datetime">日時関連</a>
+</li>
 
 			</ul>
 
@@ -1412,6 +1415,138 @@ sql> INSERT INTO mytable(ColA) VALUES('XX');
 													</td>
 											<td class="engine-sqlite">
 														sql> ROLLBACK;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h2 id="functions" class="sub-header">関数等</h2><h3 id="datetime" class="sub-header">日時関連</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>現在日時</th>
+									<th>日時→文字列</th>
+									<th>文字列→日時</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-mysql">
+					<th>MySQL</th>
+											<td>
+														NOW()
+													</td>
+											<td>
+														DATE_FORMAT(col, '%Y/%m/%d %H:%i:%s')
+													</td>
+											<td>
+														STR_TO_DATE(col, '%Y/%m/%d %H:%i:%s')
+													</td>
+									</tr>
+							<tr class="engine-oracle">
+					<th>Oracle</th>
+											<td>
+														SYSDATE
+													</td>
+											<td>
+														TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td>
+														TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+									</tr>
+							<tr class="engine-postgresql">
+					<th>PostgreSQL</th>
+											<td>
+														NOW()
+													</td>
+											<td>
+														TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td>
+														TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+									</tr>
+							<tr class="engine-sqlite">
+					<th>SQLite</th>
+											<td>
+														DATETIME('NOW', 'LOCALTIME')
+													</td>
+											<td>
+														STRFTIME('%Y/%m/%d %H:%M:%S', col)
+													</td>
+											<td>
+														DATETIME(col)
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-mysql">MySQL</th>
+								<th class="engine-oracle">Oracle</th>
+								<th class="engine-postgresql">PostgreSQL</th>
+								<th class="engine-sqlite">SQLite</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>現在日時</th>
+											<td class="engine-mysql">
+														NOW()
+													</td>
+											<td class="engine-oracle">
+														SYSDATE
+													</td>
+											<td class="engine-postgresql">
+														NOW()
+													</td>
+											<td class="engine-sqlite">
+														DATETIME('NOW', 'LOCALTIME')
+													</td>
+									</tr>
+							<tr>
+					<th>日時→文字列</th>
+											<td class="engine-mysql">
+														DATE_FORMAT(col, '%Y/%m/%d %H:%i:%s')
+													</td>
+											<td class="engine-oracle">
+														TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td class="engine-postgresql">
+														TO_CHAR(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td class="engine-sqlite">
+														STRFTIME('%Y/%m/%d %H:%M:%S', col)
+													</td>
+									</tr>
+							<tr>
+					<th>文字列→日時</th>
+											<td class="engine-mysql">
+														STR_TO_DATE(col, '%Y/%m/%d %H:%i:%s')
+													</td>
+											<td class="engine-oracle">
+														TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td class="engine-postgresql">
+														TO_DATE(col, 'YYYY/MM/DD HH24:MI:SS')
+													</td>
+											<td class="engine-sqlite">
+														DATETIME(col)
 													</td>
 									</tr>
 					</tbody>

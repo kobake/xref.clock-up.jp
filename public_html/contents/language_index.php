@@ -1,11 +1,5 @@
 <?php
 
-/*
-a
-a
-a
-a
- */
 // 各種変数初期化
 $features = [];
 $engines = ['C++', 'C#', 'Java', 'VB', 'PHP', 'JS', 'Ruby', 'Python', 'Perl'];
@@ -16,7 +10,7 @@ $table = file_get_contents(APP_ROOT . '/contents/language.txt');
 $contents = generateContents($table, $engines, $features, $engines);
 
 // テンプレート出力準備
-$smarty->assign('engines', $engines);
+$smarty->assign('engines', $originalEngines);
 $smarty->assign('contents', $contents);
 
 // 全セクション準備
@@ -49,8 +43,9 @@ section('variable:変数・定数/literal:整数リテラル', [
 	'2進',
 	]
 );
-section('variable:変数・定数/const:定数宣言', [
-	'定数宣言',
+section('variable:変数・定数/const:定数等', [
+	'定数',
+	'列挙型',
 	]
 );
 section('variable:変数・定数/string:文字列', [

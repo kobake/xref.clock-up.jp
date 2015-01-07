@@ -101,16 +101,57 @@
 								<red>my</red> $p = 10;
 							}
 
-定数宣言_C++				<red>const</red> int C = 10;
-定数宣言_C#					<red>const</red> int C = 10;
-定数宣言_VB					<red>Const</red> C As Integer = 10
-定数宣言_Java				<red>static final</red> int C = 10;
-定数宣言_PHP				<red>define</red>('C', 10);
-定数宣言_JS					<red>const</red> C = 10;
-定数宣言_Ruby				<red>C</red> = 10
-定数宣言_Python				-
-定数宣言_Perl				<red>use constant</red> C => 10;
+定数_C++		<red>const</red> int C = 10;
+定数_C#			<red>const</red> int C = 10;
+定数_VB			<red>Const</red> C As Integer = 10
+定数_Java		<red>static final</red> int C = 10;
+定数_PHP		<red>define</red>('C', 10);
+定数_JS			<red>const</red> C = 10;
+定数_Ruby		<red>C</red> = 10
+定数_Python		-
+定数_Perl		<red>use constant</red> C => 10;
 
+列挙型_C++			enum MyEnum{
+						FOO = 10,
+						BAR,
+					};
+					MyEnum e = FOO;
+列挙型_C#			enum MyEnum{
+						FOO = 10,
+						BAR
+					}
+					MyEnum e = MyEnum.FOO;
+列挙型_Java			enum MyEnum{
+						FOO,
+						BAR
+					}
+					MyEnum e = MyEnum.FOO;
+列挙型_PHP			(疑似)
+					abstract class MyEnum{
+						const FOO = 10;
+						const BAR = 11;
+					}
+					$e = MyEnum::FOO;
+列挙型_JS			(疑似)
+					var MyEnum = {
+						FOO : 10,
+						BAR : 11,
+					};
+					var e = MyEnum.FOO;
+列挙型_Ruby			(疑似)
+					module MyEnum
+						FOO = 10
+						BAR = 11
+					end
+					e = MyEnum::FOO
+列挙型_Python		from enum import Enum
+					class MyEnum(Enum):
+						FOO = 10
+						BAR = 11
+					e = MyEnum.FOO
+列挙型_Perl			(疑似)
+					use enum qw(One=1 Ten=10);
+					$a = One;
 
 
 # 数値リテラル

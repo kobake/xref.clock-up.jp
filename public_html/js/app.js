@@ -60,6 +60,33 @@ jQuery(function(){
 		}, 0);
 	});
 	
+	// マウスホイール抑制
+	var f = function (eo, delta, deltaX, deltaY) {
+		var scrollTop = $(this).scrollTop();
+		var scrollHeight = $(this).get(0).scrollHeight;
+		var height = $(this).height();
+		var pad = parseInt($(this).css('padding-top')) + parseInt($(this).css('padding-bottom'));
+
+		if (scrollHeight === 0) {
+			return true; // スクロールする
+		}
+
+		// 未来のscrollTop
+		var newScrollTop = scrollTop - deltaY;
+
+		// スクロール抑制
+		// console.log(newScrollTop + "," + height + "," + scrollHeight);
+		// console.log((newScrollTop + height) + " > " + scrollHeight + " ?");
+		if (newScrollTop + height + pad > scrollHeight) { // 下方向のスクロール抑制
+			return false;
+		}
+		else if (newScrollTop < 0) { // 上方向のスクロール抑制
+			return false;
+		}
+		return true;
+	};
+	$(".sidebar").mousewheel(f);
+	
 	/*
 	// 目次ツリー
 	jQuery(function() {

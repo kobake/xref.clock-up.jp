@@ -153,6 +153,82 @@
 					use enum qw(One=1 Ten=10);
 					$a = One;
 
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 構造
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 関数
+関数定義_C++		int foo(int a, int b){
+						return a + b;
+					}
+関数定義_C#			int foo(int a, int b){
+						return a + b;
+					}
+関数定義_Java		int foo(int a, int b){
+						return a + b;
+					}
+関数定義_PHP		function foo($a, $b){
+						return a + b;
+					}
+関数定義_VB			Function foo(ByVal a As Integer, ByVal b As Integer)
+						foo = a + b # 最近は Return も使えるんだけどね。
+					End Function
+関数定義_JS			function foo(a, b){
+						return a + b;
+					}
+関数定義_Ruby		def foo(a, b)
+						return a + b
+					end
+関数定義_Python		def foo(a, b):
+						return a + b
+関数定義_Perl		sub foo{
+						my ($a, $b) = @_;
+						return $a + $b;
+					}
+
+参照渡し_C++		void foo(int& r){
+						r = 10;
+					}
+					int n = 0;
+					foo(n);
+参照渡し_C#			void foo(out int r){
+						r = 10;
+					}
+					int n = 0;
+					foo(out n);
+参照渡し_Java		void foo(Hoge r){
+						r.fuga = 10;
+					}
+					Hoge h = new Hoge();
+					foo(h);
+関数定義_VB			Sub foo(ByRef a As Integer)
+						a = 10
+					End Function
+					Dim n As Integer = 0
+					foo n
+参照渡し_PHP		function foo(&$r){
+						$r = 10;
+					}
+					$n = 0;
+					foo($n);
+参照渡し_JS			function foo(r){
+						r.fuga = 10;
+					}
+					var hoge = {fuga: 0};
+					foo(hoge);
+参照渡し_Ruby		def foo(r)
+						r[0] = 10
+					end
+					hoge = [0]
+					foo(hoge)
+参照渡し_Python		def foo(r):
+						r["fuga"] = 10
+					hoge = {"fuga": 0}
+					foo(hoge)
+参照渡し_Perl		未
+
+# クラス
+クラス_C++
+
 
 # 数値リテラル
 C++_10進					255

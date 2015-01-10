@@ -132,6 +132,44 @@
 						world
 						=cut
 
+インポート_C++		#include &lt;system.h>
+インポート_C#		using System.Text;
+インポート_Java		import java.text.*;
+インポート_JS		-
+インポート_VB		Declare Function GetTickCount Lib "kernel32" () As Long
+インポート_PHP		require('text.php');
+インポート_Ruby		require 'text'
+インポート_Python	from A import B
+インポート_Perl		require CGI;
+					use CGI;
+
+# パッケージ、名前空間、モジュール
+名前空間_C++		namespace Hoge{
+						class A{};
+					}
+名前空間_C#			namespace Hoge{
+						class A{}
+					}
+名前空間_Java		package com.example.app;
+					public class A{
+					}
+名前空間_Python		＃ hoge.py
+					def fuga(n):
+						return n + 1
+					＃ main.py
+					import hoge
+					a = hoge.fuga(10)
+
+
+プリプロセス_C++	#define HOGE
+					#ifdef HOGE
+					#endif
+プリプロセス_C#		#define HOGE
+					#if HOGE
+					#endif
+
+
+
 列挙型_C++			enum MyEnum{
 						FOO = 10,
 						BAR,

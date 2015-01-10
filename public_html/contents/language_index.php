@@ -35,8 +35,10 @@ section('meta:メタ/comment:コメント', [
 	'ブロックコメント',
 	]
 );
-section('meta:メタ/include:Include', [
-	'Include',
+section('meta:メタ/depend:依存', [
+	'インポート',
+	'名前空間',
+	'プリプロセス',
 	]
 );
 

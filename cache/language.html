@@ -193,7 +193,7 @@
 </li><li class="parent-li"><a href="#meta">メタ</a>
 </li>
 <li class="second"><a href="#comment">コメント</a>
-</li><li class="second"><a href="#include">Include</a>
+</li><li class="second"><a href="#depend">依存</a>
 </li><li class="parent-li"><a href="#variable">変数・定数</a>
 </li>
 <li class="second"><a href="#declare">変数宣言</a>
@@ -548,7 +548,7 @@
 	</table>
 </div>
 </div>
-<h3 id="include" class="sub-header">Include</h3><div class="mode0">
+<h3 id="depend" class="sub-header">依存</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -556,7 +556,9 @@
 		<thead>
 			<tr>
 				<th></th>
-									<th>Include</th>
+									<th>インポート</th>
+									<th>名前空間</th>
+									<th>プリプロセス</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -564,45 +566,96 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														#include &lt;system.h>
+													</td>
+											<td>
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{};<br/>}
+													</td>
+											<td>
+														#define HOGE<br/>#ifdef HOGE<br/>#endif
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														using System.Text;
+													</td>
+											<td>
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{}<br/>}
+													</td>
+											<td>
+														#define HOGE<br/>#if HOGE<br/>#endif
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
+											<td>
+														import java.text.*;
+													</td>
+											<td>
+														package com.example.app;<br/>public class A{<br/>}
+													</td>
 											<td>
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														Declare Function GetTickCount Lib "kernel32" () As Long
+													</td>
+											<td>
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
+											<td>
+														require('text.php');
+													</td>
+											<td>
+													</td>
 											<td>
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														-
+													</td>
+											<td>
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
+											<td>
+														require 'text'
+													</td>
+											<td>
+													</td>
 											<td>
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														from A import B
+													</td>
+											<td>
+														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
+											<td>
+														require CGI;<br/>use CGI;
+													</td>
+											<td>
+													</td>
 											<td>
 													</td>
 									</tr>
@@ -632,10 +685,67 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th>Include</th>
+					<th>インポート</th>
 											<td class="engine-cpp">
+														#include &lt;system.h>
 													</td>
 											<td class="engine-csharp">
+														using System.Text;
+													</td>
+											<td class="engine-java">
+														import java.text.*;
+													</td>
+											<td class="engine-vb">
+														Declare Function GetTickCount Lib "kernel32" () As Long
+													</td>
+											<td class="engine-php">
+														require('text.php');
+													</td>
+											<td class="engine-js">
+														-
+													</td>
+											<td class="engine-ruby">
+														require 'text'
+													</td>
+											<td class="engine-python">
+														from A import B
+													</td>
+											<td class="engine-perl">
+														require CGI;<br/>use CGI;
+													</td>
+									</tr>
+							<tr>
+					<th>名前空間</th>
+											<td class="engine-cpp">
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{};<br/>}
+													</td>
+											<td class="engine-csharp">
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{}<br/>}
+													</td>
+											<td class="engine-java">
+														package com.example.app;<br/>public class A{<br/>}
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+													</td>
+											<td class="engine-python">
+														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
+													</td>
+											<td class="engine-perl">
+													</td>
+									</tr>
+							<tr>
+					<th>プリプロセス</th>
+											<td class="engine-cpp">
+														#define HOGE<br/>#ifdef HOGE<br/>#endif
+													</td>
+											<td class="engine-csharp">
+														#define HOGE<br/>#if HOGE<br/>#endif
 													</td>
 											<td class="engine-java">
 													</td>
@@ -2109,10 +2219,10 @@
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														s = "Hello
+														s = "Hello #{world}"
 													</td>
 											<td>
-														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+														s = &lt;&lt;EOS<br/>Foo #{s}<br/>Bar #{n}<br/>Baz #{f}<br/>EOS
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -2179,7 +2289,7 @@
 														var s = "Hello $world";
 													</td>
 											<td class="engine-ruby">
-														s = "Hello
+														s = "Hello #{world}"
 													</td>
 											<td class="engine-python">
 														s = "Hello %s" % world"
@@ -2209,7 +2319,7 @@
 														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
 													</td>
 											<td class="engine-ruby">
-														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+														s = &lt;&lt;EOS<br/>Foo #{s}<br/>Bar #{n}<br/>Baz #{f}<br/>EOS
 													</td>
 											<td class="engine-python">
 														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''

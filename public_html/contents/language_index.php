@@ -29,6 +29,17 @@ section('engine:エンジン/run:起動', [
 	]
 );
 
+// メタ
+section('meta:メタ/comment:コメント', [
+	'行コメント',
+	'ブロックコメント',
+	]
+);
+section('meta:メタ/include:Include', [
+	'Include',
+	]
+);
+
 // 変数
 section('variable:変数・定数/declare:変数宣言', [
 	'変数宣言',
@@ -46,6 +57,11 @@ section('variable:変数・定数/literal:整数リテラル', [
 section('variable:変数・定数/const:定数等', [
 	'定数',
 	'列挙型',
+	]
+);
+section('variable:変数・定数/invalid:無効値', [
+	'無効値',
+	'無効判定',
 	]
 );
 
@@ -160,13 +176,6 @@ section('logic2:演算まとめ', [
 	]
 );
 */
-
-
-section('invalid:無効値', [
-	'無効値',
-	'無効判定',
-	]
-);
 
 
 

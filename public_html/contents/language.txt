@@ -111,6 +111,27 @@
 定数_Python		-
 定数_Perl		<red>use constant</red> C => 10;
 
+行コメント_C++,C#,Java,PHP,JS	// comment
+行コメント_VB					' comment
+行コメント_Ruby,Python,Perl		＃ comment
+
+ブロックコメント_C++,C#,Java,PHP,JS	/*
+									hello
+									world
+									*/
+ブロックコメント_Ruby	=begin
+						hello
+						world
+						=end
+ブロックコメント_Python	'''
+						文字列リテラルを
+						代用
+						'''
+ブロックコメント_Perl	=pod
+						hello
+						world
+						=cut
+
 列挙型_C++			enum MyEnum{
 						FOO = 10,
 						BAR,
@@ -121,6 +142,11 @@
 						BAR
 					}
 					MyEnum e = MyEnum.FOO;
+列挙型_VB			Enum MyEnum
+						FOO = 10
+						BAR
+					End Enum
+					Dim e As MyEnum = MyEnum.FOO
 列挙型_Java			enum MyEnum{
 						FOO,
 						BAR

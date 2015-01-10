@@ -212,8 +212,8 @@ function section($title, $features) {
 function removeLineComment($line){
 	// 特殊な「#」をマーク
 	$line = preg_replace('/\# (yum|service|mysql)/', '＃ \1', $line);
-	$line = preg_replace('/\_C\#([\t ])/', '_C＃\1', $line);
-	$line = preg_replace('/C\#\_/', 'C＃_', $line);
+	$line = preg_replace('/([\_\,\t ])C\#([\_\,\t ])/', '\1C＃\2', $line);
+	$line = preg_replace('/^C\#([\_\,\t ])/', 'C＃\1', $line);
 	// コメントの除去
 	$line = preg_replace('/\#.*/', '', $line);
 	// 後ろの余計な文字削除
@@ -327,9 +327,16 @@ function generateContents($text, &$engines, &$features, $default_engines){
 			if(count($tmp) == 2){
 				// engine_feature という構成の場合はそのまま
 				if (array_search($tmp[0], $default_engines) !== false) {
-					
+				}
+				else if(strpos($tmp[0], ',') !== false){ // ※コンマがある場合はエンジンとみなす
 				}
 				// feature_engine という構成の場合は要素を反転する
+				else if(strpos($tmp[1], ',') !== false){ // ※コンマがある場合はエンジンとみなす
+					$t = $tmp[0];
+					$tmp[0] = $tmp[1];
+					$tmp[1] = $t;
+					$title = "{$tmp[0]}_{$tmp[1]}";
+				}
 				else if(array_search($tmp[1], $default_engines) !== false){
 					$t = $tmp[0];
 					$tmp[0] = $tmp[1];
@@ -346,6 +353,18 @@ function generateContents($text, &$engines, &$features, $default_engines){
 			}
 			// title, content出力
 			$ret[$title] = $content;
+			// 複数engine対応
+			// 例「行コメント_C++,C#,Java,PHP	// comment」
+			if(count($tmp) == 2){
+				$multiEngines = explode(',', $tmp[0]);
+				if(count($multiEngines) >= 2){
+					$feature = $tmp[1];
+					foreach($multiEngines as $engine){
+						$title = "{$engine}_{$feature}";
+						$ret[$title] = $content;
+					}
+				}
+			}
 		}
 	}
 	$engines = array_keys($engines);

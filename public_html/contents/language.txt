@@ -312,280 +312,338 @@ Perl_2進					0b11111111
 文字列リテラル_PHP			'ABC'
 							"ABC $hoge"
 
+文字列内変数埋め込み_C++	std::string s = "Hello " + world;
+文字列内変数埋め込み_C#		string s = "Hello " + world;
+文字列内変数埋め込み_VB		s = "Hello " & world
+文字列内変数埋め込み_Java	String s = "Hello " + world;
+文字列内変数埋め込み_PHP	$s = "Hello " + $world;
+文字列内変数埋め込み_JS		var s = "Hello $world";
+文字列内変数埋め込み_Ruby	s = "Hello #{world}"
+文字列内変数埋め込み_Python	s = "Hello %s" % world"
+文字列内変数埋め込み_Perl	my $s = "Hello ${world}";
+
+文字列内変数埋め込み_C++	std::string s = "Hello " + world;
+文字列内変数埋め込み_C#		string s = "Hello " + world;
+文字列内変数埋め込み_VB		s = "Hello " & world
+文字列内変数埋め込み_Java	String s = "Hello " + world;
+文字列内変数埋め込み_PHP	$s = "Hello " + $world;
+文字列内変数埋め込み_JS		var s = "Hello $world";
+文字列内変数埋め込み_Ruby	s = "Hello #{world}"
+文字列内変数埋め込み_Python	s = "Hello %s" % world"
+文字列内変数埋め込み_Perl	my $s = "Hello ${world}";
+
+ヒアドキュメント_C++		std::string s = "Foo\n"
+								+ "Bar\n"
+								+ "Baz\n";
+ヒアドキュメント_C#			string s = @"Foo
+							Bar
+							Baz";
+# <Query> も使えるけど、あまり一般的ではない気がする。 http://qiita.com/alg/items/f0f94902f0d97adcf15d
+ヒアドキュメント_VB			s = "Foo" & vbCrLf & _
+								"Bar" & vbCrLf & _
+								"Baz" & vbCrLf
+ヒアドキュメント_Java		string s = "Foo\n"
+								+ "Bar\n"
+								+ "Baz\n";
+ヒアドキュメント_PHP		$s = &lt;&lt;&lt;EOS
+							Foo
+							Bar
+							Baz
+							EOS;
+ヒアドキュメント_JS			s = "Foo\n\
+							Bar\n\
+							Baz\
+							";
+ヒアドキュメント_Ruby		s = &lt;&lt;EOS
+							Foo #{s}
+							Bar #{n}
+							Baz #{f}
+							EOS
+ヒアドキュメント_Python		s = '''
+							Foo
+							Bar
+							Baz
+							'''
+ヒアドキュメント_Perl		$s = &lt;&lt;EOS
+							Foo
+							Bar
+							Baz
+							EOS
+
 
 制御
 	分岐
-		If分岐_C++					if(a){
-										foo();
-									}
-									else if(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		If分岐_C#					if(a){
-										foo();
-									}
-									else if(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		If分岐_Java					if(a){
-										foo();
-									}
-									else if(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		If分岐_VB					If a Then
-										foo
-									ElseIf b Then
-										bar
-									Else
-										baz
-									End If
-		If分岐_PHP					if(a){
-										foo();
-									}
-									else if(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		If分岐_JS					if(a){
-										foo();
-									}
-									else if(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		If分岐_Ruby					if a
-										foo()
-									elsif b
-										bar()
-									else
-										baz()
-									end
-		If分岐_Python				if a:
-										foo()
-									elif b:
-										bar()
-									else:
-										baz()
-		If分岐_Perl					if(a){
-										foo();
-									}
-									elsif(b){
-										bar();
-									}
-									else{
-										baz();
-									}
-		Switch分岐_C++				switch(a){
-									case 0:
-										foo();
-										break;
-									case 1:
-										bar();
-										break;
-									default:
-										baz();
-										break;
-									}
-		Switch分岐_C#				switch(a){
-									case 0:
-										foo();
-										break;
-									case 1:
-										bar();
-										break;
-									default:
-										baz();
-										break;
-									}
-		Switch分岐_Java				switch(a){
-									case 0:
-										foo();
-										break;
-									case 1:
-										bar();
-										break;
-									default:
-										baz();
-										break;
-									}
-		Switch分岐_PHP				switch(a){
-									case 0:
-										foo();
-										break;
-									case 1:
-										bar();
-										break;
-									default:
-										baz();
-										break;
-									}
-		Switch分岐_JS				switch(a){
-									case 0:
-										foo();
-										break;
-									case 1:
-										bar();
-										break;
-									default:
-										baz();
-										break;
-									}
-		Switch分岐_Ruby				case a
-									when 0
-										foo()
-									when 1
-										bar()
-									else
-										baz()
-									end
-		Switch分岐_Python			-
-		Switch分岐_Perl				use Switch;
-									switch($a){
-										case 0 { foo(); }
-										case 1 { bar(); }
-										else   { baz(); }
-									}
-		
-	For系ループ
-		Forループ_C++				for(int i = 0; i < 10; i++){
-										std::out << i << "\n";
-									}
-		Forループ_C#				for(int i = 0; i < 10; i++){
-										System.Console.WriteLine("" + i);
-									}
-		Forループ_Java				for(int i = 0; i < 10; i++){
-										System.out.println("" + i);
-									}
-		Forループ_VB				For i = 0 To 9
-										System.Console.WriteLine(i)
-									Next
-		Forループ_PHP				for($i = 0; $i < 10; $i++){
-										print "$i\n";
-									}
-		Forループ_JS				for($i = 0; $i < 10; $i++){
-										console.log($i);
-									}
-		ForEachループ_C++11			for(int e : v){
-										std::cout << e;
-									}
-		ForEachループ_C++			std::vector<int> list;
-									BOOST_FOREACH(int e, list){
-										std::cout << e;
-									}
-		ForEachループ_PHP			foreach($list as $e){
-										print "$e\n";
-									}
-		ForEachループ_JS			list.forEach(function(e, i){
-										console.log(e);
-									}
-		ForEachループ_Ruby			list.each do |e|
-										puts e
-									end
-		ForEachループ_Python		for e in list:
-										print e
-		ForEachループ_Perl			foreach my $e (@list){
-										print "$e\n";
-									}
+If分岐_C++					if(a){
+								foo();
+							}
+							else if(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+If分岐_C#					if(a){
+								foo();
+							}
+							else if(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+If分岐_Java					if(a){
+								foo();
+							}
+							else if(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+If分岐_VB					If a Then
+								foo
+							ElseIf b Then
+								bar
+							Else
+								baz
+							End If
+If分岐_PHP					if(a){
+								foo();
+							}
+							else if(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+If分岐_JS					if(a){
+								foo();
+							}
+							else if(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+If分岐_Ruby					if a
+								foo()
+							elsif b
+								bar()
+							else
+								baz()
+							end
+If分岐_Python				if a:
+								foo()
+							elif b:
+								bar()
+							else:
+								baz()
+If分岐_Perl					if(a){
+								foo();
+							}
+							elsif(b){
+								bar();
+							}
+							else{
+								baz();
+							}
+Switch分岐_C++				switch(a){
+							case 0:
+								foo();
+								break;
+							case 1:
+								bar();
+								break;
+							default:
+								baz();
+								break;
+							}
+Switch分岐_C#				switch(a){
+							case 0:
+								foo();
+								break;
+							case 1:
+								bar();
+								break;
+							default:
+								baz();
+								break;
+							}
+Switch分岐_Java				switch(a){
+							case 0:
+								foo();
+								break;
+							case 1:
+								bar();
+								break;
+							default:
+								baz();
+								break;
+							}
+Switch分岐_PHP				switch(a){
+							case 0:
+								foo();
+								break;
+							case 1:
+								bar();
+								break;
+							default:
+								baz();
+								break;
+							}
+Switch分岐_JS				switch(a){
+							case 0:
+								foo();
+								break;
+							case 1:
+								bar();
+								break;
+							default:
+								baz();
+								break;
+							}
+Switch分岐_Ruby				case a
+							when 0
+								foo()
+							when 1
+								bar()
+							else
+								baz()
+							end
+Switch分岐_Python			-
+Switch分岐_Perl				use Switch;
+							switch($a){
+								case 0 { foo(); }
+								case 1 { bar(); }
+								else   { baz(); }
+							}
 
-	While系ループ
-		Whileループ_C++				while(a){
-										foo();
-									}
-		Whileループ_C#				while(a){
-										foo();
-									}
-		Whileループ_Java			while(a){
-										foo();
-									}
-		Whileループ_VB				While a
-										foo
-									End While
-		Whileループ_PHP				while($a){
-										foo();
-									}
-		Whileループ_Ruby			while a
-										foo()
-									end
-		Whileループ_Python			while a:
-										foo()
-		Whileループ_Perl			while($a){
-										foo();
-									}
-	ジャンプ
-		ループ抜け_C++					break;
-		ループ抜け_C#					break;
-		ループ抜け_Java					break;
-		ループ抜け_PHP					break;
-		ループ抜け_JS					break;
-		ループ抜け_Ruby					break
-		ループ抜け_Python				break
-		ループ抜け_Perl					last;
-		
-		ループ継続_C++					continue;
-		ループ継続_C#					continue;
-		ループ継続_Java					continue;
-		ループ継続_PHP					continue;
-		ループ継続_JS					continue;
-		ループ継続_Ruby					next
-		ループ継続_Python				continue
-		ループ継続_Perl					next;
+For系ループ
+Forループ_C++				for(int i = 0; i < 10; i++){
+								std::out << i << "\n";
+							}
+Forループ_C#				for(int i = 0; i < 10; i++){
+								System.Console.WriteLine("" + i);
+							}
+Forループ_Java				for(int i = 0; i < 10; i++){
+								System.out.println("" + i);
+							}
+Forループ_VB				For i = 0 To 9
+								System.Console.WriteLine(i)
+							Next
+Forループ_PHP				for($i = 0; $i < 10; $i++){
+								print "$i\n";
+							}
+Forループ_JS				for($i = 0; $i < 10; $i++){
+								console.log($i);
+							}
+ForEachループ_C++11			for(int e : v){
+								std::cout << e;
+							}
+ForEachループ_C++			std::vector<int> list;
+							BOOST_FOREACH(int e, list){
+								std::cout << e;
+							}
+ForEachループ_PHP			foreach($list as $e){
+								print "$e\n";
+							}
+ForEachループ_JS			list.forEach(function(e, i){
+								console.log(e);
+							}
+ForEachループ_Ruby			list.each do |e|
+								puts e
+							end
+ForEachループ_Python		for e in list:
+								print e
+ForEachループ_Perl			foreach my $e (@list){
+								print "$e\n";
+							}
 
-		関数抜け_C++					return v;
-		関数抜け_C#						return v;
-		関数抜け_Java					return v;
-		関数抜け_PHP					return v;
-		関数抜け_JS						return v;
-		関数抜け_Ruby					return v
-		関数抜け_Python					return v
-		関数抜け_Perl					return v;
+While系ループ
+Whileループ_C++				while(a){
+								foo();
+							}
+Whileループ_C#				while(a){
+								foo();
+							}
+Whileループ_Java			while(a){
+								foo();
+							}
+Whileループ_VB				While a
+								foo
+							End While
+Whileループ_PHP				while($a){
+								foo();
+							}
+Whileループ_Ruby			while a
+								foo()
+							end
+Whileループ_Python			while a:
+								foo()
+Whileループ_Perl			while($a){
+								foo();
+							}
+ジャンプ
+ループ抜け_C++					break;
+ループ抜け_C#					break;
+ループ抜け_Java					break;
+ループ抜け_PHP					break;
+ループ抜け_JS					break;
+ループ抜け_Ruby					break
+ループ抜け_Python				break
+ループ抜け_Perl					last;
 
-	例外
-		例外送出_C++					throw std::exception("msg");
-		例外送出_C#						throw new Exception("msg");
-		例外送出_Java					throw new Exception("msg");
-		例外送出_PHP					throw new Exception("msg");
-		例外送出_JS						throw "msg";
-		例外送出_Ruby					未
-		例外送出_Python					未
-		例外送出_Perl					未
+ループ継続_C++					continue;
+ループ継続_C#					continue;
+ループ継続_Java					continue;
+ループ継続_PHP					continue;
+ループ継続_JS					continue;
+ループ継続_Ruby					next
+ループ継続_Python				continue
+ループ継続_Perl					next;
 
-		例外Catch_C++					try{
-										}
-										catch(const std::exception& ex){
-										}
-		例外Catch_C#					try{
-										}
-										catch(Exception ex){
-										}
-		例外Catch_Java					try{
-										}
-										catch(Exception ex){
-										}
-		例外Catch_PHP					try{
-										}
-										catch(Exception ex){
-										}
-		例外Catch_JS					try{
-										}
-										catch(ex){
-										}
-		例外Catch_Ruby					未
-		例外Catch_Python				未
-		例外Catch_Perl					未
+関数抜け_C++					return v;
+関数抜け_C#						return v;
+関数抜け_Java					return v;
+関数抜け_PHP					return v;
+関数抜け_JS						return v;
+関数抜け_Ruby					return v
+関数抜け_Python					return v
+関数抜け_Perl					return v;
+
+例外
+例外送出_C++					throw std::exception("msg");
+例外送出_C#						throw new Exception("msg");
+例外送出_Java					throw new Exception("msg");
+例外送出_PHP					throw new Exception("msg");
+例外送出_JS						throw "msg";
+例外送出_Ruby					未
+例外送出_Python					未
+例外送出_Perl					未
+
+例外Catch_C++					try{
+								}
+								catch(const std::exception& ex){
+								}
+例外Catch_C#					try{
+								}
+								catch(Exception ex){
+								}
+例外Catch_Java					try{
+								}
+								catch(Exception ex){
+								}
+例外Catch_PHP					try{
+								}
+								catch(Exception ex){
+								}
+例外Catch_JS					try{
+								}
+								catch(ex){
+								}
+例外Catch_Ruby					未
+例外Catch_Python				未
+例外Catch_Perl					未
 # スコープ
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
@@ -604,6 +662,62 @@ Perl_2進					0b11111111
 	代入_Python		s = "abc";
 					s = 'abc';
 	代入_Perl		未
+
+C++_文字列代入		std::string a = "Hello";
+					std::string b = "World";
+C++_文字列比較		a == b
+					a != b
+C++_文字列検索		int pos = a.find("keyword", 0);
+C++_文字列抽出		a.substr(1, 3); // ell
+C++_文字列結合		std::string c = a + b;
+
+C#_文字列代入		string a = "Hello";
+					string b = "World";
+C#_文字列比較		a == b
+					a != b
+C#_文字列検索		int pos = a.IndexOf("keyword");
+C#_文字列抽出		a.substr(1, 3); // ell
+C#_文字列結合		string c = a + b;
+
+Java_文字列代入		String a = "Hello";
+					String b = "World";
+Java_文字列比較		a.equals(b)
+					!a.equals(b)
+Java_文字列検索		未
+Java_文字列抽出		未
+Java_文字列結合		String c = a + b;
+
+PHP_文字列代入		$a = "Hello";
+					$b = "World";
+PHP_文字列比較		$a === b
+					$a !== b
+PHP_文字列検索		未
+PHP_文字列抽出		未
+PHP_文字列結合		$c = $a . $b;
+
+Ruby_文字列代入		a = "Hello"
+					b = "World"
+Ruby_文字列比較		未
+					未
+Ruby_文字列検索		未
+Ruby_文字列抽出		未
+Ruby_文字列結合		c = a + b
+
+Python_文字列代入	a = "Hello"
+					b = "World"
+Python_文字列比較	未
+					未
+Python_文字列検索	未
+Python_文字列抽出	未
+Python_文字列結合	c = a + b
+
+Perl_文字列代入		my $a = "Hello";
+					my $b = "World";
+Perl_文字列比較		未
+					未
+Perl_文字列検索		未
+Perl_文字列抽出		未
+Perl_文字列結合		my $c = $a + $b;
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 演算
@@ -799,8 +913,8 @@ VB_True判定			True
 VB_False判定		False
 
 # http://php.net/manual/ja/types.comparisons.php
-PHP_True定数		TRUE (大小文字区別無)
-PHP_False定数		FALSE (大小文字区別無)
+PHP_True定数		TRUE (※大小文字区別無)
+PHP_False定数		FALSE (※大小文字区別無)
 PHP_True判定		False判定以外
 PHP_False判定		FALSE, 0, NULL, '', '0', [], 未定義
 

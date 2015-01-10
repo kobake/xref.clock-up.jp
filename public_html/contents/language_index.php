@@ -48,9 +48,24 @@ section('variable:変数・定数/const:定数等', [
 	'列挙型',
 	]
 );
-section('variable:変数・定数/string:文字列', [
-	'リテラル',
-	'結合',
+
+// 文字・文字列
+section('string:文字・文字列/string-literal:文字・文字列リテラル', [
+	'文字リテラル',
+	'文字列リテラル',
+	]
+);
+section('string:文字・文字列/string-op:文字列演算', [
+	'文字列代入',
+	'文字列比較',
+	'文字列検索',
+	'文字列抽出',
+	'文字列結合',
+	]
+);
+section('string:文字・文字列/inline:変数埋め込み等', [
+	'文字列内変数埋め込み',
+	'ヒアドキュメント',
 	]
 );
 
@@ -78,8 +93,8 @@ section('calc:演算/bool:BOOL', [
 
 // 制御構造
 section('control:制御/cond:分岐', [
-	'if分岐',
-	'switch分岐',
+	'If分岐',
+	'Switch分岐',
 	]
 );
 section('control:制御/floop:For系ループ', [

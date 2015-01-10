@@ -195,7 +195,11 @@
 <li class="second"><a href="#declare">変数宣言</a>
 </li><li class="second"><a href="#literal">整数リテラル</a>
 </li><li class="second"><a href="#const">定数等</a>
-</li><li class="second"><a href="#string">文字列</a>
+</li><li class="parent-li"><a href="#string">文字・文字列</a>
+</li>
+<li class="second"><a href="#string-literal">文字・文字列リテラル</a>
+</li><li class="second"><a href="#string-op">文字列演算</a>
+</li><li class="second"><a href="#inline">変数埋め込み等</a>
 </li><li class="parent-li"><a href="#calc">演算</a>
 </li>
 <li class="second"><a href="#logic">論理演算</a>
@@ -1083,7 +1087,7 @@
 	</table>
 </div>
 </div>
-<h3 id="string" class="sub-header">文字列</h3><div class="mode0">
+<h2 id="string" class="sub-header">文字・文字列</h2><h3 id="string-literal" class="sub-header">文字・文字列リテラル</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -1091,8 +1095,8 @@
 		<thead>
 			<tr>
 				<th></th>
-									<th>リテラル</th>
-									<th>結合</th>
+									<th>文字リテラル</th>
+									<th>文字列リテラル</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -1100,22 +1104,28 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														'A'
 													</td>
 											<td>
+														"ABC\\DEF"<br/>L"ABC\\DEF"
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														'A'
 													</td>
 											<td>
+														"ABC\\DEF"<br/>@"ABC\DEF"
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														char c = 'A';<br/>char c = '\u0041';<br/>char c = 65;
 													</td>
 											<td>
+														"ABC\\DEF"<br/>"\u0041BC"
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -1130,6 +1140,7 @@
 											<td>
 													</td>
 											<td>
+														'ABC'<br/>"ABC $hoge"
 													</td>
 									</tr>
 							<tr class="engine-js">
@@ -1186,12 +1197,15 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th>リテラル</th>
+					<th>文字リテラル</th>
 											<td class="engine-cpp">
+														'A'
 													</td>
 											<td class="engine-csharp">
+														'A'
 													</td>
 											<td class="engine-java">
+														char c = 'A';<br/>char c = '\u0041';<br/>char c = 65;
 													</td>
 											<td class="engine-vb">
 													</td>
@@ -1207,16 +1221,20 @@
 													</td>
 									</tr>
 							<tr>
-					<th>結合</th>
+					<th>文字列リテラル</th>
 											<td class="engine-cpp">
+														"ABC\\DEF"<br/>L"ABC\\DEF"
 													</td>
 											<td class="engine-csharp">
+														"ABC\\DEF"<br/>@"ABC\DEF"
 													</td>
 											<td class="engine-java">
+														"ABC\\DEF"<br/>"\u0041BC"
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														'ABC'<br/>"ABC $hoge"
 													</td>
 											<td class="engine-js">
 													</td>
@@ -1225,6 +1243,528 @@
 											<td class="engine-python">
 													</td>
 											<td class="engine-perl">
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="string-op" class="sub-header">文字列演算</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>文字列代入</th>
+									<th>文字列比較</th>
+									<th>文字列検索</th>
+									<th>文字列抽出</th>
+									<th>文字列結合</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														std::string a = "Hello";<br/>std::string b = "World";
+													</td>
+											<td>
+														a == b<br/>a != b
+													</td>
+											<td>
+														int pos = a.find("keyword", 0);
+													</td>
+											<td>
+														a.substr(1, 3); // ell
+													</td>
+											<td>
+														std::string c = a + b;
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														string a = "Hello";<br/>string b = "World";
+													</td>
+											<td>
+														a == b<br/>a != b
+													</td>
+											<td>
+														int pos = a.IndexOf("keyword");
+													</td>
+											<td>
+														a.substr(1, 3); // ell
+													</td>
+											<td>
+														string c = a + b;
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														String a = "Hello";<br/>String b = "World";
+													</td>
+											<td>
+														a.equals(b)<br/>!a.equals(b)
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														String c = a + b;
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														$a = "Hello";<br/>$b = "World";
+													</td>
+											<td>
+														$a === b<br/>$a !== b
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														$c = $a . $b;
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+											<td>
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														a = "Hello"<br/>b = "World"
+													</td>
+											<td>
+														未<br/>未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														c = a + b
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														a = "Hello"<br/>b = "World"
+													</td>
+											<td>
+														未<br/>未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														c = a + b
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														my $a = "Hello";<br/>my $b = "World";
+													</td>
+											<td>
+														未<br/>未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														未
+													</td>
+											<td>
+														my $c = $a + $b;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>文字列代入</th>
+											<td class="engine-cpp">
+														std::string a = "Hello";<br/>std::string b = "World";
+													</td>
+											<td class="engine-csharp">
+														string a = "Hello";<br/>string b = "World";
+													</td>
+											<td class="engine-java">
+														String a = "Hello";<br/>String b = "World";
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+														$a = "Hello";<br/>$b = "World";
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+														a = "Hello"<br/>b = "World"
+													</td>
+											<td class="engine-python">
+														a = "Hello"<br/>b = "World"
+													</td>
+											<td class="engine-perl">
+														my $a = "Hello";<br/>my $b = "World";
+													</td>
+									</tr>
+							<tr>
+					<th>文字列比較</th>
+											<td class="engine-cpp">
+														a == b<br/>a != b
+													</td>
+											<td class="engine-csharp">
+														a == b<br/>a != b
+													</td>
+											<td class="engine-java">
+														a.equals(b)<br/>!a.equals(b)
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+														$a === b<br/>$a !== b
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+														未<br/>未
+													</td>
+											<td class="engine-python">
+														未<br/>未
+													</td>
+											<td class="engine-perl">
+														未<br/>未
+													</td>
+									</tr>
+							<tr>
+					<th>文字列検索</th>
+											<td class="engine-cpp">
+														int pos = a.find("keyword", 0);
+													</td>
+											<td class="engine-csharp">
+														int pos = a.IndexOf("keyword");
+													</td>
+											<td class="engine-java">
+														未
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+														未
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+														未
+													</td>
+											<td class="engine-python">
+														未
+													</td>
+											<td class="engine-perl">
+														未
+													</td>
+									</tr>
+							<tr>
+					<th>文字列抽出</th>
+											<td class="engine-cpp">
+														a.substr(1, 3); // ell
+													</td>
+											<td class="engine-csharp">
+														a.substr(1, 3); // ell
+													</td>
+											<td class="engine-java">
+														未
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+														未
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+														未
+													</td>
+											<td class="engine-python">
+														未
+													</td>
+											<td class="engine-perl">
+														未
+													</td>
+									</tr>
+							<tr>
+					<th>文字列結合</th>
+											<td class="engine-cpp">
+														std::string c = a + b;
+													</td>
+											<td class="engine-csharp">
+														string c = a + b;
+													</td>
+											<td class="engine-java">
+														String c = a + b;
+													</td>
+											<td class="engine-vb">
+													</td>
+											<td class="engine-php">
+														$c = $a . $b;
+													</td>
+											<td class="engine-js">
+													</td>
+											<td class="engine-ruby">
+														c = a + b
+													</td>
+											<td class="engine-python">
+														c = a + b
+													</td>
+											<td class="engine-perl">
+														my $c = $a + $b;
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<h3 id="inline" class="sub-header">変数埋め込み等</h3><div class="mode0">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+									<th>文字列内変数埋め込み</th>
+									<th>ヒアドキュメント</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr class="engine-cpp">
+					<th>C++</th>
+											<td>
+														std::string s = "Hello " + world;
+													</td>
+											<td>
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+									</tr>
+							<tr class="engine-csharp">
+					<th>C#</th>
+											<td>
+														string s = "Hello " + world;
+													</td>
+											<td>
+														string s = @"Foo<br/>Bar<br/>Baz";
+													</td>
+									</tr>
+							<tr class="engine-java">
+					<th>Java</th>
+											<td>
+														String s = "Hello " + world;
+													</td>
+											<td>
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+									</tr>
+							<tr class="engine-vb">
+					<th>VB</th>
+											<td>
+														s = "Hello " & world
+													</td>
+											<td>
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+													</td>
+									</tr>
+							<tr class="engine-php">
+					<th>PHP</th>
+											<td>
+														$s = "Hello " + $world;
+													</td>
+											<td>
+														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
+													</td>
+									</tr>
+							<tr class="engine-js">
+					<th>JS</th>
+											<td>
+														var s = "Hello $world";
+													</td>
+											<td>
+														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
+													</td>
+									</tr>
+							<tr class="engine-ruby">
+					<th>Ruby</th>
+											<td>
+														s = "Hello
+													</td>
+											<td>
+														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+													</td>
+									</tr>
+							<tr class="engine-python">
+					<th>Python</th>
+											<td>
+														s = "Hello %s" % world"
+													</td>
+											<td>
+														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
+													</td>
+									</tr>
+							<tr class="engine-perl">
+					<th>Perl</th>
+											<td>
+														my $s = "Hello ${world}";
+													</td>
+											<td>
+														$s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+													</td>
+									</tr>
+					</tbody>
+	</table>
+</div>
+</div>
+<div class="mode1">
+<!-- <div class="table-responsive"> -->
+<div style="margin-bottom: 16px;">
+	<table class="table table-striped">
+		<!-- head -->
+		<thead>
+			<tr>
+				<th></th>
+								<th class="engine-cpp">C++</th>
+								<th class="engine-csharp">C#</th>
+								<th class="engine-java">Java</th>
+								<th class="engine-vb">VB</th>
+								<th class="engine-php">PHP</th>
+								<th class="engine-js">JS</th>
+								<th class="engine-ruby">Ruby</th>
+								<th class="engine-python">Python</th>
+								<th class="engine-perl">Perl</th>
+							</tr>
+		</thead>
+		<!-- body -->
+		<tbody>
+							<tr>
+					<th>文字列内変数埋め込み</th>
+											<td class="engine-cpp">
+														std::string s = "Hello " + world;
+													</td>
+											<td class="engine-csharp">
+														string s = "Hello " + world;
+													</td>
+											<td class="engine-java">
+														String s = "Hello " + world;
+													</td>
+											<td class="engine-vb">
+														s = "Hello " & world
+													</td>
+											<td class="engine-php">
+														$s = "Hello " + $world;
+													</td>
+											<td class="engine-js">
+														var s = "Hello $world";
+													</td>
+											<td class="engine-ruby">
+														s = "Hello
+													</td>
+											<td class="engine-python">
+														s = "Hello %s" % world"
+													</td>
+											<td class="engine-perl">
+														my $s = "Hello ${world}";
+													</td>
+									</tr>
+							<tr>
+					<th>ヒアドキュメント</th>
+											<td class="engine-cpp">
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+											<td class="engine-csharp">
+														string s = @"Foo<br/>Bar<br/>Baz";
+													</td>
+											<td class="engine-java">
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+											<td class="engine-vb">
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+													</td>
+											<td class="engine-php">
+														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
+													</td>
+											<td class="engine-js">
+														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
+													</td>
+											<td class="engine-ruby">
+														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+													</td>
+											<td class="engine-python">
+														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
+													</td>
+											<td class="engine-perl">
+														$s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
 													</td>
 									</tr>
 					</tbody>
@@ -1852,10 +2392,10 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														TRUE (大小文字区別無)
+														TRUE (※大小文字区別無)
 													</td>
 											<td>
-														FALSE (大小文字区別無)
+														FALSE (※大小文字区別無)
 													</td>
 											<td>
 														False判定以外
@@ -1964,7 +2504,7 @@
 														True
 													</td>
 											<td class="engine-php">
-														TRUE (大小文字区別無)
+														TRUE (※大小文字区別無)
 													</td>
 											<td class="engine-js">
 														true
@@ -1994,7 +2534,7 @@
 														False
 													</td>
 											<td class="engine-php">
-														FALSE (大小文字区別無)
+														FALSE (※大小文字区別無)
 													</td>
 											<td class="engine-js">
 														false
@@ -2081,8 +2621,8 @@
 		<thead>
 			<tr>
 				<th></th>
-									<th>if分岐</th>
-									<th>switch分岐</th>
+									<th>If分岐</th>
+									<th>Switch分岐</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -2090,27 +2630,34 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														If a Then<br/>&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;baz<br/>End If
 													</td>
 											<td>
 													</td>
@@ -2118,36 +2665,46 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														if a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td>
+														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														if a:<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;baz()
 													</td>
 											<td>
+														-
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
+														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -2176,45 +2733,62 @@
 		<!-- body -->
 		<tbody>
 							<tr>
-					<th>if分岐</th>
+					<th>If分岐</th>
 											<td class="engine-cpp">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-csharp">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-java">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-vb">
+														If a Then<br/>&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;baz<br/>End If
 													</td>
 											<td class="engine-php">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-js">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-ruby">
+														if a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td class="engine-python">
+														if a:<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;baz()
 													</td>
 											<td class="engine-perl">
+														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 									</tr>
 							<tr>
-					<th>switch分岐</th>
+					<th>Switch分岐</th>
 											<td class="engine-cpp">
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-csharp">
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-java">
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-js">
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-ruby">
+														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td class="engine-python">
+														-
 													</td>
 											<td class="engine-perl">
+														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -2238,13 +2812,16 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
 													</td>
 											<td>
+														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
 													</td>
 											<td>
 													</td>
@@ -2252,6 +2829,7 @@
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
 													</td>
 											<td>
 													</td>
@@ -2259,6 +2837,7 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
 													</td>
 											<td>
 													</td>
@@ -2266,15 +2845,19 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 											<td>
+														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
 													</td>
 											<td>
+														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -2282,6 +2865,7 @@
 											<td>
 													</td>
 											<td>
+														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;puts e<br/>end
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -2289,6 +2873,7 @@
 											<td>
 													</td>
 											<td>
+														for e in list:<br/>&nbsp;&nbsp;&nbsp;print e
 													</td>
 									</tr>
 							<tr class="engine-perl">
@@ -2296,6 +2881,7 @@
 											<td>
 													</td>
 											<td>
+														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -2326,16 +2912,22 @@
 							<tr>
 					<th>Forループ</th>
 											<td class="engine-cpp">
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
 													</td>
 											<td class="engine-csharp">
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
 													</td>
 											<td class="engine-java">
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
 													</td>
 											<td class="engine-vb">
+														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
 													</td>
 											<td class="engine-php">
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 											<td class="engine-js">
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
 													</td>
 											<td class="engine-ruby">
 													</td>
@@ -2347,6 +2939,7 @@
 							<tr>
 					<th>ForEachループ</th>
 											<td class="engine-cpp">
+														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
 													</td>
 											<td class="engine-csharp">
 													</td>
@@ -2355,14 +2948,19 @@
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 											<td class="engine-js">
+														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
 													</td>
 											<td class="engine-ruby">
+														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;puts e<br/>end
 													</td>
 											<td class="engine-python">
+														for e in list:<br/>&nbsp;&nbsp;&nbsp;print e
 													</td>
 											<td class="engine-perl">
+														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -2386,6 +2984,7 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -2393,6 +2992,7 @@
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -2400,6 +3000,7 @@
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -2407,6 +3008,7 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														While a<br/>&nbsp;&nbsp;&nbsp;foo<br/>End While
 													</td>
 											<td>
 													</td>
@@ -2414,6 +3016,7 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -2428,6 +3031,7 @@
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														while a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>end
 													</td>
 											<td>
 													</td>
@@ -2435,6 +3039,7 @@
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														while a:<br/>&nbsp;&nbsp;&nbsp;foo()
 													</td>
 											<td>
 													</td>
@@ -2442,6 +3047,7 @@
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -2474,22 +3080,30 @@
 							<tr>
 					<th>Whileループ</th>
 											<td class="engine-cpp">
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-csharp">
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-java">
+														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-vb">
+														While a<br/>&nbsp;&nbsp;&nbsp;foo<br/>End While
 													</td>
 											<td class="engine-php">
+														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-js">
 													</td>
 											<td class="engine-ruby">
+														while a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>end
 													</td>
 											<td class="engine-python">
+														while a:<br/>&nbsp;&nbsp;&nbsp;foo()
 													</td>
 											<td class="engine-perl">
+														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 									</tr>
 							<tr>
@@ -2534,22 +3148,28 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														break;
 													</td>
 											<td>
+														continue;
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														break;
 													</td>
 											<td>
+														continue;
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														break;
 													</td>
 											<td>
+														continue;
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -2562,36 +3182,46 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														break;
 													</td>
 											<td>
+														continue;
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														break;
 													</td>
 											<td>
+														continue;
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														break
 													</td>
 											<td>
+														next
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														break
 													</td>
 											<td>
+														continue
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														last;
 													</td>
 											<td>
+														next;
 													</td>
 									</tr>
 					</tbody>
@@ -2622,43 +3252,59 @@
 							<tr>
 					<th>ループ抜け</th>
 											<td class="engine-cpp">
+														break;
 													</td>
 											<td class="engine-csharp">
+														break;
 													</td>
 											<td class="engine-java">
+														break;
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														break;
 													</td>
 											<td class="engine-js">
+														break;
 													</td>
 											<td class="engine-ruby">
+														break
 													</td>
 											<td class="engine-python">
+														break
 													</td>
 											<td class="engine-perl">
+														last;
 													</td>
 									</tr>
 							<tr>
 					<th>ループ継続</th>
 											<td class="engine-cpp">
+														continue;
 													</td>
 											<td class="engine-csharp">
+														continue;
 													</td>
 											<td class="engine-java">
+														continue;
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														continue;
 													</td>
 											<td class="engine-js">
+														continue;
 													</td>
 											<td class="engine-ruby">
+														next
 													</td>
 											<td class="engine-python">
+														continue
 													</td>
 											<td class="engine-perl">
+														next;
 													</td>
 									</tr>
 					</tbody>
@@ -2682,22 +3328,28 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														throw std::exception("msg");
 													</td>
 											<td>
+														try{<br/>}<br/>catch(const std::exception& ex){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														throw new Exception("msg");
 													</td>
 											<td>
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														throw new Exception("msg");
 													</td>
 											<td>
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -2710,36 +3362,46 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														throw new Exception("msg");
 													</td>
 											<td>
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														throw "msg";
 													</td>
 											<td>
+														try{<br/>}<br/>catch(ex){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														未
 													</td>
 											<td>
+														未
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														未
 													</td>
 											<td>
+														未
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														未
 													</td>
 											<td>
+														未
 													</td>
 									</tr>
 					</tbody>
@@ -2770,43 +3432,59 @@
 							<tr>
 					<th>例外送出</th>
 											<td class="engine-cpp">
+														throw std::exception("msg");
 													</td>
 											<td class="engine-csharp">
+														throw new Exception("msg");
 													</td>
 											<td class="engine-java">
+														throw new Exception("msg");
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														throw new Exception("msg");
 													</td>
 											<td class="engine-js">
+														throw "msg";
 													</td>
 											<td class="engine-ruby">
+														未
 													</td>
 											<td class="engine-python">
+														未
 													</td>
 											<td class="engine-perl">
+														未
 													</td>
 									</tr>
 							<tr>
 					<th>例外Catch</th>
 											<td class="engine-cpp">
+														try{<br/>}<br/>catch(const std::exception& ex){<br/>}
 													</td>
 											<td class="engine-csharp">
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 											<td class="engine-java">
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
+														try{<br/>}<br/>catch(Exception ex){<br/>}
 													</td>
 											<td class="engine-js">
+														try{<br/>}<br/>catch(ex){<br/>}
 													</td>
 											<td class="engine-ruby">
+														未
 													</td>
 											<td class="engine-python">
+														未
 													</td>
 											<td class="engine-perl">
+														未
 													</td>
 									</tr>
 					</tbody>

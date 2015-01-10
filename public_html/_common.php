@@ -215,7 +215,9 @@ function removeLineComment($line){
 	$line = preg_replace('/([\_\,\t ])C\#([\_\,\t ])/', '\1C＃\2', $line);
 	$line = preg_replace('/^C\#([\_\,\t ])/', 'C＃\1', $line);
 	// コメントの除去
-	$line = preg_replace('/\#.*/', '', $line);
+	// ※「#」の後ろには最低1個のスペースが必要。
+	//   これにより、「#include」等をコメントとして扱われないようになる。
+	$line = preg_replace('/\# .*/', '', $line);
 	// 後ろの余計な文字削除
 	$line = preg_replace('/[\t ]+$/', '', $line);
 	// 戻し

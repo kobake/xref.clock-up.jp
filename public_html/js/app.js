@@ -30,18 +30,22 @@ function updateEngine(){
 	});
 }
 
-// 初期処理：イベント登録等
-jQuery(function(){
-	// 初期モード
-	var defaultMode = 0;
-	for(var i = 0; i < 2; i++){
+// 初期モード
+function initMode(defaultMode){
+	for (var i = 0; i < 2; i++) {
 		jQuery('body').removeClass('current-mode' + i);
 		jQuery('#mode' + i).prop('checked', false);
 		jQuery('#mode' + i).parent().removeClass('btn-info').removeClass('active').addClass('btn-default');
 	}
 	jQuery('body').addClass('current-mode' + defaultMode);
 	jQuery('#mode' + defaultMode).prop('checked', true);
-	jQuery('#mode' + defaultMode).parent().removeClass('btn-default').addClass('btn-info').removeClass('active');
+	jQuery('#mode' + defaultMode).parent().removeClass('btn-default').addClass('btn-info').addClass('active');
+}
+
+// 初期処理：イベント登録等
+jQuery(function(){
+	// 初期モード
+	//initMode(0);
 	
 	// 縦横スイッチ
 	jQuery('#mode-buttons label').click(function(){

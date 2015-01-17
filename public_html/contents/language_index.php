@@ -66,6 +66,13 @@ section('variable:変数・定数/invalid:無効値', [
 	'無効値判定',
 	]
 );
+section('variable:変数・定数/bool:真偽', [
+	'True定数',
+	'False定数',
+	'True判定',
+	'False判定',
+	]
+);
 
 // 演算
 section('calc:演算/logic:論理演算', [
@@ -79,33 +86,28 @@ section('calc:演算/bit:ビット演算', [
 	'ビットAND',
 	'ビットNOT',
 	'ビットXOR',
-	]
-);
-section('calc:演算/bool:真偽', [
-	'True定数',
-	'False定数',
-	'True判定',
-	'False判定',
+	'ビットシフト',
 	]
 );
 
 // 文字・文字列
-section('string:文字・文字列/string-literal:文字・文字列リテラル', [
-	'文字リテラル',
-	'文字列リテラル',
+section('string:文字・文字列/string-literal:文字と文字列', [
+	'文字',
+	'文字列',
 	]
 );
-section('string:文字・文字列/string-op:文字列演算', [
-	'文字列代入',
+section('string:文字・文字列/string-op:比較と抽出', [
 	'文字列比較',
 	'文字列検索',
 	'文字列抽出',
-	'文字列結合',
 	]
 );
-section('string:文字・文字列/inline:変数埋め込み等', [
-	'文字列内変数埋め込み',
-	'ヒアドキュメント',
+	
+section('string:文字・文字列/string-format:文字列加工', [
+	'文字列結合',
+	'変数埋め込み',
+	'文字列整形',
+	'ヒアドキュメント'
 	]
 );
 

@@ -93,7 +93,7 @@ else{
 		sections_commit();
 
 		// 本体
-		$keywords .= ', C++, C#, Java, PHP, Ruby, Python, Perl';
+		$keywords .= ', C++, C#, VisualBasic, Java, PHP, JavaScript, Ruby, Python, Perl';
 		$smarty->assign('sitesubtitle', ' - Language');
 		$smarty->assign('contentpath', '/language');
 		$smarty->assign('menus', fetch_menus());

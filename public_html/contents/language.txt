@@ -178,7 +178,7 @@
 					MyEnum e = FOO;
 列挙型_C#			enum MyEnum{
 						FOO = 10,
-						BAR
+						BAR,
 					}
 					MyEnum e = MyEnum.FOO;
 列挙型_VB			Enum MyEnum
@@ -188,7 +188,7 @@
 					Dim e As MyEnum = MyEnum.FOO
 列挙型_Java			enum MyEnum{
 						FOO,
-						BAR
+						BAR,
 					}
 					MyEnum e = MyEnum.FOO;
 列挙型_PHP			(疑似)
@@ -209,7 +209,8 @@
 						BAR = 11
 					end
 					e = MyEnum::FOO
-列挙型_Python		from enum import Enum
+列挙型_Python		(疑似)
+					from enum import Enum
 					class MyEnum(Enum):
 						FOO = 10
 						BAR = 11
@@ -358,44 +359,22 @@ Perl_2進					0b11111111
 							0xFF
 数値リテラル_Java			10
 
-# 文字リテラル
-文字リテラル_C++			'A'
-文字リテラル_C#				'A'
-文字リテラル_Java			char c = 'A';
-							char c = '\u0041';
-							char c = 65;
-文字リテラル_C++			'A'
-文字リテラル_C++			'A'
-文字リテラル_C++			'A'
+# 文字
+文字_C++,C#						char c = 'A';
+文字_Java						char c = 'A';
+								char c = '\u0041';
+								char c = 65;
+文字_PHP,JS,Ruby,Python,VB,Perl	-
 
-文字列リテラル_C++			"ABC\\DEF"
-							L"ABC\\DEF"
-文字列リテラル_C#			"ABC\\DEF"
-							@"ABC\DEF"
-文字列リテラル_Java			"ABC\\DEF"
-							"\u0041BC"
-文字列リテラル_PHP			'ABC'
-							"ABC $hoge"
-
-文字列内変数埋め込み_C++	std::string s = "Hello " + world;
-文字列内変数埋め込み_C#		string s = "Hello " + world;
-文字列内変数埋め込み_VB		s = "Hello " & world
-文字列内変数埋め込み_Java	String s = "Hello " + world;
-文字列内変数埋め込み_PHP	$s = "Hello " + $world;
-文字列内変数埋め込み_JS		var s = "Hello $world";
-文字列内変数埋め込み_Ruby	s = "Hello #{world}"
-文字列内変数埋め込み_Python	s = "Hello %s" % world"
-文字列内変数埋め込み_Perl	my $s = "Hello ${world}";
-
-文字列内変数埋め込み_C++	std::string s = "Hello " + world;
-文字列内変数埋め込み_C#		string s = "Hello " + world;
-文字列内変数埋め込み_VB		s = "Hello " & world
-文字列内変数埋め込み_Java	String s = "Hello " + world;
-文字列内変数埋め込み_PHP	$s = "Hello " + $world;
-文字列内変数埋め込み_JS		var s = "Hello $world";
-文字列内変数埋め込み_Ruby	s = "Hello #{world}"
-文字列内変数埋め込み_Python	s = "Hello %s" % world"
-文字列内変数埋め込み_Perl	my $s = "Hello ${world}";
+変数埋め込み_C++		std::string s = "Hello " + world;
+変数埋め込み_C#			string s = "Hello " + world;
+変数埋め込み_VB			s = "Hello " & world
+変数埋め込み_Java		String s = "Hello " + world;
+変数埋め込み_PHP		$s = "Hello " + $world;
+変数埋め込み_JS			var s = "Hello $world";
+変数埋め込み_Ruby		s = "Hello #{world}"
+変数埋め込み_Python		s = "Hello %s" % world
+変数埋め込み_Perl		my $s = "Hello ${world}";
 
 ヒアドキュメント_C++		std::string s = "Foo\n"
 								+ "Bar\n"
@@ -714,75 +693,80 @@ Whileループ_Perl			while($a){
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 文字列
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
-文字列
-	代入_C++		std::string s = "abc";
-	代入_C#			string s = "abc";
-	代入_Java		String s = "abc";
-	代入_PHP		$s = "abc";
-					$s = 'abc';
-	代入_JS			var s = "abc";
-					var s = 'abc';
-	代入_Ruby		s = "abc";
-					s = 'abc';
-	代入_Python		s = "abc";
-					s = 'abc';
-	代入_Perl		未
+# 文字列
+文字列_C++						std::string s = "ABC\\DEF";
+								std::wstring s = L"ABC\\DEF";
+文字列_C#						string s = "ABC\\DEF";
+								string s = @"ABC\DEF";
+文字列_Java						String s = "ABC\\DEF";
+								String s = "\u0041BC\\DEF";
+文字列_PHP						$s = 'ABC\DEF';
+								$s = "ABC\\DEF";
+文字列_VB						Dim s As String = "ABC\DEF"
+文字列_JS						s = "ABC\\DEF";
+								s = 'ABC\\DEF';
+文字列_Ruby						s = "ABC\\DEF"
+								s = 'ABC\DEF'
+文字列_Python					s = "ABC\\DEF"
+								s = 'ABC\\DEF'
+文字列_Perl						my $s = "ABC\\DEF";
+								my $s = 'ABC\DEF';
 
-C++_文字列代入		std::string a = "Hello";
-					std::string b = "World";
-C++_文字列比較		a == b
-					a != b
+
+C++_文字列比較		if(a == b){ … }
+					if(a != b){ … }
 C++_文字列検索		int pos = a.find("keyword", 0);
-C++_文字列抽出		a.substr(1, 3); // ell
-C++_文字列結合		std::string c = a + b;
+C++_文字列抽出		std::string s = a.substr(10, 5);
+C++_文字列結合		std::string s = a + b;
 
-C#_文字列代入		string a = "Hello";
-					string b = "World";
-C#_文字列比較		a == b
-					a != b
+C#_文字列比較		if(a == b){ … }
+					if(a != b){ … }
 C#_文字列検索		int pos = a.IndexOf("keyword");
-C#_文字列抽出		a.substr(1, 3); // ell
-C#_文字列結合		string c = a + b;
+C#_文字列抽出		string s = a.substr(10, 5);
+C#_文字列結合		string s = a + b;
 
-Java_文字列代入		String a = "Hello";
-					String b = "World";
-Java_文字列比較		a.equals(b)
-					!a.equals(b)
-Java_文字列検索		未
-Java_文字列抽出		未
-Java_文字列結合		String c = a + b;
+Java_文字列比較		if(a.equals(b)){ … }
+					if(!a.equals(b)){ … }
+Java_文字列検索		int pos = a.IndexOf("keyword");
+Java_文字列抽出		String s = a.substring(10, 15);
+Java_文字列結合		String s = a + b;
 
-PHP_文字列代入		$a = "Hello";
-					$b = "World";
-PHP_文字列比較		$a === b
-					$a !== b
-PHP_文字列検索		未
-PHP_文字列抽出		未
-PHP_文字列結合		$c = $a . $b;
+PHP_文字列比較		if($a === b){ … }
+					if($a !== b){ … }
+PHP_文字列検索		$pos = strpos($a, "keyword");
+PHP_文字列抽出		$s = substr($a, 10, 5);
+PHP_文字列結合		$s = $a . $b;
 
-Ruby_文字列代入		a = "Hello"
-					b = "World"
-Ruby_文字列比較		未
-					未
-Ruby_文字列検索		未
-Ruby_文字列抽出		未
+Ruby_文字列比較		if a == b …
+					if a != b …
+Ruby_文字列検索		pos = a.index("keyword")
+Ruby_文字列抽出		s = a[10, 5]
 Ruby_文字列結合		c = a + b
 
-Python_文字列代入	a = "Hello"
-					b = "World"
-Python_文字列比較	未
-					未
-Python_文字列検索	未
-Python_文字列抽出	未
+Python_文字列比較	if a == b: …
+					if a != b: …
+Python_文字列検索	pos = a.index("keyword")
+Python_文字列抽出	s = a[10:15]
 Python_文字列結合	c = a + b
 
-Perl_文字列代入		my $a = "Hello";
-					my $b = "World";
-Perl_文字列比較		未
-					未
-Perl_文字列検索		未
-Perl_文字列抽出		未
-Perl_文字列結合		my $c = $a + $b;
+Perl_文字列比較		if($a eq $b){ … }
+					if($a ne $b){ … }
+Perl_文字列検索		my $pos = index($a, "keyword");
+Perl_文字列抽出		my $s = substr($a, 10, 5);
+Perl_文字列結合		my $c = $a . $b;
+
+JS_文字列比較		if(a === b){ … }
+					if(a !== b){ … }
+JS_文字列検索		var pos = a.indexOf("keyword");
+JS_文字列抽出		var s = a.substr(10, 5);
+					var s = a.substring(10, 15);
+JS_文字列結合		my s = a + b;
+
+VB_文字列比較		If a = b Then …
+					If a <> b Then …
+VB_文字列検索		Dim pos As Integer = InStr(1, a, "keyword")
+VB_文字列抽出		Dim s As String = Mid(a, 10, 5)
+VB_文字列結合		Dim s As String = a & b
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 演算
@@ -977,15 +961,15 @@ VB_False定数		False
 VB_True判定			True
 VB_False判定		False
 VB_無効値定数		Nothing
-					vbNull
 					vbEmpty
+					vbNull
+					vbNullString
+					String.Empty
 					Double.NaN
-					…(継続調査中)…
-VB_無効値判定		If IsNothing(v) Then …
-					If v Is Nothing Then …
-					If String.IsNullOrEmpty(v) Then …
-					If Double.IsNaN(v) Then …
-					…(継続調査中)…
+VB_無効値判定		If Not IsNothing(v) Then …
+					If Not v Is Nothing Then …
+					If Not String.IsNullOrEmpty(v) Then …
+					If Not Double.IsNaN(v) Then …
 
 # Nullableあたりもそのうち。		
 					
@@ -996,9 +980,9 @@ PHP_False定数		FALSE (※大小文字区別無)
 PHP_True判定		False判定以外
 PHP_False判定		FALSE, 0, NULL, '', '0', [], 未定義
 PHP_無効値定数		FALSE, NULL
-PHP_無効値判定		if(empty($v)){ … }
-					if(is_null($v)){ … }
-					if(isset($v)){ … }
+PHP_無効値判定		if(!empty($v)){ … }
+					if(!is_null($v)){ … }
+					if(!isset($v)){ … }
 					if($v){ … }
 
 # http://qiita.com/phi/items/723aa59851b0716a87e3
@@ -1012,7 +996,7 @@ JS_無効値定数		undefined
 JS_無効値判定		if(v){ … }
 					if(v !== null){ … }
 					if(typeof v !== 'undefined'){ … ]
-					if(typeof v !== NaN){ … }
+					if(v !== NaN){ … }
 					
 
 # http://qiita.com/sgtn/items/0cb16ef16d938cf98094
@@ -1023,9 +1007,9 @@ Ruby_False定数		false
 Ruby_True判定		False判定以外 # 0はTrue扱い
 Ruby_False判定		false, nil
 Ruby_無効値定数		false, nil
-Ruby_無効値判定		if v.nil? …
-					if v.empty? …
-					if v.blank? …
+Ruby_無効値判定		if !v.nil? …
+					if !v.empty? …
+					if !v.blank? …
 
 # ※ v.present? ってのもあるけど、これはRubyじゃなくてRailsの拡張らしい。
 
@@ -1060,6 +1044,12 @@ Perl_無効値判定		if($v){ … }
 ビットAND_C++		a = b & c;
 ビットXOR_C++		a = b ^ c;
 ビットNOT_C++		a = ~b;
+ビットシフト_C++,C#,Java,JS		a = b << 2;
+								a = b >> 2;
+ビットシフト_VB,Ruby,Python		a = b << 2
+								a = b >> 2
+ビットシフト_PHP,Perl			$a = $b << 2;
+								$a = $b >> 2;
 
 ビットOR_C#			a = b | c;
 ビットAND_C#		a = b & c;

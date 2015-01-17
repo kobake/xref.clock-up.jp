@@ -2596,6 +2596,7 @@
 				<th></th>
 									<th>文字</th>
 									<th>文字列</th>
+									<th>ヒアドキュメント</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -2608,6 +2609,9 @@
 											<td>
 														std::string s = "ABC\\DEF";<br/>std::wstring s = L"ABC\\DEF";
 													</td>
+											<td>
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
@@ -2616,6 +2620,9 @@
 													</td>
 											<td>
 														string s = "ABC\\DEF";<br/>string s = @"ABC\DEF";
+													</td>
+											<td>
+														string s = @"Foo<br/>Bar<br/>Baz";
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -2626,6 +2633,9 @@
 											<td>
 														String s = "ABC\\DEF";<br/>String s = "\u0041BC\\DEF";
 													</td>
+											<td>
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
@@ -2634,6 +2644,9 @@
 													</td>
 											<td>
 														Dim s As String = "ABC\DEF"
+													</td>
+											<td>
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -2644,6 +2657,9 @@
 											<td>
 														$s = 'ABC\DEF';<br/>$s = "ABC\\DEF";
 													</td>
+											<td>
+														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
+													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
@@ -2652,6 +2668,9 @@
 													</td>
 											<td>
 														s = "ABC\\DEF";<br/>s = 'ABC\\DEF';
+													</td>
+											<td>
+														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -2662,6 +2681,9 @@
 											<td>
 														s = "ABC\\DEF"<br/>s = 'ABC\DEF'
 													</td>
+											<td>
+														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
@@ -2671,6 +2693,9 @@
 											<td>
 														s = "ABC\\DEF"<br/>s = 'ABC\\DEF'
 													</td>
+											<td>
+														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
+													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
@@ -2679,6 +2704,9 @@
 													</td>
 											<td>
 														my $s = "ABC\\DEF";<br/>my $s = 'ABC\DEF';
+													</td>
+											<td>
+														$s = <<"EOS";<br/>Foo<br/>Bar<br/>Baz<br/>EOS
 													</td>
 									</tr>
 					</tbody>
@@ -2764,6 +2792,36 @@
 													</td>
 											<td class="engine-perl">
 														my $s = "ABC\\DEF";<br/>my $s = 'ABC\DEF';
+													</td>
+									</tr>
+							<tr>
+					<th>ヒアドキュメント</th>
+											<td class="engine-cpp">
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+											<td class="engine-csharp">
+														string s = @"Foo<br/>Bar<br/>Baz";
+													</td>
+											<td class="engine-java">
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+													</td>
+											<td class="engine-vb">
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+													</td>
+											<td class="engine-php">
+														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
+													</td>
+											<td class="engine-js">
+														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
+													</td>
+											<td class="engine-ruby">
+														s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+													</td>
+											<td class="engine-python">
+														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
+													</td>
+											<td class="engine-perl">
+														$s = <<"EOS";<br/>Foo<br/>Bar<br/>Baz<br/>EOS
 													</td>
 									</tr>
 					</tbody>
@@ -3023,7 +3081,6 @@
 									<th>文字列結合</th>
 									<th>変数埋め込み</th>
 									<th>文字列整形</th>
-									<th>ヒアドキュメント</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -3037,9 +3094,7 @@
 														std::string s = "Hello " + world;
 													</td>
 											<td>
-													</td>
-											<td>
-														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														char f[64];<br/>sprintf(f, "Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -3051,9 +3106,7 @@
 														string s = "Hello " + world;
 													</td>
 											<td>
-													</td>
-											<td>
-														string s = @"Foo<br/>Bar<br/>Baz";
+														string f = String.Format("Hello {0:D4} {1}", 10, "World");
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -3065,9 +3118,7 @@
 														String s = "Hello " + world;
 													</td>
 											<td>
-													</td>
-											<td>
-														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														String f = String.format("Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -3079,9 +3130,7 @@
 														s = "Hello " & world
 													</td>
 											<td>
-													</td>
-											<td>
-														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+														Dim f As String = "Hello " & (10).ToString("D4") & " World"
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -3093,9 +3142,7 @@
 														$s = "Hello " + $world;
 													</td>
 											<td>
-													</td>
-											<td>
-														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
+														$f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 							<tr class="engine-js">
@@ -3107,9 +3154,7 @@
 														var s = "Hello $world";
 													</td>
 											<td>
-													</td>
-											<td>
-														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
+														// (ライブラリ利用)<br/>// https://github.com/alexei/sprintf.js<br/>var f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -3121,9 +3166,7 @@
 														s = "Hello #{world}"
 													</td>
 											<td>
-													</td>
-											<td>
-														s = &lt;&lt;EOS<br/>Foo #{s}<br/>Bar #{n}<br/>Baz #{f}<br/>EOS
+														f = sprintf("Hello %04d %s", 10, "World")
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -3135,9 +3178,7 @@
 														s = "Hello %s" % world
 													</td>
 											<td>
-													</td>
-											<td>
-														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
+														f = "Hello %04d %s" % (10, "World")
 													</td>
 									</tr>
 							<tr class="engine-perl">
@@ -3149,9 +3190,7 @@
 														my $s = "Hello ${world}";
 													</td>
 											<td>
-													</td>
-											<td>
-														$s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+														$f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 					</tbody>
@@ -3242,52 +3281,31 @@
 							<tr>
 					<th>文字列整形</th>
 											<td class="engine-cpp">
+														char f[64];<br/>sprintf(f, "Hello %04d %s", 10, "World");
 													</td>
 											<td class="engine-csharp">
+														string f = String.Format("Hello {0:D4} {1}", 10, "World");
 													</td>
 											<td class="engine-java">
+														String f = String.format("Hello %04d %s", 10, "World");
 													</td>
 											<td class="engine-vb">
+														Dim f As String = "Hello " & (10).ToString("D4") & " World"
 													</td>
 											<td class="engine-php">
+														$f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 											<td class="engine-js">
+														// (ライブラリ利用)<br/>// https://github.com/alexei/sprintf.js<br/>var f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 											<td class="engine-ruby">
+														f = sprintf("Hello %04d %s", 10, "World")
 													</td>
 											<td class="engine-python">
+														f = "Hello %04d %s" % (10, "World")
 													</td>
 											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>ヒアドキュメント</th>
-											<td class="engine-cpp">
-														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
-													</td>
-											<td class="engine-csharp">
-														string s = @"Foo<br/>Bar<br/>Baz";
-													</td>
-											<td class="engine-java">
-														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
-													</td>
-											<td class="engine-vb">
-														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
-													</td>
-											<td class="engine-php">
-														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
-													</td>
-											<td class="engine-js">
-														s = "Foo\n\<br/>Bar\n\<br/>Baz\<br/>";
-													</td>
-											<td class="engine-ruby">
-														s = &lt;&lt;EOS<br/>Foo #{s}<br/>Bar #{n}<br/>Baz #{f}<br/>EOS
-													</td>
-											<td class="engine-python">
-														s = '''<br/>Foo<br/>Bar<br/>Baz<br/>'''
-													</td>
-											<td class="engine-perl">
-														$s = &lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS
+														$f = sprintf("Hello %04d %s", 10, "World");
 													</td>
 									</tr>
 					</tbody>
@@ -3341,6 +3359,7 @@
 														If a Then<br/>&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;baz<br/>End If
 													</td>
 											<td>
+														Select Case v<br/>&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -3455,6 +3474,7 @@
 														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-vb">
+														Select Case v<br/>&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
 													</td>
 											<td class="engine-php">
 														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}

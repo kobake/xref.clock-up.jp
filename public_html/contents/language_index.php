@@ -94,6 +94,7 @@ section('calc:演算/bit:ビット演算', [
 section('string:文字・文字列/string-literal:文字と文字列', [
 	'文字',
 	'文字列',
+	'ヒアドキュメント'
 	]
 );
 section('string:文字・文字列/string-op:比較と抽出', [
@@ -107,7 +108,6 @@ section('string:文字・文字列/string-format:文字列加工', [
 	'文字列結合',
 	'変数埋め込み',
 	'文字列整形',
-	'ヒアドキュメント'
 	]
 );
 

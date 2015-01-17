@@ -376,6 +376,20 @@ Perl_2進					0b11111111
 変数埋め込み_Python		s = "Hello %s" % world
 変数埋め込み_Perl		my $s = "Hello ${world}";
 
+文字列整形_C++			char f[64];
+						sprintf(f, "Hello %04d %s", 10, "World");
+# http://msdn.microsoft.com/ja-jp/library/system.string.format%28v=vs.110%29.aspx
+文字列整形_C#			string f = String.Format("Hello {0:D4} {1}", 10, "World");
+文字列整形_Java			String f = String.format("Hello %04d %s", 10, "World");
+文字列整形_PHP			$f = sprintf("Hello %04d %s", 10, "World");
+文字列整形_JS			// (ライブラリ利用)
+						// https://github.com/alexei/sprintf.js
+						var f = sprintf("Hello %04d %s", 10, "World");
+文字列整形_VB			Dim f As String = "Hello " & (10).ToString("D4") & " World"
+文字列整形_Ruby			f = sprintf("Hello %04d %s", 10, "World")
+文字列整形_Python		f = "Hello %04d %s" % (10, "World")
+文字列整形_Perl			$f = sprintf("Hello %04d %s", 10, "World");
+
 ヒアドキュメント_C++		std::string s = "Foo\n"
 								+ "Bar\n"
 								+ "Baz\n";
@@ -399,16 +413,16 @@ Perl_2進					0b11111111
 							Baz\
 							";
 ヒアドキュメント_Ruby		s = &lt;&lt;EOS
-							Foo #{s}
-							Bar #{n}
-							Baz #{f}
+							Foo
+							Bar
+							Baz
 							EOS
 ヒアドキュメント_Python		s = '''
 							Foo
 							Bar
 							Baz
 							'''
-ヒアドキュメント_Perl		$s = &lt;&lt;EOS
+ヒアドキュメント_Perl		$s = <<"EOS";
 							Foo
 							Bar
 							Baz
@@ -513,6 +527,14 @@ Switch分岐_C#				switch(a){
 								baz();
 								break;
 							}
+Switch分岐_VB				Select Case v
+								Case 0
+									foo()
+								Case 1
+									bar()
+								Case Else
+									baz()
+							End Select
 Switch分岐_Java				switch(a){
 							case 0:
 								foo();

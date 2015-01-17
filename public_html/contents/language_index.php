@@ -62,8 +62,30 @@ section('variable:変数・定数/const:定数等', [
 	]
 );
 section('variable:変数・定数/invalid:無効値', [
-	'無効値',
-	'無効判定',
+	'無効値定数',
+	'無効値判定',
+	]
+);
+
+// 演算
+section('calc:演算/logic:論理演算', [
+	'論理OR',
+	'論理AND',
+	'論理NOT',
+	]
+);
+section('calc:演算/bit:ビット演算', [
+	'ビットOR',
+	'ビットAND',
+	'ビットNOT',
+	'ビットXOR',
+	]
+);
+section('calc:演算/bool:真偽', [
+	'True定数',
+	'False定数',
+	'True判定',
+	'False判定',
 	]
 );
 
@@ -87,27 +109,7 @@ section('string:文字・文字列/inline:変数埋め込み等', [
 	]
 );
 
-// 演算
-section('calc:演算/logic:論理演算', [
-	'論理OR',
-	'論理AND',
-	'論理NOT',
-	]
-);
-section('calc:演算/bit:ビット演算', [
-	'ビットOR',
-	'ビットAND',
-	'ビットNOT',
-	'ビットXOR',
-	]
-);
-section('calc:演算/bool:BOOL', [
-	'True定数',
-	'False定数',
-	'True判定',
-	'False判定',
-	]
-);
+
 
 // 制御構造
 section('control:制御/cond:分岐', [

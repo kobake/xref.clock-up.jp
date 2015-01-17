@@ -131,6 +131,7 @@
 						hello
 						world
 						=cut
+ブロックコメント_VB		-
 
 インポート_C++		#include &lt;system.h>
 インポート_C#		using System.Text;
@@ -925,17 +926,7 @@ Perl_文字列結合		my $c = $a + $b;
 					a = b / c
 					a = b % c
 
-論理演算_Python		a = b || c;
-					a = b && c;
-					a = !b;
-ビット演算_Python	a = b | c;
-					a = b & c;
-					a = b ^ c;
-					a = ~b;
-四則演算_Python		a = b + c;
-					a = b - c;
-					a = b * c;
-					a = b / c;
+
 
 論理演算_Perl		$a = $b || $c;
 					$a = ($b or $c);
@@ -956,65 +947,114 @@ Perl_文字列結合		my $c = $a + $b;
 # 余りとか %, Mod
 
 # True, False
-C++_True定数	true
-C++_False定数	false
-C++_True判定	False判定以外
-C++_False判定	false, 0
+C++_True定数		true
+C++_False定数		false
+C++_True判定		False判定以外
+C++_False判定		false, 0, NULL
+C++_無効値定数		false, NULL
+C++_無効値判定		if(boolValue){ … }
+					if(pointerValue){ … }
+					if(pointerValue != NULL){ … }
 
 C#_True定数			true
 C#_False定数		false
 C#_True判定			true
 C#_False判定		false
+C#_無効値定数		false, null
+C#_無効値判定		if(boolValue){ … }
+					if(refValue != null){ … }
 
 Java_True定数		true
 Java_False定数		false
 Java_True判定		true
 Java_False判定		false
+Java_無効値定数		false, null
+Java_無効値判定		if(boolValue){ … }
+					if(refValue != null){ … }
 
 VB_True定数			True
 VB_False定数		False
 VB_True判定			True
 VB_False判定		False
+VB_無効値定数		Nothing
+					vbNull
+					vbEmpty
+					Double.NaN
+					…(継続調査中)…
+VB_無効値判定		If IsNothing(v) Then …
+					If v Is Nothing Then …
+					If String.IsNullOrEmpty(v) Then …
+					If Double.IsNaN(v) Then …
+					…(継続調査中)…
 
+# Nullableあたりもそのうち。		
+					
+					
 # http://php.net/manual/ja/types.comparisons.php
 PHP_True定数		TRUE (※大小文字区別無)
 PHP_False定数		FALSE (※大小文字区別無)
 PHP_True判定		False判定以外
 PHP_False判定		FALSE, 0, NULL, '', '0', [], 未定義
+PHP_無効値定数		FALSE, NULL
+PHP_無効値判定		if(empty($v)){ … }
+					if(is_null($v)){ … }
+					if(isset($v)){ … }
+					if($v){ … }
 
 # http://qiita.com/phi/items/723aa59851b0716a87e3
 JS_True定数			true
 JS_False定数		false
 JS_True判定			False判定以外 # [], '0' 等はTrue扱い
 JS_False判定		false, undefined, 0, ''
-JS_無効値			null
-					undefined
+JS_無効値定数		undefined
+					null
 					NaN
-JS_無効値判定関数	typeof
+JS_無効値判定		if(v){ … }
+					if(v !== null){ … }
+					if(typeof v !== 'undefined'){ … ]
+					if(typeof v !== NaN){ … }
+					
 
 # http://qiita.com/sgtn/items/0cb16ef16d938cf98094
+# http://qiita.com/ryosy383/items/155badd87fdc1bd0919d
+# http://d.hatena.ne.jp/yk5656/20140317/1395559495
 Ruby_True定数		true		
 Ruby_False定数		false
 Ruby_True判定		False判定以外 # 0はTrue扱い
 Ruby_False判定		false, nil
-Ruby_無効値			nil
-Ruby_無効値判定関数	v.nil?
-					v.empty?
-					v.blank?
+Ruby_無効値定数		false, nil
+Ruby_無効値判定		if v.nil? …
+					if v.empty? …
+					if v.blank? …
 
+# ※ v.present? ってのもあるけど、これはRubyじゃなくてRailsの拡張らしい。
+
+Python_論理演算		a = b or c;
+					a = b and c;
+					a = not b;
+Python_ビット演算	a = b | c;
+					a = b & c;
+					a = b ^ c;
+					a = ~b;
+Python_四則演算		a = b + c;
+					a = b - c;
+					a = b * c;
+					a = b / c;
 Python_True定数		True
 Python_False定数	False
 Python_True判定		False判定以外
 Python_False判定	False, 0, '', (), [], {}
-Python_無効値		False
-					None
+Python_無効値定数	False, None
+Python_無効値判定	if(v): …
+					if(v is not None): …
 
 Perl_True定数		-
 Perl_False定数		-
 Perl_True判定		False判定以外
 Perl_False判定		0, '', '0'
-Perl_無効値			-
-
+Perl_無効値定数		-
+Perl_無効値判定		if($v){ … }
+					if(defined($v)){ … }
 
 ビットOR_C++		a = b | c;
 ビットAND_C++		a = b & c;
@@ -1088,9 +1128,6 @@ BOOL無効値_Perl			未
 参照無効値_Python		None
 参照無効値_Perl			undefined
 
-
-無効値判定_C++			if(v){}
-無効値判定_Ruby			if(v){ … }
 
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #

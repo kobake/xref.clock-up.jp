@@ -1,6 +1,6 @@
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
-	<table class="table table-striped">
+	<table class="table table-bordered">
 		<!-- head -->
 		<thead>
 			<tr>

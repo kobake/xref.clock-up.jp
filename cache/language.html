@@ -4444,13 +4444,13 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														class A{<br/>private:<br/>&nbsp;&nbsp;&nbsp;&nbsp;int m_n;<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(int n) : m_n(n) {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A() {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo() {}<br/>};
+														class A{<br/>protected:<br/>&nbsp;&nbsp;&nbsp;&nbsp;int m_n;<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(int n) : m_n(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("A foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td>
-														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B(int n) : A(n){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(){}<br/>}
+														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B(int n) : A(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__super::foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("B foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td>
-														B b(10);<br/>b.foo();
+														B b(10);<br/>b.foo(20);
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -4504,13 +4504,13 @@
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
+														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.m_n = n;<br/>};<br/>A.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td>
-														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
+														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B init");<br/>};<br/>B.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.prototype.foo.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td>
-														var b = new B(10);<br/>b.foo();
+														var b = new B(10);<br/>b.foo(20);
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -4577,7 +4577,7 @@
 							<tr>
 					<th>クラス定義</th>
 											<td class="engine-cpp">
-														class A{<br/>private:<br/>&nbsp;&nbsp;&nbsp;&nbsp;int m_n;<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(int n) : m_n(n) {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A() {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo() {}<br/>};
+														class A{<br/>protected:<br/>&nbsp;&nbsp;&nbsp;&nbsp;int m_n;<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(int n) : m_n(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("A foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td class="engine-csharp">
 														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){ m_n = n; }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>};
@@ -4592,7 +4592,7 @@
 														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
-														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
+														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.m_n = n;<br/>};<br/>A.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td class="engine-ruby">
 														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
@@ -4607,7 +4607,7 @@
 							<tr>
 					<th>クラス継承</th>
 											<td class="engine-cpp">
-														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B(int n) : A(n){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(){}<br/>}
+														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B(int n) : A(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__super::foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("B foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td class="engine-csharp">
 														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n) : base(n) {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
@@ -4622,7 +4622,7 @@
 														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::_construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
-														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
+														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B init");<br/>};<br/>B.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.prototype.foo.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td class="engine-ruby">
 														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
@@ -4637,7 +4637,7 @@
 							<tr>
 					<th>クラス利用</th>
 											<td class="engine-cpp">
-														B b(10);<br/>b.foo();
+														B b(10);<br/>b.foo(20);
 													</td>
 											<td class="engine-csharp">
 														B b = new B(10);<br/>b.foo();
@@ -4652,7 +4652,7 @@
 														$b = new B(10);<br/>$b.foo();
 													</td>
 											<td class="engine-js">
-														var b = new B(10);<br/>b.foo();
+														var b = new B(10);<br/>b.foo(20);
 													</td>
 											<td class="engine-ruby">
 														b = B.new(10)<br/>b.foo(20)

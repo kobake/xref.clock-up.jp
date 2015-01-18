@@ -800,21 +800,34 @@ VB_例外Catch					' (Try～Catchを使う方法)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # クラス
 C++_クラス定義		class A{
-					private:
+					protected:
 						int m_n;
 					public:
-						A(int n) : m_n(n) {}
-						virtual ~A() {}
-						virtual void foo() {}
+						A(int n) : m_n(n){
+							std::cout << "A init\n";
+						}
+						virtual ~A(){
+							std::cout << "A final\n";
+						}
+						virtual void foo(int n){
+							printf("A foo %d %d\n", this->m_n, n);
+						}
 					};
 C++_クラス継承		class B : public A{
 					public:
-						B(int n) : A(n){}
-						~B(){}
-						void foo(){}
-					}
+						B(int n) : A(n){
+							std::cout << "B init\n";
+						}
+						~B(){
+							std::cout << "B final\n";
+						}
+						void foo(int n){
+							__super::foo(n);
+							printf("B foo %d %d\n", this->m_n, n);
+						}
+					};
 C++_クラス利用		B b(10);
-					b.foo();
+					b.foo(20);
 
 C#_クラス定義		class A{
 						private int m_n = 0;
@@ -865,14 +878,22 @@ PHP_クラス利用		$b = new B(10);
 					$b.foo();
 
 JS_クラス定義		var A = function(n){
-						this.foo = function(){};
+						console.log("A init");
+						this.m_n = n;
+					};
+					A.prototype.foo = function(n){
+						console.log("A foo " + this.m_n + " " + n);
 					};
 JS_クラス継承		var B = function(n){
 						A.call(this, n);
-						this.foo = function(){};
+						console.log("B init");
+					};
+					B.prototype.foo = function(n){
+						A.prototype.foo.call(this, n);
+						console.log("B foo " + this.m_n + " " + n);
 					};
 JS_クラス利用		var b = new B(10);
-					b.foo();
+					b.foo(20);
 
 Ruby_クラス定義		class A
 						def initialize(n)

@@ -136,7 +136,7 @@
 インポート_C++		#include &lt;system.h>
 インポート_C#		using System.Text;
 インポート_Java		import java.text.*;
-インポート_JS		-
+インポート_JS		&lt;script src="aaa.js">&lt;/script>
 インポート_VB		Declare Function GetTickCount Lib "kernel32" () As Long
 インポート_PHP		require('text.php');
 インポート_Ruby		require 'text'
@@ -800,42 +800,46 @@ VB_例外Catch					' (Try～Catchを使う方法)
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # クラス
 C++_クラス定義		class A{
+					private:
+						int m_n;
 					public:
-						A(){}
-						virtual ~A(){}
-						virtual void foo(){}
+						A(int n) : m_n(n) {}
+						virtual ~A() {}
+						virtual void foo() {}
 					};
 C++_クラス継承		class B : public A{
 					public:
-						B() : A(){}
+						B(int n) : A(n){}
 						~B(){}
 						void foo(){}
 					}
-C++_クラス利用		A a;
-					a.foo();
+C++_クラス利用		B b(10);
+					b.foo();
 
 C#_クラス定義		class A{
-						public A(){}
+						private int m_n = 0;
+						public A(int n){ m_n = n; }
 						public ~A(){}
 						public void foo(){}
 					};
 C#_クラス継承		class B : A{
-						public B(){}
+						public B(int n) : base(n) {}
 						public ~B(){}
 						public void foo(){}
 					}
-C#_クラス利用		B b = new B();
+C#_クラス利用		B b = new B(10);
 					b.foo();
 
 Java_クラス定義		public class A{
-						public A(){}
+						private int m_n = 0;
+						public A(int n){ m_n = 0; }
 						public void foo(){}
 					}
 Java_クラス継承		public class B extends A{
-						public B(){ super(); }
+						public B(int n){ super(n); }
 						public void foo(){}
 					}
-Java_クラス利用		B b = new B();
+Java_クラス利用		B b = new B(10);
 					b.foo();
 
 PHP_クラス定義		class A{
@@ -857,7 +861,7 @@ PHP_クラス継承		class B extends A{
 						public function foo(){
 						}
 					}
-PHP_クラス利用		$b = new B();
+PHP_クラス利用		$b = new B(10);
 					$b.foo();
 
 JS_クラス定義		var A = function(n){
@@ -867,45 +871,46 @@ JS_クラス継承		var B = function(n){
 						A.call(this, n);
 						this.foo = function(){};
 					};
-JS_クラス利用		var b = new B();
+JS_クラス利用		var b = new B(10);
 					b.foo();
 
 Ruby_クラス定義		class A
 						def initialize(n)
 							@m_n = n
-						end
-						def self.cleanup
+							puts "A initialize"
 						end
 						def foo(n)
-							puts "A_foo"
+							puts "A foo #{@m_n} #{n}"
 						end
 					end
 Ruby_クラス継承		class B < A
 						def initialize(n)
 							super(n)
-						end
-						def self.cleanup
+							puts "B initialize"
 						end
 						def foo(n)
 							super(n)
-							puts "B_foo"
+							puts "B foo #{@m_n} #{n}"
 						end
 					end
 Ruby_クラス利用		b = B.new(10)
-					b.foo()
+					b.foo(20)
 
 Python_クラス定義	class A:
 						def __init__(self, n):
-							pass
-						def foo(n):
-							pass
+							print "A init"
+							self.m_n = n
+						def foo(self, n):
+							print "A foo %d %d" % (self.m_n, n)
 Python_クラス継承	class B(A):
 						def __init__(self, n):
 							A.__init__(self, n)
-						def foo(n):
-							pass
-Python_クラス利用	b = B()
-					b.foo()
+							print "B init"
+						def foo(self, n):
+							A.foo(self, n)
+							print "B foo %d %d" % (self.m_n, n)
+Python_クラス利用	b = B(10)
+					b.foo(20)
 
 Perl_クラス定義		package A;
 					sub new{

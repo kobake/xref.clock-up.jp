@@ -24,23 +24,25 @@ $smarty->assign('contents', $contents);
   ]
   );
  */
-section('engine:エンジン/run:起動', [
+section('engine:エンジン/run:起動・依存', [
 	'対話起動',
+	'インポート',
 	]
 );
 
 // メタ
-section('meta:メタ/comment:コメント', [
+section('engine:エンジン/comment:コメント', [
 	'行コメント',
 	'ブロックコメント',
 	]
 );
+/*
 section('meta:メタ/depend:依存', [
-	'インポート',
 	'名前空間',
 	'プリプロセス',
 	]
 );
+*/
 
 // 変数
 section('variable:変数・定数/declare:変数宣言', [
@@ -123,7 +125,7 @@ section('control:制御/loop:ループ', [
 	'Forループ',
 	'ForEachループ',
 	'Whileループ',
-	'DoWhileループ',
+	// 'DoWhileループ',
 	]
 );
 section('control:制御/jump:ジャンプ', [

@@ -197,11 +197,8 @@
 
 				<li class="parent-li"><a href="#engine">エンジン</a>
 </li>
-<li class="second"><a href="#run">起動</a>
-</li><li class="parent-li"><a href="#meta">メタ</a>
-</li>
-<li class="second"><a href="#comment">コメント</a>
-</li><li class="second"><a href="#depend">依存</a>
+<li class="second"><a href="#run">起動・依存</a>
+</li><li class="second"><a href="#comment">コメント</a>
 </li><li class="parent-li"><a href="#variable">変数・定数</a>
 </li>
 <li class="second"><a href="#declare">変数宣言</a>
@@ -242,7 +239,7 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<!-- <h1 class="page-header">Database</h1> -->
 
-			<h2 id="engine" class="sub-header">エンジン</h2><h3 id="run" class="sub-header">起動</h3><div class="mode0">
+			<h2 id="engine" class="sub-header">エンジン</h2><h3 id="run" class="sub-header">起動・依存</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -251,6 +248,7 @@
 			<tr>
 				<th></th>
 									<th>対話起動</th>
+									<th>インポート</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -260,11 +258,17 @@
 											<td>
 														-
 													</td>
+											<td>
+														#include &lt;system.h>
+													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
 														-
+													</td>
+											<td>
+														using System.Text;
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -272,11 +276,17 @@
 											<td>
 														-
 													</td>
+											<td>
+														import java.text.*;
+													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
 														-
+													</td>
+											<td>
+														Declare Function GetTickCount Lib "kernel32" () As Long
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -284,11 +294,17 @@
 											<td>
 														$ php -a
 													</td>
+											<td>
+														require('text.php');
+													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
 														$ node
+													</td>
+											<td>
+														&lt;script src="aaa.js">&lt;/script>
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -296,17 +312,26 @@
 											<td>
 														$ irb
 													</td>
+											<td>
+														require 'text'
+													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
 														$ python
 													</td>
+											<td>
+														from A import B
+													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
 														$ perl -d -e 1
+													</td>
+											<td>
+														require CGI;<br/>use CGI;
 													</td>
 									</tr>
 					</tbody>
@@ -364,11 +389,41 @@
 														$ perl -d -e 1
 													</td>
 									</tr>
+							<tr>
+					<th>インポート</th>
+											<td class="engine-cpp">
+														#include &lt;system.h>
+													</td>
+											<td class="engine-csharp">
+														using System.Text;
+													</td>
+											<td class="engine-java">
+														import java.text.*;
+													</td>
+											<td class="engine-vb">
+														Declare Function GetTickCount Lib "kernel32" () As Long
+													</td>
+											<td class="engine-php">
+														require('text.php');
+													</td>
+											<td class="engine-js">
+														&lt;script src="aaa.js">&lt;/script>
+													</td>
+											<td class="engine-ruby">
+														require 'text'
+													</td>
+											<td class="engine-python">
+														from A import B
+													</td>
+											<td class="engine-perl">
+														require CGI;<br/>use CGI;
+													</td>
+									</tr>
 					</tbody>
 	</table>
 </div>
 </div>
-<h2 id="meta" class="sub-header">メタ</h2><h3 id="comment" class="sub-header">コメント</h3><div class="mode0">
+<h3 id="comment" class="sub-header">コメント</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -546,224 +601,6 @@
 													</td>
 											<td class="engine-perl">
 														=pod<br/>hello<br/>world<br/>=cut
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h3 id="depend" class="sub-header">依存</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>インポート</th>
-									<th>名前空間</th>
-									<th>プリプロセス</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-														#include &lt;system.h>
-													</td>
-											<td>
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{};<br/>}
-													</td>
-											<td>
-														#define HOGE<br/>#ifdef HOGE<br/>#endif
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-														using System.Text;
-													</td>
-											<td>
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{}<br/>}
-													</td>
-											<td>
-														#define HOGE<br/>#if HOGE<br/>#endif
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-														import java.text.*;
-													</td>
-											<td>
-														package com.example.app;<br/>public class A{<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-														Declare Function GetTickCount Lib "kernel32" () As Long
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-														require('text.php');
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-														&lt;script src="aaa.js">&lt;/script>
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-														require 'text'
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-														from A import B
-													</td>
-											<td>
-														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-														require CGI;<br/>use CGI;
-													</td>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>インポート</th>
-											<td class="engine-cpp">
-														#include &lt;system.h>
-													</td>
-											<td class="engine-csharp">
-														using System.Text;
-													</td>
-											<td class="engine-java">
-														import java.text.*;
-													</td>
-											<td class="engine-vb">
-														Declare Function GetTickCount Lib "kernel32" () As Long
-													</td>
-											<td class="engine-php">
-														require('text.php');
-													</td>
-											<td class="engine-js">
-														&lt;script src="aaa.js">&lt;/script>
-													</td>
-											<td class="engine-ruby">
-														require 'text'
-													</td>
-											<td class="engine-python">
-														from A import B
-													</td>
-											<td class="engine-perl">
-														require CGI;<br/>use CGI;
-													</td>
-									</tr>
-							<tr>
-					<th>名前空間</th>
-											<td class="engine-cpp">
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{};<br/>}
-													</td>
-											<td class="engine-csharp">
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{}<br/>}
-													</td>
-											<td class="engine-java">
-														package com.example.app;<br/>public class A{<br/>}
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>プリプロセス</th>
-											<td class="engine-cpp">
-														#define HOGE<br/>#ifdef HOGE<br/>#endif
-													</td>
-											<td class="engine-csharp">
-														#define HOGE<br/>#if HOGE<br/>#endif
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
 													</td>
 									</tr>
 					</tbody>
@@ -1513,7 +1350,7 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														false, NULL
+														false<br/>NULL
 													</td>
 											<td>
 														if(boolValue){ … }<br/>if(pointerValue){ … }<br/>if(pointerValue != NULL){ … }
@@ -1522,7 +1359,7 @@
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
-														false, null
+														false<br/>null
 													</td>
 											<td>
 														if(boolValue){ … }<br/>if(refValue != null){ … }
@@ -1531,7 +1368,7 @@
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														false, null
+														false<br/>null
 													</td>
 											<td>
 														if(boolValue){ … }<br/>if(refValue != null){ … }
@@ -1549,7 +1386,7 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														FALSE, NULL
+														FALSE<br/>NULL
 													</td>
 											<td>
 														if(!empty($v)){ … }<br/>if(!is_null($v)){ … }<br/>if(!isset($v)){ … }<br/>if($v){ … }
@@ -1567,7 +1404,7 @@
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														false, nil
+														false<br/>nil
 													</td>
 											<td>
 														if !v.nil? …<br/>if !v.empty? …<br/>if !v.blank? …
@@ -1619,25 +1456,25 @@
 							<tr>
 					<th>無効値定数</th>
 											<td class="engine-cpp">
-														false, NULL
+														false<br/>NULL
 													</td>
 											<td class="engine-csharp">
-														false, null
+														false<br/>null
 													</td>
 											<td class="engine-java">
-														false, null
+														false<br/>null
 													</td>
 											<td class="engine-vb">
 														Nothing<br/>vbEmpty<br/>vbNull<br/>vbNullString<br/>String.Empty<br/>Double.NaN
 													</td>
 											<td class="engine-php">
-														FALSE, NULL
+														FALSE<br/>NULL
 													</td>
 											<td class="engine-js">
 														undefined<br/>null<br/>NaN
 													</td>
 											<td class="engine-ruby">
-														false, nil
+														false<br/>nil
 													</td>
 											<td class="engine-python">
 														False, None
@@ -3350,7 +3187,7 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz<br/>End If
+														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End If
 													</td>
 											<td>
 														Select Case v<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
@@ -3438,7 +3275,7 @@
 														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-vb">
-														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz<br/>End If
+														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End If
 													</td>
 											<td class="engine-php">
 														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
@@ -3526,6 +3363,7 @@
 														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
 													</td>
 											<td>
+														List<int> list;<br/>foreach (int e in list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(e);<br/>}
 													</td>
 											<td>
 														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
@@ -3539,6 +3377,7 @@
 														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
 													</td>
 											<td>
+														ArrayList<Integer> list;<br/>for(Integer e : list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("" + e);<br/>}
 													</td>
 											<td>
 														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
@@ -3552,9 +3391,10 @@
 														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
 													</td>
 											<td>
+														Dim a As New ArrayList<br/>For Each e As String In a<br/>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(e)<br/>Next
 													</td>
 											<td>
-														While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>End While
+														Do While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>Loop<br/>While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>End While
 													</td>
 											<td>
 													</td>
@@ -3582,6 +3422,7 @@
 														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
 													</td>
 											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -3589,6 +3430,7 @@
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														for i in 0..9 do<br/>&nbsp;&nbsp;&nbsp;&nbsp;puts "#{i}"<br/>end
 													</td>
 											<td>
 														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;&nbsp;puts e<br/>end
@@ -3602,6 +3444,7 @@
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														for i in range(0, 10):<br/>&nbsp;&nbsp;&nbsp;&nbsp;print i
 													</td>
 											<td>
 														for e in list:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print e
@@ -3615,6 +3458,7 @@
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														for(my $i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 											<td>
 														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
@@ -3671,10 +3515,13 @@
 														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
 													</td>
 											<td class="engine-ruby">
+														for i in 0..9 do<br/>&nbsp;&nbsp;&nbsp;&nbsp;puts "#{i}"<br/>end
 													</td>
 											<td class="engine-python">
+														for i in range(0, 10):<br/>&nbsp;&nbsp;&nbsp;&nbsp;print i
 													</td>
 											<td class="engine-perl">
+														for(my $i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 									</tr>
 							<tr>
@@ -3683,10 +3530,13 @@
 														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
 													</td>
 											<td class="engine-csharp">
+														List<int> list;<br/>foreach (int e in list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(e);<br/>}
 													</td>
 											<td class="engine-java">
+														ArrayList<Integer> list;<br/>for(Integer e : list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("" + e);<br/>}
 													</td>
 											<td class="engine-vb">
+														Dim a As New ArrayList<br/>For Each e As String In a<br/>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(e)<br/>Next
 													</td>
 											<td class="engine-php">
 														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
@@ -3716,12 +3566,13 @@
 														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-vb">
-														While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>End While
+														Do While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>Loop<br/>While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>End While
 													</td>
 											<td class="engine-php">
 														while($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-js">
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-ruby">
 														while a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>end
@@ -3802,7 +3653,7 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														Exit For<br/>Exit Do
+														Exit For<br/>Exit While<br/>Exit Do
 													</td>
 											<td>
 														Continue For<br/>Continue Do
@@ -3890,7 +3741,7 @@
 														break;
 													</td>
 											<td class="engine-vb">
-														Exit For<br/>Exit Do
+														Exit For<br/>Exit While<br/>Exit Do
 													</td>
 											<td class="engine-php">
 														break;
@@ -4199,7 +4050,7 @@
 														Sub foo(<red>ByRef</red> a As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;a = 10<br/>End Sub
 													</td>
 											<td>
-														Dim n As Integer = 0<br/>foo n
+														Dim n As Integer = 0<br/>foo(n)
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -4404,7 +4255,7 @@
 														Hoge h = new Hoge();<br/>foo(h);
 													</td>
 											<td class="engine-vb">
-														Dim n As Integer = 0<br/>foo n
+														Dim n As Integer = 0<br/>foo(n)
 													</td>
 											<td class="engine-php">
 														$n = 0;<br/>foo($n);
@@ -4456,49 +4307,49 @@
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
-														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){ m_n = n; }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>};
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_n = n;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~A(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A final");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public virtual void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A foo {0} {1}", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td>
-														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n) : base(n) {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n) : base(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B final");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public override void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base.foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B foo {0} {1}", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-														B b = new B(10);<br/>b.foo();
+														B b = new B(10);<br/>b.foo(20);
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){ m_n = 0; }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printf("A foo %d %d\n", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n){ super(n); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("B init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printf("B foo %d %d\n", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-														B b = new B(10);<br/>b.foo();
+														B b = new B(10);<br/>b.foo(20);
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Private m_param As Integer = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
+														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected m_n As Integer = 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub New(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Me.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A init")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected Overrides Sub Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A final")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overridable Sub foo(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A foo {0} {1}", Me.m_n, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td>
-														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
+														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub New(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.New(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B init")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected Overrides Sub Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B final")<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B foo {0} {1}", Me.m_n, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td>
-														Dim ins As B<br/>ins = new B()<br/>ins.foo()
+														Dim ins As B<br/>ins = new B(10)<br/>ins.foo(20)
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->m_n = $n;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo {$this->m_n} {$n}\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::_construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
+														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__destruct();<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo {$this->m_n} {$n}\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-														$b = new B(10);<br/>$b.foo();
+														$b = new B(10);<br/>$b.foo(20);
 													</td>
 									</tr>
 							<tr class="engine-js">
@@ -4516,10 +4367,10 @@
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
+														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td>
-														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
+														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td>
 														b = B.new(10)<br/>b.foo(20)
@@ -4528,10 +4379,10 @@
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
-														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo %d %d" % (self.m_n, n)
+														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A final"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo %d %d" % (self.m_n, n)
 													</td>
 											<td>
-														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo %d %d" % (self.m_n, n)
+														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;base = A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B final"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.base.__del__(self)<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo %d %d" % (self.m_n, n)
 													</td>
 											<td>
 														b = B(10)<br/>b.foo(20)
@@ -4540,13 +4391,13 @@
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
-														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_param => $arg,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
+														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_n => $n,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub DESTROY{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A final\n";<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A foo $self->{m_n} $n\n";<br/>}
 													</td>
 											<td>
-														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($arg);<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->{m_param2} = 100;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
+														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub DESTROY{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->A::DESTROY();<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->A::foo($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B foo $self->{m_n} $n\n";<br/>}
 													</td>
 											<td>
-														package main;<br/>use B;<br/>my $b = B->new();<br/>$b->foo();
+														package main;<br/>use B;<br/>my $b = B->new(10);<br/>$b->foo(20);
 													</td>
 									</tr>
 					</tbody>
@@ -4580,28 +4431,28 @@
 														class A{<br/>protected:<br/>&nbsp;&nbsp;&nbsp;&nbsp;int m_n;<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(int n) : m_n(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "A final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("A foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td class="engine-csharp">
-														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){ m_n = n; }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>};
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_n = n;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~A(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A final");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public virtual void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A foo {0} {1}", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td class="engine-java">
-														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){ m_n = 0; }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected int m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printf("A foo %d %d\n", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-vb">
-														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Private m_param As Integer = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
+														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected m_n As Integer = 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub New(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Me.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A init")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected Overrides Sub Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A final")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overridable Sub foo(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("A foo {0} {1}", Me.m_n, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td class="engine-php">
-														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;protected $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this->m_n = $n;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo {$this->m_n} {$n}\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
 														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.m_n = n;<br/>};<br/>A.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("A foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td class="engine-ruby">
-														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
+														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td class="engine-python">
-														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo %d %d" % (self.m_n, n)
+														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A final"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "A foo %d %d" % (self.m_n, n)
 													</td>
 											<td class="engine-perl">
-														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_param => $arg,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
+														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_n => $n,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub DESTROY{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A final\n";<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "A foo $self->{m_n} $n\n";<br/>}
 													</td>
 									</tr>
 							<tr>
@@ -4610,28 +4461,28 @@
 														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B(int n) : A(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std::cout << "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__super::foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("B foo %d %d\n", this->m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>};
 													</td>
 											<td class="engine-csharp">
-														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n) : base(n) {}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n) : base(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B final");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public override void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base.foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B foo {0} {1}", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-java">
-														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n){ super(n); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
+														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("B init");<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;@Override<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(int n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.foo(n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printf("B foo %d %d\n", this.m_n, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-vb">
-														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
+														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub New(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.New(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B init")<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Protected Overrides Sub Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B final")<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.Finalize()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo(ByVal n As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyBase.foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("B foo {0} {1}", Me.m_n, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td class="engine-php">
-														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::_construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
+														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::__destruct();<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo {$this->m_n} {$n}\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
 														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B init");<br/>};<br/>B.prototype.foo = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.prototype.foo.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log("B foo " + this.m_n + " " + n);<br/>};
 													</td>
 											<td class="engine-ruby">
-														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B initialize"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
+														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B foo #{@m_n} #{n}"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td class="engine-python">
-														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo %d %d" % (self.m_n, n)
+														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;base = A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B init"<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B final"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.base.__del__(self)<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "B foo %d %d" % (self.m_n, n)
 													</td>
 											<td class="engine-perl">
-														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($arg);<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->{m_param2} = 100;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
+														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B init\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub DESTROY{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B final\n";<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->A::DESTROY();<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $n = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->A::foo($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "B foo $self->{m_n} $n\n";<br/>}
 													</td>
 									</tr>
 							<tr>
@@ -4640,16 +4491,16 @@
 														B b(10);<br/>b.foo(20);
 													</td>
 											<td class="engine-csharp">
-														B b = new B(10);<br/>b.foo();
+														B b = new B(10);<br/>b.foo(20);
 													</td>
 											<td class="engine-java">
-														B b = new B(10);<br/>b.foo();
+														B b = new B(10);<br/>b.foo(20);
 													</td>
 											<td class="engine-vb">
-														Dim ins As B<br/>ins = new B()<br/>ins.foo()
+														Dim ins As B<br/>ins = new B(10)<br/>ins.foo(20)
 													</td>
 											<td class="engine-php">
-														$b = new B(10);<br/>$b.foo();
+														$b = new B(10);<br/>$b.foo(20);
 													</td>
 											<td class="engine-js">
 														var b = new B(10);<br/>b.foo(20);
@@ -4661,7 +4512,7 @@
 														b = B(10)<br/>b.foo(20)
 													</td>
 											<td class="engine-perl">
-														package main;<br/>use B;<br/>my $b = B->new();<br/>$b->foo();
+														package main;<br/>use B;<br/>my $b = B->new(10);<br/>$b->foo(20);
 													</td>
 									</tr>
 					</tbody>

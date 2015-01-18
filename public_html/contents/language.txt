@@ -277,7 +277,7 @@ Java_参照渡し利用	Hoge h = new Hoge();
 						a = 10
 					End Sub
 参照渡し利用_VB		Dim n As Integer = 0
-					foo n
+					foo(n)
 
 参照渡し_PHP		function foo(&$r){
 						$r = 10;
@@ -472,11 +472,11 @@ If分岐_Java					if(a){
 								baz();
 							}
 If分岐_VB					If a Then
-								foo
+								foo()
 							ElseIf b Then
-								bar
+								bar()
 							Else
-								baz
+								baz()
 							End If
 If分岐_PHP					if(a){
 								foo();
@@ -616,6 +616,14 @@ Forループ_PHP				for($i = 0; $i < 10; $i++){
 Forループ_JS				for($i = 0; $i < 10; $i++){
 								console.log($i);
 							}
+Forループ_Ruby				for i in 0..9 do
+								puts "#{i}"
+							end
+Forループ_Python			for i in range(0, 10):
+								print i
+Forループ_Perl				for(my $i = 0; $i < 10; $i++){
+								print "$i\n";
+							}
 ForEachループ_C++11			for(int e : v){
 								std::cout << e;
 							}
@@ -623,6 +631,18 @@ ForEachループ_C++			std::vector<int> list;
 							BOOST_FOREACH(int e, list){
 								std::cout << e;
 							}
+ForEachループ_C#			List<int> list;
+							foreach (int e in list){
+								Console.WriteLine(e);
+							}
+ForEachループ_Java			ArrayList<Integer> list;
+							for(Integer e : list){
+								System.out.println("" + e);
+							}
+ForEachループ_VB			Dim a As New ArrayList
+							For Each e As String In a
+								Console.WriteLine(e)
+							Next
 ForEachループ_PHP			foreach($list as $e){
 								print "$e\n";
 							}
@@ -648,10 +668,16 @@ Whileループ_C#				while(a){
 Whileループ_Java			while(a){
 								foo();
 							}
-Whileループ_VB				While a
-								foo
+Whileループ_VB				Do While a
+								foo()
+							Loop
+							While a
+								foo()
 							End While
 Whileループ_PHP				while($a){
+								foo();
+							}
+Whileループ_JS				while(a){
 								foo();
 							}
 Whileループ_Ruby			while a
@@ -672,6 +698,7 @@ Whileループ_Perl			while($a){
 ループ抜け_Python				break
 ループ抜け_Perl					last;
 ループ抜け_VB					Exit For
+								Exit While
 								Exit Do
 
 ループ継続_C++					continue;
@@ -830,52 +857,85 @@ C++_クラス利用		B b(10);
 					b.foo(20);
 
 C#_クラス定義		class A{
-						private int m_n = 0;
-						public A(int n){ m_n = n; }
-						public ~A(){}
-						public void foo(){}
+						protected int m_n = 0;
+						public A(int n){
+							Console.WriteLine("A init");
+							m_n = n;
+						}
+						~A(){
+							Console.WriteLine("A final");
+						}
+						public virtual void foo(int n){
+							Console.WriteLine("A foo {0} {1}", this.m_n, n);
+						}
 					};
 C#_クラス継承		class B : A{
-						public B(int n) : base(n) {}
-						public ~B(){}
-						public void foo(){}
+						public B(int n) : base(n){
+							Console.WriteLine("B init");
+						}
+						~B(){
+							Console.WriteLine("B final");
+						}
+						public override void foo(int n){
+							base.foo(n);
+							Console.WriteLine("B foo {0} {1}", this.m_n, n);
+						}
 					}
 C#_クラス利用		B b = new B(10);
-					b.foo();
+					b.foo(20);
 
 Java_クラス定義		public class A{
-						private int m_n = 0;
-						public A(int n){ m_n = 0; }
-						public void foo(){}
+						protected int m_n = 0;
+						public A(int n){
+							this.m_n = 0;
+							System.out.println("A init");
+						}
+						public void foo(int n){
+							System.out.printf("A foo %d %d\n", this.m_n, n);
+						}
 					}
 Java_クラス継承		public class B extends A{
-						public B(int n){ super(n); }
-						public void foo(){}
+						public B(int n){
+							super(n);
+							System.out.println("B init");
+						}
+						@Override
+						public void foo(int n){
+							super.foo(n);
+							System.out.printf("B foo %d %d\n", this.m_n, n);
+						}
 					}
 Java_クラス利用		B b = new B(10);
-					b.foo();
+					b.foo(20);
 
 PHP_クラス定義		class A{
-						private $m_n = 0;
+						protected $m_n = 0;
 						public function __construct($n){
-							$m_n = 0;
+							$this->m_n = $n;
+							print "A init\n";
 						}
 						public function __destruct(){
+							print "A final\n";
 						}
-						public function foo(){
+						public function foo($n){
+							print "A foo {$this->m_n} {$n}\n";
 						}
 					}
 PHP_クラス継承		class B extends A{
 						public function __construct($n){
-							parent::_construct($n);
+							parent::__construct($n);
+							print "B init\n";
 						}
 						public function __destruct(){
+							print "B final\n";
+							parent::__destruct();
 						}
-						public function foo(){
+						public function foo($n){
+							print "B foo {$this->m_n} {$n}\n";
 						}
 					}
 PHP_クラス利用		$b = new B(10);
-					$b.foo();
+					$b.foo(20);
 
 JS_クラス定義		var A = function(n){
 						console.log("A init");
@@ -898,7 +958,7 @@ JS_クラス利用		var b = new B(10);
 Ruby_クラス定義		class A
 						def initialize(n)
 							@m_n = n
-							puts "A initialize"
+							puts "A init"
 						end
 						def foo(n)
 							puts "A foo #{@m_n} #{n}"
@@ -907,7 +967,7 @@ Ruby_クラス定義		class A
 Ruby_クラス継承		class B < A
 						def initialize(n)
 							super(n)
-							puts "B initialize"
+							puts "B init"
 						end
 						def foo(n)
 							super(n)
@@ -921,12 +981,18 @@ Python_クラス定義	class A:
 						def __init__(self, n):
 							print "A init"
 							self.m_n = n
+						def __del__(self):
+							print "A final"
 						def foo(self, n):
 							print "A foo %d %d" % (self.m_n, n)
 Python_クラス継承	class B(A):
+						base = A
 						def __init__(self, n):
 							A.__init__(self, n)
 							print "B init"
+						def __del__(self):
+							print "B final"
+							self.base.__del__(self)
 						def foo(self, n):
 							A.foo(self, n)
 							print "B foo %d %d" % (self.m_n, n)
@@ -936,51 +1002,79 @@ Python_クラス利用	b = B(10)
 Perl_クラス定義		package A;
 					sub new{
 						my $class = shift;
-						my $arg = shift;
+						my $n = shift;
+						print "A init\n";
 						my $self = {
-							m_param => $arg,
+							m_n => $n,
 						};
 						return bless $self, $class;
 					}
+					sub DESTROY{
+						my $self = shift;
+						print "A final\n";
+					}
 					sub foo{
 						my $self = shift;
-						my $param = shift;
-						print "foo $param\n";
+						my $n = shift;
+						print "A foo $self->{m_n} $n\n";
 					}
 Perl_クラス継承		package B;
 					use base qw(A);
 					sub new{
 						my $class = shift;
-						my $arg = shift;
-						my $self = A->new($arg);
-						$self->{m_param2} = 100;
+						my $n = shift;
+						my $self = A->new($n);
+						print "B init\n";
 						return bless $self, $class;
+					}
+					sub DESTROY{
+						my $self = shift;
+						print "B final\n";
+						$self->A::DESTROY();
 					}
 					sub foo{
 						my $self = shift;
-						my $param = shift;
-						print "foo $param\n";
+						my $n = shift;
+						$self->A::foo($n);
+						print "B foo $self->{m_n} $n\n";
 					}
 Perl_クラス利用		package main;
 					use B;
-					my $b = B->new();
-					$b->foo();
+					my $b = B->new(10);
+					$b->foo(20);
 					
 VB_クラス定義		Public Class A
-						Private m_param As Integer = 10
-						Public Sub foo()
+						Protected m_n As Integer = 0
+						Public Sub New(ByVal n As Integer)
+							Me.m_n = n
+							Console.WriteLine("A init")
+						End Sub
+						Protected Overrides Sub Finalize()
+							Console.WriteLine("A final")
+						End Sub
+						Public Overridable Sub foo(ByVal n As Integer)
+							Console.WriteLine("A foo {0} {1}", Me.m_n, n)
 						End Sub
 					End Class
 VB_クラス継承		Public Class B
 						Inherits A
 						.
-						Public Overrides Sub foo()
-							A.foo()
+						Public Sub New(ByVal n As Integer)
+							MyBase.New(n)
+							Console.WriteLine("B init")
+						End Sub
+						Protected Overrides Sub Finalize()
+							Console.WriteLine("B final")
+							MyBase.Finalize()
+						End Sub
+						Public Overrides Sub foo(ByVal n As Integer)
+							MyBase.foo(n)
+							Console.WriteLine("B foo {0} {1}", Me.m_n, n)
 						End Sub
 					End Class
 VB_クラス利用		Dim ins As B
-					ins = new B()
-					ins.foo()
+					ins = new B(10)
+					ins.foo(20)
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 文字列
@@ -1227,7 +1321,8 @@ C++_True定数		true
 C++_False定数		false
 C++_True判定		False判定以外
 C++_False判定		false, 0, NULL
-C++_無効値定数		false, NULL
+C++_無効値定数		false
+					NULL
 C++_無効値判定		if(boolValue){ … }
 					if(pointerValue){ … }
 					if(pointerValue != NULL){ … }
@@ -1236,7 +1331,8 @@ C#_True定数			true
 C#_False定数		false
 C#_True判定			true
 C#_False判定		false
-C#_無効値定数		false, null
+C#_無効値定数		false
+					null
 C#_無効値判定		if(boolValue){ … }
 					if(refValue != null){ … }
 
@@ -1244,7 +1340,8 @@ Java_True定数		true
 Java_False定数		false
 Java_True判定		true
 Java_False判定		false
-Java_無効値定数		false, null
+Java_無効値定数		false
+					null
 Java_無効値判定		if(boolValue){ … }
 					if(refValue != null){ … }
 
@@ -1271,7 +1368,8 @@ PHP_True定数		TRUE (※大小文字区別無)
 PHP_False定数		FALSE (※大小文字区別無)
 PHP_True判定		False判定以外
 PHP_False判定		FALSE, 0, NULL, '', '0', [], 未定義
-PHP_無効値定数		FALSE, NULL
+PHP_無効値定数		FALSE
+					NULL
 PHP_無効値判定		if(!empty($v)){ … }
 					if(!is_null($v)){ … }
 					if(!isset($v)){ … }
@@ -1298,7 +1396,8 @@ Ruby_True定数		true
 Ruby_False定数		false
 Ruby_True判定		False判定以外 # 0はTrue扱い
 Ruby_False判定		false, nil
-Ruby_無効値定数		false, nil
+Ruby_無効値定数		false
+					nil
 Ruby_無効値判定		if !v.nil? …
 					if !v.empty? …
 					if !v.blank? …

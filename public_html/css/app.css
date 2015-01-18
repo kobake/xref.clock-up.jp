@@ -66,3 +66,13 @@
 .row .main {
   width: auto;
 }
+.content-language #navbar li {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.content-language #navbar li a {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

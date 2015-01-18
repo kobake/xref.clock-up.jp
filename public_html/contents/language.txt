@@ -226,7 +226,10 @@
 関数定義_C++		int foo(int a, int b){
 						return a + b;
 					}
-関数利用_C++,C#,Java,PHP,JS,Perl	foo(10, 20);
+関数利用_C++,C#,Java	int n = foo(10, 20);
+関数利用_PHP			$n = foo(10, 20);
+関数利用_Perl			my $n = foo(10, 20);
+関数利用_JS				var n = foo(10, 20);
 関数定義_C#			int foo(int a, int b){
 						return a + b;
 					}
@@ -247,7 +250,7 @@
 関数定義_Ruby		def foo(a, b)
 						return a + b
 					end
-関数利用_Ruby,Python	foo(10, 20)
+関数利用_Ruby,Python	n = foo(10, 20)
 関数定義_Python		def foo(a, b):
 						return a + b
 関数定義_Perl		sub foo{
@@ -255,54 +258,54 @@
 						return $a + $b;
 					}
 
-C++_参照渡し		void foo(int& r){
+C++_参照渡し		void bar(int& r){
 						r = 10;
 					}
 C++_参照渡し利用	int n = 0;
-					foo(n);
+					bar(n);
 
-C#_参照渡し			void foo(out int r){
+C#_参照渡し			void bar(out int r){
 						r = 10;
 					}
 C#_参照渡し利用		int n = 0;
-					foo(out n);
+					bar(out n);
 
-Java_参照渡し		void foo(Hoge r){
+Java_参照渡し		void bar(Hoge r){
 						r.fuga = 10;
 					}
 Java_参照渡し利用	Hoge h = new Hoge();
-					foo(h);
+					bar(h);
 
-参照渡し_VB			Sub foo(<red>ByRef</red> a As Integer)
+参照渡し_VB			Sub bar(<red>ByRef</red> a As Integer)
 						a = 10
 					End Sub
 参照渡し利用_VB		Dim n As Integer = 0
-					foo(n)
+					bar(n)
 
-参照渡し_PHP		function foo(&$r){
+参照渡し_PHP		function bar(&$r){
 						$r = 10;
 					}
 参照渡し利用_PHP	$n = 0;
-					foo($n);
-参照渡し_JS			function foo(r){
+					bar($n);
+参照渡し_JS			function bar(r){
 						r.fuga = 10;
 					}
 参照渡し利用_JS		var hoge = {fuga: 0};
-					foo(hoge);
-参照渡し_Ruby		def foo(r)
+					bar(hoge);
+参照渡し_Ruby		def bar(r)
 						r[0] = 10
 					end
 参照渡し利用_Ruby	hoge = [0]
-					foo(hoge)
-Python_参照渡し		def foo(r):
+					bar(hoge)
+Python_参照渡し		def bar(r):
 						r["fuga"] = 10
 Python_参照渡し利用	hoge = {"fuga": 0}
-					foo(hoge)
-Perl_参照渡し		sub foo{
+					bar(hoge)
+Perl_参照渡し		sub bar{
 						$_[0] = 10;
 					}
 Perl_参照渡し利用	$a = 1;
-					foo($a);
+					bar($a);
 					print "$a\n";
 
 # クラス
@@ -710,7 +713,8 @@ Whileループ_Perl			while($a){
 ループ継続_Python				continue
 ループ継続_Perl					next;
 ループ継続_VB					Continue For
-								Continue Do
+								Continue While
+								Continue Do								
 
 関数抜け_C++					return v;
 関数抜け_C#						return v;

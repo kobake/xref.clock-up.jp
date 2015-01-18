@@ -70,6 +70,7 @@ else{
 		$keywords .= ', MySQL, Oracle, PostgreSQL, SQLite';
 		$smarty->assign('sitesubtitle', ' - Database');
 		$smarty->assign('contentpath', '/database');
+		$smarty->assign('contentname', 'database');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
@@ -83,6 +84,7 @@ else{
 		$keywords .= ', yum, apt-get, rpm, gem, pear, pecl, npm'; //, pip';
 		$smarty->assign('sitesubtitle', ' - Package');
 		$smarty->assign('contentpath', '/package');
+		$smarty->assign('contentname', 'package');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
@@ -96,6 +98,7 @@ else{
 		$keywords .= ', C++, C#, VisualBasic, Java, PHP, JavaScript, Ruby, Python, Perl';
 		$smarty->assign('sitesubtitle', ' - Language');
 		$smarty->assign('contentpath', '/language');
+		$smarty->assign('contentname', 'language');
 		$smarty->assign('menus', fetch_menus());
 		$smarty->assign('sections', fetch_sections());
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_matrix.tpl');
@@ -104,6 +107,7 @@ else{
 		// 本体
 		$smarty->assign('sitesubtitle', ' - About');
 		$smarty->assign('contentpath', '/about');
+		$smarty->assign('contentname', 'about');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_about.tpl');
 	}
 	else if($uri_without_query === '/'){
@@ -111,6 +115,7 @@ else{
 		$keywords .= ', Database, Package';
 		$smarty->assign('sitesubtitle', '');
 		$smarty->assign('contentpath', '/');
+		$smarty->assign('contentname', 'top');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_top.tpl');
 	}
 	else{
@@ -119,6 +124,7 @@ else{
 		$keywords = '';
 		$smarty->assign('sitesubtitle', '');
 		$smarty->assign('contentpath', '');
+		$smarty->assign('contentname', 'notfound');
 		$content = $smarty->fetch(dirname(__FILE__) . '/content_notfound.tpl');
 	}
 

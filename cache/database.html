@@ -101,7 +101,7 @@
 		
 	</head>
 
-	<body data-spy="scroll" data-offset="50" class="current-mode1">
+	<body data-spy="scroll" data-offset="50" class="current-mode1 content-database">
 
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -349,7 +349,7 @@
 							<tr class="engine-oracle">
 					<th>Oracle</th>
 											<td>
-														CREATE USER myuser IDENTIFIED BY "xxx"<br/>&nbsp;&nbsp;&nbsp;DEFAULT TABLESPACE users;
+														CREATE USER myuser IDENTIFIED BY "xxx"<br/>&nbsp;&nbsp;&nbsp;&nbsp;DEFAULT TABLESPACE users;
 													</td>
 											<td>
 														sql> DROP USER myuser;<br/>sql> DROP USER myuser CASCADE;
@@ -408,7 +408,7 @@
 														CREATE USER 'myuser'@'myhost';<br/>CREATE USER 'myuser'@'myhost' IDENTIFIED BY 'xxx';<br/>GRANT ALL ON *.* TO myuser@localhost IDENTIFIED BY 'xxxxxx';
 													</td>
 											<td class="engine-oracle">
-														CREATE USER myuser IDENTIFIED BY "xxx"<br/>&nbsp;&nbsp;&nbsp;DEFAULT TABLESPACE users;
+														CREATE USER myuser IDENTIFIED BY "xxx"<br/>&nbsp;&nbsp;&nbsp;&nbsp;DEFAULT TABLESPACE users;
 													</td>
 											<td class="engine-postgresql">
 														$ createuser myuser -P<br/>sql> CREATE USER myuser;<br/>sql> CREATE USER myuser WITH LOGIN PASSWORD 'xxx';

@@ -286,7 +286,9 @@ function generateContents($text, &$engines, &$features, $default_engines){
 						$line = removeLineComment($line);
 						// 解析
 						if (preg_match("/^{$localIndent}(\t*)([^\\t].*)/", $line, $m)) {
-							$content .= "<br/>" . str_replace("\t", "&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2];
+							if($m[2] === '.')$m[2] = '';
+							$line = str_replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;", $m[1]) . $m[2];
+							$content .= "<br/>" . $line;
 						} else {
 							$i = $j - 1;
 							break;

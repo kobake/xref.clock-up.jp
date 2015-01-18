@@ -226,6 +226,7 @@
 関数定義_C++		int foo(int a, int b){
 						return a + b;
 					}
+関数利用_C++,C#,Java,PHP,JS,Perl	foo(10, 20);
 関数定義_C#			int foo(int a, int b){
 						return a + b;
 					}
@@ -233,17 +234,20 @@
 						return a + b;
 					}
 関数定義_PHP		function foo($a, $b){
-						return a + b;
+						return $a + $b;
 					}
-関数定義_VB			Function foo(ByVal a As Integer, ByVal b As Integer)
+関数定義_VB			Function foo(ByVal a As Integer, _
+								 ByVal b As Integer) As Integer
 						foo = a + b # 最近は Return も使えるんだけどね。
 					End Function
+関数利用_VB			Dim n As Integer = foo(10, 20)
 関数定義_JS			function foo(a, b){
 						return a + b;
 					}
 関数定義_Ruby		def foo(a, b)
 						return a + b
 					end
+関数利用_Ruby,Python	foo(10, 20)
 関数定義_Python		def foo(a, b):
 						return a + b
 関数定義_Perl		sub foo{
@@ -251,46 +255,55 @@
 						return $a + $b;
 					}
 
-参照渡し_C++		void foo(int& r){
+C++_参照渡し		void foo(int& r){
 						r = 10;
 					}
-					int n = 0;
+C++_参照渡し利用	int n = 0;
 					foo(n);
-参照渡し_C#			void foo(out int r){
+
+C#_参照渡し			void foo(out int r){
 						r = 10;
 					}
-					int n = 0;
+C#_参照渡し利用		int n = 0;
 					foo(out n);
-参照渡し_Java		void foo(Hoge r){
+
+Java_参照渡し		void foo(Hoge r){
 						r.fuga = 10;
 					}
-					Hoge h = new Hoge();
+Java_参照渡し利用	Hoge h = new Hoge();
 					foo(h);
-関数定義_VB			Sub foo(ByRef a As Integer)
+
+参照渡し_VB			Sub foo(<red>ByRef</red> a As Integer)
 						a = 10
-					End Function
-					Dim n As Integer = 0
+					End Sub
+参照渡し利用_VB		Dim n As Integer = 0
 					foo n
+
 参照渡し_PHP		function foo(&$r){
 						$r = 10;
 					}
-					$n = 0;
+参照渡し利用_PHP	$n = 0;
 					foo($n);
 参照渡し_JS			function foo(r){
 						r.fuga = 10;
 					}
-					var hoge = {fuga: 0};
+参照渡し利用_JS		var hoge = {fuga: 0};
 					foo(hoge);
 参照渡し_Ruby		def foo(r)
 						r[0] = 10
 					end
-					hoge = [0]
+参照渡し利用_Ruby	hoge = [0]
 					foo(hoge)
-参照渡し_Python		def foo(r):
+Python_参照渡し		def foo(r):
 						r["fuga"] = 10
-					hoge = {"fuga": 0}
+Python_参照渡し利用	hoge = {"fuga": 0}
 					foo(hoge)
-参照渡し_Perl		未
+Perl_参照渡し		sub foo{
+						$_[0] = 10;
+					}
+Perl_参照渡し利用	$a = 1;
+					foo($a);
+					print "$a\n";
 
 # クラス
 クラス_C++
@@ -658,6 +671,8 @@ Whileループ_Perl			while($a){
 ループ抜け_Ruby					break
 ループ抜け_Python				break
 ループ抜け_Perl					last;
+ループ抜け_VB					Exit For
+								Exit Do
 
 ループ継続_C++					continue;
 ループ継続_C#					continue;
@@ -667,6 +682,8 @@ Whileループ_Perl			while($a){
 ループ継続_Ruby					next
 ループ継続_Python				continue
 ループ継続_Perl					next;
+ループ継続_VB					Continue For
+								Continue Do
 
 関数抜け_C++					return v;
 関数抜け_C#						return v;
@@ -679,38 +696,265 @@ Whileループ_Perl			while($a){
 
 例外
 例外送出_C++					throw std::exception("msg");
+								throw "msg";
+								throw 10;
 例外送出_C#						throw new Exception("msg");
 例外送出_Java					throw new Exception("msg");
 例外送出_PHP					throw new Exception("msg");
-例外送出_JS						throw "msg";
-例外送出_Ruby					未
-例外送出_Python					未
-例外送出_Perl					未
+例外送出_JS						throw new Error("msg");
+								throw "msg";
+								throw 10;
+例外送出_Ruby					raise "msg"
+								raise Exception.new("msg")
+例外送出_Python					raise Exception("msg")
+例外送出_Perl					-
+
+VB_例外送出						Throw New Exception("msg")
+VB_例外Catch					' (Try～Catchを使う方法)
+								Try
+									…
+								Catch ex As Exception
+									…
+								End Try
+								.
+								' (On Errorを使う方法)
+								On Error Goto ErrorLabel
+								…
+								Exit Sub
+								ErrorLabel:
+								…
 
 例外Catch_C++					try{
 								}
 								catch(const std::exception& ex){
 								}
+								catch(const char* ex){
+								}
+								catch(int ex){
+								}
+								catch(...){
+								}
+
 例外Catch_C#					try{
 								}
 								catch(Exception ex){
 								}
+								catch{
+								}
+								finally{
+								}
+
 例外Catch_Java					try{
 								}
 								catch(Exception ex){
 								}
+								finally{
+								}
+
 例外Catch_PHP					try{
 								}
-								catch(Exception ex){
+								catch(Exception $ex){
 								}
+								finally{ // ※PHP5.5～
+								}
+
 例外Catch_JS					try{
 								}
 								catch(ex){
 								}
-例外Catch_Ruby					未
-例外Catch_Python				未
-例外Catch_Perl					未
+								finally{
+								}
+
+例外Catch_Ruby					begin
+									…
+								rescue Exception => ex
+									…
+								rescue => ex
+									…
+								ensure
+									…
+								end
+
+例外Catch_Python				try:
+									pass
+								except Exception as ex:
+									pass
+								except:
+									pass
+								else:
+									pass
+								finally:
+									pass
+
+例外Catch_Perl					eval{
+									…
+								};
+								if($@){
+									print "Error: $@\n";
+								}
+
 # スコープ
+
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# 構造
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
+# クラス
+C++_クラス定義		class A{
+					public:
+						A(){}
+						virtual ~A(){}
+						virtual void foo(){}
+					};
+C++_クラス継承		class B : public A{
+					public:
+						B() : A(){}
+						~B(){}
+						void foo(){}
+					}
+C++_クラス利用		A a;
+					a.foo();
+
+C#_クラス定義		class A{
+						public A(){}
+						public ~A(){}
+						public void foo(){}
+					};
+C#_クラス継承		class B : A{
+						public B(){}
+						public ~B(){}
+						public void foo(){}
+					}
+C#_クラス利用		B b = new B();
+					b.foo();
+
+Java_クラス定義		public class A{
+						public A(){}
+						public void foo(){}
+					}
+Java_クラス継承		public class B extends A{
+						public B(){ super(); }
+						public void foo(){}
+					}
+Java_クラス利用		B b = new B();
+					b.foo();
+
+PHP_クラス定義		class A{
+						private $m_n = 0;
+						public function __construct($n){
+							$m_n = 0;
+						}
+						public function __destruct(){
+						}
+						public function foo(){
+						}
+					}
+PHP_クラス継承		class B extends A{
+						public function __construct($n){
+							parent::_construct($n);
+						}
+						public function __destruct(){
+						}
+						public function foo(){
+						}
+					}
+PHP_クラス利用		$b = new B();
+					$b.foo();
+
+JS_クラス定義		var A = function(n){
+						this.foo = function(){};
+					};
+JS_クラス継承		var B = function(n){
+						A.call(this, n);
+						this.foo = function(){};
+					};
+JS_クラス利用		var b = new B();
+					b.foo();
+
+Ruby_クラス定義		class A
+						def initialize(n)
+							@m_n = n
+						end
+						def self.cleanup
+						end
+						def foo(n)
+							puts "A_foo"
+						end
+					end
+Ruby_クラス継承		class B < A
+						def initialize(n)
+							super(n)
+						end
+						def self.cleanup
+						end
+						def foo(n)
+							super(n)
+							puts "B_foo"
+						end
+					end
+Ruby_クラス利用		b = B.new(10)
+					b.foo()
+
+Python_クラス定義	class A:
+						def __init__(self, n):
+							pass
+						def foo(n):
+							pass
+Python_クラス継承	class B(A):
+						def __init__(self, n):
+							A.__init__(self, n)
+						def foo(n):
+							pass
+Python_クラス利用	b = B()
+					b.foo()
+
+Perl_クラス定義		package A;
+					sub new{
+						my $class = shift;
+						my $arg = shift;
+						my $self = {
+							m_param => $arg,
+						};
+						return bless $self, $class;
+					}
+					sub foo{
+						my $self = shift;
+						my $param = shift;
+						print "foo $param\n";
+					}
+Perl_クラス継承		package B;
+					use base qw(A);
+					sub new{
+						my $class = shift;
+						my $arg = shift;
+						my $self = A->new($arg);
+						$self->{m_param2} = 100;
+						return bless $self, $class;
+					}
+					sub foo{
+						my $self = shift;
+						my $param = shift;
+						print "foo $param\n";
+					}
+Perl_クラス利用		package main;
+					use B;
+					my $b = B->new();
+					$b->foo();
+					
+VB_クラス定義		Public Class A
+						Private m_param As Integer = 10
+						Public Sub foo()
+						End Sub
+					End Class
+VB_クラス継承		Public Class B
+						Inherits A
+						.
+						Public Overrides Sub foo()
+							A.foo()
+						End Sub
+					End Class
+VB_クラス利用		Dim ins As B
+					ins = new B()
+					ins.foo()
 
 # -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- #
 # 文字列

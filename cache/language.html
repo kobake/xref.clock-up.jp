@@ -221,19 +221,13 @@
 </li><li class="parent-li"><a href="#control">制御</a>
 </li>
 <li class="second"><a href="#cond">分岐</a>
-</li><li class="second"><a href="#floop">For系ループ</a>
-</li><li class="second"><a href="#wloop">While系ループ</a>
+</li><li class="second"><a href="#loop">ループ</a>
 </li><li class="second"><a href="#jump">ジャンプ</a>
 </li><li class="second"><a href="#exception">例外</a>
 </li><li class="parent-li"><a href="#ex">構造</a>
 </li>
 <li class="second"><a href="#function">関数</a>
 </li><li class="second"><a href="#class">クラス</a>
-</li><li class="second"><a href="#opover">演算子オーバーロード</a>
-</li><li class="parent-li"><a href="#io">入出力</a>
-</li>
-<li class="second"><a href="#standard">標準入出力</a>
-</li><li class="second"><a href="#file">ファイル入出力</a>
 </li>
 
 			</ul>
@@ -579,7 +573,7 @@
 														#include &lt;system.h>
 													</td>
 											<td>
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{};<br/>}
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{};<br/>}
 													</td>
 											<td>
 														#define HOGE<br/>#ifdef HOGE<br/>#endif
@@ -591,7 +585,7 @@
 														using System.Text;
 													</td>
 											<td>
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{}<br/>}
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{}<br/>}
 													</td>
 											<td>
 														#define HOGE<br/>#if HOGE<br/>#endif
@@ -654,7 +648,7 @@
 														from A import B
 													</td>
 											<td>
-														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
+														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
 													</td>
 											<td>
 													</td>
@@ -727,10 +721,10 @@
 							<tr>
 					<th>名前空間</th>
 											<td class="engine-cpp">
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{};<br/>}
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{};<br/>}
 													</td>
 											<td class="engine-csharp">
-														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;class A{}<br/>}
+														namespace Hoge{<br/>&nbsp;&nbsp;&nbsp;&nbsp;class A{}<br/>}
 													</td>
 											<td class="engine-java">
 														package com.example.app;<br/>public class A{<br/>}
@@ -744,7 +738,7 @@
 											<td class="engine-ruby">
 													</td>
 											<td class="engine-python">
-														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
+														# hoge.py<br/>def fuga(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return n + 1<br/># main.py<br/>import hoge<br/>a = hoge.fuga(10)
 													</td>
 											<td class="engine-perl">
 													</td>
@@ -800,7 +794,7 @@
 														int g = 10; // 関数外で宣言
 													</td>
 											<td>
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -809,10 +803,10 @@
 														int v = 10;
 													</td>
 											<td>
-														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
 													</td>
 											<td>
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -821,10 +815,10 @@
 														int v = 10;
 													</td>
 											<td>
-														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
 													</td>
 											<td>
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -836,7 +830,7 @@
 														<red>public</red> g as Integer = 10;
 													</td>
 											<td>
-														If True Then<br/>&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
+														If True Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -848,7 +842,7 @@
 														<red>global</red> $g = 10;
 													</td>
 											<td>
-														function foo(){<br/>&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
@@ -860,7 +854,7 @@
 														<red>window.</red>g = 10;
 													</td>
 											<td>
-														function foo(){<br/>&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -872,7 +866,7 @@
 														<red>$</red>g = 10
 													</td>
 											<td>
-														def foo<br/>&nbsp;&nbsp;&nbsp;p = 10<br/>end
+														def foo<br/>&nbsp;&nbsp;&nbsp;&nbsp;p = 10<br/>end
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -884,7 +878,7 @@
 														<red>global</red> g
 													</td>
 											<td>
-														def foo():<br/>&nbsp;&nbsp;&nbsp;p = 10
+														def foo():<br/>&nbsp;&nbsp;&nbsp;&nbsp;p = 10
 													</td>
 									</tr>
 							<tr class="engine-perl">
@@ -896,7 +890,7 @@
 														<red>our</red> $g = 10;
 													</td>
 											<td>
-														{<br/>&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -960,10 +954,10 @@
 														int g = 10; // 関数外で宣言
 													</td>
 											<td class="engine-csharp">
-														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
 													</td>
 											<td class="engine-java">
-														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
+														<red>public static</red> class G{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>public static</red> int g = 10;<br/>}
 													</td>
 											<td class="engine-vb">
 														<red>public</red> g as Integer = 10;
@@ -987,31 +981,31 @@
 							<tr>
 					<th>局所変数</th>
 											<td class="engine-cpp">
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 											<td class="engine-csharp">
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 											<td class="engine-java">
-														{<br/>&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;int p = 10;<br/>}
 													</td>
 											<td class="engine-vb">
-														If True Then<br/>&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
+														If True Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dim p As Integer = 10<br/>End
 													</td>
 											<td class="engine-php">
-														function foo(){<br/>&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;$p = 10;<br/>}
 													</td>
 											<td class="engine-js">
-														function foo(){<br/>&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
+														function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;var p = 10;<br/>}
 													</td>
 											<td class="engine-ruby">
-														def foo<br/>&nbsp;&nbsp;&nbsp;p = 10<br/>end
+														def foo<br/>&nbsp;&nbsp;&nbsp;&nbsp;p = 10<br/>end
 													</td>
 											<td class="engine-python">
-														def foo():<br/>&nbsp;&nbsp;&nbsp;p = 10
+														def foo():<br/>&nbsp;&nbsp;&nbsp;&nbsp;p = 10
 													</td>
 											<td class="engine-perl">
-														{<br/>&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
+														{<br/>&nbsp;&nbsp;&nbsp;&nbsp;<red>my</red> $p = 10;<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -1338,7 +1332,7 @@
 														<red>const</red> int C = 10;
 													</td>
 											<td>
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>};<br/>MyEnum e = FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>};<br/>MyEnum e = FOO;
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -1347,7 +1341,7 @@
 														<red>const</red> int C = 10;
 													</td>
 											<td>
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -1356,7 +1350,7 @@
 														<red>static final</red> int C = 10;
 													</td>
 											<td>
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -1365,7 +1359,7 @@
 														<red>Const</red> C As Integer = 10
 													</td>
 											<td>
-														Enum MyEnum<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR<br/>End Enum<br/>Dim e As MyEnum = MyEnum.FOO
+														Enum MyEnum<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR<br/>End Enum<br/>Dim e As MyEnum = MyEnum.FOO
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -1374,7 +1368,7 @@
 														<red>define</red>('C', 10);
 													</td>
 											<td>
-														(疑似)<br/>abstract class MyEnum{<br/>&nbsp;&nbsp;&nbsp;const FOO = 10;<br/>&nbsp;&nbsp;&nbsp;const BAR = 11;<br/>}<br/>$e = MyEnum::FOO;
+														(疑似)<br/>abstract class MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;const FOO = 10;<br/>&nbsp;&nbsp;&nbsp;&nbsp;const BAR = 11;<br/>}<br/>$e = MyEnum::FOO;
 													</td>
 									</tr>
 							<tr class="engine-js">
@@ -1383,7 +1377,7 @@
 														<red>const</red> C = 10;
 													</td>
 											<td>
-														(疑似)<br/>var MyEnum = {<br/>&nbsp;&nbsp;&nbsp;FOO : 10,<br/>&nbsp;&nbsp;&nbsp;BAR : 11,<br/>};<br/>var e = MyEnum.FOO;
+														(疑似)<br/>var MyEnum = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO : 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR : 11,<br/>};<br/>var e = MyEnum.FOO;
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -1392,7 +1386,7 @@
 														<red>C</red> = 10
 													</td>
 											<td>
-														(疑似)<br/>module MyEnum<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR = 11<br/>end<br/>e = MyEnum::FOO
+														(疑似)<br/>module MyEnum<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR = 11<br/>end<br/>e = MyEnum::FOO
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -1401,7 +1395,7 @@
 														-
 													</td>
 											<td>
-														(疑似)<br/>from enum import Enum<br/>class MyEnum(Enum):<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR = 11<br/>e = MyEnum.FOO
+														(疑似)<br/>from enum import Enum<br/>class MyEnum(Enum):<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR = 11<br/>e = MyEnum.FOO
 													</td>
 									</tr>
 							<tr class="engine-perl">
@@ -1471,28 +1465,28 @@
 							<tr>
 					<th>列挙型</th>
 											<td class="engine-cpp">
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>};<br/>MyEnum e = FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>};<br/>MyEnum e = FOO;
 													</td>
 											<td class="engine-csharp">
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
 													</td>
 											<td class="engine-java">
-														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;FOO,<br/>&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
+														enum MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR,<br/>}<br/>MyEnum e = MyEnum.FOO;
 													</td>
 											<td class="engine-vb">
-														Enum MyEnum<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR<br/>End Enum<br/>Dim e As MyEnum = MyEnum.FOO
+														Enum MyEnum<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR<br/>End Enum<br/>Dim e As MyEnum = MyEnum.FOO
 													</td>
 											<td class="engine-php">
-														(疑似)<br/>abstract class MyEnum{<br/>&nbsp;&nbsp;&nbsp;const FOO = 10;<br/>&nbsp;&nbsp;&nbsp;const BAR = 11;<br/>}<br/>$e = MyEnum::FOO;
+														(疑似)<br/>abstract class MyEnum{<br/>&nbsp;&nbsp;&nbsp;&nbsp;const FOO = 10;<br/>&nbsp;&nbsp;&nbsp;&nbsp;const BAR = 11;<br/>}<br/>$e = MyEnum::FOO;
 													</td>
 											<td class="engine-js">
-														(疑似)<br/>var MyEnum = {<br/>&nbsp;&nbsp;&nbsp;FOO : 10,<br/>&nbsp;&nbsp;&nbsp;BAR : 11,<br/>};<br/>var e = MyEnum.FOO;
+														(疑似)<br/>var MyEnum = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO : 10,<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR : 11,<br/>};<br/>var e = MyEnum.FOO;
 													</td>
 											<td class="engine-ruby">
-														(疑似)<br/>module MyEnum<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR = 11<br/>end<br/>e = MyEnum::FOO
+														(疑似)<br/>module MyEnum<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR = 11<br/>end<br/>e = MyEnum::FOO
 													</td>
 											<td class="engine-python">
-														(疑似)<br/>from enum import Enum<br/>class MyEnum(Enum):<br/>&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;BAR = 11<br/>e = MyEnum.FOO
+														(疑似)<br/>from enum import Enum<br/>class MyEnum(Enum):<br/>&nbsp;&nbsp;&nbsp;&nbsp;FOO = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;BAR = 11<br/>e = MyEnum.FOO
 													</td>
 											<td class="engine-perl">
 														(疑似)<br/>use enum qw(One=1 Ten=10);<br/>$a = One;
@@ -2610,7 +2604,7 @@
 														std::string s = "ABC\\DEF";<br/>std::wstring s = L"ABC\\DEF";
 													</td>
 											<td>
-														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Baz\n";
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -2634,7 +2628,7 @@
 														String s = "ABC\\DEF";<br/>String s = "\u0041BC\\DEF";
 													</td>
 											<td>
-														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Baz\n";
 													</td>
 									</tr>
 							<tr class="engine-vb">
@@ -2646,7 +2640,7 @@
 														Dim s As String = "ABC\DEF"
 													</td>
 											<td>
-														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -2797,16 +2791,16 @@
 							<tr>
 					<th>ヒアドキュメント</th>
 											<td class="engine-cpp">
-														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														std::string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Baz\n";
 													</td>
 											<td class="engine-csharp">
 														string s = @"Foo<br/>Bar<br/>Baz";
 													</td>
 											<td class="engine-java">
-														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;+ "Baz\n";
+														string s = "Foo\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Bar\n"<br/>&nbsp;&nbsp;&nbsp;&nbsp;+ "Baz\n";
 													</td>
 											<td class="engine-vb">
-														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
+														s = "Foo" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Bar" & vbCrLf & _<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Baz" & vbCrLf
 													</td>
 											<td class="engine-php">
 														$s = &lt;&lt;&lt;EOS<br/>Foo<br/>Bar<br/>Baz<br/>EOS;
@@ -3329,70 +3323,70 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														If a Then<br/>&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;baz<br/>End If
+														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz<br/>End If
 													</td>
 											<td>
-														Select Case v<br/>&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
+														Select Case v<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														if a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
+														if a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td>
-														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
+														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
-														if a:<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;baz()
+														if a:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()
 													</td>
 											<td>
 														-
@@ -3401,10 +3395,10 @@
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td>
-														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
+														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -3435,68 +3429,68 @@
 							<tr>
 					<th>If分岐</th>
 											<td class="engine-cpp">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-csharp">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-java">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-vb">
-														If a Then<br/>&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;baz<br/>End If
+														If a Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>ElseIf b Then<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar<br/>Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz<br/>End If
 													</td>
 											<td class="engine-php">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-js">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>else if(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 											<td class="engine-ruby">
-														if a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
+														if a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>elsif b<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td class="engine-python">
-														if a:<br/>&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;baz()
+														if a:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>elif b:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()
 													</td>
 											<td class="engine-perl">
-														if(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;baz();<br/>}
+														if(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}<br/>elsif(b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>}<br/>else{<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>}
 													</td>
 									</tr>
 							<tr>
 					<th>Switch分岐</th>
 											<td class="engine-cpp">
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-csharp">
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-java">
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-vb">
-														Select Case v<br/>&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
+														Select Case v<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>&nbsp;&nbsp;&nbsp;&nbsp;Case Else<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>End Select
 													</td>
 											<td class="engine-php">
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-js">
-														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;break;<br/>}
+														switch(a){<br/>case 0:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>case 1:<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>default:<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz();<br/>&nbsp;&nbsp;&nbsp;&nbsp;break;<br/>}
 													</td>
 											<td class="engine-ruby">
-														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;baz()<br/>end
+														case a<br/>when 0<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>when 1<br/>&nbsp;&nbsp;&nbsp;&nbsp;bar()<br/>else<br/>&nbsp;&nbsp;&nbsp;&nbsp;baz()<br/>end
 													</td>
 											<td class="engine-python">
 														-
 													</td>
 											<td class="engine-perl">
-														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
+														use Switch;<br/>switch($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 0 { foo(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;case 1 { bar(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;else   { baz(); }<br/>}
 													</td>
 									</tr>
 					</tbody>
 	</table>
 </div>
 </div>
-<h3 id="floop" class="sub-header">For系ループ</h3><div class="mode0">
+<h3 id="loop" class="sub-header">ループ</h3><div class="mode0">
 <!-- <div class="table-responsive"> -->
 <div style="margin-bottom: 16px;">
 	<table class="table table-striped">
@@ -3506,6 +3500,8 @@
 				<th></th>
 									<th>Forループ</th>
 									<th>ForEachループ</th>
+									<th>Whileループ</th>
+									<th>DoWhileループ</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -3513,16 +3509,26 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
 													</td>
 											<td>
-														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
+														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
+													</td>
+											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
+													</td>
+											<td>
+													</td>
+											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -3530,7 +3536,12 @@
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
+													</td>
+											<td>
+													</td>
+											<td>
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td>
 													</td>
@@ -3538,7 +3549,12 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
+														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
+													</td>
+											<td>
+													</td>
+											<td>
+														While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>End While
 													</td>
 											<td>
 													</td>
@@ -3546,19 +3562,28 @@
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 											<td>
-														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+													</td>
+											<td>
+														while($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
 													</td>
 											<td>
-														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
+														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
+													</td>
+											<td>
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-ruby">
@@ -3566,7 +3591,12 @@
 											<td>
 													</td>
 											<td>
-														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;puts e<br/>end
+														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;&nbsp;puts e<br/>end
+													</td>
+											<td>
+														while a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>end
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-python">
@@ -3574,7 +3604,12 @@
 											<td>
 													</td>
 											<td>
-														for e in list:<br/>&nbsp;&nbsp;&nbsp;print e
+														for e in list:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print e
+													</td>
+											<td>
+														while a:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()
+													</td>
+											<td>
 													</td>
 									</tr>
 							<tr class="engine-perl">
@@ -3582,7 +3617,12 @@
 											<td>
 													</td>
 											<td>
-														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+													</td>
+											<td>
+														while($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
+													</td>
+											<td>
 													</td>
 									</tr>
 					</tbody>
@@ -3613,22 +3653,22 @@
 							<tr>
 					<th>Forループ</th>
 											<td class="engine-cpp">
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;std::out << i << "\n";<br/>}
 													</td>
 											<td class="engine-csharp">
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine("" + i);<br/>}
 													</td>
 											<td class="engine-java">
-														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
+														for(int i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("" + i);<br/>}
 													</td>
 											<td class="engine-vb">
-														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
+														For i = 0 To 9<br/>&nbsp;&nbsp;&nbsp;&nbsp;System.Console.WriteLine(i)<br/>Next
 													</td>
 											<td class="engine-php">
-														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$i\n";<br/>}
 													</td>
 											<td class="engine-js">
-														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
+														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
 													</td>
 											<td class="engine-ruby">
 													</td>
@@ -3640,7 +3680,7 @@
 							<tr>
 					<th>ForEachループ</th>
 											<td class="engine-cpp">
-														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
+														std::vector<int> list;<br/>BOOST_FOREACH(int e, list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;std::cout << e;<br/>}
 													</td>
 											<td class="engine-csharp">
 													</td>
@@ -3649,162 +3689,48 @@
 											<td class="engine-vb">
 													</td>
 											<td class="engine-php">
-														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+														foreach($list as $e){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 											<td class="engine-js">
-														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
+														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br/>}
 													</td>
 											<td class="engine-ruby">
-														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;puts e<br/>end
+														list.each do |e|<br/>&nbsp;&nbsp;&nbsp;&nbsp;puts e<br/>end
 													</td>
 											<td class="engine-python">
-														for e in list:<br/>&nbsp;&nbsp;&nbsp;print e
+														for e in list:<br/>&nbsp;&nbsp;&nbsp;&nbsp;print e
 													</td>
 											<td class="engine-perl">
-														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
+														foreach my $e (@list){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "$e\n";<br/>}
 													</td>
 									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h3 id="wloop" class="sub-header">While系ループ</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>Whileループ</th>
-									<th>DoWhileループ</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-														While a<br/>&nbsp;&nbsp;&nbsp;foo<br/>End While
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-														while a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>end
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-														while a:<br/>&nbsp;&nbsp;&nbsp;foo()
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
-													</td>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
 							<tr>
 					<th>Whileループ</th>
 											<td class="engine-cpp">
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-csharp">
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-java">
-														while(a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
+														while(a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-vb">
-														While a<br/>&nbsp;&nbsp;&nbsp;foo<br/>End While
+														While a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo<br/>End While
 													</td>
 											<td class="engine-php">
-														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
+														while($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 											<td class="engine-js">
 													</td>
 											<td class="engine-ruby">
-														while a<br/>&nbsp;&nbsp;&nbsp;foo()<br/>end
+														while a<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()<br/>end
 													</td>
 											<td class="engine-python">
-														while a:<br/>&nbsp;&nbsp;&nbsp;foo()
+														while a:<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo()
 													</td>
 											<td class="engine-perl">
-														while($a){<br/>&nbsp;&nbsp;&nbsp;foo();<br/>}
+														while($a){<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo();<br/>}
 													</td>
 									</tr>
 							<tr>
@@ -3876,8 +3802,10 @@
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														Exit For<br/>Exit Do
 													</td>
 											<td>
+														Continue For<br/>Continue Do
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -3962,6 +3890,7 @@
 														break;
 													</td>
 											<td class="engine-vb">
+														Exit For<br/>Exit Do
 													</td>
 											<td class="engine-php">
 														break;
@@ -3991,6 +3920,7 @@
 														continue;
 													</td>
 											<td class="engine-vb">
+														Continue For<br/>Continue Do
 													</td>
 											<td class="engine-php">
 														continue;
@@ -4029,10 +3959,10 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														throw std::exception("msg");
+														throw std::exception("msg");<br/>throw "msg";<br/>throw 10;
 													</td>
 											<td>
-														try{<br/>}<br/>catch(const std::exception& ex){<br/>}
+														try{<br/>}<br/>catch(const std::exception& ex){<br/>}<br/>catch(const char* ex){<br/>}<br/>catch(int ex){<br/>}<br/>catch(...){<br/>}
 													</td>
 									</tr>
 							<tr class="engine-csharp">
@@ -4041,7 +3971,7 @@
 														throw new Exception("msg");
 													</td>
 											<td>
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception ex){<br/>}<br/>catch{<br/>}<br/>finally{<br/>}
 													</td>
 									</tr>
 							<tr class="engine-java">
@@ -4050,14 +3980,16 @@
 														throw new Exception("msg");
 													</td>
 											<td>
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception ex){<br/>}<br/>finally{<br/>}
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														Throw New Exception("msg")
 													</td>
 											<td>
+														' (Try～Catchを使う方法)<br/>Try<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>Catch ex As Exception<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>End Try<br/><br/>' (On Errorを使う方法)<br/>On Error Goto ErrorLabel<br/>…<br/>Exit Sub<br/>ErrorLabel:<br/>…
 													</td>
 									</tr>
 							<tr class="engine-php">
@@ -4066,43 +3998,43 @@
 														throw new Exception("msg");
 													</td>
 											<td>
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception $ex){<br/>}<br/>finally{ // ※PHP5.5～<br/>}
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														throw "msg";
+														throw new Error("msg");<br/>throw "msg";<br/>throw 10;
 													</td>
 											<td>
-														try{<br/>}<br/>catch(ex){<br/>}
+														try{<br/>}<br/>catch(ex){<br/>}<br/>finally{<br/>}
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														未
+														raise "msg"<br/>raise Exception.new("msg")
 													</td>
 											<td>
-														未
+														begin<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>rescue Exception => ex<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>rescue => ex<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>ensure<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>end
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
-														未
+														raise Exception("msg")
 													</td>
 											<td>
-														未
+														try:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>except Exception as ex:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>except:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>else:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>finally:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
-														未
+														-
 													</td>
 											<td>
-														未
+														eval{<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>};<br/>if($@){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "Error: $@\n";<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -4133,7 +4065,7 @@
 							<tr>
 					<th>例外送出</th>
 											<td class="engine-cpp">
-														throw std::exception("msg");
+														throw std::exception("msg");<br/>throw "msg";<br/>throw 10;
 													</td>
 											<td class="engine-csharp">
 														throw new Exception("msg");
@@ -4142,50 +4074,52 @@
 														throw new Exception("msg");
 													</td>
 											<td class="engine-vb">
+														Throw New Exception("msg")
 													</td>
 											<td class="engine-php">
 														throw new Exception("msg");
 													</td>
 											<td class="engine-js">
-														throw "msg";
+														throw new Error("msg");<br/>throw "msg";<br/>throw 10;
 													</td>
 											<td class="engine-ruby">
-														未
+														raise "msg"<br/>raise Exception.new("msg")
 													</td>
 											<td class="engine-python">
-														未
+														raise Exception("msg")
 													</td>
 											<td class="engine-perl">
-														未
+														-
 													</td>
 									</tr>
 							<tr>
 					<th>例外Catch</th>
 											<td class="engine-cpp">
-														try{<br/>}<br/>catch(const std::exception& ex){<br/>}
+														try{<br/>}<br/>catch(const std::exception& ex){<br/>}<br/>catch(const char* ex){<br/>}<br/>catch(int ex){<br/>}<br/>catch(...){<br/>}
 													</td>
 											<td class="engine-csharp">
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception ex){<br/>}<br/>catch{<br/>}<br/>finally{<br/>}
 													</td>
 											<td class="engine-java">
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception ex){<br/>}<br/>finally{<br/>}
 													</td>
 											<td class="engine-vb">
+														' (Try～Catchを使う方法)<br/>Try<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>Catch ex As Exception<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>End Try<br/><br/>' (On Errorを使う方法)<br/>On Error Goto ErrorLabel<br/>…<br/>Exit Sub<br/>ErrorLabel:<br/>…
 													</td>
 											<td class="engine-php">
-														try{<br/>}<br/>catch(Exception ex){<br/>}
+														try{<br/>}<br/>catch(Exception $ex){<br/>}<br/>finally{ // ※PHP5.5～<br/>}
 													</td>
 											<td class="engine-js">
-														try{<br/>}<br/>catch(ex){<br/>}
+														try{<br/>}<br/>catch(ex){<br/>}<br/>finally{<br/>}
 													</td>
 											<td class="engine-ruby">
-														未
+														begin<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>rescue Exception => ex<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>rescue => ex<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>ensure<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>end
 													</td>
 											<td class="engine-python">
-														未
+														try:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>except Exception as ex:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>except:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>else:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>finally:<br/>&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 											<td class="engine-perl">
-														未
+														eval{<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>};<br/>if($@){<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "Error: $@\n";<br/>}
 													</td>
 									</tr>
 					</tbody>
@@ -4201,7 +4135,9 @@
 			<tr>
 				<th></th>
 									<th>関数定義</th>
+									<th>関数利用</th>
 									<th>参照渡し</th>
+									<th>参照渡し利用</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -4209,81 +4145,136 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td>
-														void foo(int& r){<br/>&nbsp;&nbsp;&nbsp;r = 10;<br/>}<br/>int n = 0;<br/>foo(n);
+														foo(10, 20);
+													</td>
+											<td>
+														void foo(int& r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r = 10;<br/>}
+													</td>
+											<td>
+														int n = 0;<br/>foo(n);
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td>
-														void foo(out int r){<br/>&nbsp;&nbsp;&nbsp;r = 10;<br/>}<br/>int n = 0;<br/>foo(out n);
+														foo(10, 20);
+													</td>
+											<td>
+														void foo(out int r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r = 10;<br/>}
+													</td>
+											<td>
+														int n = 0;<br/>foo(out n);
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td>
-														void foo(Hoge r){<br/>&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}<br/>Hoge h = new Hoge();<br/>foo(h);
+														foo(10, 20);
+													</td>
+											<td>
+														void foo(Hoge r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}
+													</td>
+											<td>
+														Hoge h = new Hoge();<br/>foo(h);
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
-														Sub foo(ByRef a As Integer)<br/>&nbsp;&nbsp;&nbsp;a = 10<br/>End Function<br/>Dim n As Integer = 0<br/>foo n
+														Function foo(ByVal a As Integer, _<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ByVal b As Integer) As Integer<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo = a + b<br/>End Function
 													</td>
 											<td>
+														Dim n As Integer = foo(10, 20)
+													</td>
+											<td>
+														Sub foo(<red>ByRef</red> a As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;a = 10<br/>End Sub
+													</td>
+											<td>
+														Dim n As Integer = 0<br/>foo n
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
-														function foo($a, $b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														function foo($a, $b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
 													</td>
 											<td>
-														function foo(&$r){<br/>&nbsp;&nbsp;&nbsp;$r = 10;<br/>}<br/>$n = 0;<br/>foo($n);
+														foo(10, 20);
+													</td>
+											<td>
+														function foo(&$r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;$r = 10;<br/>}
+													</td>
+											<td>
+														$n = 0;<br/>foo($n);
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														function foo(a, b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														function foo(a, b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td>
-														function foo(r){<br/>&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}<br/>var hoge = {fuga: 0};<br/>foo(hoge);
+														foo(10, 20);
+													</td>
+											<td>
+														function foo(r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}
+													</td>
+											<td>
+														var hoge = {fuga: 0};<br/>foo(hoge);
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
-														def foo(a, b)<br/>&nbsp;&nbsp;&nbsp;return a + b<br/>end
+														def foo(a, b)<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b<br/>end
 													</td>
 											<td>
-														def foo(r)<br/>&nbsp;&nbsp;&nbsp;r[0] = 10<br/>end<br/>hoge = [0]<br/>foo(hoge)
+														foo(10, 20)
+													</td>
+											<td>
+														def foo(r)<br/>&nbsp;&nbsp;&nbsp;&nbsp;r[0] = 10<br/>end
+													</td>
+											<td>
+														hoge = [0]<br/>foo(hoge)
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
-														def foo(a, b):<br/>&nbsp;&nbsp;&nbsp;return a + b
+														def foo(a, b):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b
 													</td>
 											<td>
-														def foo(r):<br/>&nbsp;&nbsp;&nbsp;r["fuga"] = 10<br/>hoge = {"fuga": 0}<br/>foo(hoge)
+														foo(10, 20)
+													</td>
+											<td>
+														def foo(r):<br/>&nbsp;&nbsp;&nbsp;&nbsp;r["fuga"] = 10
+													</td>
+											<td>
+														hoge = {"fuga": 0}<br/>foo(hoge)
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
-														sub foo{<br/>&nbsp;&nbsp;&nbsp;my ($a, $b) = @_;<br/>&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
+														sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my ($a, $b) = @_;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
 													</td>
 											<td>
-														未
+														foo(10, 20);
+													</td>
+											<td>
+														sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;$_[0] = 10;<br/>}
+													</td>
+											<td>
+														$a = 1;<br/>foo($a);<br/>print "$a\n";
 													</td>
 									</tr>
 					</tbody>
@@ -4314,60 +4305,121 @@
 							<tr>
 					<th>関数定義</th>
 											<td class="engine-cpp">
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td class="engine-csharp">
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td class="engine-java">
-														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														int foo(int a, int b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td class="engine-vb">
-														Sub foo(ByRef a As Integer)<br/>&nbsp;&nbsp;&nbsp;a = 10<br/>End Function<br/>Dim n As Integer = 0<br/>foo n
+														Function foo(ByVal a As Integer, _<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ByVal b As Integer) As Integer<br/>&nbsp;&nbsp;&nbsp;&nbsp;foo = a + b<br/>End Function
 													</td>
 											<td class="engine-php">
-														function foo($a, $b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														function foo($a, $b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
 													</td>
 											<td class="engine-js">
-														function foo(a, b){<br/>&nbsp;&nbsp;&nbsp;return a + b;<br/>}
+														function foo(a, b){<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b;<br/>}
 													</td>
 											<td class="engine-ruby">
-														def foo(a, b)<br/>&nbsp;&nbsp;&nbsp;return a + b<br/>end
+														def foo(a, b)<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b<br/>end
 													</td>
 											<td class="engine-python">
-														def foo(a, b):<br/>&nbsp;&nbsp;&nbsp;return a + b
+														def foo(a, b):<br/>&nbsp;&nbsp;&nbsp;&nbsp;return a + b
 													</td>
 											<td class="engine-perl">
-														sub foo{<br/>&nbsp;&nbsp;&nbsp;my ($a, $b) = @_;<br/>&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
+														sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my ($a, $b) = @_;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return $a + $b;<br/>}
+													</td>
+									</tr>
+							<tr>
+					<th>関数利用</th>
+											<td class="engine-cpp">
+														foo(10, 20);
+													</td>
+											<td class="engine-csharp">
+														foo(10, 20);
+													</td>
+											<td class="engine-java">
+														foo(10, 20);
+													</td>
+											<td class="engine-vb">
+														Dim n As Integer = foo(10, 20)
+													</td>
+											<td class="engine-php">
+														foo(10, 20);
+													</td>
+											<td class="engine-js">
+														foo(10, 20);
+													</td>
+											<td class="engine-ruby">
+														foo(10, 20)
+													</td>
+											<td class="engine-python">
+														foo(10, 20)
+													</td>
+											<td class="engine-perl">
+														foo(10, 20);
 													</td>
 									</tr>
 							<tr>
 					<th>参照渡し</th>
 											<td class="engine-cpp">
-														void foo(int& r){<br/>&nbsp;&nbsp;&nbsp;r = 10;<br/>}<br/>int n = 0;<br/>foo(n);
+														void foo(int& r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r = 10;<br/>}
 													</td>
 											<td class="engine-csharp">
-														void foo(out int r){<br/>&nbsp;&nbsp;&nbsp;r = 10;<br/>}<br/>int n = 0;<br/>foo(out n);
+														void foo(out int r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r = 10;<br/>}
 													</td>
 											<td class="engine-java">
-														void foo(Hoge r){<br/>&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}<br/>Hoge h = new Hoge();<br/>foo(h);
+														void foo(Hoge r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}
 													</td>
 											<td class="engine-vb">
+														Sub foo(<red>ByRef</red> a As Integer)<br/>&nbsp;&nbsp;&nbsp;&nbsp;a = 10<br/>End Sub
 													</td>
 											<td class="engine-php">
-														function foo(&$r){<br/>&nbsp;&nbsp;&nbsp;$r = 10;<br/>}<br/>$n = 0;<br/>foo($n);
+														function foo(&$r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;$r = 10;<br/>}
 													</td>
 											<td class="engine-js">
-														function foo(r){<br/>&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}<br/>var hoge = {fuga: 0};<br/>foo(hoge);
+														function foo(r){<br/>&nbsp;&nbsp;&nbsp;&nbsp;r.fuga = 10;<br/>}
 													</td>
 											<td class="engine-ruby">
-														def foo(r)<br/>&nbsp;&nbsp;&nbsp;r[0] = 10<br/>end<br/>hoge = [0]<br/>foo(hoge)
+														def foo(r)<br/>&nbsp;&nbsp;&nbsp;&nbsp;r[0] = 10<br/>end
 													</td>
 											<td class="engine-python">
-														def foo(r):<br/>&nbsp;&nbsp;&nbsp;r["fuga"] = 10<br/>hoge = {"fuga": 0}<br/>foo(hoge)
+														def foo(r):<br/>&nbsp;&nbsp;&nbsp;&nbsp;r["fuga"] = 10
 													</td>
 											<td class="engine-perl">
-														未
+														sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;$_[0] = 10;<br/>}
+													</td>
+									</tr>
+							<tr>
+					<th>参照渡し利用</th>
+											<td class="engine-cpp">
+														int n = 0;<br/>foo(n);
+													</td>
+											<td class="engine-csharp">
+														int n = 0;<br/>foo(out n);
+													</td>
+											<td class="engine-java">
+														Hoge h = new Hoge();<br/>foo(h);
+													</td>
+											<td class="engine-vb">
+														Dim n As Integer = 0<br/>foo n
+													</td>
+											<td class="engine-php">
+														$n = 0;<br/>foo($n);
+													</td>
+											<td class="engine-js">
+														var hoge = {fuga: 0};<br/>foo(hoge);
+													</td>
+											<td class="engine-ruby">
+														hoge = [0]<br/>foo(hoge)
+													</td>
+											<td class="engine-python">
+														hoge = {"fuga": 0}<br/>foo(hoge)
+													</td>
+											<td class="engine-perl">
+														$a = 1;<br/>foo($a);<br/>print "$a\n";
 													</td>
 									</tr>
 					</tbody>
@@ -4383,9 +4435,8 @@
 			<tr>
 				<th></th>
 									<th>クラス定義</th>
-									<th>コンストラクタ</th>
-									<th>デストラクタ</th>
-									<th>インスタンス化</th>
+									<th>クラス継承</th>
+									<th>クラス利用</th>
 							</tr>
 		</thead>
 		<!-- body -->
@@ -4393,100 +4444,109 @@
 							<tr class="engine-cpp">
 					<th>C++</th>
 											<td>
+														class A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo(){}<br/>};
 													</td>
 											<td>
+														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B() : A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(){}<br/>}
 													</td>
 											<td>
-													</td>
-											<td>
+														A a;<br/>a.foo();
 													</td>
 									</tr>
 							<tr class="engine-csharp">
 					<th>C#</th>
 											<td>
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>};
 													</td>
 											<td>
+														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td>
-													</td>
-											<td>
+														B b = new B();<br/>b.foo();
 													</td>
 									</tr>
 							<tr class="engine-java">
 					<th>Java</th>
 											<td>
+														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td>
+														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(){ super(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td>
-													</td>
-											<td>
+														B b = new B();<br/>b.foo();
 													</td>
 									</tr>
 							<tr class="engine-vb">
 					<th>VB</th>
 											<td>
+														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Private m_param As Integer = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td>
+														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td>
-													</td>
-											<td>
+														Dim ins As B<br/>ins = new B()<br/>ins.foo()
 													</td>
 									</tr>
 							<tr class="engine-php">
 					<th>PHP</th>
 											<td>
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
+														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::_construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td>
-													</td>
-											<td>
+														$b = new B();<br/>$b.foo();
 													</td>
 									</tr>
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
+														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
 													</td>
 											<td>
+														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
 													</td>
 											<td>
-													</td>
-											<td>
+														var b = new B();<br/>b.foo();
 													</td>
 									</tr>
 							<tr class="engine-ruby">
 					<th>Ruby</th>
 											<td>
+														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def self.cleanup<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A_foo"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td>
+														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def self.cleanup<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B_foo"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td>
-													</td>
-											<td>
+														b = B.new(10)<br/>b.foo()
 													</td>
 									</tr>
 							<tr class="engine-python">
 					<th>Python</th>
 											<td>
+														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 											<td>
+														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 											<td>
-													</td>
-											<td>
+														b = B()<br/>b.foo()
 													</td>
 									</tr>
 							<tr class="engine-perl">
 					<th>Perl</th>
 											<td>
+														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_param => $arg,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
 													</td>
 											<td>
+														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($arg);<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->{m_param2} = 100;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
 													</td>
 											<td>
-													</td>
-											<td>
+														package main;<br/>use B;<br/>my $b = B->new();<br/>$b->foo();
 													</td>
 									</tr>
 					</tbody>
@@ -4517,489 +4577,91 @@
 							<tr>
 					<th>クラス定義</th>
 											<td class="engine-cpp">
+														class A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;virtual void foo(){}<br/>};
 													</td>
 											<td class="engine-csharp">
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>};
 													</td>
 											<td class="engine-java">
+														public class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td class="engine-vb">
+														Public Class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;Private m_param As Integer = 10<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td class="engine-php">
+														class A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;private $m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$m_n = 0;<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
+														var A = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
 													</td>
 											<td class="engine-ruby">
+														class A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@m_n = n<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def self.cleanup<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "A_foo"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td class="engine-python">
+														class A:<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 											<td class="engine-perl">
+														package A;<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m_param => $arg,<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
 													</td>
 									</tr>
 							<tr>
-					<th>コンストラクタ</th>
+					<th>クラス継承</th>
 											<td class="engine-cpp">
+														class B : public A{<br/>public:<br/>&nbsp;&nbsp;&nbsp;&nbsp;B() : A(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;void foo(){}<br/>}
 													</td>
 											<td class="engine-csharp">
+														class B : A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public ~B(){}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td class="engine-java">
+														public class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public B(){ super(); }<br/>&nbsp;&nbsp;&nbsp;&nbsp;public void foo(){}<br/>}
 													</td>
 											<td class="engine-vb">
+														Public Class B<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inherits A<br/>&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;Public Overrides Sub foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.foo()<br/>&nbsp;&nbsp;&nbsp;&nbsp;End Sub<br/>End Class
 													</td>
 											<td class="engine-php">
+														class B extends A{<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __construct($n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent::_construct($n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function __destruct(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;public function foo(){<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}
 													</td>
 											<td class="engine-js">
+														var B = function(n){<br/>&nbsp;&nbsp;&nbsp;&nbsp;A.call(this, n);<br/>&nbsp;&nbsp;&nbsp;&nbsp;this.foo = function(){};<br/>};
 													</td>
 											<td class="engine-ruby">
+														class B < A<br/>&nbsp;&nbsp;&nbsp;&nbsp;def initialize(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def self.cleanup<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "B_foo"<br/>&nbsp;&nbsp;&nbsp;&nbsp;end<br/>end
 													</td>
 											<td class="engine-python">
+														class B(A):<br/>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A.__init__(self, n)<br/>&nbsp;&nbsp;&nbsp;&nbsp;def foo(n):<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass
 													</td>
 											<td class="engine-perl">
+														package B;<br/>use base qw(A);<br/>sub new{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $class = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $arg = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = A->new($arg);<br/>&nbsp;&nbsp;&nbsp;&nbsp;$self->{m_param2} = 100;<br/>&nbsp;&nbsp;&nbsp;&nbsp;return bless $self, $class;<br/>}<br/>sub foo{<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $self = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;my $param = shift;<br/>&nbsp;&nbsp;&nbsp;&nbsp;print "foo $param\n";<br/>}
 													</td>
 									</tr>
 							<tr>
-					<th>デストラクタ</th>
+					<th>クラス利用</th>
 											<td class="engine-cpp">
+														A a;<br/>a.foo();
 													</td>
 											<td class="engine-csharp">
+														B b = new B();<br/>b.foo();
 													</td>
 											<td class="engine-java">
+														B b = new B();<br/>b.foo();
 													</td>
 											<td class="engine-vb">
+														Dim ins As B<br/>ins = new B()<br/>ins.foo()
 													</td>
 											<td class="engine-php">
+														$b = new B();<br/>$b.foo();
 													</td>
 											<td class="engine-js">
+														var b = new B();<br/>b.foo();
 													</td>
 											<td class="engine-ruby">
+														b = B.new(10)<br/>b.foo()
 													</td>
 											<td class="engine-python">
+														b = B()<br/>b.foo()
 													</td>
 											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>インスタンス化</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h3 id="opover" class="sub-header">演算子オーバーロード</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>演算子オーバーロード</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>演算子オーバーロード</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h2 id="io" class="sub-header">入出力</h2><h3 id="standard" class="sub-header">標準入出力</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>標準出力</th>
-									<th>標準入力</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>標準出力</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>標準入力</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<h3 id="file" class="sub-header">ファイル入出力</h3><div class="mode0">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-									<th>ファイル出力</th>
-									<th>ファイル入力</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr class="engine-cpp">
-					<th>C++</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-csharp">
-					<th>C#</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-java">
-					<th>Java</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-vb">
-					<th>VB</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-php">
-					<th>PHP</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-js">
-					<th>JS</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-ruby">
-					<th>Ruby</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-python">
-					<th>Python</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-							<tr class="engine-perl">
-					<th>Perl</th>
-											<td>
-													</td>
-											<td>
-													</td>
-									</tr>
-					</tbody>
-	</table>
-</div>
-</div>
-<div class="mode1">
-<!-- <div class="table-responsive"> -->
-<div style="margin-bottom: 16px;">
-	<table class="table table-striped">
-		<!-- head -->
-		<thead>
-			<tr>
-				<th></th>
-								<th class="engine-cpp">C++</th>
-								<th class="engine-csharp">C#</th>
-								<th class="engine-java">Java</th>
-								<th class="engine-vb">VB</th>
-								<th class="engine-php">PHP</th>
-								<th class="engine-js">JS</th>
-								<th class="engine-ruby">Ruby</th>
-								<th class="engine-python">Python</th>
-								<th class="engine-perl">Perl</th>
-							</tr>
-		</thead>
-		<!-- body -->
-		<tbody>
-							<tr>
-					<th>ファイル出力</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
-													</td>
-									</tr>
-							<tr>
-					<th>ファイル入力</th>
-											<td class="engine-cpp">
-													</td>
-											<td class="engine-csharp">
-													</td>
-											<td class="engine-java">
-													</td>
-											<td class="engine-vb">
-													</td>
-											<td class="engine-php">
-													</td>
-											<td class="engine-js">
-													</td>
-											<td class="engine-ruby">
-													</td>
-											<td class="engine-python">
-													</td>
-											<td class="engine-perl">
+														package main;<br/>use B;<br/>my $b = B->new();<br/>$b->foo();
 													</td>
 									</tr>
 					</tbody>

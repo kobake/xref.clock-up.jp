@@ -119,12 +119,9 @@ section('control:制御/cond:分岐', [
 	'Switch分岐',
 	]
 );
-section('control:制御/floop:For系ループ', [
+section('control:制御/loop:ループ', [
 	'Forループ',
 	'ForEachループ',
-	]
-);
-section('control:制御/wloop:While系ループ', [
 	'Whileループ',
 	'DoWhileループ',
 	]
@@ -143,21 +140,25 @@ section('control:制御/exception:例外', [
 // 高度
 section('ex:構造/function:関数', [
 	'関数定義',
+	'関数利用',
 	'参照渡し',
+	'参照渡し利用',
 	]
 );
 section('ex:構造/class:クラス', [
 	'クラス定義',
-	'コンストラクタ',
-	'デストラクタ',
-	'インスタンス化',
+	'クラス継承',
+	'クラス利用',
 	]
 );
+/*
 section('ex:構造/opover:演算子オーバーロード', [
 	'演算子オーバーロード',
 	]
 );
+*/
 
+/*
 // 出力
 section('io:入出力/standard:標準入出力', [
 	'標準出力',
@@ -169,7 +170,7 @@ section('io:入出力/file:ファイル入出力', [
 	'ファイル入力',
 	]
 );
-
+*/
 
 
 

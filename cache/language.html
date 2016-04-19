@@ -1910,7 +1910,7 @@
 														a = b || c<br/>a = (b or c)
 													</td>
 											<td>
-														a = b && c<br/>a = (b or c)
+														a = b && c<br/>a = (b and c)
 													</td>
 											<td>
 														a = !b<br/>a = (not b)
@@ -2979,7 +2979,7 @@
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														my s = a + b;
+														var s = a + b;
 													</td>
 											<td>
 														var s = "Hello $world";
@@ -3405,7 +3405,7 @@
 							<tr class="engine-js">
 					<th>JS</th>
 											<td>
-														for($i = 0; $i < 10; $i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log($i);<br/>}
+														for(i = 0; i < 10; i++){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br/>}
 													</td>
 											<td>
 														list.forEach(function(e, i){<br/>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br/>}

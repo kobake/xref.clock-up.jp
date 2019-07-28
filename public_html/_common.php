@@ -7,7 +7,7 @@ function r($text){
 }
 
 // title
-define('TITLE', 'xref.jp');
+define('TITLE', 'xRef');
 
 // smarty
 define('SMARTY_DIR', dirname(dirname(__FILE__)) . '/smarty/libs/');

@@ -46,7 +46,7 @@
 			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 			xmlns:dc="http://purl.org/dc/elements/1.1/"
 			xmlns:foaf="http://xmlns.com/foaf/0.1/">
-			<rdf:Description rdf:about="http://xref.jp{$contentpath}">
+			<rdf:Description rdf:about="https://xref.clock-up.jp{$contentpath}">
 			<foaf:maker rdf:parseType="Resource">
 			<foaf:holdsAccount>
 			<foaf:OnlineAccount foaf:accountName="kobake">

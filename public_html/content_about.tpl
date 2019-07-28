@@ -2,7 +2,7 @@
 	<h1>About</h1>
 	<h2>Source code</h2>
 	<ul>
-		<li><a target="_blank" href="https://github.com/kobake/xref.jp"><i class="fa fa-github"></i> kobake/xref.jp</a></li>
+		<li><a target="_blank" href="https://github.com/kobake/xref.clock-up.jp"><i class="fa fa-github"></i> kobake/xref.jp</a></li>
 	</ul>
 
 	<h2>Related articles</h2>

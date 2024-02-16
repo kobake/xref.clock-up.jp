@@ -106,7 +106,7 @@
 定数_VB			<red>Const</red> C As Integer = 10
 定数_Java		<red>static final</red> int C = 10;
 定数_PHP		<red>define</red>('C', 10);
-定数_JS			<red>const</red> C = 10;
+定数_JS			<red>const</red> C = 10; // ES2015
 定数_Ruby		<red>C</red> = 10
 定数_Python		-
 定数_Perl		<red>use constant</red> C => 10;
@@ -387,7 +387,7 @@ Perl_2進					0b11111111
 変数埋め込み_VB			s = "Hello " & world
 変数埋め込み_Java		String s = "Hello " + world;
 変数埋め込み_PHP		$s = "Hello " + $world;
-変数埋め込み_JS			var s = "Hello $world";
+変数埋め込み_JS			var s = `Hello ${world}`; // ES2015
 変数埋め込み_Ruby		s = "Hello #{world}"
 変数埋め込み_Python		s = "Hello %s" % world
 変数埋め込み_Perl		my $s = "Hello ${world}";
@@ -616,8 +616,8 @@ Forループ_VB				For i = 0 To 9
 Forループ_PHP				for($i = 0; $i < 10; $i++){
 								print "$i\n";
 							}
-Forループ_JS				for($i = 0; $i < 10; $i++){
-								console.log($i);
+Forループ_JS				for(var i = 0; i < 10; i++){
+								console.log(i);
 							}
 Forループ_Ruby				for i in 0..9 do
 								puts "#{i}"
@@ -1383,14 +1383,14 @@ PHP_無効値判定		if(!empty($v)){ … }
 JS_True定数			true
 JS_False定数		false
 JS_True判定			False判定以外 # [], '0' 等はTrue扱い
-JS_False判定		false, undefined, 0, ''
+JS_False判定		false, undefined, null, NaN, 0, ''
 JS_無効値定数		undefined
 					null
 					NaN
 JS_無効値判定		if(v){ … }
 					if(v !== null){ … }
 					if(typeof v !== 'undefined'){ … ]
-					if(v !== NaN){ … }
+					if(!Number.isNaN(v)){ … }
 					
 
 # http://qiita.com/sgtn/items/0cb16ef16d938cf98094
